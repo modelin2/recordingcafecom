@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Coffee } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -21,23 +21,15 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <div className="mb-8">
-          <Coffee className="h-16 w-16 mx-auto mb-6" style={{ color: '#D4AF37' }} />
-        </div>
-
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white" data-testid="text-hero-title">
-          음악과 커피가 만나는
-          <br />
-          <span style={{ color: '#D4AF37' }}>특별한 공간</span>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-white" data-testid="text-hero-title">
+          <span style={{ color: '#D4AF37' }}>Recording Café</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-          편안한 카페 분위기에서 전문 녹음, 프로필 촬영, 라이브 방송을 경험하세요.
-          <br />
-          당신의 창작 여정이 시작됩니다.
+        <p className="text-xl md:text-2xl text-white/90 mb-12 font-light" data-testid="text-hero-subtitle">
+          음악과 커피가 만나는 특별한 공간
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button 
             size="lg" 
             className="text-base px-8" 
@@ -57,28 +49,9 @@ export default function HeroSection() {
             asChild
           >
             <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
-              예약 문의
+              예약하기
             </a>
           </Button>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          <div className="text-center" data-testid="stat-recording">
-            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>레코딩</div>
-            <div className="text-sm text-white/60">전문 녹음 스튜디오</div>
-          </div>
-          <div className="text-center" data-testid="stat-photo">
-            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>프로필</div>
-            <div className="text-sm text-white/60">할리우드 스타일</div>
-          </div>
-          <div className="text-center" data-testid="stat-live">
-            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>라이브</div>
-            <div className="text-sm text-white/60">방송 스튜디오</div>
-          </div>
-          <div className="text-center" data-testid="stat-cafe">
-            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>카페</div>
-            <div className="text-sm text-white/60">편안한 휴식 공간</div>
-          </div>
         </div>
       </div>
     </section>
