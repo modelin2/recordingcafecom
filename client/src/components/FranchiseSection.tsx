@@ -1,191 +1,101 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Check, Send } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-
-const benefits = [
-  "표준화된 운영 시스템",
-  "모듈화된 매장 구성",
-  "글로벌 저작권 관리 지원",
-  "음원 유통 인프라 제공",
-  "지속적인 수익 모델",
-  "마케팅 및 홍보 지원",
-  "전문 교육 프로그램",
-  "중국 시장 진출 지원",
-];
+import { AlertTriangle, Handshake, TrendingUp } from "lucide-react";
 
 export default function FranchiseSection() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    country: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Franchise inquiry submitted:", formData);
-    toast({
-      title: "문의가 접수되었습니다",
-      description: "빠른 시일 내에 연락드리겠습니다.",
-    });
-    setFormData({ name: "", email: "", phone: "", country: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
-    <section id="franchise" className="py-16 md:py-24 lg:py-32" data-testid="section-franchise">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-testid="text-franchise-title">
-            프랜차이즈 <span className="text-primary">가맹 문의</span>
+    <section id="franchise" className="py-20 md:py-32 bg-muted/30" data-testid="section-franchise">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
+            Franchise
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-franchise-title">
+            가맹점 안내
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            검증된 비즈니스 모델로 함께 성장하세요
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">가맹점 혜택</h3>
-            
-            <div className="grid sm:grid-cols-2 gap-3 mb-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2" data-testid={`benefit-${index}`}>
-                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Check className="h-3 w-3 text-primary" />
-                  </div>
-                  <span className="text-sm">{benefit}</span>
-                </div>
-              ))}
-            </div>
-
-            <Card className="bg-primary/5 border-primary/20">
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-3">비즈니스 모델</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <div className="w-1 h-1 rounded-full bg-primary mt-2" />
-                    <span>1차: 오프라인 가맹점 모델</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-1 h-1 rounded-full bg-primary mt-2" />
-                    <span>2차: 체험 + 판매 수익 모델</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-1 h-1 rounded-full bg-primary mt-2" />
-                    <span>3차: IP 저작권 수익화</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <div className="mt-6 p-6 bg-muted/50 rounded-md">
-              <p className="text-sm text-muted-foreground mb-4">
-                레코딩 카페는 문화-창작-창업이 융합된 신개념 유통 구조로,
-                글로벌 확산과 투자 유치 가능성을 모두 내포하고 있습니다.
-              </p>
-              <div className="flex items-center gap-4 text-sm">
-                <div>
-                  <div className="font-semibold">중국 대리점</div>
-                  <div className="text-muted-foreground">계약금 입금 완료</div>
-                </div>
+        <Card className="border-border/50 mb-8">
+          <CardContent className="p-8 md:p-12">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
+                <AlertTriangle className="h-6 w-6 text-destructive" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3">
+                  특허 무단 사용 중지 및 정식 가맹점 전환 절차 안내
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  현재 무단으로 당사의 특허 기술을 사용 중인 셀프 사진관 관계자 여러분께서는, 
+                  운영 수익이 증가할수록 그에 대한 법적 리스크(배상액) 또한 증가하고 있다는 점을 인지하시어 
+                  법적 분쟁 대신 정식 가맹점으로의 전환을 권고드립니다.
+                </p>
               </div>
             </div>
-          </div>
+          </CardContent>
+        </Card>
 
-          <Card>
-            <CardContent className="p-6 md:p-8">
-              <h3 className="text-2xl font-bold mb-6">문의하기</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="name">이름 *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="홍길동"
-                    required
-                    data-testid="input-name"
-                  />
-                </div>
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <Card className="border-border/50 hover-elevate">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Handshake className="h-6 w-6" style={{ color: '#D4AF37' }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">정식 가맹점 혜택</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#D4AF37' }} />
+                  <span>특허 기술 합법적 사용권</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#D4AF37' }} />
+                  <span>세계 최초 AI 후보정 비즈니스 모델 제공</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#D4AF37' }} />
+                  <span>안정적인 사업 운영 보장</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#D4AF37' }} />
+                  <span>법적 리스크 완전 해소</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
-                <div>
-                  <Label htmlFor="email">이메일 *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="example@email.com"
-                    required
-                    data-testid="input-email"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">연락처 *</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="010-1234-5678"
-                    required
-                    data-testid="input-phone"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="country">희망 지역</Label>
-                  <Input
-                    id="country"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleChange}
-                    placeholder="서울 강남구"
-                    data-testid="input-country"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message">문의 내용</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="프랜차이즈에 대해 궁금하신 내용을 자유롭게 작성해주세요."
-                    rows={4}
-                    data-testid="input-message"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full" size="lg" data-testid="button-submit">
-                  문의 보내기
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  제출하신 정보는 프랜차이즈 상담 목적으로만 사용됩니다.
-                </p>
-              </form>
+          <Card className="border-border/50 hover-elevate">
+            <CardContent className="p-8">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <TrendingUp className="h-6 w-6" style={{ color: '#D4AF37' }} />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">AI 시대의 새로운 수익 모델</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                인공지능 기술을 활용한 혁신적인 비즈니스 모델로 
+                더 큰 수익 창출이 가능합니다.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                상생 협력을 통해 함께 성장하는 
+                파트너십을 제안합니다.
+              </p>
             </CardContent>
           </Card>
         </div>
+
+        <Card className="border-2" style={{ borderColor: '#D4AF37' }}>
+          <CardContent className="p-8 text-center">
+            <h3 className="text-2xl font-bold mb-4">가맹점 사업설명회</h3>
+            <p className="text-muted-foreground mb-6">
+              자세한 문의 및 상생 협력을 위한 사업설명회에 참여하세요
+            </p>
+            <Button 
+              size="lg"
+              style={{ backgroundColor: '#D4AF37', color: '#000' }}
+              data-testid="button-franchise-inquiry"
+            >
+              네이버 예약 &gt; 가맹점 사업설명회 신청
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
