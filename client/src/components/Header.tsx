@@ -23,22 +23,24 @@ export default function Header() {
   const navItems = [
     { label: "홈", href: "#home" },
     { label: "서비스", href: "#services" },
-    { label: "스토리", href: "#story" },
-    { label: "프랜차이즈", href: "#franchise" },
-    { label: "문의", href: "#contact" },
+    { label: "공간", href: "#space" },
+    { label: "예약", href: "#booking" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b" : "bg-black/40 backdrop-blur-sm"
       }`}
       data-testid="header-main"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#home" className="flex items-center gap-2" data-testid="link-logo">
-            <div className="text-2xl md:text-3xl font-bold text-primary">레코딩 카페</div>
+        <div className="flex items-center justify-between h-20">
+          <a href="#home" className="flex items-center gap-3" data-testid="link-logo">
+            <div className="flex flex-col">
+              <div className="text-2xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>Recording Café</div>
+              <div className="text-xs tracking-widest opacity-80" style={{ color: '#D4AF37' }}>music & coffee production</div>
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -46,7 +48,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground/80 hover:text-foreground transition-colors font-medium text-sm tracking-wide"
                 data-testid={`link-nav-${item.label}`}
               >
                 {item.label}
@@ -54,7 +56,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" data-testid="button-language">
@@ -68,8 +70,12 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button className="hidden md:inline-flex" data-testid="button-franchise-cta">
-              프랜차이즈 문의
+            <Button 
+              className="hidden md:inline-flex" 
+              style={{ backgroundColor: '#D4AF37', color: '#000' }}
+              data-testid="button-booking-cta"
+            >
+              예약하기
             </Button>
 
             <Button
@@ -97,8 +103,8 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <Button className="w-full mt-4" data-testid="button-mobile-franchise">
-              프랜차이즈 문의
+            <Button className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking">
+              예약하기
             </Button>
           </nav>
         )}

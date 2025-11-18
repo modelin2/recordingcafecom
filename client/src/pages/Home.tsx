@@ -1,10 +1,8 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import BrandStory from "@/components/BrandStory";
-import CustomerJourney from "@/components/CustomerJourney";
-import CompetitiveAdvantages from "@/components/CompetitiveAdvantages";
-import FranchiseSection from "@/components/FranchiseSection";
+import SpaceSection from "@/components/SpaceSection";
+import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,10 +12,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
-        <BrandStory />
-        <CustomerJourney />
-        <CompetitiveAdvantages />
-        <FranchiseSection />
+        <SpaceSection />
+        <BookingSection />
       </main>
       <Footer />
     </div>

@@ -1,62 +1,70 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Coffee } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
       data-testid="section-hero"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-      
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90 z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-black z-10" />
+      </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <div className="inline-block mb-6">
-          <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            10년 이상의 엔터테인먼트 경험 | 글로벌 프랜차이즈 | 미국 저작권 파트너십
-          </div>
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        <div className="mb-8">
+          <Coffee className="h-16 w-16 mx-auto mb-6" style={{ color: '#D4AF37' }} />
         </div>
 
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight" data-testid="text-hero-title">
-          엔터테인먼트 산업의
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white" data-testid="text-hero-title">
+          음악과 커피가 만나는
           <br />
-          <span className="text-primary">미래를 만듭니다</span>
+          <span style={{ color: '#D4AF37' }}>특별한 공간</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
-          일반인 엔터테이너를 위한 창업공간. 새로운 인공지능 엔터산업의 선구자.
+        <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
+          편안한 카페 분위기에서 전문 녹음, 프로필 촬영, 라이브 방송을 경험하세요.
           <br />
-          녹음, 사진, 라이브방송을 통해 누구나 콘텐츠 크리에이터가 될 수 있습니다.
+          당신의 창작 여정이 시작됩니다.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button size="lg" className="text-base px-8" data-testid="button-start-journey">
-            시작하기 <ArrowRight className="ml-2 h-5 w-5" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <Button 
+            size="lg" 
+            className="text-base px-8" 
+            style={{ backgroundColor: '#D4AF37', color: '#000' }}
+            data-testid="button-explore"
+          >
+            둘러보기 <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button size="lg" variant="outline" className="text-base px-8" data-testid="button-watch-video">
-            <Play className="mr-2 h-5 w-5" />
-            소개 영상 보기
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="text-base px-8 border-white/30 text-white hover:bg-white/10" 
+            data-testid="button-booking"
+          >
+            예약 문의
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-16">
-          <div className="text-center" data-testid="stat-experience">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10+</div>
-            <div className="text-muted-foreground">년 운영 경험</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="text-center" data-testid="stat-recording">
+            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>레코딩</div>
+            <div className="text-sm text-white/60">전문 녹음 스튜디오</div>
           </div>
-          <div className="text-center" data-testid="stat-artists">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">50+</div>
-            <div className="text-muted-foreground">전속 아티스트 배출</div>
+          <div className="text-center" data-testid="stat-photo">
+            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>프로필</div>
+            <div className="text-sm text-white/60">할리우드 스타일</div>
           </div>
-          <div className="text-center" data-testid="stat-countries">
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">3</div>
-            <div className="text-muted-foreground">개국 진출 예정</div>
+          <div className="text-center" data-testid="stat-live">
+            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>라이브</div>
+            <div className="text-sm text-white/60">방송 스튜디오</div>
+          </div>
+          <div className="text-center" data-testid="stat-cafe">
+            <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }}>카페</div>
+            <div className="text-sm text-white/60">편안한 휴식 공간</div>
           </div>
         </div>
       </div>
