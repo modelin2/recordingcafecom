@@ -74,8 +74,11 @@ export default function Header() {
               className="hidden md:inline-flex" 
               style={{ backgroundColor: '#D4AF37', color: '#000' }}
               data-testid="button-booking-cta"
+              asChild
             >
-              예약하기
+              <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+                예약하기
+              </a>
             </Button>
 
             <Button
@@ -103,8 +106,10 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <Button className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking">
-              예약하기
+            <Button className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking" asChild>
+              <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+                예약하기
+              </a>
             </Button>
           </nav>
         )}

@@ -157,8 +157,11 @@ export default function ServicesSection() {
                     size="lg"
                     style={{ backgroundColor: '#D4AF37', color: '#000' }}
                     data-testid={`button-booking-${index}`}
+                    asChild
                   >
-                    예약하기
+                    <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+                      예약하기
+                    </a>
                   </Button>
                 </div>
               </div>

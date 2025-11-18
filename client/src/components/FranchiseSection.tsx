@@ -91,8 +91,11 @@ export default function FranchiseSection() {
               size="lg"
               style={{ backgroundColor: '#D4AF37', color: '#000' }}
               data-testid="button-franchise-inquiry"
+              asChild
             >
-              네이버 예약 &gt; 가맹점 사업설명회 신청
+              <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+                네이버 예약 &gt; 가맹점 사업설명회 신청
+              </a>
             </Button>
           </CardContent>
         </Card>

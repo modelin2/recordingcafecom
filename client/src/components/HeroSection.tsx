@@ -36,16 +36,22 @@ export default function HeroSection() {
             className="text-base px-8" 
             style={{ backgroundColor: '#D4AF37', color: '#000' }}
             data-testid="button-explore"
+            asChild
           >
-            둘러보기 <ArrowRight className="ml-2 h-5 w-5" />
+            <a href="#services">
+              둘러보기 <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
             className="text-base px-8 border-white/30 text-white hover:bg-white/10" 
             data-testid="button-booking"
+            asChild
           >
-            예약 문의
+            <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+              예약 문의
+            </a>
           </Button>
         </div>
 
