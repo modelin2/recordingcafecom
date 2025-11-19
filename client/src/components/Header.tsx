@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +12,20 @@ import {
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
+
+  const getCurrentLanguage = () => {
+    if (location.startsWith('/en')) return 'en';
+    if (location.startsWith('/zh')) return 'zh';
+    return 'ko';
+  };
+
+  const getFlag = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') return '🇺🇸';
+    if (lang === 'zh') return '🇨🇳';
+    return '🇰🇷';
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +45,13 @@ export default function Header() {
     { label: "가맹점", href: "#franchise" },
   ];
 
+  const getHomeLink = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') return '/en';
+    if (lang === 'zh') return '/zh';
+    return '/';
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -39,7 +61,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="flex items-center gap-3" data-testid="link-logo">
+          <a href={getHomeLink()} className="flex items-center gap-3" data-testid="link-logo">
             <div className="flex flex-col">
               <div className="text-2xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>레코딩 카페</div>
               <div className="text-xs tracking-widest opacity-80" style={{ color: '#D4AF37' }}>Recording Café</div>
@@ -64,17 +86,22 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="ghost" 
-                  size="icon" 
-                  className={isScrolled ? '' : 'text-white hover:bg-white/10'}
+                  className={`${isScrolled ? '' : 'text-white hover:bg-white/10'} text-2xl h-10 px-2`}
                   data-testid="button-language"
                 >
-                  <Globe className="h-5 w-5" />
+                  {getFlag()}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem data-testid="menu-lang-ko">한국어</DropdownMenuItem>
-                <DropdownMenuItem data-testid="menu-lang-en">English</DropdownMenuItem>
-                <DropdownMenuItem data-testid="menu-lang-zh">中文</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/')} data-testid="menu-lang-ko">
+                  🇰🇷 한국어
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/en')} data-testid="menu-lang-en">
+                  🇺🇸 English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/zh')} data-testid="menu-lang-zh">
+                  🇨🇳 中文
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
