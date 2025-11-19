@@ -1,7 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function HeroSection() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload video thumbnail
+    const img = new Image();
+    img.src = "https://i.ytimg.com/vi/kTsgj9n-9ks/maxresdefault.jpg";
+  }, []);
+
   return (
     <section
       id="home"
@@ -9,13 +18,22 @@ export default function HeroSection() {
       data-testid="section-hero"
     >
       <div className="absolute inset-0">
+        {/* Fallback background image while video loads */}
+        {!videoLoaded && (
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('https://i.ytimg.com/vi/kTsgj9n-9ks/maxresdefault.jpg')" }}
+          />
+        )}
+        
         <iframe
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://www.youtube.com/embed/kTsgj9n-9ks?autoplay=1&mute=1&loop=1&playlist=kTsgj9n-9ks&controls=0&showinfo=0&rel=0&modestbranding=1"
+          src="https://www.youtube.com/embed/kTsgj9n-9ks?autoplay=1&mute=1&loop=1&playlist=kTsgj9n-9ks&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1"
           title="레코딩 카페 홍보 영상"
           allow="autoplay; encrypted-media"
           allowFullScreen
           style={{ pointerEvents: 'none' }}
+          onLoad={() => setVideoLoaded(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
       </div>
