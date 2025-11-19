@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Music, Camera, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Music, Camera, TrendingUp, ArrowRight } from "lucide-react";
 
 export default function CreatorOsSection() {
   const pipelines = [
@@ -8,21 +9,24 @@ export default function CreatorOsSection() {
       title: "배우 OS",
       subtitle: "할리우드 프로필",
       description: "AI 헤어/메이크업/로케이션 시뮬레이션으로 글로벌 프로필 등록 자동화",
-      result: "오디션 합격률 향상, 해외 진출 기회 확대"
+      result: "오디션 합격률 향상, 해외 진출 기회 확대",
+      link: "https://holly.ai.kr/"
     },
     {
       icon: Music,
       title: "가수 OS",
       subtitle: "레코딩 카페",
       description: "AI 어시스트 창작부터 타임스탬프/저작권 등록, 해외 유통까지",
-      result: "초기 로열티 발생, 음악 자산 포트폴리오 구축"
+      result: "초기 로열티 발생, 음악 자산 포트폴리오 구축",
+      link: "https://record.co.kr/"
     },
     {
       icon: TrendingUp,
       title: "인플루언서 OS",
       subtitle: "보라박스",
       description: "멀티채널 상생 방송 포맷 제작 및 배급",
-      result: "다양한 수익원 확보, 전략적 예능인으로 성장"
+      result: "다양한 수익원 확보, 전략적 예능인으로 성장",
+      link: "http://borabox.co.kr/"
     }
   ];
 
@@ -64,10 +68,24 @@ export default function CreatorOsSection() {
                 </p>
 
                 <div className="pt-4 border-t border-border/50">
-                  <div className="flex items-start gap-2">
+                  <div className="flex items-start gap-2 mb-4">
                     <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
                     <p className="text-sm text-muted-foreground">{pipeline.result}</p>
                   </div>
+                  
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full group"
+                    style={{ borderColor: '#D4AF37' }}
+                    data-testid={`button-pipeline-${index}`}
+                    asChild
+                  >
+                    <a href={pipeline.link} target="_blank" rel="noopener noreferrer">
+                      <span>자세히</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -78,8 +96,8 @@ export default function CreatorOsSection() {
           <Card className="bg-muted/30 border-border/50">
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                레코딩 카페는 단순한 공간 대여를 넘어,<br className="hidden sm:block" />
-                <span className="font-semibold text-foreground">창작자의 성공적인 커리어 여정을 위한 통합 플랫폼</span>을 제공합니다
+                레코딩 카페는 단순한 체험을 넘어,<br className="hidden sm:block" />
+                <span className="font-semibold text-foreground">프로로 성장하기 위한 성공적인 커리어 여정을 위한 통합 플랫폼</span>을 제공합니다
               </p>
             </CardContent>
           </Card>
