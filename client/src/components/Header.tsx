@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Globe } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,24 +54,6 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className={isScrolled ? '' : 'text-white hover:bg-white/10'}
-                  data-testid="button-language"
-                >
-                  <Globe className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem data-testid="menu-lang-ko">한국어</DropdownMenuItem>
-                <DropdownMenuItem data-testid="menu-lang-en">English</DropdownMenuItem>
-                <DropdownMenuItem data-testid="menu-lang-zh">中文</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button 
               className="hidden md:inline-flex" 
               style={{ backgroundColor: '#D4AF37', color: '#000' }}
