@@ -13,104 +13,46 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white" data-testid="footer-main">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <div>
-            <div className="mb-6">
-              <div className="text-2xl font-bold tracking-wide mb-1" style={{ color: '#D4AF37' }}>레코딩 카페</div>
-              <div className="text-xs tracking-widest opacity-60" style={{ color: '#D4AF37' }}>Recording Café</div>
-            </div>
-            <p className="text-sm text-white/60 mb-6 leading-relaxed">
-              음악과 커피가 만나는 특별한 공간
-            </p>
-            <div className="flex gap-3">
-              <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-naver" asChild>
-                <a href="https://blog.naver.com/recordingcafe" target="_blank" rel="noopener noreferrer">
-                  <SiNaver className="h-6 w-6" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-youtube" asChild>
-                <a href="https://www.youtube.com/@recording-cafe" target="_blank" rel="noopener noreferrer">
-                  <Youtube className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-instagram" asChild>
-                <a href="https://www.instagram.com/recordingcafe" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-facebook" asChild>
-                <a href="https://www.facebook.com/recordingcafe" target="_blank" rel="noopener noreferrer">
-                  <SiFacebook className="h-5 w-5" />
-                </a>
-              </Button>
-            </div>
-          </div>
+    <footer className="bg-background border-t" data-testid="footer-main">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="mb-8">
+          <div className="text-xl font-bold tracking-wide mb-1" style={{ color: '#D4AF37' }}>레코딩 카페</div>
+          <div className="text-xs tracking-wide text-muted-foreground mb-6">음악과 커피가 만나는 특별한 공간</div>
+        </div>
 
-          <div>
-            <h3 className="font-semibold mb-4 text-white">바로가기</h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              <li><a href="#space" className="hover:text-white transition-colors">공간 소개</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">서비스</a></li>
-              <li><a href="#creator-os" className="hover:text-white transition-colors">Creator OS</a></li>
-              <li><a href="#reviews" className="hover:text-white transition-colors">이용자 후기</a></li>
-              <li><a href="#booking" className="hover:text-white transition-colors">예약하기</a></li>
-              <li><a href="#franchise" className="hover:text-white transition-colors">가맹점 안내</a></li>
-            </ul>
-          </div>
+        <div className="text-xs text-muted-foreground space-y-1 mb-8">
+          <p>(주)레코딩카페</p>
+          <p>서울특별시 서초구 강남대로107길 21. 2층</p>
+          <p>이메일: biz@recordingcafe.com</p>
+          <p>영업시간: 평일 12:00-21:00</p>
+        </div>
 
+        <div className="text-xs text-muted-foreground space-y-3 mb-8">
           <div>
-            <h3 className="font-semibold mb-4 text-white">주소</h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <span>서울특별시 서초구 강남대로107길 21. 2층</span>
-              </li>
-              <li className="flex items-center gap-2 pt-2">
-                <span className="text-xs text-white/40">영업시간: 평일 12:00-21:00</span>
-              </li>
-              <li className="pt-4">
-                <h4 className="font-semibold text-white mb-2 text-sm">주차안내</h4>
-                <div className="space-y-2 text-xs">
-                  <div>
-                    <p className="text-white/80 font-medium">1. 공영 주차장</p>
-                    <p className="text-white/50">서울특별시 서초구 잠원동 89-5</p>
-                    <p className="text-white/40">(도보 5분거리, 저렴)</p>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-white/80 font-medium">2. 유료 주차장</p>
-                    <p className="text-white/50">서울특별시 서초구 강남대로 101길 40</p>
-                    <p className="text-white/40">(도보 10초거리)</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 text-white">문의</h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              <li className="flex items-center gap-2">
-                <MessageCircle className="h-4 w-4 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <a href="https://talk.naver.com/ct/wu2kkmv" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  네이버 톡톡
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <span>biz@recordingcafe.com</span>
-              </li>
-            </ul>
+            <p className="font-medium text-foreground mb-1">주차안내</p>
+            <p>1. 공영 주차장: 서울특별시 서초구 잠원동 89-5 (도보 5분거리, 저렴)</p>
+            <p>2. 유료 주차장: 서울특별시 서초구 강남대로 101길 40 (도보 10초거리)</p>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
-          <p>© 2025 Recording Café. All rights reserved.</p>
-          <div className="flex gap-6">
+        <div className="flex gap-3 mb-8">
+          <a href="https://blog.naver.com/recordingcafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-naver">
+            <SiNaver className="h-5 w-5" />
+          </a>
+          <a href="https://www.youtube.com/@recording-cafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-youtube">
+            <Youtube className="h-5 w-5" />
+          </a>
+          <a href="https://www.instagram.com/recordingcafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-instagram">
+            <Instagram className="h-5 w-5" />
+          </a>
+        </div>
+
+        <div className="border-t pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-muted-foreground">
+          <p>COPYRIGHT 2025. 레코딩 카페. ALL RIGHTS RESERVED.</p>
+          <div className="flex gap-4">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="hover:text-white transition-colors">개인정보처리방침</button>
+                <button className="hover:text-foreground transition-colors">개인정보처리방침</button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh]">
                 <DialogHeader>
@@ -225,7 +167,7 @@ export default function Footer() {
 
             <Dialog>
               <DialogTrigger asChild>
-                <button className="hover:text-white transition-colors">이용약관</button>
+                <button className="hover:text-foreground transition-colors">이용약관</button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh]">
                 <DialogHeader>
