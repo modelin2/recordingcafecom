@@ -12,6 +12,10 @@ export default function ReviewsSection() {
     { id: 4, image: "/reviews/review-4.jpg" },
     { id: 5, image: "/reviews/review-5.jpg" },
     { id: 6, image: "/reviews/review-6.jpg" },
+    { id: 7, image: "/reviews/review-7.jpg" },
+    { id: 8, image: "/reviews/review-8.jpg" },
+    { id: 9, image: "/reviews/review-9.jpg" },
+    { id: 10, image: "/reviews/review-10.jpg" },
   ];
 
   return (
