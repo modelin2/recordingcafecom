@@ -50,7 +50,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t pt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-muted-foreground">
-          <p>COPYRIGHT 2025. 레코딩 카페. ALL RIGHTS RESERVED.</p>
+          <p>COPYRIGHT 2025. 레코딩 카페. ALL RIGHTS RESERVED. Our MB technology is patent-protected.</p>
           <div className="flex gap-4">
             <Dialog>
               <DialogTrigger asChild>
