@@ -49,15 +49,11 @@ export default function ReviewsSection() {
               onClick={() => setSelectedImage(review.image)}
               data-testid={`card-review-${review.id}`}
             >
-              <div className="relative w-full overflow-hidden" style={{ height: '600px' }}>
+              <div className="relative w-full overflow-hidden h-96">
                 <img
                   src={review.image}
                   alt={`고객 후기 ${review.id}`}
-                  className="absolute w-full"
-                  style={{ 
-                    top: '-120px',
-                    left: '0'
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
             </Card>
@@ -72,7 +68,7 @@ export default function ReviewsSection() {
           onClick={() => setSelectedImage(null)}
           data-testid="modal-review-image"
         >
-          <div className="relative max-w-lg w-full">
+          <div className="relative max-w-2xl w-full max-h-[90vh] flex flex-col">
             <button
               className="absolute -top-12 right-0 text-white hover:opacity-80 text-sm flex items-center gap-2"
               onClick={() => setSelectedImage(null)}
@@ -83,18 +79,12 @@ export default function ReviewsSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="bg-background rounded-lg overflow-hidden shadow-2xl">
-              <div className="relative w-full overflow-hidden" style={{ height: '800px' }}>
-                <img
-                  src={selectedImage}
-                  alt="후기 확대보기"
-                  className="absolute w-full"
-                  style={{ 
-                    top: '-120px',
-                    left: '0'
-                  }}
-                />
-              </div>
+            <div className="bg-background rounded-lg overflow-y-auto shadow-2xl">
+              <img
+                src={selectedImage}
+                alt="후기 확대보기"
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
