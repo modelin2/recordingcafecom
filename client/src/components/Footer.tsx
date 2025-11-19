@@ -21,7 +21,6 @@ export default function Footer() {
         </div>
 
         <div className="text-xs text-muted-foreground space-y-1 mb-8">
-          <p>(주)레코딩카페</p>
           <p>서울특별시 서초구 강남대로107길 21. 2층</p>
           <p>이메일: biz@recordingcafe.com</p>
           <p>영업시간: 평일 12:00-21:00</p>
@@ -37,13 +36,16 @@ export default function Footer() {
 
         <div className="flex gap-3 mb-8">
           <a href="https://blog.naver.com/recordingcafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-naver">
-            <SiNaver className="h-5 w-5" />
+            <SiNaver className="h-4 w-4" />
           </a>
           <a href="https://www.youtube.com/@recording-cafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-youtube">
-            <Youtube className="h-5 w-5" />
+            <Youtube className="h-4 w-4" />
           </a>
           <a href="https://www.instagram.com/recordingcafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-instagram">
-            <Instagram className="h-5 w-5" />
+            <Instagram className="h-4 w-4" />
+          </a>
+          <a href="https://www.facebook.com/recordingcafe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="button-social-facebook">
+            <SiFacebook className="h-4 w-4" />
           </a>
         </div>
 
