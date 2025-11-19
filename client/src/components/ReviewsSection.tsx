@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Star, ExternalLink } from "lucide-react";
+import { Star } from "lucide-react";
 import { useState } from "react";
 
 export default function ReviewsSection() {
@@ -42,7 +41,7 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review) => (
             <Card 
               key={review.id} 
@@ -64,31 +63,16 @@ export default function ReviewsSection() {
             </Card>
           ))}
         </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="group"
-            style={{ backgroundColor: '#D4AF37', color: '#000' }}
-            data-testid="button-all-reviews"
-            asChild
-          >
-            <a href="https://www.klook.com/en-US/activity/121254-1-song-recording-with-drink-seoul/" target="_blank" rel="noopener noreferrer">
-              <span>Klook에서 전체 후기 보기</span>
-              <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </Button>
-        </div>
       </div>
 
       {/* Full-size image modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
           data-testid="modal-review-image"
         >
-          <div className="relative max-w-2xl w-full">
+          <div className="relative max-w-lg w-full">
             <button
               className="absolute -top-12 right-0 text-white hover:opacity-80 text-sm flex items-center gap-2"
               onClick={() => setSelectedImage(null)}
@@ -99,8 +83,8 @@ export default function ReviewsSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <div className="bg-white rounded-lg overflow-hidden">
-              <div className="relative w-full overflow-hidden" style={{ maxHeight: '80vh' }}>
+            <div className="bg-background rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative w-full overflow-hidden" style={{ height: '800px' }}>
                 <img
                   src={selectedImage}
                   alt="후기 확대보기"
