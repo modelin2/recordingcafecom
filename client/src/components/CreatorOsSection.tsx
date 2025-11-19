@@ -44,7 +44,7 @@ export default function CreatorOsSection() {
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
             <span style={{ color: '#D4AF37' }}>AI × Entertainment × Finance</span><br className="hidden sm:block" />
-            창작자의 생애 수익 구조를 설계하는 운영 시스템
+            창작자의 생애 수익 구조를 설계 운영
           </p>
 
           <p className="text-lg text-muted-foreground/80 max-w-2xl mx-auto">
