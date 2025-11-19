@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
+import KR from 'country-flag-icons/react/3x2/KR';
+import US from 'country-flag-icons/react/3x2/US';
+import CN from 'country-flag-icons/react/3x2/CN';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,11 +23,52 @@ export default function Header() {
     return 'ko';
   };
 
-  const getFlag = () => {
+  const getNavLabels = () => {
     const lang = getCurrentLanguage();
-    if (lang === 'en') return '🇺🇸';
-    if (lang === 'zh') return '🇨🇳';
-    return '🇰🇷';
+    if (lang === 'en') {
+      return [
+        { label: "Home", href: "#home" },
+        { label: "Space", href: "#space" },
+        { label: "Services", href: "#services" },
+        { label: "Creator OS", href: "#creator-os" },
+        { label: "Reviews", href: "#reviews" },
+        { label: "Booking", href: "#booking" },
+        { label: "Franchise", href: "#franchise" },
+      ];
+    } else if (lang === 'zh') {
+      return [
+        { label: "首页", href: "#home" },
+        { label: "空间", href: "#space" },
+        { label: "服务", href: "#services" },
+        { label: "Creator OS", href: "#creator-os" },
+        { label: "评价", href: "#reviews" },
+        { label: "预约", href: "#booking" },
+        { label: "加盟", href: "#franchise" },
+      ];
+    }
+    return [
+      { label: "홈", href: "#home" },
+      { label: "공간", href: "#space" },
+      { label: "서비스", href: "#services" },
+      { label: "Creator OS", href: "#creator-os" },
+      { label: "후기", href: "#reviews" },
+      { label: "예약", href: "#booking" },
+      { label: "가맹점", href: "#franchise" },
+    ];
+  };
+
+  const getBookingLabel = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') return 'Book Now';
+    if (lang === 'zh') return '立即预约';
+    return '예약하기';
+  };
+
+  const getFlagComponent = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') return <US className="h-5 w-7" />;
+    if (lang === 'zh') return <CN className="h-5 w-7" />;
+    return <KR className="h-5 w-7" />;
   };
 
   useEffect(() => {
@@ -35,15 +79,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "홈", href: "#home" },
-    { label: "공간", href: "#space" },
-    { label: "서비스", href: "#services" },
-    { label: "Creator OS", href: "#creator-os" },
-    { label: "후기", href: "#reviews" },
-    { label: "예약", href: "#booking" },
-    { label: "가맹점", href: "#franchise" },
-  ];
+  const navItems = getNavLabels();
 
   const getHomeLink = () => {
     const lang = getCurrentLanguage();
@@ -86,21 +122,21 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <Button 
                   variant="ghost" 
-                  className={`${isScrolled ? '' : 'text-white hover:bg-white/10'} text-2xl h-10 px-2`}
+                  className={`${isScrolled ? '' : 'text-white hover:bg-white/10'} h-10 px-2`}
                   data-testid="button-language"
                 >
-                  {getFlag()}
+                  {getFlagComponent()}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLocation('/')} data-testid="menu-lang-ko">
-                  🇰🇷 한국어
+                <DropdownMenuItem onClick={() => setLocation('/')} data-testid="menu-lang-ko" className="flex items-center gap-2">
+                  <KR className="h-4 w-6" /> 한국어
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLocation('/en')} data-testid="menu-lang-en">
-                  🇺🇸 English
+                <DropdownMenuItem onClick={() => setLocation('/en')} data-testid="menu-lang-en" className="flex items-center gap-2">
+                  <US className="h-4 w-6" /> English
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLocation('/zh')} data-testid="menu-lang-zh">
-                  🇨🇳 中文
+                <DropdownMenuItem onClick={() => setLocation('/zh')} data-testid="menu-lang-zh" className="flex items-center gap-2">
+                  <CN className="h-4 w-6" /> 中文
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -112,7 +148,7 @@ export default function Header() {
               asChild
             >
               <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
-                예약하기
+                {getBookingLabel()}
               </a>
             </Button>
 
@@ -144,7 +180,7 @@ export default function Header() {
             ))}
             <Button className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking" asChild>
               <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
-                예약하기
+                {getBookingLabel()}
               </a>
             </Button>
           </nav>

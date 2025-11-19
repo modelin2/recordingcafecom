@@ -1,9 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [location] = useLocation();
+
+  const getCurrentLanguage = () => {
+    if (location.startsWith('/en')) return 'en';
+    if (location.startsWith('/zh')) return 'zh';
+    return 'ko';
+  };
+
+  const getText = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') {
+      return {
+        subtitle: "Where Music Meets Coffee",
+        bookingButton: "Book Now"
+      };
+    } else if (lang === 'zh') {
+      return {
+        subtitle: "音乐与咖啡的特别空间",
+        bookingButton: "立即预约"
+      };
+    }
+    return {
+      subtitle: "음악과 커피가 만나는 특별한 공간",
+      bookingButton: "예약하기"
+    };
+  };
 
   useEffect(() => {
     // Preload video thumbnail
@@ -40,7 +67,7 @@ export default function HeroSection() {
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <p className="text-xl md:text-2xl text-white/90 mb-12 font-light" data-testid="text-hero-subtitle">
-          음악과 커피가 만나는 특별한 공간
+          {getText().subtitle}
         </p>
 
         <Button 
@@ -51,7 +78,7 @@ export default function HeroSection() {
           asChild
         >
           <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
-            예약하기 <ArrowRight className="ml-2 h-5 w-5" />
+            {getText().bookingButton} <ArrowRight className="ml-2 h-5 w-5" />
           </a>
         </Button>
       </div>
