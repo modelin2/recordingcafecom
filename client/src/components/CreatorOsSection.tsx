@@ -56,37 +56,32 @@ export default function CreatorOsSection() {
           {pipelines.map((pipeline, index) => (
             <Card key={index} className="border-border/50 hover-elevate" data-testid={`card-pipeline-${index}`}>
               <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(212, 175, 55, 0.1)' }}>
-                    <Sparkles className="h-6 w-6" style={{ color: '#D4AF37' }} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl">{pipeline.title}</h3>
-                    <p className="text-sm text-muted-foreground">{pipeline.subtitle}</p>
-                  </div>
-                </div>
-
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-2">{pipeline.title}</h3>
+                <p className="text-sm mb-4" style={{ color: '#D4AF37' }}>{pipeline.subtitle}</p>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {pipeline.description}
                 </p>
 
-                <div className="mb-6 p-4 bg-muted/50 rounded-lg">
-                  <p className="text-sm font-medium text-foreground">
-                    → {pipeline.result}
-                  </p>
+                <div className="pt-4 border-t border-border/50">
+                  <div className="flex items-start gap-2 mb-4">
+                    <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
+                    <p className="text-sm text-muted-foreground">{pipeline.result}</p>
+                  </div>
+                  
+                  <Button 
+                    size="sm" 
+                    className="w-full group"
+                    style={{ backgroundColor: '#D4AF37', color: '#000' }}
+                    data-testid={`button-pipeline-${index}`}
+                    asChild
+                  >
+                    <a href={pipeline.link} target="_blank" rel="noopener noreferrer">
+                      <span>{pipeline.buttonText}</span>
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
                 </div>
-
-                <Button 
-                  variant="outline" 
-                  className="w-full group"
-                  asChild
-                  data-testid={`button-pipeline-${index}`}
-                >
-                  <a href={pipeline.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between">
-                    <span>{pipeline.buttonText}</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
               </CardContent>
             </Card>
           ))}
