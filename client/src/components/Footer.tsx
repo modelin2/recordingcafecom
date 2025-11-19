@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="text-xs tracking-widest opacity-60" style={{ color: '#D4AF37' }}>music & coffee production</div>
             </div>
             <p className="text-sm text-white/60 mb-6 leading-relaxed">
-              음악과 커피가 만나는 프리미엄 창작 공간
+              음악과 커피가 만나는 특별한 공간
             </p>
             <div className="flex gap-3">
               <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-instagram">

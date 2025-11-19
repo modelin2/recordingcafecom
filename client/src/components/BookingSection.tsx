@@ -40,10 +40,6 @@ export default function BookingSection() {
                   <Send className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              
-              <p className="text-sm text-muted-foreground text-center">
-                영업시간: 평일 10:00 - 22:00 | 주말 10:00 - 20:00
-              </p>
             </div>
           </CardContent>
         </Card>

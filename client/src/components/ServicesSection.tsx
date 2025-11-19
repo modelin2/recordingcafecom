@@ -168,18 +168,6 @@ export default function ServicesSection() {
             );
           })}
         </div>
-
-        <div className="mt-16 text-center">
-          <Card className="inline-block bg-muted/30 border-border/50">
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">
-                노래도 골라야 하고, 음료도 주문해야 하니 <span className="font-semibold text-foreground">늦지 않게 미리 와주세요.</span>
-                <br />
-                체험 시간 끝나도 카페에서 시간 제한 없이 편하게 쉬어가세요. ☕
-              </p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
