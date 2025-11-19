@@ -85,7 +85,7 @@ export default function FranchiseSection() {
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">가맹점 사업설명회</h3>
             <p className="text-muted-foreground mb-6">
-              자세한 문의 및 상생 협력을 위한 사업설명회에 참여하세요
+              자세한 문의 및 가맹점 신청은 사업설명회에 참여하세요
             </p>
             <Button 
               size="lg"

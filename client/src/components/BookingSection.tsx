@@ -20,7 +20,7 @@ export default function BookingSection() {
         <Card className="border-border/50">
           <CardContent className="p-8 md:p-12 text-center">
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              원하시는 서비스와 일정을 네이버 예약 시스템을 통해<br />
+              네이버 예약 시스템을 통해<br />
               간편하게 예약하실 수 있습니다.
             </p>
 
@@ -55,7 +55,7 @@ export default function BookingSection() {
           <Card className="p-6 text-center bg-card">
             <Send className="h-8 w-8 mx-auto mb-3" style={{ color: '#D4AF37' }} />
             <div className="font-semibold mb-1">빠른 응답</div>
-            <div className="text-sm text-muted-foreground">24시간 내 답변</div>
+            <div className="text-sm text-muted-foreground">평균 10분 내 답변</div>
           </Card>
         </div>
       </div>

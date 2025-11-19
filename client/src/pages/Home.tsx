@@ -13,8 +13,8 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <ServicesSection />
         <SpaceSection />
+        <ServicesSection />
         <CreatorOsSection />
         <BookingSection />
         <FranchiseSection />

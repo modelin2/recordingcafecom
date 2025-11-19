@@ -22,9 +22,11 @@ export default function Header() {
 
   const navItems = [
     { label: "홈", href: "#home" },
-    { label: "서비스", href: "#services" },
     { label: "공간", href: "#space" },
+    { label: "서비스", href: "#services" },
+    { label: "Creator OS", href: "#creator-os" },
     { label: "예약", href: "#booking" },
+    { label: "가맹점", href: "#franchise" },
   ];
 
   return (
@@ -99,12 +101,13 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t" data-testid="nav-mobile">
+          <nav className="md:hidden py-4 border-t bg-background" data-testid="nav-mobile">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-3 text-foreground hover:text-primary transition-colors"
+                className="block py-3 font-medium hover:opacity-80 transition-colors"
+                style={{ color: '#D4AF37' }}
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid={`link-mobile-${item.label}`}
               >

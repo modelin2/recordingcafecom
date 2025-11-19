@@ -11,7 +11,7 @@ const services = [
     image: recordingStudioImg,
     tag: "노래방처럼 편하게, 프로처럼 녹음하세요",
     title: "레코딩 스튜디오",
-    subtitle: "노래방 18번 곡, 이번엔 진짜 스튜디오에서 불러보세요",
+    subtitle: "노래방 18번 곡, 진짜 스튜디오에서 불러보세요",
     description: "평소 노래방에서 부르던 그 노래 그대로, 장소만 프로 스튜디오로 바꾸는 거예요. 목소리는 똑같은데 사운드만 완전히 달라져요.",
     details: [
       "평소 즐겨 부르는 곡 하나만 준비해 오세요",
@@ -20,22 +20,21 @@ const services = [
       "바로 들어보고 살짝 다듬어 드려요",
       "내 음원 완성! 완성된 파일은 메일로 보내드려요"
     ],
-    note: "처음부터 끝까지 전문가가 옆에서 도와드리니까 처음이어도 전혀 부담 없어요. 그냥 '부르기만' 하면 돼요.",
-    event: "🎁 오픈 기념 리뷰 이벤트 진행 중"
+    note: "처음부터 끝까지 전문가가 옆에서 도와드리니까 처음이어도 전혀 부담 없어요. 그냥 '부르기만' 하면 돼요."
   },
   {
     icon: Camera,
     image: photoStudioImg,
     tag: "특허받은 거울 속 카메라 기술",
     title: "AI 셀프 사진관",
-    subtitle: "평소 셀카 찍던 그 느낌 그대로, 거울 보면서 찍어보세요!",
+    subtitle: "평소 셀카 찍듯이 거울을 보면서 찍어보세요!",
     description: "특허받은 국내 유일 기술로 거울 속에 카메라가 들어있어요. 무선 리모컨으로 원하는 순간을 포착하고, AI가 스타일링을 완성해드려요.",
     details: [
       "거울 속 카메라로 정면 응시 촬영 (국내 유일 특허)",
       "무선 리모컨으로 원하는 순간 포착",
       "AI가 의상·메이크업·헤어 자동 생성",
       "얼굴 형태와 특징은 100% 그대로 유지",
-      "매달 새로운 테마 (11월: 씨네마 에디션)"
+      "매달 새로운 테마 제공( 예 11월: 씨네마 에디션)"
     ],
     note: "본질은 그대로 두고 '스타일링'만 AI가 담당해요.",
     highlight: "국내 최초 AI 후보정 기술 적용"
@@ -48,10 +47,10 @@ const services = [
     subtitle: "한 번의 방송을 4개 채널에 동시 송출",
     description: "노래방 부스처럼 들어가면 바로 라이브가 시작되는 독립형 방송 부스. 한 개의 카메라로 4개 채널에 동시 송출할 수 있어요.",
     details: [
-      "호스트 계정 동시 송출",
-      "게스트(콜라보) 계정 동시 송출",
-      "광고주 계정 동시 송출",
-      "기획사/매니지먼트 계정 동시 송출"
+      "호스트 유튜브 계정",
+      "게스트(콜라보) 유튜브 계정",
+      "광고주 유튜브 계정",
+      "기획사/MCN 유튜브 계정"
     ],
     note: "콜라보 방송, 브랜드 협찬 라이브, 아티스트 쇼케이스 등에 최적화된 시스템",
     highlight: "행사장 설치형 독립 부스"
@@ -123,7 +122,7 @@ export default function ServicesSection() {
                   <div className="bg-muted/50 rounded-lg p-6 mb-6">
                     <h4 className="font-semibold mb-4 flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#D4AF37' }} />
-                      이렇게 진행돼요
+                      {index === 2 ? '동시 송출 예시' : '이렇게 진행돼요'}
                     </h4>
                     <ul className="space-y-3">
                       {service.details.map((detail, idx) => (
@@ -139,12 +138,6 @@ export default function ServicesSection() {
                     <p className="text-sm text-muted-foreground mb-4 italic border-l-2 pl-4 py-2" style={{ borderColor: '#D4AF37' }}>
                       {service.note}
                     </p>
-                  )}
-
-                  {service.event && (
-                    <div className="bg-primary/5 rounded-lg px-4 py-3 mb-4">
-                      <p className="text-sm font-medium">{service.event}</p>
-                    </div>
                   )}
 
                   {service.highlight && (
