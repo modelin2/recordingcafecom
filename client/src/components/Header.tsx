@@ -59,7 +59,12 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" data-testid="button-language">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className={isScrolled ? '' : 'text-white hover:bg-white/10'}
+                  data-testid="button-language"
+                >
                   <Globe className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -84,7 +89,7 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className={`md:hidden ${isScrolled ? '' : 'text-white hover:bg-white/10'}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="button-mobile-menu"
             >

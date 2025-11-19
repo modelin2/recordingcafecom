@@ -18,8 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="mb-6">
-              <div className="text-2xl font-bold tracking-wide mb-1" style={{ color: '#D4AF37' }}>Recording Café</div>
-              <div className="text-xs tracking-widest opacity-60" style={{ color: '#D4AF37' }}>music & coffee production</div>
+              <div className="text-2xl font-bold tracking-wide mb-1" style={{ color: '#D4AF37' }}>레코딩 카페</div>
+              <div className="text-xs tracking-widest opacity-60" style={{ color: '#D4AF37' }}>Recording Café</div>
             </div>
             <p className="text-sm text-white/60 mb-6 leading-relaxed">
               음악과 커피가 만나는 특별한 공간
@@ -49,36 +49,39 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-white">서비스</h3>
+            <h3 className="font-semibold mb-4 text-white">바로가기</h3>
             <ul className="space-y-3 text-sm text-white/60">
-              <li><a href="#services" className="hover:text-white transition-colors">레코딩 스튜디오</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">프로필 촬영</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">라이브 방송</a></li>
-              <li><a href="#booking" className="hover:text-white transition-colors">예약 안내</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">서비스</a></li>
+              <li><a href="#space" className="hover:text-white transition-colors">공간 소개</a></li>
+              <li><a href="#creator-os" className="hover:text-white transition-colors">Creator OS</a></li>
+              <li><a href="#booking" className="hover:text-white transition-colors">예약하기</a></li>
+              <li><a href="#franchise" className="hover:text-white transition-colors">가맹점 안내</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-white">정보</h3>
+            <h3 className="font-semibold mb-4 text-white">주소</h3>
             <ul className="space-y-3 text-sm text-white/60">
-              <li><a href="#space" className="hover:text-white transition-colors">공간 소개</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">이용 요금</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">자주 묻는 질문</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">프랜차이즈 문의</a></li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
+                <div>
+                  <p>서울특별시 서초구</p>
+                  <p>강남대로107길 21 2층</p>
+                </div>
+              </li>
+              <li className="flex items-center gap-2 pt-2">
+                <span className="text-xs text-white/40">영업시간: 평일 12:00-21:00</span>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4 text-white">문의</h3>
             <ul className="space-y-3 text-sm text-white/60">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <span>서울특별시 서초구<br />강남대로107길 21 2층</span>
-              </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 flex-shrink-0" style={{ color: '#D4AF37' }} />
                 <a href="https://talk.naver.com/ct/wu2kkmv" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  네이버 톡톡 문의
+                  네이버 톡톡
                 </a>
               </li>
               <li className="flex items-center gap-2">
