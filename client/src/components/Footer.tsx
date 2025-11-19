@@ -54,6 +54,7 @@ export default function Footer() {
               <li><a href="#space" className="hover:text-white transition-colors">공간 소개</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">서비스</a></li>
               <li><a href="#creator-os" className="hover:text-white transition-colors">Creator OS</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">이용자 후기</a></li>
               <li><a href="#booking" className="hover:text-white transition-colors">예약하기</a></li>
               <li><a href="#franchise" className="hover:text-white transition-colors">가맹점 안내</a></li>
             </ul>
@@ -64,10 +65,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <div>
-                  <p>서울특별시 서초구</p>
-                  <p>강남대로107길 21 2층</p>
-                </div>
+                <span className="whitespace-nowrap">서울특별시 서초구 강남대로107길 21 2층</span>
               </li>
               <li className="flex items-center gap-2 pt-2">
                 <span className="text-xs text-white/40">영업시간: 평일 12:00-21:00</span>

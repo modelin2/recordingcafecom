@@ -102,7 +102,7 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t bg-background" data-testid="nav-mobile">
+          <nav className="md:hidden py-4 border-t bg-background px-4" data-testid="nav-mobile">
             {navItems.map((item) => (
               <a
                 key={item.href}
