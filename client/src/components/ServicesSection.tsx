@@ -38,7 +38,7 @@ const services = [
       "매달 새로운 테마 (11월: 씨네마 에디션)"
     ],
     note: "본질은 그대로 두고 '스타일링'만 AI가 담당해요.",
-    highlight: "국내 최초 AI 후보정 기술"
+    highlight: "국내 최초 AI 후보정 기술 적용"
   },
   {
     icon: Radio,

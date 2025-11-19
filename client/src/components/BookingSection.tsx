@@ -15,9 +15,6 @@ export default function BookingSection() {
           <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-booking-title">
             예약 문의
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            원하시는 서비스와 일정을 알려주시면 신속하게 안내해 드리겠습니다
-          </p>
         </div>
 
         <Card className="border-border/50">
@@ -48,7 +45,7 @@ export default function BookingSection() {
           <Card className="p-6 text-center bg-card">
             <Calendar className="h-8 w-8 mx-auto mb-3" style={{ color: '#D4AF37' }} />
             <div className="font-semibold mb-1">운영 시간</div>
-            <div className="text-sm text-muted-foreground">평일 10:00-22:00</div>
+            <div className="text-sm text-muted-foreground">평일 12:00-21:00</div>
           </Card>
           <Card className="p-6 text-center bg-card">
             <Clock className="h-8 w-8 mx-auto mb-3" style={{ color: '#D4AF37' }} />

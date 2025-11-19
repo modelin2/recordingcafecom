@@ -21,38 +21,21 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-white" data-testid="text-hero-title">
-          <span style={{ color: '#D4AF37' }}>Recording Café</span>
-        </h1>
-
         <p className="text-xl md:text-2xl text-white/90 mb-12 font-light" data-testid="text-hero-subtitle">
           음악과 커피가 만나는 특별한 공간
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button 
-            size="lg" 
-            className="text-base px-8" 
-            style={{ backgroundColor: '#D4AF37', color: '#000' }}
-            data-testid="button-explore"
-            asChild
-          >
-            <a href="#services">
-              둘러보기 <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="text-base px-8 border-white/30 text-white hover:bg-white/10" 
-            data-testid="button-booking"
-            asChild
-          >
-            <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
-              예약하기
-            </a>
-          </Button>
-        </div>
+        <Button 
+          size="lg" 
+          className="text-base px-8" 
+          style={{ backgroundColor: '#D4AF37', color: '#000' }}
+          data-testid="button-booking"
+          asChild
+        >
+          <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
+            예약하기 <ArrowRight className="ml-2 h-5 w-5" />
+          </a>
+        </Button>
       </div>
     </section>
   );

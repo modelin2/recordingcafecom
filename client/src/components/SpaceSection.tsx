@@ -1,4 +1,11 @@
 import { Card } from "@/components/ui/card";
+import coupleImg from "@assets/레코딩카페커플_1763517988473.jpg";
+import recordingImg from "@assets/레코딩_1763518051359.png";
+import soloImg from "@assets/레코딩카페 1인석2_1763518051359.png";
+import studioImg from "@assets/레코딩카페 녹음실3_1763518051360.png";
+import loungeImg from "@assets/레코딩카페 라운지6_1763518051360.png";
+import boraboxImg from "@assets/레코딩카페 보라박스_1763518051360.png";
+import cafeImg from "@assets/레코딩카페_1763518051360.png";
 
 export default function SpaceSection() {
   return (
@@ -19,12 +26,7 @@ export default function SpaceSection() {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
                 레코딩 카페는 따뜻한 우드 인테리어와 세련된 디자인이 조화를 이루는 
-                프리미엄 공간입니다. 커피를 즐기며 편안하게 창작 활동을 시작할 수 있습니다.
-              </p>
-              
-              <p>
-                10년 이상의 엔터테인먼트 산업 경험을 바탕으로 구축된 전문 시스템과
-                일반인도 쉽게 접근할 수 있는 친근한 분위기를 함께 제공합니다.
+                프리미엄 공간입니다. 커피를 즐기며 편안하게 엔터테인먼트 산업을 체험할 수 있습니다.
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-4">
@@ -41,23 +43,19 @@ export default function SpaceSection() {
           </div>
 
           <div className="space-y-6">
-            <div className="aspect-[16/10] bg-muted rounded-lg flex items-center justify-center overflow-hidden">
-              <div className="text-center text-muted-foreground p-8">
-                <p className="text-sm mb-2">메인 공간 이미지 영역</p>
-                <p className="text-xs opacity-60">따뜻한 우드 인테리어가 돋보이는 카페 공간</p>
-              </div>
+            <div className="aspect-[16/10] rounded-lg overflow-hidden shadow-lg">
+              <img src={coupleImg} alt="레코딩 카페 커플" className="w-full h-full object-cover" />
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground p-4">
-                  <p className="text-xs">녹음 부스</p>
-                </div>
+            <div className="grid grid-cols-3 gap-4">
+              <div className="aspect-square rounded-lg overflow-hidden shadow-md">
+                <img src={recordingImg} alt="레코딩 공간" className="w-full h-full object-cover" />
               </div>
-              <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center text-muted-foreground p-4">
-                  <p className="text-xs">카페 공간</p>
-                </div>
+              <div className="aspect-square rounded-lg overflow-hidden shadow-md">
+                <img src={studioImg} alt="녹음실" className="w-full h-full object-cover" />
+              </div>
+              <div className="aspect-square rounded-lg overflow-hidden shadow-md">
+                <img src={loungeImg} alt="라운지" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

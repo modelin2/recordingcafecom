@@ -28,7 +28,7 @@ export default function FranchiseSection() {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   현재 무단으로 당사의 특허 기술을 사용 중인 셀프 사진관 관계자 여러분께서는, 
                   운영 수익이 증가할수록 그에 대한 법적 리스크(배상액) 또한 증가하고 있다는 점을 인지하시어 
-                  법적 분쟁 대신 정식 가맹점으로의 전환을 권고드립니다.
+                  정식 가맹점으로의 전환을 권고드립니다.
                 </p>
               </div>
             </div>

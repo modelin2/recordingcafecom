@@ -38,8 +38,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center gap-3" data-testid="link-logo">
             <div className="flex flex-col">
-              <div className="text-2xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>Recording Café</div>
-              <div className="text-xs tracking-widest opacity-80" style={{ color: '#D4AF37' }}>music & coffee production</div>
+              <div className="text-2xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>레코딩 카페</div>
+              <div className="text-xs tracking-widest opacity-80" style={{ color: '#D4AF37' }}>Recording Café</div>
             </div>
           </a>
 
@@ -48,7 +48,7 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground/80 hover:text-foreground transition-colors font-medium text-sm tracking-wide"
+                className={`${isScrolled ? 'text-foreground' : 'text-white'} hover:opacity-80 transition-colors font-medium text-sm tracking-wide`}
                 data-testid={`link-nav-${item.label}`}
               >
                 {item.label}
