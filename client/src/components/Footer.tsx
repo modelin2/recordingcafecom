@@ -65,10 +65,25 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                <span className="whitespace-nowrap">서울특별시 서초구 강남대로107길 21 2층</span>
+                <span>서울특별시 서초구 강남대로107길 21. 2층</span>
               </li>
               <li className="flex items-center gap-2 pt-2">
                 <span className="text-xs text-white/40">영업시간: 평일 12:00-21:00</span>
+              </li>
+              <li className="pt-4">
+                <h4 className="font-semibold text-white mb-2 text-sm">주차안내</h4>
+                <div className="space-y-2 text-xs">
+                  <div>
+                    <p className="text-white/80 font-medium">1. 공영 주차장</p>
+                    <p className="text-white/50">서울특별시 서초구 잠원동 89-5</p>
+                    <p className="text-white/40">(도보 5분거리, 저렴)</p>
+                  </div>
+                  <div className="pt-1">
+                    <p className="text-white/80 font-medium">2. 유료 주차장</p>
+                    <p className="text-white/50">서울특별시 서초구 강남대로 101길 40</p>
+                    <p className="text-white/40">(도보 10초거리)</p>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
