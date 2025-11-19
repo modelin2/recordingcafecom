@@ -43,7 +43,7 @@ export default function CreatorOsSection() {
           </h2>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            <span style={{ color: '#D4AF37' }}>AI × Entertainment × Finance</span><br className="hidden sm:block" />
+            <span style={{ color: '#D4AF37' }}>AI × Entertainment × Finance</span><br className="hidden sm:block" />{' '}
             창작자의 생애 수익 구조를 설계 운영
           </p>
 
@@ -91,7 +91,7 @@ export default function CreatorOsSection() {
           <Card className="bg-muted/30 border-border/50">
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                레코딩 카페는 프로로 성장하기 위한<br className="hidden sm:block" />
+                레코딩 카페는 프로로 성장하기 위한<br className="hidden sm:block" />{' '}
                 <span className="font-semibold text-foreground">성공적인 커리어 운영체제(OS)</span>를 제공합니다
               </p>
             </CardContent>
