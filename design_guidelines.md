@@ -1,122 +1,162 @@
-# K Recording Cafe - Design Guidelines
+# 레코딩 카페 - Design Guidelines
 
-## Design Approach
+## Design Philosophy
 
-**Reference-Based Strategy**: Drawing from K-pop entertainment industry leaders (HYBE, SM Entertainment) combined with Airbnb's experience-driven design and Stripe's professional credibility. This creates a balance between aspirational energy (20%) and business legitimacy (80%).
+**Minimalist Luxury**: Clean, simple design that lets content breathe while using gold (#D4AF37) as the signature luxury accent. Inspired by minimalist Japanese design principles with premium positioning.
 
-**Key Design Principle**: "Aspirational yet Accessible" - The design should make everyday people feel that becoming a content creator is within reach while maintaining professional franchise credibility.
+**Key Principle**: Less is more. Every element must earn its place. Gold is precious, use it sparingly for maximum impact.
+
+## Color Palette
+
+### Primary Colors
+- **Gold Accent**: #D4AF37 (use for logo, headings, and key highlights only)
+- **Background**: Default background color (adapts to light/dark mode)
+- **Foreground**: Default text color (adapts to light/dark mode)
+- **Muted**: text-muted-foreground (for secondary information)
+
+### Usage Rules
+- Gold (#D4AF37) only for:
+  - Main logo/brand name
+  - Section headings
+  - Key call-to-action elements
+  - Important highlights
+- Never use gold for body text or backgrounds
+- Maintain high contrast between text and backgrounds
+- Use semantic color tokens (foreground, muted-foreground) for dark mode compatibility
 
 ## Typography
 
-**Font Families**:
-- Headlines: Inter or Pretendard (for Korean), 700-800 weight - bold, confident
-- Body: Inter or Pretendard, 400-500 weight - clean, readable
-- Accents: Space Grotesk, 600 weight - modern, tech-forward for stats/numbers
+**Font Stack**: System fonts (Inter, Pretendard for Korean)
 
 **Hierarchy**:
-- Hero Headline: text-5xl md:text-6xl lg:text-7xl, font-bold
-- Section Headlines: text-3xl md:text-4xl lg:text-5xl, font-bold
-- Subsection Titles: text-xl md:text-2xl, font-semibold
-- Body Text: text-base md:text-lg, leading-relaxed
-- Small Text: text-sm md:text-base
+- Main Headings: text-3xl md:text-4xl lg:text-5xl, font-bold, gold color
+- Section Headings: text-2xl md:text-3xl, font-semibold, gold color
+- Subsection Titles: text-xl md:text-2xl, font-semibold, foreground color
+- Body Text: text-sm md:text-base, normal weight, foreground color
+- Small Text: text-xs, muted-foreground color
+
+**Korean Typography**:
+- Use consistent tracking for Korean text
+- Slightly larger line-height for readability
+- Never mix fonts within same text block
 
 ## Layout System
 
-**Spacing Primitives**: Use Tailwind units of 4, 6, 8, 12, 16, 20, 24 for consistent rhythm
-- Component internal padding: p-4, p-6, p-8
-- Section vertical spacing: py-16 md:py-20 lg:py-24
-- Card spacing: gap-6 md:gap-8
-- Container max-width: max-w-7xl for full sections, max-w-4xl for text content
+**Spacing Philosophy**: Generous white space. Let content breathe.
+
+**Spacing Scale**:
+- Tight: gap-2, gap-3 (between small elements)
+- Default: gap-4, gap-6 (between cards, sections)
+- Generous: gap-8, gap-12 (major section separation)
+- Section Padding: py-12 md:py-16 lg:py-20
+
+**Container**:
+- Max width: max-w-7xl
+- Consistent horizontal padding: px-4 sm:px-6 lg:px-8
 
 **Grid Strategy**:
-- Desktop (lg): 3-column for service cards, 2-column for features
-- Tablet (md): 2-column maximum
+- Desktop: 3-column max for service cards
+- Tablet: 2-column
 - Mobile: Always single column
 
-## Component Library
+## Component Patterns
+
+### Headers
+- Minimal, clean navigation
+- Logo in gold on left
+- Simple text links (no icons)
+- Sticky with subtle border on scroll
+- No backgrounds or heavy styling
 
 ### Hero Section
-- Full viewport height (min-h-screen) with dynamic content
-- Large background image showcasing recording studio/K-pop aesthetic
-- Centered headline + subheadline + dual CTA (Primary: "Start Your Journey" / Secondary: "Franchise Inquiry")
-- Floating language switcher (KR/EN/CN) in top-right
-- Subtle overlay gradient for text readability
-- Trust indicator below CTAs: "10+ Years in Entertainment | Global Franchise | US Copyright Partnership"
+- Large, impactful headline in gold
+- Simple, clean subtitle
+- Minimal CTA buttons
+- Full-width background image with dark overlay for text legibility
+- No clutter
 
-### Service Showcase (3 Cards)
-- 3-column grid on desktop, stacked on mobile
-- Each card: Icon/Image + Title + Description + "Learn More" link
-- Recording Studio: Emphasize copyright & revenue
-- Hollywood Profile: Global expansion focus
-- Live Broadcasting: Creator-advertiser ecosystem
-- Hover effect: subtle lift (transform scale-105)
+### Service Cards
+- Clean white/card background
+- Minimal border or subtle shadow
+- Gold accent for icons or numbers
+- Generous padding
+- Simple hover state (subtle elevation)
 
-### Brand Story Section
-- 2-column layout: Left = Founder narrative text, Right = Timeline visual or photo
-- Highlight: 10+ years experience, 50+ artists trained, transition to public access
-- Pull quote: Key mission statement in larger text
-
-### Customer Journey (Jiwoo Persona)
-- Horizontal timeline or step-by-step cards
-- 4-5 steps: Discovery → First Visit → Creating Content → Publishing → Success
-- Include relatable imagery for each step
-- Emotional journey: "From everyday person to published creator"
-
-### Competitive Advantages
-- 4-column grid for key differentiators
-- Icon + Stat + Description format
-- Examples: "US Copyright Partner", "Douyin Direct Access", "Global Scalability", "Proven Revenue Model"
-- Use bold numbers/stats where possible
-
-### Franchise Opportunity
-- Split layout: Benefits list (left) + Inquiry form (right)
-- Benefits: Bullet points with checkmark icons
-- Form fields: Name, Email, Phone, Country, Message, Language preference
-- Clear ROI messaging: "Modular system | Standardized process | Recurring revenue"
+### Content Sections
+- Clear section separation with white space
+- Gold headings
+- Simple, readable body text in muted color
+- No unnecessary decorations
 
 ### Footer
-- 4-column layout: About, Services, Franchise, Contact
-- Social media links (Instagram, YouTube, TikTok, Douyin, Xiaohongshu)
-- Language selector repeated
-- Newsletter signup: "Stay updated on franchise opportunities"
-- Copyright notice with all three languages
+- Single column, vertical layout (SUMSEI style)
+- Minimal information hierarchy
+- Small text sizes (text-xs)
+- Simple links (no heavy buttons)
+- Social icons small and subtle (h-4 w-4)
+- Legal links with subtle hover states
+
+## Interactions
+
+**Hover States**:
+- Text links: muted-foreground → foreground
+- Buttons: use built-in Shadcn variants
+- Cards: subtle elevation (no dramatic transforms)
+- Icons: color transition only
+
+**Transitions**: All transitions 200-300ms, ease-in-out
+
+**No Animations**: Avoid flashy animations. Keep interactions minimal and purposeful.
 
 ## Images
 
-**Hero Image**: Large, cinematic shot of modern recording studio with K-pop aesthetic - LED lights, professional equipment, aspirational but welcoming atmosphere
+**Photography Style**:
+- High quality, professional
+- Clean backgrounds
+- Authentic, not overly staged
+- Consistent color grading
 
-**Service Cards**: 
-- Recording: Close-up of microphone with pop filter, warm studio lighting
-- Hollywood Profile: Professional photography setup, glamorous but accessible
-- Live Broadcasting: Multi-camera streaming setup, energetic atmosphere
+**Usage**:
+- Hero: Full-width, high-impact
+- Services: Relevant, contextual imagery
+- Reviews: User-generated content (authentic)
 
-**Brand Story**: Founder in professional setting or montage of past artist work
+## Navigation Structure
 
-**Customer Journey**: Relatable photos showing progression from nervous first-timer to confident creator
+홈 → 공간 → 서비스 → Creator OS → 후기 → 예약 → 가맹점
 
-**Franchise Section**: Clean, modern cafe storefront or interior showcasing the space
+## Best Practices
 
-## Navigation
+### DO:
+- Use generous white space
+- Keep typography hierarchy clear
+- Use gold sparingly for impact
+- Maintain consistent spacing
+- Let content breathe
+- Use semantic color tokens
+- Keep interactions subtle
 
-Sticky header with transparent background that becomes solid on scroll:
-- Logo (left)
-- Nav links: Home, Services, Story, Franchise, Contact (center)
-- Language switcher + Primary CTA (right)
-- Mobile: Hamburger menu
+### DON'T:
+- Overuse gold color
+- Add unnecessary decorations
+- Use multiple accent colors
+- Create complex layouts
+- Add flashy animations
+- Use large, bulky icons
+- Crowd content together
 
-## Key Interactions
+## Dark Mode Support
 
-- Smooth scroll between sections (scroll-behavior: smooth)
-- Parallax effect on hero background (subtle, not distracting)
-- Card hover states: slight elevation + subtle shadow
-- Form validation with inline feedback
-- Language switch with smooth content transition
+All colors must work in both light and dark modes:
+- Use semantic tokens (foreground, background, muted-foreground)
+- Gold (#D4AF37) works in both modes as-is
+- Test all components in both modes
+- Ensure sufficient contrast in both modes
 
-## Content Strategy Notes
+## Responsive Principles
 
-- Headlines in all three languages must be equally compelling
-- Maintain 80/20 balance: concrete business details prominent, aspirational messaging strategic
-- Use real numbers where possible: "10+ years", "50+ artists", "3 countries"
-- Korean text should feel authentic, not translated
-- Emphasize "everyday person" accessibility throughout
-- Position franchise as proven system, not experiment
+- Mobile-first approach
+- Single column on mobile
+- Generous touch targets (min 44px)
+- Readable font sizes on all devices
+- Consistent spacing across breakpoints

@@ -31,71 +31,53 @@ export default function CreatorOsSection() {
   ];
 
   return (
-    <section id="creator-os" className="py-20 md:py-32 bg-background" data-testid="section-creator-os">
+    <section id="creator-os" className="py-16 md:py-20" data-testid="section-creator-os">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-6" style={{ color: '#D4AF37' }}>
-            Creator OS
-          </div>
-          
-          <h2 className="text-3xl md:text-5xl font-bold mb-6" data-testid="text-creator-os-title">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#D4AF37' }} data-testid="text-creator-os-title">
             크리에이터 운영체제
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            <span style={{ color: '#D4AF37' }}>AI × Entertainment × Finance</span><br className="hidden sm:block" />{' '}
-            창작자의 생애 수익 구조를 설계 운영
+          <p className="text-sm text-muted-foreground mb-2">
+            <span style={{ color: '#D4AF37' }}>AI × Entertainment × Finance</span> 창작자의 생애 수익 구조를 설계 운영
           </p>
 
-          <p className="text-lg text-muted-foreground/80 max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground">
             AI 기술로 창작자의 꿈을 현실로 만드는 투자
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {pipelines.map((pipeline, index) => (
-            <Card key={index} className="border-border/50 hover-elevate" data-testid={`card-pipeline-${index}`}>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-2">{pipeline.title}</h3>
-                <p className="text-sm mb-4" style={{ color: '#D4AF37' }}>{pipeline.subtitle}</p>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {pipeline.description}
-                </p>
+            <Card key={index} className="p-6 hover-elevate" data-testid={`card-pipeline-${index}`}>
+              <h3 className="text-xl font-bold mb-1" style={{ color: '#D4AF37' }}>{pipeline.title}</h3>
+              <p className="text-xs mb-4 text-foreground">{pipeline.subtitle}</p>
+              
+              <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                {pipeline.description}
+              </p>
 
-                <div className="pt-4 border-t border-border/50">
-                  <div className="flex items-start gap-2 mb-4">
-                    <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
-                    <p className="text-sm text-muted-foreground">{pipeline.result}</p>
-                  </div>
-                  
-                  <Button 
-                    size="sm" 
-                    className="w-full group"
-                    style={{ backgroundColor: '#D4AF37', color: '#000' }}
-                    data-testid={`button-pipeline-${index}`}
-                    asChild
-                  >
-                    <a href={pipeline.link} target="_blank" rel="noopener noreferrer">
-                      <span>{pipeline.buttonText}</span>
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
+              <p className="text-xs text-muted-foreground mb-4">{pipeline.result}</p>
+              
+              <Button 
+                size="sm" 
+                className="w-full"
+                style={{ backgroundColor: '#D4AF37', color: '#000' }}
+                data-testid={`button-pipeline-${index}`}
+                asChild
+              >
+                <a href={pipeline.link} target="_blank" rel="noopener noreferrer">
+                  {pipeline.buttonText}
+                </a>
+              </Button>
             </Card>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Card className="bg-muted/30 border-border/50">
-            <CardContent className="p-8">
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                레코딩 카페는 프로로 성장하기 위한<br className="hidden sm:block" />{' '}
-                <span className="font-semibold text-foreground">커리어 운영체제(OS)</span>를 제공합니다
-              </p>
-            </CardContent>
-          </Card>
+        <div className="mt-12 text-center p-6 border-t">
+          <p className="text-sm text-muted-foreground">
+            레코딩 카페는 프로로 성장하기 위한 <span className="font-semibold text-foreground">커리어 운영체제(OS)</span>를 제공합니다
+          </p>
         </div>
       </div>
     </section>

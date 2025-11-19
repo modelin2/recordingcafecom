@@ -59,21 +59,18 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20 md:py-32 bg-background" data-testid="section-services">
+    <section id="services" className="py-16 md:py-20" data-testid="section-services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
-            Our Services
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" data-testid="text-services-title">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#D4AF37' }} data-testid="text-services-title">
             제공 서비스
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground">
             커피 한 잔의 여유로움으로 시작하는 특별한 경험
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-16">
           {services.map((service, index) => {
             const Icon = service.icon;
             const isReversed = index % 2 === 1;
@@ -87,7 +84,7 @@ export default function ServicesSection() {
                 data-testid={`service-${index}`}
               >
                 <div className={isReversed ? 'md:col-start-2' : ''}>
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                  <div className="aspect-[4/3] rounded-md overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -98,56 +95,39 @@ export default function ServicesSection() {
                 </div>
 
                 <div className={isReversed ? 'md:col-start-1 md:row-start-1' : ''}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Icon className="h-6 w-6" style={{ color: '#D4AF37' }} />
-                    </div>
-                    <span className="text-sm font-medium text-muted-foreground">
-                      {service.tag}
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl md:text-4xl font-bold mb-3" data-testid={`text-service-title-${index}`}>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: '#D4AF37' }} data-testid={`text-service-title-${index}`}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-lg mb-4" style={{ color: '#D4AF37' }}>
+                  <p className="text-sm mb-4 text-foreground">
                     {service.subtitle}
                   </p>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
-                  <div className="bg-muted/50 rounded-lg p-6 mb-6">
-                    <h4 className="font-semibold mb-4 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#D4AF37' }} />
+                  <div className="mb-6">
+                    <p className="text-xs font-semibold mb-2 text-foreground">
                       {index === 2 ? '동시 송출 예시' : '이렇게 진행돼요'}
-                    </h4>
-                    <ul className="space-y-3">
+                    </p>
+                    <ul className="space-y-2">
                       {service.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-sm">
-                          <span className="text-muted-foreground mt-0.5">{idx + 1}.</span>
-                          <span className="text-muted-foreground">{detail}</span>
+                        <li key={idx} className="text-xs text-muted-foreground">
+                          {idx + 1}. {detail}
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {service.note && (
-                    <p className="text-sm text-muted-foreground mb-4 italic border-l-2 pl-4 py-2" style={{ borderColor: '#D4AF37' }}>
+                    <p className="text-xs text-muted-foreground mb-4">
                       {service.note}
                     </p>
                   )}
 
-                  {service.highlight && (
-                    <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
-                      {service.highlight}
-                    </div>
-                  )}
-
                   <Button 
-                    size="lg"
+                    size="sm"
                     style={{ backgroundColor: '#D4AF37', color: '#000' }}
                     data-testid={`button-booking-${index}`}
                     asChild

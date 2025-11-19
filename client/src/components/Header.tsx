@@ -26,26 +26,23 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md border-b" : "bg-black/40 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b" : "bg-black/50 backdrop-blur-sm"
       }`}
       data-testid="header-main"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <a href="#home" className="flex items-center gap-3" data-testid="link-logo">
-            <div className="flex flex-col">
-              <div className="text-2xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>레코딩 카페</div>
-              <div className="text-xs tracking-widest opacity-80" style={{ color: '#D4AF37' }}>Recording Café</div>
-            </div>
+        <div className="flex items-center justify-between h-16">
+          <a href="#home" className="flex items-center" data-testid="link-logo">
+            <div className="text-xl font-bold tracking-wide" style={{ color: '#D4AF37' }}>레코딩 카페</div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`${isScrolled ? 'text-foreground' : 'text-white'} hover:opacity-80 transition-colors font-medium text-sm tracking-wide`}
+                className={`${isScrolled ? 'text-foreground' : 'text-white'} hover:opacity-70 transition-opacity text-sm`}
                 data-testid={`link-nav-${item.label}`}
               >
                 {item.label}
@@ -55,6 +52,7 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Button 
+              size="sm"
               className="hidden md:inline-flex" 
               style={{ backgroundColor: '#D4AF37', color: '#000' }}
               data-testid="button-booking-cta"
@@ -72,18 +70,18 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t bg-background px-4" data-testid="nav-mobile">
+          <nav className="md:hidden py-4 border-t bg-background" data-testid="nav-mobile">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-3 font-medium hover:opacity-80 transition-colors"
+                className="block py-2 text-sm hover:opacity-70 transition-opacity"
                 style={{ color: '#D4AF37' }}
                 onClick={() => setIsMobileMenuOpen(false)}
                 data-testid={`link-mobile-${item.label}`}
@@ -91,7 +89,7 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <Button className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking" asChild>
+            <Button size="sm" className="w-full mt-4" style={{ backgroundColor: '#D4AF37', color: '#000' }} data-testid="button-mobile-booking" asChild>
               <a href="https://booking.naver.com/booking/12/bizes/1536339" target="_blank" rel="noopener noreferrer">
                 예약하기
               </a>
