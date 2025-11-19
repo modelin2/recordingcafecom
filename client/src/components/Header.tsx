@@ -25,6 +25,7 @@ export default function Header() {
     { label: "공간", href: "#space" },
     { label: "서비스", href: "#services" },
     { label: "Creator OS", href: "#creator-os" },
+    { label: "후기", href: "#reviews" },
     { label: "예약", href: "#booking" },
     { label: "가맹점", href: "#franchise" },
   ];
