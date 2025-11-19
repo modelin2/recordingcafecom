@@ -10,6 +10,7 @@ export default function ReviewsSection() {
   const getCurrentLanguage = () => {
     if (location.startsWith('/en')) return 'en';
     if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
     return 'ko';
   };
 
@@ -26,6 +27,12 @@ export default function ReviewsSection() {
         title: "用户评价",
         subtitle: "来自全球客户的真实评价",
         closeButton: "关闭"
+      };
+    } else if (lang === 'jp') {
+      return {
+        title: "お客様のレビュー",
+        subtitle: "世界中のお客様からの本物のレビュー",
+        closeButton: "閉じる"
       };
     }
     return {

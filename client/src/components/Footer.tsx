@@ -10,8 +10,141 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useLocation } from "wouter";
 
 export default function Footer() {
+  const [location] = useLocation();
+
+  const getCurrentLanguage = () => {
+    if (location.startsWith('/en')) return 'en';
+    if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
+    return 'ko';
+  };
+
+  const getText = () => {
+    const lang = getCurrentLanguage();
+    if (lang === 'en') {
+      return {
+        subtitle: "Where Music Meets Coffee",
+        quickLinks: "Quick Links",
+        spaceIntro: "Space Introduction",
+        services: "Services",
+        reviews: "Reviews",
+        booking: "Booking",
+        franchise: "Franchise",
+        address: "Address",
+        businessHours: "Business Hours: Weekdays 12:00-21:00",
+        parkingGuide: "Parking Information",
+        publicParking: "1. Public Parking",
+        publicParkingAddr: "89-5 Jamwon-dong, Seocho-gu, Seoul",
+        publicParkingNote: "(5-min walk, affordable)",
+        paidParking: "2. Paid Parking",
+        paidParkingAddr: "40 Gangnam-daero 101-gil, Seocho-gu, Seoul",
+        paidParkingNote: "(10-second walk)",
+        contact: "Contact",
+        companyInfo: "Company Information",
+        companyName: "Company Name",
+        businessNumber: "Business Registration Number",
+        onlineSales: "Online Sales Registration",
+        representative: "Representative",
+        copyrightText: "Recording Café. All rights reserved.",
+        policyText1: "This site is for informational purposes only. For business matters, contact via email.",
+        policyText2: "The services used in this business are provided by separate legal entities according to their respective terms of service.",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service"
+      };
+    } else if (lang === 'zh') {
+      return {
+        subtitle: "音乐与咖啡的特别空间",
+        quickLinks: "快速链接",
+        spaceIntro: "空间介绍",
+        services: "服务",
+        reviews: "评价",
+        booking: "预约",
+        franchise: "加盟",
+        address: "地址",
+        businessHours: "营业时间：工作日 12:00-21:00",
+        parkingGuide: "停车指南",
+        publicParking: "1. 公共停车场",
+        publicParkingAddr: "首尔特别市瑞草区蚕院洞 89-5",
+        publicParkingNote: "（步行5分钟，便宜）",
+        paidParking: "2. 付费停车场",
+        paidParkingAddr: "首尔特别市瑞草区江南大路101街 40",
+        paidParkingNote: "（步行10秒）",
+        contact: "联系方式",
+        companyInfo: "公司信息",
+        companyName: "公司名称",
+        businessNumber: "营业执照号",
+        onlineSales: "网上销售注册",
+        representative: "代表",
+        copyrightText: "录音咖啡馆。保留所有权利。",
+        policyText1: "本网站仅供信息参考。如有业务事宜，请通过电子邮件联系。",
+        policyText2: "本业务中使用的服务由单独的法律实体根据各自的服务条款提供。",
+        privacyPolicy: "隐私政策",
+        termsOfService: "服务条款"
+      };
+    } else if (lang === 'jp') {
+      return {
+        subtitle: "音楽とコーヒーが出会う特別な空間",
+        quickLinks: "クイックリンク",
+        spaceIntro: "スペース紹介",
+        services: "サービス",
+        reviews: "レビュー",
+        booking: "予約",
+        franchise: "フランチャイズ",
+        address: "住所",
+        businessHours: "営業時間：平日 12:00-21:00",
+        parkingGuide: "駐車案内",
+        publicParking: "1. 公営駐車場",
+        publicParkingAddr: "ソウル特別市瑞草区蚕院洞 89-5",
+        publicParkingNote: "（徒歩5分、お手頃）",
+        paidParking: "2. 有料駐車場",
+        paidParkingAddr: "ソウル特別市瑞草区江南大路101キル 40",
+        paidParkingNote: "（徒歩10秒）",
+        contact: "お問い合わせ",
+        companyInfo: "会社情報",
+        companyName: "会社名",
+        businessNumber: "事業者登録番号",
+        onlineSales: "通信販売業届出",
+        representative: "代表者",
+        copyrightText: "レコーディングカフェ。無断転載禁止。",
+        policyText1: "このサイトは情報提供のみを目的としています。ビジネスに関するお問い合わせは、メールでご連絡ください。",
+        policyText2: "本事業で使用されるサービスは、各々の利用規約に従い、別の法人により提供されます。",
+        privacyPolicy: "プライバシーポリシー",
+        termsOfService: "利用規約"
+      };
+    }
+    return {
+      subtitle: "음악과 커피가 만나는 특별한 공간",
+      quickLinks: "바로가기",
+      spaceIntro: "공간 소개",
+      services: "서비스",
+      reviews: "이용자 후기",
+      booking: "예약하기",
+      franchise: "가맹점 안내",
+      address: "주소",
+      businessHours: "영업시간: 평일 12:00-21:00",
+      parkingGuide: "주차안내",
+      publicParking: "1. 공영 주차장",
+      publicParkingAddr: "서울특별시 서초구 잠원동 89-5",
+      publicParkingNote: "(도보 5분거리, 저렴)",
+      paidParking: "2. 유료 주차장",
+      paidParkingAddr: "서울특별시 서초구 강남대로 101길 40",
+      paidParkingNote: "(도보 10초거리)",
+      contact: "문의",
+      companyInfo: "사업자 정보",
+      companyName: "상호명",
+      businessNumber: "사업자등록번호",
+      onlineSales: "통신판매업신고",
+      representative: "대표자",
+      copyrightText: "레코딩 카페. All rights reserved.",
+      policyText1: "본 사이트는 정보 제공 목적으로만 제공됩니다. 사업 관련 문의는 이메일로 연락해주세요.",
+      policyText2: "본 사업에서 이용되는 서비스는 각각의 이용약관에 따라 별도의 법인에 의해 제공됩니다.",
+      privacyPolicy: "개인정보처리방침",
+      termsOfService: "이용약관"
+    };
+  };
   return (
     <footer className="bg-black text-white" data-testid="footer-main">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
@@ -22,7 +155,7 @@ export default function Footer() {
               <div className="text-xs tracking-widest opacity-60" style={{ color: '#D4AF37' }}>Recording Café</div>
             </div>
             <p className="text-sm text-white/60 mb-6 leading-relaxed">
-              음악과 커피가 만나는 특별한 공간
+              {getText().subtitle}
             </p>
             <div className="flex gap-3">
               <Button variant="ghost" size="icon" className="hover:bg-white/10" data-testid="button-social-naver" asChild>
@@ -49,39 +182,39 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-white">바로가기</h3>
+            <h3 className="font-semibold mb-4 text-white">{getText().quickLinks}</h3>
             <ul className="space-y-3 text-sm text-white/60">
-              <li><a href="#space" className="hover:text-white transition-colors">공간 소개</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">서비스</a></li>
+              <li><a href="#space" className="hover:text-white transition-colors">{getText().spaceIntro}</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">{getText().services}</a></li>
               <li><a href="#creator-os" className="hover:text-white transition-colors">Creator OS</a></li>
-              <li><a href="#reviews" className="hover:text-white transition-colors">이용자 후기</a></li>
-              <li><a href="#booking" className="hover:text-white transition-colors">예약하기</a></li>
-              <li><a href="#franchise" className="hover:text-white transition-colors">가맹점 안내</a></li>
+              <li><a href="#reviews" className="hover:text-white transition-colors">{getText().reviews}</a></li>
+              <li><a href="#booking" className="hover:text-white transition-colors">{getText().booking}</a></li>
+              <li><a href="#franchise" className="hover:text-white transition-colors">{getText().franchise}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-white">주소</h3>
+            <h3 className="font-semibold mb-4 text-white">{getText().address}</h3>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: '#D4AF37' }} />
                 <span>서울특별시 서초구 강남대로107길 21. 2층</span>
               </li>
               <li className="flex items-center gap-2 pt-2">
-                <span className="text-xs text-white/40">영업시간: 평일 12:00-21:00</span>
+                <span className="text-xs text-white/40">{getText().businessHours}</span>
               </li>
               <li className="pt-4">
-                <h4 className="font-semibold text-white mb-2 text-sm">주차안내</h4>
+                <h4 className="font-semibold text-white mb-2 text-sm">{getText().parkingGuide}</h4>
                 <div className="space-y-2 text-xs">
                   <div>
-                    <p className="text-white/80 font-medium">1. 공영 주차장</p>
-                    <p className="text-white/50">서울특별시 서초구 잠원동 89-5</p>
-                    <p className="text-white/40">(도보 5분거리, 저렴)</p>
+                    <p className="text-white/80 font-medium">{getText().publicParking}</p>
+                    <p className="text-white/50">{getText().publicParkingAddr}</p>
+                    <p className="text-white/40">{getText().publicParkingNote}</p>
                   </div>
                   <div className="pt-1">
-                    <p className="text-white/80 font-medium">2. 유료 주차장</p>
-                    <p className="text-white/50">서울특별시 서초구 강남대로 101길 40</p>
-                    <p className="text-white/40">(도보 10초거리)</p>
+                    <p className="text-white/80 font-medium">{getText().paidParking}</p>
+                    <p className="text-white/50">{getText().paidParkingAddr}</p>
+                    <p className="text-white/40">{getText().paidParkingNote}</p>
                   </div>
                 </div>
               </li>
@@ -89,7 +222,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-white">문의</h3>
+            <h3 className="font-semibold mb-4 text-white">{getText().contact}</h3>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4 flex-shrink-0" style={{ color: '#D4AF37' }} />
@@ -110,11 +243,11 @@ export default function Footer() {
           <div className="flex gap-6">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="hover:text-white transition-colors">개인정보처리방침</button>
+                <button className="hover:text-white transition-colors">{getText().privacyPolicy}</button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh]">
                 <DialogHeader>
-                  <DialogTitle>개인정보처리방침</DialogTitle>
+                  <DialogTitle>{getText().privacyPolicy}</DialogTitle>
                   <DialogDescription>
                     레코딩 카페 개인정보처리방침
                   </DialogDescription>
@@ -225,11 +358,11 @@ export default function Footer() {
 
             <Dialog>
               <DialogTrigger asChild>
-                <button className="hover:text-white transition-colors">이용약관</button>
+                <button className="hover:text-white transition-colors">{getText().termsOfService}</button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[80vh]">
                 <DialogHeader>
-                  <DialogTitle>이용약관</DialogTitle>
+                  <DialogTitle>{getText().termsOfService}</DialogTitle>
                   <DialogDescription>
                     레코딩 카페 서비스 이용약관
                   </DialogDescription>

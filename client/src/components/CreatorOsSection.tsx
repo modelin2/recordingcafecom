@@ -9,6 +9,7 @@ export default function CreatorOsSection() {
   const getCurrentLanguage = () => {
     if (location.startsWith('/en')) return 'en';
     if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
     return 'ko';
   };
 
@@ -68,6 +69,33 @@ export default function CreatorOsSection() {
           buttonText: "韩国网红协会"
         }
       ];
+    } else if (lang === 'jp') {
+      return [
+        {
+          title: "俳優 OS",
+          subtitle: "ハリウッドプロフィール",
+          description: "AIヘア/メイク/ロケーションシミュレーション。グローバルキャスティングサイトのプロフィール登録代行",
+          result: "オーディション合格率向上、海外進出機会拡大",
+          link: "https://holly.ai.kr/",
+          buttonText: "ハリウッドプロフィール"
+        },
+        {
+          title: "歌手 OS",
+          subtitle: "レコーディングカフェ",
+          description: "AI支援創作からタイムスタンプ/著作権登録、海外流通まで",
+          result: "初期ロイヤリティ発生、音楽資産ポートフォリオ構築",
+          link: "https://chinastage.co.kr/",
+          buttonText: "中国ファンミーティング専門代行"
+        },
+        {
+          title: "インフルエンサー OS",
+          subtitle: "ボラボックス",
+          description: "少数フォロワーのインフルエンサーもコラボで成長。アーティスト認証による生活支援",
+          result: "多様な収益源確保、安定したインフルエンサー成長",
+          link: "https://influencer.kr/",
+          buttonText: "韓国インフルエンサー協会"
+        }
+      ];
     }
     return [
       {
@@ -114,6 +142,14 @@ export default function CreatorOsSection() {
         subtitle: "设计并运营创作者的终身收入结构",
         investment: "用AI技术投资，让创作者的梦想成真",
         footer: "录音咖啡馆为成为专业人士提供职业操作系统(OS)"
+      };
+    } else if (lang === 'jp') {
+      return {
+        title: "クリエイター オペレーティングシステム",
+        tagline: "AI × エンターテインメント × ファイナンス",
+        subtitle: "クリエイターの生涯収益構造を設計・運営",
+        investment: "AI技術でクリエイターの夢を実現する投資",
+        footer: "レコーディングカフェはプロへ成長するためのキャリアオペレーティングシステム(OS)を提供します"
       };
     }
     return {

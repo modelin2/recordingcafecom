@@ -5,6 +5,7 @@ import { useLocation } from "wouter";
 import KR from 'country-flag-icons/react/3x2/KR';
 import US from 'country-flag-icons/react/3x2/US';
 import CN from 'country-flag-icons/react/3x2/CN';
+import JP from 'country-flag-icons/react/3x2/JP';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,6 +21,7 @@ export default function Header() {
   const getCurrentLanguage = () => {
     if (location.startsWith('/en')) return 'en';
     if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
     return 'ko';
   };
 
@@ -45,6 +47,16 @@ export default function Header() {
         { label: "预约", href: "#booking" },
         { label: "加盟", href: "#franchise" },
       ];
+    } else if (lang === 'jp') {
+      return [
+        { label: "ホーム", href: "#home" },
+        { label: "スペース", href: "#space" },
+        { label: "サービス", href: "#services" },
+        { label: "Creator OS", href: "#creator-os" },
+        { label: "レビュー", href: "#reviews" },
+        { label: "予約", href: "#booking" },
+        { label: "フランチャイズ", href: "#franchise" },
+      ];
     }
     return [
       { label: "홈", href: "#home" },
@@ -61,6 +73,7 @@ export default function Header() {
     const lang = getCurrentLanguage();
     if (lang === 'en') return 'Book Now';
     if (lang === 'zh') return '立即预约';
+    if (lang === 'jp') return '予約する';
     return '예약하기';
   };
 
@@ -68,6 +81,7 @@ export default function Header() {
     const lang = getCurrentLanguage();
     if (lang === 'en') return <US className="h-5 w-7" />;
     if (lang === 'zh') return <CN className="h-5 w-7" />;
+    if (lang === 'jp') return <JP className="h-5 w-7" />;
     return <KR className="h-5 w-7" />;
   };
 
@@ -85,6 +99,7 @@ export default function Header() {
     const lang = getCurrentLanguage();
     if (lang === 'en') return '/en';
     if (lang === 'zh') return '/zh';
+    if (lang === 'jp') return '/jp';
     return '/';
   };
 
@@ -137,6 +152,9 @@ export default function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLocation('/zh')} data-testid="menu-lang-zh" className="flex items-center gap-2">
                   <CN className="h-4 w-6" /> 中文
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocation('/jp')} data-testid="menu-lang-jp" className="flex items-center gap-2">
+                  <JP className="h-4 w-6" /> 日本語
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

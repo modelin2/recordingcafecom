@@ -9,6 +9,7 @@ export default function BookingSection() {
   const getCurrentLanguage = () => {
     if (location.startsWith('/en')) return 'en';
     if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
     return 'ko';
   };
 
@@ -37,6 +38,18 @@ export default function BookingSection() {
         requiredDetail: "建议提前预约",
         response: "快速响应",
         responseDetail: "平均10分钟内回复"
+      };
+    } else if (lang === 'jp') {
+      return {
+        title: "予約のお問い合わせ",
+        description: "Naver予約システムで簡単に予約できます。",
+        buttonText: "Naver予約",
+        hours: "営業時間",
+        hoursDetail: "平日 12:00-21:00",
+        required: "要予約",
+        requiredDetail: "事前予約推奨",
+        response: "迅速な対応",
+        responseDetail: "平均10分以内に返信"
       };
     }
     return {

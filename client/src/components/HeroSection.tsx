@@ -10,6 +10,7 @@ export default function HeroSection() {
   const getCurrentLanguage = () => {
     if (location.startsWith('/en')) return 'en';
     if (location.startsWith('/zh')) return 'zh';
+    if (location.startsWith('/jp')) return 'jp';
     return 'ko';
   };
 
@@ -24,6 +25,11 @@ export default function HeroSection() {
       return {
         subtitle: "音乐与咖啡的特别空间",
         bookingButton: "立即预约"
+      };
+    } else if (lang === 'jp') {
+      return {
+        subtitle: "音楽とコーヒーが出会う特別な空間",
+        bookingButton: "予約する"
       };
     }
     return {
