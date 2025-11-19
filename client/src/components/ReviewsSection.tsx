@@ -1,46 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { useState } from "react";
-import { useLocation } from "wouter";
 
 export default function ReviewsSection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [location] = useLocation();
-
-  const getCurrentLanguage = () => {
-    if (location.startsWith('/en')) return 'en';
-    if (location.startsWith('/zh')) return 'zh';
-    if (location.startsWith('/jp')) return 'jp';
-    return 'ko';
-  };
-
-  const getText = () => {
-    const lang = getCurrentLanguage();
-    if (lang === 'en') {
-      return {
-        title: "Customer Reviews",
-        subtitle: "Authentic reviews from customers worldwide",
-        closeButton: "Close"
-      };
-    } else if (lang === 'zh') {
-      return {
-        title: "用户评价",
-        subtitle: "来自全球客户的真实评价",
-        closeButton: "关闭"
-      };
-    } else if (lang === 'jp') {
-      return {
-        title: "お客様のレビュー",
-        subtitle: "世界中のお客様からの本物のレビュー",
-        closeButton: "閉じる"
-      };
-    }
-    return {
-      title: "이용자 후기",
-      subtitle: "전 세계 고객들의 진솔한 후기",
-      closeButton: "닫기"
-    };
-  };
 
   const reviews = [
     { id: 1, image: "/reviews/review-1.jpg" },
@@ -64,7 +27,7 @@ export default function ReviewsSection() {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold mb-6" data-testid="text-reviews-title">
-            {getText().title}
+            이용자 후기
           </h2>
 
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -78,7 +41,7 @@ export default function ReviewsSection() {
           </div>
 
           <p className="text-lg text-muted-foreground">
-            {getText().subtitle}
+            전 세계 고객들의 진솔한 후기
           </p>
         </div>
 
@@ -102,7 +65,6 @@ export default function ReviewsSection() {
         </div>
       </div>
 
-      {/* Full-size image modal */}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
@@ -115,7 +77,7 @@ export default function ReviewsSection() {
               onClick={() => setSelectedImage(null)}
               data-testid="button-close-modal"
             >
-              <span>{getText().closeButton}</span>
+              <span>닫기</span>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
