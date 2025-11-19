@@ -92,7 +92,7 @@ export default function CreatorOsSection() {
             <CardContent className="p-8">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 레코딩 카페는 프로로 성장하기 위한<br className="hidden sm:block" />{' '}
-                <span className="font-semibold text-foreground">성공적인 커리어 운영체제(OS)</span>를 제공합니다
+                <span className="font-semibold text-foreground">커리어 운영체제(OS)</span>를 제공합니다
               </p>
             </CardContent>
           </Card>
