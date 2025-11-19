@@ -1,221 +1,139 @@
-# 레코딩 카페 (Recording Café)
+# Recording Café - K-pop Entertainment Space
 
 ## Overview
 
-Recording Café is a luxury café homepage positioning the brand as a creator-focused company builder. The site features professional entertainment services (recording studio, AI self-photo studio with patented mirror camera, multi-channel live broadcasting) using a minimalist design with gold (#D4AF37) accent color.
+Recording Café is a premium content creation space that combines café ambiance with professional entertainment industry facilities. The platform targets everyday people who want to become content creators through recording studios, professional photography, and live broadcasting services. The business model draws inspiration from K-pop entertainment leaders (HYBE, SM Entertainment) while maintaining accessibility for general consumers.
 
-Korean-only content with "Creator OS" section showcasing three integrated pipelines with external platform links, emphasizing AI × Entertainment × Finance for creators' lifetime revenue structure design and operation.
-
-## Project Goals
-
-- **Brand Positioning**: Creator-focused company builder with luxury café experience
-- **Design Philosophy**: Minimalist design inspired by SUMSEI with gold (#D4AF37) as signature accent
-- **Target Audience**: Korean creators and potential franchise partners
-- **Business Model**: Professional entertainment services + franchise opportunities
-
-## Design System
-
-### Color Palette
-
-**Primary**:
-- Gold Accent: #D4AF37 (used sparingly for logo, headings, and key highlights only)
-- Background: Default background color (adapts to light/dark mode)
-- Foreground: Default text color (adapts to light/dark mode)
-- Muted: text-muted-foreground (for secondary information)
-
-**Design Principles**:
-- Minimalist luxury: Clean, simple design that lets content breathe
-- Gold is precious, use it sparingly for maximum impact
-- Generous white space between elements
-- No flashy animations or decorations
-- Subtle interactions only
-
-### Typography
-
-- Main Headings: text-3xl md:text-4xl lg:text-5xl, font-bold, gold color
-- Section Headings: text-2xl md:text-3xl, font-semibold, gold color
-- Body Text: text-sm md:text-base, normal weight, foreground color
-- Small Text: text-xs, muted-foreground color
-- Font Stack: System fonts (Inter, Pretendard for Korean)
-
-### Layout
-
-**Spacing**:
-- Tight: gap-2, gap-3 (between small elements)
-- Default: gap-4, gap-6 (between cards, sections)
-- Generous: gap-8, gap-12 (major section separation)
-- Section Padding: py-12 md:py-16 lg:py-20
-
-**Container**: max-w-7xl, px-4 sm:px-6 lg:px-8
-
-**Grid Strategy**:
-- Desktop: 3-column max for service cards
-- Tablet: 2-column
-- Mobile: Always single column
+The application serves as a marketing and booking platform for a franchise business with 10+ years of entertainment industry experience, featuring patented technology for AI-powered photography and multi-channel live broadcasting capabilities.
 
 ## User Preferences
 
-- **Communication**: Simple, everyday Korean language
-- **Brand Name**: "레코딩 카페" (NOT "K 레코딩 카페" or "(주)레코딩카페")
-- **Design**: Minimalist with gold accents, clean and simple
-- **Credit Efficiency**: Bundle 10-15 changes together for optimal credit use
+Preferred communication style: Simple, everyday language.
 
-## Application Structure
+## System Architecture
 
 ### Frontend Architecture
 
-**Framework**: React 18+ with TypeScript running on Vite
+**Framework**: React 18+ with TypeScript running on Vite for fast development and optimized production builds.
 
-**Routing**: Wouter for lightweight client-side routing (single-page application)
+**Routing**: Wouter for lightweight client-side routing, currently implementing a single-page application with Home and 404 pages.
 
-**UI Components**: Shadcn/ui with Radix UI primitives, styled with Tailwind CSS
+**UI Component Library**: Shadcn/ui with Radix UI primitives, providing accessible, customizable components styled with Tailwind CSS. The design system follows a "New York" style variant with custom color schemes emphasizing gold accents (#D4AF37) for premium branding.
 
-**State Management**: TanStack Query for server state management
+**Styling Strategy**: 
+- Tailwind CSS with custom configuration for brand-specific colors and spacing
+- Custom CSS variables for theming (light/dark mode support)
+- Typography hierarchy using Inter and Space Grotesk fonts
+- Mobile-first responsive design with breakpoints at 768px (md) and 1024px (lg)
 
-**Pages & Sections** (in order):
-1. Home (Hero with video background)
-2. 공간 (Space) - Interior and atmosphere showcase
-3. 서비스 (Services) - Recording studio, AI photo studio, BORA BOX
-4. Creator OS - Three pipelines (Actor OS, Singer OS, Influencer OS)
-5. 후기 (Reviews) - 10 Klook review screenshots with modal
-6. 예약 (Booking) - Naver booking system
-7. 가맹점 (Franchise) - Patent protection and franchise info
+**State Management**: TanStack Query (React Query) for server state management with custom query client configuration. No global client state management library - relies on React hooks and component state.
 
-### Key Features
-
-**Recording Studio**:
-- Professional audio recording
-- Copyright registration
-- AI-assisted creation
-
-**AI Photo Studio**:
-- Patented mirror camera technology (국내 최초)
-- AI hair/makeup/styling generation
-- Face features 100% preserved
-
-**BORA BOX**:
-- Multi-channel live broadcasting
-- 4-channel simultaneous streaming
-- Independent booth system
-
-**Creator OS Pipelines**:
-1. Actor OS - Hollywood Profile (holly.ai.kr)
-2. Singer OS - China Stage (chinastage.co.kr)
-3. Influencer OS - Korean Influencer Association (influencer.kr)
-
-### Contact Information
-
-- **Address**: 서울특별시 서초구 강남대로107길 21. 2층
-- **Email**: biz@recordingcafe.com
-- **Operating Hours**: 평일 12:00-21:00
-- **Booking**: https://booking.naver.com/booking/12/bizes/1536339
-
-**Parking**:
-1. 공영 주차장: 서울특별시 서초구 잠원동 89-5 (도보 5분거리, 저렴)
-2. 유료 주차장: 서울특별시 서초구 강남대로 101길 40 (도보 10초거리)
-
-**Social Media**:
-- Naver Blog: https://blog.naver.com/recordingcafe
-- YouTube: https://www.youtube.com/@recording-cafe
-- Instagram: https://www.instagram.com/recordingcafe
+**Design System**: 
+- Component-based architecture with reusable UI components
+- Hover and active elevation effects for interactive elements
+- Consistent spacing using Tailwind's spacing scale (4, 6, 8, 12, 16, 20, 24)
+- Card-based layouts with subtle shadows and borders
 
 ### Backend Architecture
 
-**Server**: Express.js with TypeScript (ES module)
+**Server Framework**: Express.js with TypeScript, configured as an ES module.
 
-**Storage**: In-memory storage interface (MemStorage) - ready for database upgrade
+**Development Setup**: 
+- Vite middleware integration for HMR during development
+- Custom logging middleware for API request tracking
+- Raw body parsing for webhook/payment integrations
 
-**Database**: PostgreSQL via Neon serverless (configured but minimal use)
+**API Structure**: RESTful API with routes prefixed with `/api`. Currently implements a minimal route setup with placeholder for CRUD operations.
 
-**API**: RESTful with `/api` prefix
+**Session Management**: Uses `connect-pg-simple` for PostgreSQL-based session storage, though sessions are not yet fully implemented.
 
-## Recent Changes
+**Storage Layer**: Currently implements an in-memory storage interface (`MemStorage`) with methods for user CRUD operations. This abstraction allows easy swap to database-backed storage.
 
-### Design Overhaul (Latest)
+### Data Storage
 
-**Minimalist Redesign**:
-- Simplified all sections to match SUMSEI minimalist aesthetic
-- Removed decorative elements (badges, icons, heavy cards)
-- Reduced text sizes throughout (text-xs, text-sm as default)
-- Simplified header (h-16 instead of h-20, smaller logo)
-- Cleaner footer (vertical layout, smaller icons h-4 w-4)
-- Removed "(주)레코딩카페" company name from footer
-- Gold (#D4AF37) only on headings and brand elements
-- Generous white space between sections
-- Border-left accents instead of heavy cards
-- Smaller, more subtle buttons (size="sm" default)
+**Database**: PostgreSQL configured via `@neondatabase/serverless` for serverless PostgreSQL connections.
 
-**Footer Updates**:
-- SUMSEI-style vertical layout
-- Small text sizes (text-xs)
-- Facebook link restored
-- SNS icons reduced to h-4 w-4
-- Removed company name "(주)레코딩카페"
-- Simple hover states (text-muted-foreground → text-foreground)
+**ORM**: Drizzle ORM with:
+- Schema definitions in `shared/schema.ts`
+- Type-safe database operations
+- Zod integration for runtime validation
+- Migration support via `drizzle-kit`
 
-**Header Improvements**:
-- Reduced height to h-16
-- Single-line logo (removed English subtitle)
-- Smaller nav gap (gap-6)
-- Smaller button size (size="sm")
-- Cleaner mobile menu
+**Current Schema**: Minimal user table with UUID primary keys, username, and password fields. Schema uses `gen_random_uuid()` for automatic UUID generation.
 
-**Section Simplification**:
-- All sections: py-16 md:py-20 (reduced from py-20 md:py-32)
-- Headings: text-3xl md:text-4xl (reduced from text-3xl md:text-5xl)
-- Body text: text-sm (reduced from text-base/text-lg)
-- Removed decorative badges and tags
-- Minimal borders and shadows
-- Clean card designs with subtle elevation
+**Data Validation**: Drizzle-zod integration creates Zod schemas from Drizzle table definitions, providing type-safe validation for inserts and updates.
 
-### Review System
+### Authentication & Authorization
 
-- Replaced review cards with 10 Klook review screenshots
-- Modal system with full-size image display
-- Scrollable content (max-h-[90vh] with overflow-y-auto)
-- Review images: Julian, Kristijan, Patrix, Yang 1-2, Emma, Evangeline, Klook Users, Dona
+**Current State**: Not implemented. The schema includes user table with username/password fields, suggesting future password-based authentication.
 
-### Navigation
+**Session Storage**: Configured for PostgreSQL-backed sessions via `connect-pg-simple`, but not yet activated in middleware.
 
-- Removed language selector (Globe icon) for cleaner header
-- Order: 홈 → 공간 → 서비스 → Creator OS → 후기 → 예약 → 가맹점
+### Application Structure
 
-### Creator OS Messaging
+**Monorepo Layout**:
+- `/client` - React frontend application
+- `/server` - Express backend application
+- `/shared` - Shared TypeScript types and schemas
+- `/attached_assets` - Static assets (images)
 
-- Removed "성공적인" from "커리어 운영체제(OS)를 제공합니다"
-- Simplified to focus on core message
+**Path Aliases**:
+- `@/` → `client/src/`
+- `@shared/` → `shared/`
+- `@assets/` → `attached_assets/`
+
+**Build Process**:
+- Frontend: Vite builds to `dist/public`
+- Backend: esbuild bundles server to `dist/index.js`
+- Production: Node.js serves built assets
+
+### Key Features
+
+**Service Offerings** (Marketing Pages):
+1. **Recording Studio**: Professional audio recording with copyright registration and revenue sharing
+2. **AI Photo Studio**: Patented mirror-camera technology with AI styling
+3. **Multi-Channel Broadcasting**: BORA BOX system for simultaneous streaming to 4 platforms
+
+**Booking System**: Form-based inquiry system with toast notifications (backend not yet connected).
+
+**Franchise Information**: Legal notice section regarding patent protection and franchise conversion process.
+
+**Responsive Design**: Mobile-first approach with hamburger menu navigation, optimized layouts for tablet and desktop.
 
 ## External Dependencies
 
-### Core
-- Neon PostgreSQL serverless
-- Vite for build and dev
-- Express.js for backend
+### Core Infrastructure
 
-### UI & Forms
-- Radix UI primitives
-- React Hook Form with Zod
-- Lucide React icons
-- React Icons (social media)
+- **Database**: Neon PostgreSQL serverless database
+- **Session Store**: PostgreSQL via `connect-pg-simple`
 
-### Utilities
-- date-fns
-- Embla Carousel
-- Wouter routing
-- TanStack Query
+### Frontend Libraries
 
-## Development Notes
+- **UI Components**: Radix UI primitives (@radix-ui/react-*)
+- **Forms**: React Hook Form with Zod resolver (@hookform/resolvers)
+- **Routing**: Wouter for client-side routing
+- **Date Handling**: date-fns for date formatting and manipulation
+- **Carousel**: Embla Carousel React for image carousels
+- **Icons**: Lucide React + React Icons (for social media)
 
-- Mobile-first responsive design
-- Dark mode support via semantic tokens
-- Path aliases: @/ (client/src), @shared/ (shared), @assets/ (attached_assets)
-- Build: Vite for frontend, esbuild for backend
-- Workflow: `npm run dev` runs both frontend and backend
+### Development Tools
 
-## Business Context
+- **Build**: Vite with React plugin
+- **TypeScript**: Strict mode enabled with path aliases
+- **CSS**: Tailwind CSS with PostCSS and Autoprefixer
+- **Code Quality**: ESM modules, strict TypeScript configuration
 
-- 10+ years entertainment industry experience
-- Patented mirror camera technology
-- Multi-channel broadcasting system
-- Franchise business model
-- Focus on creator career development (AI × Entertainment × Finance)
+### Fonts & Assets
+
+- **Typography**: Google Fonts (Inter, Space Grotesk)
+- **Images**: Static assets stored in `attached_assets` directory
+- **Icons**: Lucide React for UI icons
+
+### Potential Future Integrations
+
+Based on the design guidelines and business model:
+- Payment processing (Stripe/Korean payment gateways)
+- Copyright registration APIs (US partnership mentioned)
+- Social media APIs (Douyin/Xiaohongshu for Chinese market)
+- Cloud storage for user-generated content
+- Email service for booking confirmations
