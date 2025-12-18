@@ -28,9 +28,9 @@ export default function HeroSection() {
         
         <iframe
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://www.youtube.com/embed/kTsgj9n-9ks?autoplay=1&mute=1&loop=1&playlist=kTsgj9n-9ks&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1"
+          src="https://www.youtube.com/embed/kTsgj9n-9ks?autoplay=1&mute=1&playsinline=1&loop=1&playlist=kTsgj9n-9ks&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1"
           title="레코딩 카페 홍보 영상"
-          allow="autoplay; encrypted-media"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{ pointerEvents: 'none' }}
           onLoad={() => setVideoLoaded(true)}
