@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Calendar, MapPin, Navigation } from "lucide-react";
+import { Calendar, MapPin, Navigation } from "lucide-react";
 
 export default function Map() {
   const googleMapsUrl = "https://maps.app.goo.gl/e1icPM8brHVJyPRL7";
-  const bookingUrl = "https://booking.naver.com/booking/13/bizes/1068331";
+  const bookingUrl = "https://record.co.kr/";
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -58,10 +58,13 @@ export default function Map() {
           <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-2 text-lg font-semibold" style={{ color: '#D4AF37' }}>
               <MapPin className="h-5 w-5" />
-              <span>레코딩 카페</span>
+              <span>Recording Café</span>
             </div>
             <p className="text-sm text-white/60">
-              서울특별시 서초구 강남대로107길 21. 2층
+              2F. 21, Gangnam-daero 107-gil, Seocho-gu, Seoul, Republic of Korea
+            </p>
+            <p className="text-xs text-white/50">
+              4 mins walk from Sinsa Station (Line 3)
             </p>
           </div>
 
@@ -76,20 +79,6 @@ export default function Map() {
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
               <Navigation className="h-5 w-5 mr-2" />
               Google Maps / 길찾기
-            </a>
-          </Button>
-
-          {/* Call Button */}
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="w-full text-base font-semibold border-white/30 text-white hover:bg-white/10"
-            data-testid="button-call"
-          >
-            <a href="tel:02-525-6689">
-              <Phone className="h-5 w-5 mr-2" />
-              Call / 전화하기
             </a>
           </Button>
         </div>
@@ -114,7 +103,7 @@ export default function Map() {
           <h2 className="text-center text-lg font-semibold" style={{ color: '#D4AF37' }}>
             Recording Café
           </h2>
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+          <div className="relative w-full max-w-md mx-auto" style={{ aspectRatio: '9/16' }}>
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               src="https://www.youtube.com/embed/kTsgj9n-9ks?autoplay=1&mute=1&playsinline=1&loop=1&playlist=kTsgj9n-9ks&rel=0&modestbranding=1"
@@ -130,12 +119,14 @@ export default function Map() {
         {/* Home Link */}
         <div className="pt-6 text-center">
           <a 
-            href="/" 
-            className="text-sm text-white/50 hover:text-white/80 transition-colors"
+            href="https://record.co.kr/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm hover:opacity-80 transition-opacity"
             style={{ color: '#D4AF37' }}
             data-testid="link-home"
           >
-            recordingcafe.com
+            record.co.kr
           </a>
         </div>
       </div>
