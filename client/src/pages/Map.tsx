@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Phone, Calendar, MapPin, Navigation } from "lucide-react";
 
 export default function Map() {
-  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=서울특별시+서초구+강남대로107길+21";
+  const googleMapsUrl = "https://maps.app.goo.gl/e1icPM8brHVJyPRL7";
   const bookingUrl = "https://booking.naver.com/booking/13/bizes/1068331";
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Han River Walking Guide Video (YouTube Shorts - vertical) */}
-      <div className="relative w-full max-w-md mx-auto" style={{ paddingTop: '177.78%' }}>
+      {/* Han River Walking Guide Video (YouTube Shorts - vertical, flush to top) */}
+      <div className="relative w-full max-w-md mx-auto" style={{ aspectRatio: '9/16' }}>
         <iframe
           className="absolute top-0 left-0 w-full h-full"
           src="https://www.youtube.com/embed/FzBqrwM5nvk?autoplay=1&mute=1&playsinline=1&loop=1&playlist=FzBqrwM5nvk&rel=0&modestbranding=1"
