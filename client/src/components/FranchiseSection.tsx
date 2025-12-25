@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, Handshake, TrendingUp } from "lucide-react";
+import { Handshake, TrendingUp } from "lucide-react";
 
 export default function FranchiseSection() {
   return (
@@ -14,26 +14,6 @@ export default function FranchiseSection() {
             가맹점 안내
           </h2>
         </div>
-
-        <Card className="border-border/50 mb-8">
-          <CardContent className="p-8 md:p-12">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
-                <AlertTriangle className="h-6 w-6 text-destructive" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">
-                  특허 무단 사용 중지 및 정식 가맹점 전환 절차 안내
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  현재 무단으로 당사의 특허 기술을 사용 중인 셀프 사진관 관계자 여러분께서는, 
-                  운영 수익이 증가할수록 그에 대한 법적 리스크(배상액) 또한 증가하고 있다는 점을 인지하시어 
-                  정식 가맹점으로의 전환을 권고드립니다.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <Card className="border-border/50 hover-elevate">
