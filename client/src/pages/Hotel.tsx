@@ -64,6 +64,16 @@ const translations = {
     feature4Desc: "Spotify, Apple Music 등 전 세계에 음원 배포",
     galleryTitle: "공간",
     galleryTitleHighlight: "둘러보기",
+    mapTitle: "오시는",
+    mapTitleHighlight: "길",
+    mapSinsa: "신사역",
+    mapSinsaDesc: "3호선",
+    mapHotel: "리버사이드 호텔",
+    mapHotelDesc: "정문",
+    mapCafe: "레코딩카페",
+    mapCafeDesc: "대능빌딩 2F",
+    mapWalk1: "도보 4분",
+    mapWalk2: "도보 30초",
     visitTitle: "방문",
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
@@ -108,6 +118,16 @@ const translations = {
     feature4Desc: "Spotify、Apple Musicなど全世界で音源配信",
     galleryTitle: "空間を",
     galleryTitleHighlight: "見る",
+    mapTitle: "アクセス",
+    mapTitleHighlight: "マップ",
+    mapSinsa: "新沙駅",
+    mapSinsaDesc: "3号線",
+    mapHotel: "リバーサイドホテル",
+    mapHotelDesc: "正門",
+    mapCafe: "Recording Café",
+    mapCafeDesc: "大能ビル 2F",
+    mapWalk1: "徒歩4分",
+    mapWalk2: "徒歩30秒",
     visitTitle: "訪問",
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
@@ -152,6 +172,16 @@ const translations = {
     feature4Desc: "在Spotify、Apple Music等全球平台发行",
     galleryTitle: "空间",
     galleryTitleHighlight: "浏览",
+    mapTitle: "交通",
+    mapTitleHighlight: "指南",
+    mapSinsa: "新沙站",
+    mapSinsaDesc: "3号线",
+    mapHotel: "河畔酒店",
+    mapHotelDesc: "正门",
+    mapCafe: "Recording Café",
+    mapCafeDesc: "大能大厦 2F",
+    mapWalk1: "步行4分钟",
+    mapWalk2: "步行30秒",
     visitTitle: "访问",
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
@@ -196,6 +226,16 @@ const translations = {
     feature4Desc: "Music distribution on Spotify, Apple Music and more worldwide",
     galleryTitle: "Explore",
     galleryTitleHighlight: "Our Space",
+    mapTitle: "Location",
+    mapTitleHighlight: "Map",
+    mapSinsa: "Sinsa Station",
+    mapSinsaDesc: "Line 3",
+    mapHotel: "Riverside Hotel",
+    mapHotelDesc: "Main Gate",
+    mapCafe: "Recording Café",
+    mapCafeDesc: "Daenung Bldg 2F",
+    mapWalk1: "4 min walk",
+    mapWalk2: "30 sec walk",
     visitTitle: "How to",
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
@@ -295,9 +335,9 @@ export default function Hotel() {
         </section>
 
         {/* Video Section - Auto Play */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-black to-zinc-900">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-center mb-12">
+        <section className="py-8 md:py-24 bg-gradient-to-b from-black to-zinc-900">
+          <div className="max-w-4xl mx-auto px-2 md:px-4">
+            <div className="text-center mb-6 md:mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-4">
                 {t.videoTitle}<span style={{ color: '#D4AF37' }}>{t.videoTitleHighlight}</span>
               </h2>
@@ -306,7 +346,7 @@ export default function Hotel() {
               </p>
             </div>
 
-            <div className="relative aspect-video rounded-2xl overflow-hidden">
+            <div className="relative aspect-[9/16] md:aspect-video rounded-xl md:rounded-2xl overflow-hidden max-w-sm md:max-w-full mx-auto">
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/sGMcHrmCmDU?autoplay=1&mute=1&loop=1&playlist=sGMcHrmCmDU&playsinline=1"
@@ -418,6 +458,66 @@ export default function Hotel() {
                 <div>
                   <h4 className="font-bold mb-2">{t.feature4Title}</h4>
                   <p className="text-sm text-white/60">{t.feature4Desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Map Section */}
+        <section className="py-16 md:py-24 bg-black">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.mapTitle} <span style={{ color: '#D4AF37' }}>{t.mapTitleHighlight}</span>
+              </h2>
+            </div>
+
+            <div className="bg-zinc-900/50 rounded-2xl p-6 md:p-10 border border-white/10">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+                {/* Sinsa Station */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-orange-500 flex items-center justify-center mb-3">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.5 3.37 1.41 4.84.95 1.54 2.2 2.86 3.16 4.4.47.75.81 1.45 1.17 2.26.26.55.47 1.5 1.26 1.5s1-.95 1.26-1.5c.37-.81.7-1.51 1.17-2.26.96-1.53 2.21-2.85 3.16-4.4C18.5 12.37 19 10.74 19 9c0-3.87-3.13-7-7-7zm0 9.75c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-lg">{t.mapSinsa}</h4>
+                  <p className="text-sm text-white/60">{t.mapSinsaDesc}</p>
+                </div>
+
+                {/* Arrow 1 */}
+                <div className="flex flex-col items-center">
+                  <div className="hidden md:block w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500" />
+                  <div className="md:hidden h-12 w-0.5 bg-gradient-to-b from-orange-500 to-blue-500" />
+                  <p className="text-xs text-white/50 mt-1">{t.mapWalk1}</p>
+                </div>
+
+                {/* Riverside Hotel */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-500 flex items-center justify-center mb-3">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-7h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-lg">{t.mapHotel}</h4>
+                  <p className="text-sm text-white/60">{t.mapHotelDesc}</p>
+                </div>
+
+                {/* Arrow 2 */}
+                <div className="flex flex-col items-center">
+                  <div className="hidden md:block w-24 h-0.5 bg-gradient-to-r from-blue-500 to-[#D4AF37]" />
+                  <div className="md:hidden h-12 w-0.5 bg-gradient-to-b from-blue-500 to-[#D4AF37]" />
+                  <p className="text-xs text-white/50 mt-1">{t.mapWalk2}</p>
+                </div>
+
+                {/* Recording Café */}
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3" style={{ backgroundColor: '#D4AF37' }}>
+                    <Mic2 className="w-8 h-8 md:w-10 md:h-10 text-black" />
+                  </div>
+                  <h4 className="font-bold text-lg" style={{ color: '#D4AF37' }}>{t.mapCafe}</h4>
+                  <p className="text-sm text-white/60">{t.mapCafeDesc}</p>
                 </div>
               </div>
             </div>
