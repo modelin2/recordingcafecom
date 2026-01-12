@@ -1,10 +1,39 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Mic2, Sparkles, Globe, Music, Star, Clock, MapPin } from "lucide-react";
+import { Mic2, Sparkles, Globe, Music, Star, Clock, MapPin, Coffee, Navigation, Calendar } from "lucide-react";
 import heroImage from "@assets/RECORDINGCAFE_1768187595497.jpeg";
 import { useState } from "react";
 
+// Gallery images
+import galleryCouple from "@assets/레코딩카페_라운지_1768188070629.jpg";
+import galleryBooth1 from "@assets/레코딩카페_녹음부스_1768188070630.png";
+import galleryLounge1 from "@assets/레코딩카페_라운지_(5)_1768188070630.png";
+import galleryLounge2 from "@assets/레코딩카페_라운지_1768188070631.png";
+import galleryLounge3 from "@assets/레코딩카페_라운지5_1768188070631.png";
+import galleryLounge4 from "@assets/레코딩카페_라운지6_1768188070632.png";
+import galleryBooth2 from "@assets/레코딩카페_부스_(2)_1768188070632.png";
+import galleryBooth3 from "@assets/레코딩카페_부스_(3)_1768188070632.png";
+import galleryBooth4 from "@assets/레코딩카페_부스_(4)_1768188070633.png";
+import galleryBooth5 from "@assets/레코딩카페_부스_1768188070633.png";
+import galleryLuggage from "@assets/레코딩카페_여행가방보관장소_1768188070633.png";
+import galleryControl from "@assets/레코딩카페_컨트롤룸_1768188070634.png";
+
 type Language = 'ko' | 'ja' | 'zh' | 'en';
+
+const galleryImages = [
+  galleryCouple,
+  galleryBooth1,
+  galleryLounge1,
+  galleryLounge2,
+  galleryLounge3,
+  galleryLounge4,
+  galleryBooth2,
+  galleryBooth3,
+  galleryBooth4,
+  galleryBooth5,
+  galleryLuggage,
+  galleryControl
+];
 
 const translations = {
   ko: {
@@ -14,7 +43,6 @@ const translations = {
     heroTitle2: "레코딩 스튜디오",
     heroTitle3: "에서 주인공이 되세요",
     heroDesc: "노래를 못 해도 괜찮습니다. 최첨단 AI가 프로 가수처럼 만들어 드립니다.",
-    reserveBtn: "지금 예약하기",
     videoTitle: "실제",
     videoTitleHighlight: "레코딩 체험",
     videoDesc: "고객님의 레코딩 현장을 확인하세요",
@@ -26,18 +54,31 @@ const translations = {
     pillar3Desc: "그냥 체험으로 끝나지 않습니다. 전 세계에 음원이 발매되고 저작권료가 들어오는 평생의 자산을 만드세요.",
     featuresTitle: "Recording Café의",
     featuresTitleHighlight: "특징",
-    feature1Title: "프로 사양 스튜디오",
-    feature1Desc: "K-POP 아티스트도 사용하는 본격적인 레코딩 장비",
-    feature2Title: "30분부터 체험 가능",
-    feature2Desc: "여행 중에도 가볍게 본격 레코딩 체험",
+    feature1Title: "카페 & 스튜디오",
+    feature1Desc: "카페처럼 편안하게 음료를 즐기면서 녹음을 체험할 수 있는 공간",
+    feature2Title: "프로 사양 스튜디오",
+    feature2Desc: "K-POP 아티스트도 사용하는 본격적인 레코딩 장비",
     feature3Title: "AI 음성 보정 기술",
     feature3Desc: "노래에 자신이 없어도 프로급 완성도 보장",
     feature4Title: "전 세계 배포 & 저작권",
     feature4Desc: "Spotify, Apple Music 등 전 세계에 음원 배포",
+    galleryTitle: "공간",
+    galleryTitleHighlight: "둘러보기",
+    visitTitle: "방문",
+    visitTitleHighlight: "방법",
+    visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
+    address: "서울특별시 서초구 강남대로107길 21, 2층",
+    nearStation: "신사역 3호선에서 도보 4분",
+    hours: "매일 12:00 - 21:00",
+    visitOption1: "즉시 방문",
+    visitOption1Desc: "예약 없이 바로 방문 가능합니다. 대기가 있을 수 있습니다.",
+    visitOption2: "예약 방문",
+    visitOption2Desc: "3시간 후 방문을 예약하시면 대기 없이 바로 체험 가능합니다.",
+    reserveBtn: "3시간 뒤 방문예약",
     ctaTitle: "오늘,",
     ctaTitleHighlight: "스타가 되세요",
     ctaDesc: "리버사이드 호텔에서 도보 30초\n숙박 중에 꼭 들러주세요",
-    ctaBtn: "예약하기"
+    ctaBtn: "방문예약"
   },
   ja: {
     langName: "日本語",
@@ -46,7 +87,6 @@ const translations = {
     heroTitle2: "レコーディングスタジオ",
     heroTitle3: "で主人公になる",
     heroDesc: "歌が苦手でも大丈夫。最先端AIがプロ歌手のように仕上げます。",
-    reserveBtn: "今すぐ予約する",
     videoTitle: "実際の",
     videoTitleHighlight: "レコーディング体験",
     videoDesc: "お客様のレコーディング風景をご覧ください",
@@ -58,18 +98,31 @@ const translations = {
     pillar3Desc: "ただの体験で終わりません。全世界で音源が配信され、著作権収入が入る一生の資産を作りましょう。",
     featuresTitle: "Recording Caféの",
     featuresTitleHighlight: "特徴",
-    feature1Title: "プロ仕様のスタジオ",
-    feature1Desc: "K-POPアーティストも使用する本格的なレコーディング機材",
-    feature2Title: "30分から体験可能",
-    feature2Desc: "旅行の合間にも気軽に本格レコーディング体験",
+    feature1Title: "カフェ & スタジオ",
+    feature1Desc: "カフェのようにリラックスしてドリンクを楽しみながらレコーディング体験",
+    feature2Title: "プロ仕様のスタジオ",
+    feature2Desc: "K-POPアーティストも使用する本格的なレコーディング機材",
     feature3Title: "AI音声補正技術",
     feature3Desc: "歌に自信がなくてもプロ級の仕上がりを保証",
     feature4Title: "世界配信&著作権",
     feature4Desc: "Spotify、Apple Musicなど全世界で音源配信",
+    galleryTitle: "空間を",
+    galleryTitleHighlight: "見る",
+    visitTitle: "訪問",
+    visitTitleHighlight: "方法",
+    visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
+    address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
+    nearStation: "新沙駅（3号線）から徒歩4分",
+    hours: "毎日 12:00 - 21:00",
+    visitOption1: "即時訪問",
+    visitOption1Desc: "予約なしでそのまま訪問可能です。待ち時間が発生する場合があります。",
+    visitOption2: "予約訪問",
+    visitOption2Desc: "3時間後の訪問を予約すると、待ち時間なしで体験できます。",
+    reserveBtn: "3時間後の訪問予約",
     ctaTitle: "今日、",
     ctaTitleHighlight: "スターになる",
     ctaDesc: "リバーサイドホテルから徒歩30秒\nご滞在中にぜひお立ち寄りください",
-    ctaBtn: "予約する"
+    ctaBtn: "訪問予約"
   },
   zh: {
     langName: "中文",
@@ -78,7 +131,6 @@ const translations = {
     heroTitle2: "录音室",
     heroTitle3: "里成为主角",
     heroDesc: "即使不擅长唱歌也没关系。尖端AI会让您像专业歌手一样完美。",
-    reserveBtn: "立即预约",
     videoTitle: "真实的",
     videoTitleHighlight: "录音体验",
     videoDesc: "观看客人的录音现场",
@@ -90,18 +142,31 @@ const translations = {
     pillar3Desc: "不仅仅是体验。在全世界发行音源，创造可以获得版权收入的终身资产。",
     featuresTitle: "Recording Café的",
     featuresTitleHighlight: "特点",
-    feature1Title: "专业级录音室",
-    feature1Desc: "K-POP艺人也使用的专业录音设备",
-    feature2Title: "30分钟起可体验",
-    feature2Desc: "旅途中也能轻松体验专业录音",
+    feature1Title: "咖啡厅 & 录音室",
+    feature1Desc: "像咖啡厅一样轻松享受饮品的同时体验录音",
+    feature2Title: "专业级录音室",
+    feature2Desc: "K-POP艺人也使用的专业录音设备",
     feature3Title: "AI语音修正技术",
     feature3Desc: "即使对唱歌没有自信也能保证专业级完成度",
     feature4Title: "全球发行&版权",
     feature4Desc: "在Spotify、Apple Music等全球平台发行",
+    galleryTitle: "空间",
+    galleryTitleHighlight: "浏览",
+    visitTitle: "访问",
+    visitTitleHighlight: "方式",
+    visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
+    address: "首尔市瑞草区江南大路107街21号 2楼",
+    nearStation: "新沙站(3号线)步行4分钟",
+    hours: "每天 12:00 - 21:00",
+    visitOption1: "即时访问",
+    visitOption1Desc: "无需预约即可访问。可能需要等待。",
+    visitOption2: "预约访问",
+    visitOption2Desc: "预约3小时后访问，无需等待即可体验。",
+    reserveBtn: "预约3小时后访问",
     ctaTitle: "今天，",
     ctaTitleHighlight: "成为明星",
     ctaDesc: "距离河畔酒店步行30秒\n住宿期间请务必光临",
-    ctaBtn: "预约"
+    ctaBtn: "预约访问"
   },
   en: {
     langName: "English",
@@ -110,7 +175,6 @@ const translations = {
     heroTitle2: "Recording Studio",
     heroTitle3: "as K-POP idols",
     heroDesc: "Can't sing? No problem. Cutting-edge AI will make you sound like a pro.",
-    reserveBtn: "Reserve Now",
     videoTitle: "Real",
     videoTitleHighlight: "Recording Experience",
     videoDesc: "Watch our guests' recording sessions",
@@ -122,18 +186,31 @@ const translations = {
     pillar3Desc: "It doesn't end as just an experience. Create a lifetime asset with worldwide music distribution and royalty income.",
     featuresTitle: "Recording Café",
     featuresTitleHighlight: "Features",
-    feature1Title: "Professional Studio",
-    feature1Desc: "Professional recording equipment used by K-POP artists",
-    feature2Title: "From 30 Minutes",
-    feature2Desc: "Easy professional recording experience even during your trip",
+    feature1Title: "Café & Studio",
+    feature1Desc: "Experience recording while enjoying drinks in a cozy café atmosphere",
+    feature2Title: "Professional Studio",
+    feature2Desc: "Professional recording equipment used by K-POP artists",
     feature3Title: "AI Voice Correction",
     feature3Desc: "Professional-grade results guaranteed even without singing confidence",
     feature4Title: "Global Distribution & Copyright",
     feature4Desc: "Music distribution on Spotify, Apple Music and more worldwide",
+    galleryTitle: "Explore",
+    galleryTitleHighlight: "Our Space",
+    visitTitle: "How to",
+    visitTitleHighlight: "Visit",
+    visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
+    address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
+    nearStation: "4 mins walk from Sinsa Station (Line 3)",
+    hours: "Open Daily: 12:00 PM - 09:00 PM",
+    visitOption1: "Walk-in Visit",
+    visitOption1Desc: "Visit without reservation. There may be a wait time.",
+    visitOption2: "Reserved Visit",
+    visitOption2Desc: "Book 3 hours ahead for a guaranteed no-wait experience.",
+    reserveBtn: "Reserve for 3 Hours Later",
     ctaTitle: "Today,",
     ctaTitleHighlight: "Become a Star",
     ctaDesc: "30 seconds from Riverside Hotel\nPlease visit us during your stay",
-    ctaBtn: "Reserve"
+    ctaBtn: "Make Reservation"
   }
 };
 
@@ -207,18 +284,6 @@ export default function Hotel() {
             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-8">
               {t.heroDesc}
             </p>
-
-            <Button 
-              size="lg"
-              className="text-lg px-8 py-6"
-              style={{ backgroundColor: '#D4AF37', color: '#000' }}
-              data-testid="button-hotel-reserve"
-              asChild
-            >
-              <a href="https://record.co.kr/" target="_blank" rel="noopener noreferrer">
-                {t.reserveBtn}
-              </a>
-            </Button>
           </div>
 
           {/* Scroll Indicator */}
@@ -287,17 +352,29 @@ export default function Hotel() {
           </div>
         </section>
 
-        {/* Second Video Section */}
+        {/* Gallery Section */}
         <section className="py-16 md:py-24 bg-black">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="relative aspect-video rounded-2xl overflow-hidden">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/YzdkeQidBbo"
-                title="Recording Experience"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.galleryTitle} <span style={{ color: '#D4AF37' }}>{t.galleryTitleHighlight}</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {galleryImages.map((img, index) => (
+                <div 
+                  key={index} 
+                  className={`relative overflow-hidden rounded-xl ${index === 0 ? 'col-span-2 row-span-2' : ''}`}
+                >
+                  <img 
+                    src={img} 
+                    alt={`Recording Café ${index + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    style={{ aspectRatio: index === 0 ? '1' : '4/3' }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -307,13 +384,13 @@ export default function Hotel() {
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-4">
-                {t.featuresTitle}<span style={{ color: '#D4AF37' }}>{t.featuresTitleHighlight}</span>
+                {t.featuresTitle} <span style={{ color: '#D4AF37' }}>{t.featuresTitleHighlight}</span>
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-4 p-6 bg-black/50 rounded-xl border border-white/10">
-                <Mic2 className="h-6 w-6 flex-shrink-0" style={{ color: '#D4AF37' }} />
+                <Coffee className="h-6 w-6 flex-shrink-0" style={{ color: '#D4AF37' }} />
                 <div>
                   <h4 className="font-bold mb-2">{t.feature1Title}</h4>
                   <p className="text-sm text-white/60">{t.feature1Desc}</p>
@@ -321,7 +398,7 @@ export default function Hotel() {
               </div>
               
               <div className="flex items-start gap-4 p-6 bg-black/50 rounded-xl border border-white/10">
-                <Clock className="h-6 w-6 flex-shrink-0" style={{ color: '#D4AF37' }} />
+                <Mic2 className="h-6 w-6 flex-shrink-0" style={{ color: '#D4AF37' }} />
                 <div>
                   <h4 className="font-bold mb-2">{t.feature2Title}</h4>
                   <p className="text-sm text-white/60">{t.feature2Desc}</p>
@@ -347,6 +424,85 @@ export default function Hotel() {
           </div>
         </section>
 
+        {/* Second Video Section */}
+        <section className="py-16 md:py-24 bg-black">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="relative aspect-video rounded-2xl overflow-hidden">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/YzdkeQidBbo"
+                title="Recording Experience"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Visit Section */}
+        <section className="py-16 md:py-24 bg-zinc-900">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.visitTitle} <span style={{ color: '#D4AF37' }}>{t.visitTitleHighlight}</span>
+              </h2>
+              <p className="text-white/60 max-w-2xl mx-auto">
+                {t.visitDesc}
+              </p>
+            </div>
+
+            {/* Location Info */}
+            <div className="grid md:grid-cols-3 gap-4 mb-12">
+              <div className="bg-black/50 rounded-xl p-6 border border-white/10 text-center">
+                <MapPin className="h-6 w-6 mx-auto mb-3" style={{ color: '#D4AF37' }} />
+                <p className="text-sm text-white/80">{t.address}</p>
+              </div>
+              <div className="bg-black/50 rounded-xl p-6 border border-white/10 text-center">
+                <Navigation className="h-6 w-6 mx-auto mb-3" style={{ color: '#D4AF37' }} />
+                <p className="text-sm text-white/80">{t.nearStation}</p>
+              </div>
+              <div className="bg-black/50 rounded-xl p-6 border border-white/10 text-center">
+                <Clock className="h-6 w-6 mx-auto mb-3" style={{ color: '#D4AF37' }} />
+                <p className="text-sm text-white/80">{t.hours}</p>
+              </div>
+            </div>
+
+            {/* Visit Options */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-black/50 rounded-2xl p-8 border border-white/10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212, 175, 55, 0.2)' }}>
+                    <Navigation className="h-5 w-5" style={{ color: '#D4AF37' }} />
+                  </div>
+                  <h3 className="text-xl font-bold">{t.visitOption1}</h3>
+                </div>
+                <p className="text-white/60 mb-4">{t.visitOption1Desc}</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-amber-900/30 to-yellow-900/30 rounded-2xl p-8 border border-amber-500/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212, 175, 55, 0.3)' }}>
+                    <Calendar className="h-5 w-5" style={{ color: '#D4AF37' }} />
+                  </div>
+                  <h3 className="text-xl font-bold">{t.visitOption2}</h3>
+                </div>
+                <p className="text-white/60 mb-6">{t.visitOption2Desc}</p>
+                <Button 
+                  size="lg"
+                  className="w-full text-lg"
+                  style={{ backgroundColor: '#D4AF37', color: '#000' }}
+                  data-testid="button-hotel-reserve"
+                  asChild
+                >
+                  <a href="https://record.co.kr/menu" target="_blank" rel="noopener noreferrer">
+                    {t.reserveBtn}
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 md:py-24 bg-black">
           <div className="max-w-3xl mx-auto px-4 text-center">
@@ -364,7 +520,7 @@ export default function Hotel() {
                 data-testid="button-hotel-cta"
                 asChild
               >
-                <a href="https://record.co.kr/" target="_blank" rel="noopener noreferrer">
+                <a href="https://record.co.kr/menu" target="_blank" rel="noopener noreferrer">
                   {t.ctaBtn}
                 </a>
               </Button>
