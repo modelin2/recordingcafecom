@@ -19,6 +19,20 @@ import galleryLuggage from "@assets/레코딩카페_여행가방보관장소_176
 import galleryControl from "@assets/레코딩카페_컨트롤룸_1768188070634.png";
 import buildingEntrance from "@assets/레코딩카페_건물입구4_1768190998588.png";
 
+// Review screenshots
+import review1 from "@assets/Screenshot_20251111_171617_Chrome_1768192361919.jpg";
+import review2 from "@assets/Screenshot_20251111_171635_Chrome_1768192361919.jpg";
+import review3 from "@assets/Screenshot_20251111_171655_Chrome_1768192361920.jpg";
+import review4 from "@assets/Screenshot_20251111_171715_Chrome_1768192361920.jpg";
+import review5 from "@assets/Screenshot_20251111_171728_Chrome_1768192361921.jpg";
+import review6 from "@assets/Screenshot_20251111_171738_Chrome_1768192361921.jpg";
+import review7 from "@assets/Screenshot_20251111_171748_Chrome_1768192361922.jpg";
+import review8 from "@assets/Screenshot_20251111_171756_Chrome_1768192361922.jpg";
+import review9 from "@assets/Screenshot_20251111_171805_Chrome_1768192361923.jpg";
+import review10 from "@assets/Screenshot_20251111_171818_Chrome_1768192361924.jpg";
+
+const reviewImages = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10];
+
 type Language = 'ko' | 'ja' | 'zh' | 'en';
 
 const galleryImages = [
@@ -100,6 +114,10 @@ const translations = {
     drinkOrangeAde: "오렌지에이드",
     drinkGrapefruitAde: "자몽에이드",
     drinkIcedTea: "아이스티",
+    reviewsTitle: "고객",
+    reviewsTitleHighlight: "후기",
+    reviewsRating: "Klook 평점",
+    reviewsDesc: "전 세계 여행객들이 남긴 실제 후기를 확인하세요",
     visitTitle: "방문",
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
@@ -179,6 +197,10 @@ const translations = {
     drinkOrangeAde: "オレンジエード",
     drinkGrapefruitAde: "グレープフルーツエード",
     drinkIcedTea: "アイスティー",
+    reviewsTitle: "お客様の",
+    reviewsTitleHighlight: "レビュー",
+    reviewsRating: "Klook評価",
+    reviewsDesc: "世界中の旅行者からの実際のレビューをご覧ください",
     visitTitle: "訪問",
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
@@ -258,6 +280,10 @@ const translations = {
     drinkOrangeAde: "橙汁",
     drinkGrapefruitAde: "西柚汁",
     drinkIcedTea: "冰茶",
+    reviewsTitle: "客户",
+    reviewsTitleHighlight: "评价",
+    reviewsRating: "Klook评分",
+    reviewsDesc: "查看来自世界各地游客的真实评价",
     visitTitle: "访问",
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
@@ -337,6 +363,10 @@ const translations = {
     drinkOrangeAde: "Orange Ade",
     drinkGrapefruitAde: "Grapefruit Ade",
     drinkIcedTea: "Iced Tea",
+    reviewsTitle: "Customer",
+    reviewsTitleHighlight: "Reviews",
+    reviewsRating: "Klook Rating",
+    reviewsDesc: "See real reviews from travelers around the world",
     visitTitle: "How to",
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
@@ -520,8 +550,44 @@ export default function Hotel() {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Reviews Section */}
         <section className="py-16 md:py-24 bg-zinc-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.reviewsTitle} <span style={{ color: '#D4AF37' }}>{t.reviewsTitleHighlight}</span>
+              </h2>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="flex">
+                  {[1,2,3,4,5].map((star) => (
+                    <Star key={star} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-2xl font-bold" style={{ color: '#D4AF37' }}>5.0</span>
+              </div>
+              <p className="text-white/60 text-sm">{t.reviewsRating}</p>
+              <p className="text-white/50 text-sm mt-2">{t.reviewsDesc}</p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {reviewImages.map((img, index) => (
+                <div 
+                  key={index} 
+                  className="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all"
+                >
+                  <img 
+                    src={img} 
+                    alt={`Review ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-16 md:py-24 bg-black">
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-4">
