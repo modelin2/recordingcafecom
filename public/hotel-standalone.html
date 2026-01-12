@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recording Café - K-Recording Studio Experience</title>
+  <meta name="description" content="Experience professional K-POP recording studio near Riverside Hotel. AI-powered vocal enhancement, professional equipment, worldwide music distribution.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', 'Noto Sans JP', 'Noto Sans SC', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .gold { color: #D4AF37; }
+    .bg-gold { background-color: #D4AF37; }
+    .border-gold { border-color: #D4AF37; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(-25%); }
+      50% { transform: translateY(0); }
+    }
+    .animate-bounce { animation: bounce 1s infinite; }
+  </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+
+  <!-- Language Selector -->
+  <div class="fixed top-4 right-4 z-50">
+    <div class="flex gap-2 p-2 bg-black/80 backdrop-blur-md rounded-full border border-white/10">
+      <button onclick="setLang('ko')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 bg-[#D4AF37] text-black" data-lang="ko">
+        <span>🇰🇷</span><span>한국어</span>
+      </button>
+      <button onclick="setLang('ja')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 bg-white/10 text-white/70 hover:bg-white/20" data-lang="ja">
+        <span>🇯🇵</span><span>日本語</span>
+      </button>
+      <button onclick="setLang('zh')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 bg-white/10 text-white/70 hover:bg-white/20" data-lang="zh">
+        <span>🇨🇳</span><span>中文</span>
+      </button>
+      <button onclick="setLang('en')" class="lang-btn px-3 py-1.5 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 bg-white/10 text-white/70 hover:bg-white/20" data-lang="en">
+        <span>🇺🇸</span><span>English</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen bg-black flex flex-col pt-16">
+    <div class="relative w-full flex-1 flex items-center justify-center">
+      <img src="images/hero.png" alt="Recording Studio" class="max-h-[85vh] w-auto object-contain">
+      
+      <div class="absolute bottom-[10%] left-0 right-0 z-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full text-sm font-medium mb-4 gold">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span data-i18n="badge">리버사이드 호텔에서 도보 30초</span>
+          </div>
+          
+          <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
+            <span data-i18n="heroTitle1">K-POP 아이돌과 같은</span>
+            <br>
+            <span class="gold" data-i18n="heroTitle2">레코딩 스튜디오</span>
+            <br>
+            <span data-i18n="heroTitle3">에서 주인공이 되세요</span>
+          </h1>
+          
+          <p class="text-base md:text-lg text-white/80 max-w-2xl mx-auto drop-shadow-md" data-i18n="heroDesc">
+            노래를 못 해도 괜찮습니다. 최첨단 AI가 프로 가수처럼 만들어 드립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="py-8 md:py-24 bg-gradient-to-b from-black to-zinc-900">
+    <div class="max-w-4xl mx-auto px-2 md:px-4">
+      <div class="text-center mb-6 md:mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="videoTitle">실제</span><span class="gold" data-i18n="videoTitleHighlight">레코딩 체험</span>
+        </h2>
+        <p class="text-white/60" data-i18n="videoDesc">고객님의 레코딩 현장을 확인하세요</p>
+      </div>
+      <div class="relative aspect-[9/16] md:aspect-video rounded-xl md:rounded-2xl overflow-hidden max-w-sm md:max-w-full mx-auto">
+        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/sGMcHrmCmDU?autoplay=1&mute=1&loop=1&playlist=sGMcHrmCmDU&playsinline=1" title="Recording Café" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars Section -->
+  <section class="py-16 md:py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-8 bg-black/50 rounded-2xl border border-white/10">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.2)">
+            <svg class="h-8 w-8 gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4 gold" data-i18n="pillar1Title">꿈같은 체험</h3>
+          <p class="text-white/70" data-i18n="pillar1Desc">리버사이드 호텔 앞 30초, K-POP 아이돌과 똑같은 녹음실에서 주인공이 되어보세요.</p>
+        </div>
+        <div class="text-center p-8 bg-black/50 rounded-2xl border border-white/10">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.2)">
+            <svg class="h-8 w-8 gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4 gold" data-i18n="pillar2Title">AI가 완벽하게 보정</h3>
+          <p class="text-white/70" data-i18n="pillar2Desc">노래를 못 해도 괜찮습니다. 최첨단 AI가 프로 가수처럼 만들어 드립니다.</p>
+        </div>
+        <div class="text-center p-8 bg-black/50 rounded-2xl border border-white/10">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style="background-color: rgba(212, 175, 55, 0.2)">
+            <svg class="h-8 w-8 gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4 gold" data-i18n="pillar3Title">평생의 자산</h3>
+          <p class="text-white/70" data-i18n="pillar3Desc">그냥 체험으로 끝나지 않습니다. 전 세계에 음원이 발매되고 저작권료가 들어오는 평생의 자산을 만드세요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="pricingTitle">이용</span> <span class="gold" data-i18n="pricingTitleHighlight">요금</span>
+        </h2>
+      </div>
+      
+      <div class="mb-12">
+        <h3 class="text-xl font-bold mb-6 text-center gold" data-i18n="pricingPackage">패키지</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-zinc-900/50 rounded-xl p-6 text-center border border-white/10">
+            <p class="text-3xl font-bold mb-2 gold">1<span class="text-lg" data-i18n="pricingPerson">인</span></p>
+            <p class="text-2xl font-bold">₩30,000</p>
+            <p class="text-sm text-white/60 mt-2"><span data-i18n="pricingDrink">음료</span> + <span data-i18n="pricingRecording">녹음실 체험 10분</span></p>
+          </div>
+          <div class="bg-zinc-900/50 rounded-xl p-6 text-center border border-white/10">
+            <p class="text-3xl font-bold mb-2 gold">2<span class="text-lg" data-i18n="pricingPerson">인</span></p>
+            <p class="text-2xl font-bold">₩40,000</p>
+            <p class="text-sm text-white/60 mt-2"><span data-i18n="pricingDrink">음료</span> + <span data-i18n="pricingRecording">녹음실 체험 10분</span></p>
+          </div>
+          <div class="bg-zinc-900/50 rounded-xl p-6 text-center border border-white/10">
+            <p class="text-3xl font-bold mb-2 gold">3<span class="text-lg" data-i18n="pricingPerson">인</span></p>
+            <p class="text-2xl font-bold">₩50,000</p>
+            <p class="text-sm text-white/60 mt-2"><span data-i18n="pricingDrink">음료</span> + <span data-i18n="pricingRecording">녹음실 체험 10분</span></p>
+          </div>
+          <div class="bg-zinc-900/50 rounded-xl p-6 text-center border border-white/10">
+            <p class="text-3xl font-bold mb-2 gold">4<span class="text-lg" data-i18n="pricingPerson">인</span></p>
+            <p class="text-2xl font-bold">₩60,000</p>
+            <p class="text-sm text-white/60 mt-2"><span data-i18n="pricingDrink">음료</span> + <span data-i18n="pricingRecording">녹음실 체험 10분</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="galleryTitle">공간</span> <span class="gold" data-i18n="galleryTitleHighlight">둘러보기</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="relative overflow-hidden rounded-xl col-span-2 row-span-2">
+          <img src="images/gallery-1.jpg" alt="Recording Café 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 1">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-2.jpg" alt="Recording Café 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-3.jpg" alt="Recording Café 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-4.jpg" alt="Recording Café 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-5.jpg" alt="Recording Café 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-6.jpg" alt="Recording Café 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+        <div class="relative overflow-hidden rounded-xl">
+          <img src="images/gallery-7.jpg" alt="Recording Café 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" style="aspect-ratio: 4/3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="py-16 md:py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="reviewsTitle">고객</span> <span class="gold" data-i18n="reviewsTitleHighlight">후기</span>
+        </h2>
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <div class="flex">
+            <svg class="h-6 w-6 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="h-6 w-6 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="h-6 w-6 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="h-6 w-6 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="h-6 w-6 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="text-2xl font-bold gold">5.0</span>
+        </div>
+        <p class="text-white/60 text-sm" data-i18n="reviewsRating">Klook 평점</p>
+        <p class="text-white/50 text-sm mt-2" data-i18n="reviewsDesc">전 세계 여행객들이 남긴 실제 후기를 확인하세요</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all">
+          <img src="images/review-1.jpg" alt="Review 1" class="w-full h-auto object-cover">
+        </div>
+        <div class="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all">
+          <img src="images/review-2.jpg" alt="Review 2" class="w-full h-auto object-cover">
+        </div>
+        <div class="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all">
+          <img src="images/review-3.jpg" alt="Review 3" class="w-full h-auto object-cover">
+        </div>
+        <div class="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all">
+          <img src="images/review-4.jpg" alt="Review 4" class="w-full h-auto object-cover">
+        </div>
+        <div class="relative overflow-hidden rounded-xl border border-white/10 hover:border-amber-500/50 transition-all">
+          <img src="images/review-5.jpg" alt="Review 5" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="mapTitle">오시는</span> <span class="gold" data-i18n="mapTitleHighlight">길</span>
+        </h2>
+      </div>
+      <div class="bg-zinc-900/50 rounded-2xl p-6 md:p-10 border border-white/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-orange-500 flex items-center justify-center mb-3">
+              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.5 3.37 1.41 4.84.95 1.54 2.2 2.86 3.16 4.4.47.75.81 1.45 1.17 2.26.26.55.47 1.5 1.26 1.5s1-.95 1.26-1.5c.37-.81.7-1.51 1.17-2.26.96-1.53 2.21-2.85 3.16-4.4C18.5 12.37 19 10.74 19 9c0-3.87-3.13-7-7-7zm0 9.75c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <h4 class="font-bold text-lg" data-i18n="mapSinsa">신사역</h4>
+            <p class="text-sm text-white/60" data-i18n="mapSinsaDesc">3호선</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="hidden md:block w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500"></div>
+            <div class="md:hidden h-12 w-0.5 bg-gradient-to-b from-orange-500 to-blue-500"></div>
+            <p class="text-xs text-white/50 mt-1" data-i18n="mapWalk1">도보 4분</p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-500 flex items-center justify-center mb-3">
+              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-7h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+            </div>
+            <h4 class="font-bold text-lg" data-i18n="mapHotel">리버사이드 호텔</h4>
+            <p class="text-sm text-white/60" data-i18n="mapHotelDesc">정문</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="hidden md:block w-24 h-0.5 bg-gradient-to-r from-blue-500 to-amber-500"></div>
+            <div class="md:hidden h-12 w-0.5 bg-gradient-to-b from-blue-500 to-amber-500"></div>
+            <p class="text-xs text-white/50 mt-1" data-i18n="mapWalk2">도보 30초</p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3" style="background-color: #D4AF37">
+              <svg class="w-8 h-8 md:w-10 md:h-10 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+            <h4 class="font-bold text-lg gold" data-i18n="mapCafe">레코딩카페</h4>
+            <p class="text-sm text-white/60" data-i18n="mapCafeDesc">대능빌딩 2F</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit Section -->
+  <section class="py-16 md:py-24 bg-black">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">
+          <span data-i18n="visitTitle">방문</span> <span class="gold" data-i18n="visitTitleHighlight">방법</span>
+        </h2>
+        <p class="text-white/60" data-i18n="visitDesc">리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.</p>
+      </div>
+      <div class="bg-zinc-900/50 rounded-2xl p-6 md:p-8 border border-white/10">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="rounded-xl overflow-hidden">
+            <img src="images/building.jpg" alt="Building Entrance" class="w-full h-auto object-cover">
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="h-5 w-5 gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <p class="text-white/80" data-i18n="address">서울특별시 서초구 강남대로107길 21, 2층</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="h-5 w-5 gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p class="text-white/80" data-i18n="nearStation">신사역 3호선에서 도보 4분</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="h-5 w-5 gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <p class="text-white/80" data-i18n="hours">매일 12:00 - 21:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-black border-t border-white/10">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-white/40 text-sm">&copy; 2025 Recording Café. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      ko: {
+        badge: "리버사이드 호텔에서 도보 30초",
+        heroTitle1: "K-POP 아이돌과 같은",
+        heroTitle2: "레코딩 스튜디오",
+        heroTitle3: "에서 주인공이 되세요",
+        heroDesc: "노래를 못 해도 괜찮습니다. 최첨단 AI가 프로 가수처럼 만들어 드립니다.",
+        videoTitle: "실제",
+        videoTitleHighlight: "레코딩 체험",
+        videoDesc: "고객님의 레코딩 현장을 확인하세요",
+        pillar1Title: "꿈같은 체험",
+        pillar1Desc: "리버사이드 호텔 앞 30초, K-POP 아이돌과 똑같은 녹음실에서 주인공이 되어보세요.",
+        pillar2Title: "AI가 완벽하게 보정",
+        pillar2Desc: "노래를 못 해도 괜찮습니다. 최첨단 AI가 프로 가수처럼 만들어 드립니다.",
+        pillar3Title: "평생의 자산",
+        pillar3Desc: "그냥 체험으로 끝나지 않습니다. 전 세계에 음원이 발매되고 저작권료가 들어오는 평생의 자산을 만드세요.",
+        pricingTitle: "이용",
+        pricingTitleHighlight: "요금",
+        pricingPackage: "패키지",
+        pricingPerson: "인",
+        pricingDrink: "음료",
+        pricingRecording: "녹음실 체험 10분",
+        galleryTitle: "공간",
+        galleryTitleHighlight: "둘러보기",
+        reviewsTitle: "고객",
+        reviewsTitleHighlight: "후기",
+        reviewsRating: "Klook 평점",
+        reviewsDesc: "전 세계 여행객들이 남긴 실제 후기를 확인하세요",
+        mapTitle: "오시는",
+        mapTitleHighlight: "길",
+        mapSinsa: "신사역",
+        mapSinsaDesc: "3호선",
+        mapHotel: "리버사이드 호텔",
+        mapHotelDesc: "정문",
+        mapCafe: "레코딩카페",
+        mapCafeDesc: "대능빌딩 2F",
+        mapWalk1: "도보 4분",
+        mapWalk2: "도보 30초",
+        visitTitle: "방문",
+        visitTitleHighlight: "방법",
+        visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
+        address: "서울특별시 서초구 강남대로107길 21, 2층",
+        nearStation: "신사역 3호선에서 도보 4분",
+        hours: "매일 12:00 - 21:00"
+      },
+      ja: {
+        badge: "リバーサイドホテルから徒歩30秒",
+        heroTitle1: "K-POPアイドルと同じ",
+        heroTitle2: "レコーディングスタジオ",
+        heroTitle3: "で主人公になる",
+        heroDesc: "歌が苦手でも大丈夫。最先端AIがプロ歌手のように仕上げます。",
+        videoTitle: "実際の",
+        videoTitleHighlight: "レコーディング体験",
+        videoDesc: "お客様のレコーディング風景をご覧ください",
+        pillar1Title: "夢のような体験",
+        pillar1Desc: "リバーサイドホテルから徒歩30秒。K-POPアイドルと同じレコーディングスタジオで主人公になってみませんか？",
+        pillar2Title: "AIが完璧に補正",
+        pillar2Desc: "歌が苦手でも大丈夫です。最先端のAI技術がプロの歌手のように仕上げます。",
+        pillar3Title: "一生の資産に",
+        pillar3Desc: "ただの体験で終わりません。全世界で音源が配信され、著作権収入が入る一生の資産を作りましょう。",
+        pricingTitle: "ご利用",
+        pricingTitleHighlight: "料金",
+        pricingPackage: "パッケージ",
+        pricingPerson: "名",
+        pricingDrink: "ドリンク",
+        pricingRecording: "レコーディング体験10分",
+        galleryTitle: "空間を",
+        galleryTitleHighlight: "見る",
+        reviewsTitle: "お客様の",
+        reviewsTitleHighlight: "レビュー",
+        reviewsRating: "Klook評価",
+        reviewsDesc: "世界中の旅行者からの実際のレビューをご覧ください",
+        mapTitle: "アクセス",
+        mapTitleHighlight: "マップ",
+        mapSinsa: "新沙駅",
+        mapSinsaDesc: "3号線",
+        mapHotel: "リバーサイドホテル",
+        mapHotelDesc: "正門",
+        mapCafe: "Recording Café",
+        mapCafeDesc: "大能ビル 2F",
+        mapWalk1: "徒歩4分",
+        mapWalk2: "徒歩30秒",
+        visitTitle: "訪問",
+        visitTitleHighlight: "方法",
+        visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
+        address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
+        nearStation: "新沙駅（3号線）から徒歩4分",
+        hours: "毎日 12:00 - 21:00"
+      },
+      zh: {
+        badge: "距离河畔酒店步行30秒",
+        heroTitle1: "在与K-POP偶像相同的",
+        heroTitle2: "录音室",
+        heroTitle3: "里成为主角",
+        heroDesc: "即使不擅长唱歌也没关系。尖端AI会让您听起来像专业歌手。",
+        videoTitle: "真实",
+        videoTitleHighlight: "录音体验",
+        videoDesc: "观看客人的录音现场",
+        pillar1Title: "梦幻般的体验",
+        pillar1Desc: "距离河畔酒店仅30秒，在与K-POP偶像相同的录音室里成为主角。",
+        pillar2Title: "AI完美修音",
+        pillar2Desc: "即使不擅长唱歌也没关系。尖端AI技术让您听起来像专业歌手。",
+        pillar3Title: "终身资产",
+        pillar3Desc: "不仅仅是体验。在全球发行您的音乐，获得版税收入，创造终身资产。",
+        pricingTitle: "使用",
+        pricingTitleHighlight: "费用",
+        pricingPackage: "套餐",
+        pricingPerson: "人",
+        pricingDrink: "饮料",
+        pricingRecording: "录音室体验10分钟",
+        galleryTitle: "空间",
+        galleryTitleHighlight: "浏览",
+        reviewsTitle: "客户",
+        reviewsTitleHighlight: "评价",
+        reviewsRating: "Klook评分",
+        reviewsDesc: "查看来自世界各地游客的真实评价",
+        mapTitle: "访问",
+        mapTitleHighlight: "路线",
+        mapSinsa: "新沙站",
+        mapSinsaDesc: "3号线",
+        mapHotel: "河畔酒店",
+        mapHotelDesc: "正门",
+        mapCafe: "Recording Café",
+        mapCafeDesc: "大能大厦 2F",
+        mapWalk1: "步行4分钟",
+        mapWalk2: "步行30秒",
+        visitTitle: "访问",
+        visitTitleHighlight: "方式",
+        visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
+        address: "首尔市瑞草区江南大路107街21号 2楼",
+        nearStation: "新沙站(3号线)步行4分钟",
+        hours: "每天 12:00 - 21:00"
+      },
+      en: {
+        badge: "30 seconds walk from Riverside Hotel",
+        heroTitle1: "Become a star in the same",
+        heroTitle2: "Recording Studio",
+        heroTitle3: "as K-POP idols",
+        heroDesc: "Even if you can't sing well, our cutting-edge AI will make you sound like a pro.",
+        videoTitle: "Real",
+        videoTitleHighlight: "Recording Experience",
+        videoDesc: "Watch our guests' recording sessions",
+        pillar1Title: "Dream Experience",
+        pillar1Desc: "Just 30 seconds from Riverside Hotel, become the star in the same recording studio used by K-POP idols.",
+        pillar2Title: "AI Perfect Tuning",
+        pillar2Desc: "Even if you can't sing well, our cutting-edge AI technology will make you sound like a professional singer.",
+        pillar3Title: "Lifetime Asset",
+        pillar3Desc: "It's not just an experience. Release your music worldwide and earn royalties - create a lifetime asset.",
+        pricingTitle: "Pricing",
+        pricingTitleHighlight: "Plans",
+        pricingPackage: "Package",
+        pricingPerson: "person",
+        pricingDrink: "Drink",
+        pricingRecording: "10min Recording",
+        galleryTitle: "Explore",
+        galleryTitleHighlight: "Space",
+        reviewsTitle: "Customer",
+        reviewsTitleHighlight: "Reviews",
+        reviewsRating: "Klook Rating",
+        reviewsDesc: "See real reviews from travelers around the world",
+        mapTitle: "How to",
+        mapTitleHighlight: "Find Us",
+        mapSinsa: "Sinsa Station",
+        mapSinsaDesc: "Line 3",
+        mapHotel: "Riverside Hotel",
+        mapHotelDesc: "Main Entrance",
+        mapCafe: "Recording Café",
+        mapCafeDesc: "Daenung Bldg 2F",
+        mapWalk1: "4 min walk",
+        mapWalk2: "30 sec walk",
+        visitTitle: "How to",
+        visitTitleHighlight: "Visit",
+        visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
+        address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
+        nearStation: "4 mins walk from Sinsa Station (Line 3)",
+        hours: "Daily 12:00 - 21:00"
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.dataset.lang === lang) {
+          btn.classList.remove('bg-white/10', 'text-white/70', 'hover:bg-white/20');
+          btn.classList.add('bg-[#D4AF37]', 'text-black');
+        } else {
+          btn.classList.remove('bg-[#D4AF37]', 'text-black');
+          btn.classList.add('bg-white/10', 'text-white/70', 'hover:bg-white/20');
+        }
+      });
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+  </script>
+</body>
+</html>
