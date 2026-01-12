@@ -426,39 +426,40 @@ export default function Hotel() {
         </div>
 
         {/* Hero Section with Image */}
-        <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-32">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black z-10" />
+        <section className="relative min-h-screen bg-black flex flex-col pt-16">
+          {/* Full Image Container */}
+          <div className="relative w-full flex-1 flex items-center justify-center">
             <img 
               src={heroImage}
               alt="Recording Studio"
-              className="w-full h-full object-cover object-center"
+              className="max-h-[85vh] w-auto object-contain"
             />
-          </div>
-
-          {/* Content - positioned at top */}
-          <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
-              <MapPin className="h-4 w-4" />
-              {t.badge}
+            
+            {/* Content - positioned at bottom third of image */}
+            <div className="absolute bottom-[10%] left-0 right-0 z-20">
+              <div className="max-w-4xl mx-auto px-4 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
+                  <MapPin className="h-4 w-4" />
+                  {t.badge}
+                </div>
+                
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
+                  {t.heroTitle1}
+                  <br />
+                  <span style={{ color: '#D4AF37' }}>{t.heroTitle2}</span>
+                  <br />
+                  {t.heroTitle3}
+                </h1>
+                
+                <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto drop-shadow-md">
+                  {t.heroDesc}
+                </p>
+              </div>
             </div>
-            
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight drop-shadow-lg">
-              {t.heroTitle1}
-              <br />
-              <span style={{ color: '#D4AF37' }}>{t.heroTitle2}</span>
-              <br />
-              {t.heroTitle3}
-            </h1>
-            
-            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto drop-shadow-md">
-              {t.heroDesc}
-            </p>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 animate-bounce">
             <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-white/50 rounded-full mt-2" />
             </div>
