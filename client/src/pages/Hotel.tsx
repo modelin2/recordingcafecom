@@ -85,8 +85,21 @@ const translations = {
     pricingPerson: "인",
     pricingDrink: "음료",
     pricingRecording: "녹음실 체험 10분",
-    pricingHot: "Hot Drinks",
-    pricingCold: "Cold Drinks",
+    pricingHot: "따뜻한 음료",
+    pricingCold: "차가운 음료",
+    drinkCoffee: "커피",
+    drinkCoffeeDecaf: "디카페인 커피",
+    drinkGreenTea: "그린티",
+    drinkHibiscus: "히비스커스",
+    drinkEarlGrey: "얼그레이",
+    drinkPeppermint: "페퍼민트",
+    drinkChamomile: "캐모마일",
+    drinkHotChocolate: "핫초코",
+    drinkLemonade: "레몬에이드",
+    drinkStrawberryAde: "딸기에이드",
+    drinkOrangeAde: "오렌지에이드",
+    drinkGrapefruitAde: "자몽에이드",
+    drinkIcedTea: "아이스티",
     visitTitle: "방문",
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
@@ -153,6 +166,19 @@ const translations = {
     pricingRecording: "レコーディング体験10分",
     pricingHot: "ホットドリンク",
     pricingCold: "コールドドリンク",
+    drinkCoffee: "コーヒー",
+    drinkCoffeeDecaf: "デカフェコーヒー",
+    drinkGreenTea: "緑茶",
+    drinkHibiscus: "ハイビスカス",
+    drinkEarlGrey: "アールグレイ",
+    drinkPeppermint: "ペパーミント",
+    drinkChamomile: "カモミール",
+    drinkHotChocolate: "ホットチョコレート",
+    drinkLemonade: "レモネード",
+    drinkStrawberryAde: "いちごエード",
+    drinkOrangeAde: "オレンジエード",
+    drinkGrapefruitAde: "グレープフルーツエード",
+    drinkIcedTea: "アイスティー",
     visitTitle: "訪問",
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
@@ -219,6 +245,19 @@ const translations = {
     pricingRecording: "录音体验10分钟",
     pricingHot: "热饮",
     pricingCold: "冷饮",
+    drinkCoffee: "咖啡",
+    drinkCoffeeDecaf: "低因咖啡",
+    drinkGreenTea: "绿茶",
+    drinkHibiscus: "洛神花茶",
+    drinkEarlGrey: "伯爵茶",
+    drinkPeppermint: "薄荷茶",
+    drinkChamomile: "洋甘菊茶",
+    drinkHotChocolate: "热巧克力",
+    drinkLemonade: "柠檬汁",
+    drinkStrawberryAde: "草莓汁",
+    drinkOrangeAde: "橙汁",
+    drinkGrapefruitAde: "西柚汁",
+    drinkIcedTea: "冰茶",
     visitTitle: "访问",
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
@@ -285,6 +324,19 @@ const translations = {
     pricingRecording: "10 min Recording",
     pricingHot: "Hot Drinks",
     pricingCold: "Cold Drinks",
+    drinkCoffee: "Coffee",
+    drinkCoffeeDecaf: "Decaf Coffee",
+    drinkGreenTea: "Green Tea",
+    drinkHibiscus: "Hibiscus",
+    drinkEarlGrey: "Earl Grey",
+    drinkPeppermint: "Peppermint",
+    drinkChamomile: "Chamomile",
+    drinkHotChocolate: "Hot Chocolate",
+    drinkLemonade: "Lemonade",
+    drinkStrawberryAde: "Strawberry Ade",
+    drinkOrangeAde: "Orange Ade",
+    drinkGrapefruitAde: "Grapefruit Ade",
+    drinkIcedTea: "Iced Tea",
     visitTitle: "How to",
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
@@ -695,14 +747,14 @@ export default function Hotel() {
                   {t.pricingHot}
                 </h4>
                 <div className="space-y-2 text-sm">
-                  <p className="text-white/80">Coffee / 커피</p>
-                  <p className="text-white/80">Coffee Decaf / 커피(디카페인)</p>
-                  <p className="text-white/80">Green Tea / 그린티</p>
-                  <p className="text-white/80">Hibiscus / 히비스커스</p>
-                  <p className="text-white/80">Earl Grey / 얼그레이</p>
-                  <p className="text-white/80">Peppermint / 페퍼민트</p>
-                  <p className="text-white/80">Chamomile / 캐모마일</p>
-                  <p className="text-white/80">Hot Chocolate / 핫초코</p>
+                  <p className="text-white/80">{t.drinkCoffee}</p>
+                  <p className="text-white/80">{t.drinkCoffeeDecaf}</p>
+                  <p className="text-white/80">{t.drinkGreenTea}</p>
+                  <p className="text-white/80">{t.drinkHibiscus}</p>
+                  <p className="text-white/80">{t.drinkEarlGrey}</p>
+                  <p className="text-white/80">{t.drinkPeppermint}</p>
+                  <p className="text-white/80">{t.drinkChamomile}</p>
+                  <p className="text-white/80">{t.drinkHotChocolate}</p>
                 </div>
               </div>
 
@@ -713,18 +765,18 @@ export default function Hotel() {
                   {t.pricingCold}
                 </h4>
                 <div className="space-y-2 text-sm">
-                  <p className="text-white/80">Iced Coffee / 커피 (아이스)</p>
-                  <p className="text-white/80">Iced Coffee Decaf / 커피(디카페인) (아이스)</p>
-                  <p className="text-white/80">Lemonade / 레몬에이드</p>
-                  <p className="text-white/80">Strawberry Ade / 딸기에이드</p>
-                  <p className="text-white/80">Orange Ade / 오렌지에이드</p>
-                  <p className="text-white/80">Grapefruit Ade / 자몽에이드</p>
-                  <p className="text-white/80">Iced Tea / 아이스티</p>
-                  <p className="text-white/80">Green Tea (Iced) / 그린티 (아이스)</p>
-                  <p className="text-white/80">Hibiscus (Iced) / 히비스커스 (아이스)</p>
-                  <p className="text-white/80">Earl Grey (Iced) / 얼그레이 (아이스)</p>
-                  <p className="text-white/80">Peppermint (Iced) / 페퍼민트 (아이스)</p>
-                  <p className="text-white/80">Chamomile (Iced) / 캐모마일 (아이스)</p>
+                  <p className="text-white/80">{t.drinkCoffee}</p>
+                  <p className="text-white/80">{t.drinkCoffeeDecaf}</p>
+                  <p className="text-white/80">{t.drinkLemonade}</p>
+                  <p className="text-white/80">{t.drinkStrawberryAde}</p>
+                  <p className="text-white/80">{t.drinkOrangeAde}</p>
+                  <p className="text-white/80">{t.drinkGrapefruitAde}</p>
+                  <p className="text-white/80">{t.drinkIcedTea}</p>
+                  <p className="text-white/80">{t.drinkGreenTea}</p>
+                  <p className="text-white/80">{t.drinkHibiscus}</p>
+                  <p className="text-white/80">{t.drinkEarlGrey}</p>
+                  <p className="text-white/80">{t.drinkPeppermint}</p>
+                  <p className="text-white/80">{t.drinkChamomile}</p>
                 </div>
               </div>
             </div>
