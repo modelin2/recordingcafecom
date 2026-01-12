@@ -76,8 +76,17 @@ const translations = {
     mapWalk1: "도보 4분",
     mapWalk2: "도보 30초",
     hangangTitle: "한강까지",
-    hangangTitleHighlight: "도보 5분",
+    hangangTitleHighlight: "도보 10분",
     hangangDesc: "레코딩카페에서 한강고수부지까지 걸어가는 방법을 확인하세요",
+    pricingTitle: "이용",
+    pricingTitleHighlight: "요금",
+    pricingPackage: "패키지",
+    pricingDrinks: "음료 메뉴",
+    pricingPerson: "인",
+    pricingDrink: "음료",
+    pricingRecording: "녹음실 체험 10분",
+    pricingHot: "Hot Drinks",
+    pricingCold: "Cold Drinks",
     visitTitle: "방문",
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
@@ -133,8 +142,17 @@ const translations = {
     mapWalk1: "徒歩4分",
     mapWalk2: "徒歩30秒",
     hangangTitle: "漢江まで",
-    hangangTitleHighlight: "徒歩5分",
+    hangangTitleHighlight: "徒歩10分",
     hangangDesc: "Recording Caféから漢江高水敷までの道順をご確認ください",
+    pricingTitle: "ご利用",
+    pricingTitleHighlight: "料金",
+    pricingPackage: "パッケージ",
+    pricingDrinks: "ドリンクメニュー",
+    pricingPerson: "名",
+    pricingDrink: "ドリンク",
+    pricingRecording: "レコーディング体験10分",
+    pricingHot: "ホットドリンク",
+    pricingCold: "コールドドリンク",
     visitTitle: "訪問",
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
@@ -190,8 +208,17 @@ const translations = {
     mapWalk1: "步行4分钟",
     mapWalk2: "步行30秒",
     hangangTitle: "到汉江",
-    hangangTitleHighlight: "步行5分钟",
+    hangangTitleHighlight: "步行10分钟",
     hangangDesc: "查看从Recording Café到汉江河畔的步行路线",
+    pricingTitle: "使用",
+    pricingTitleHighlight: "价格",
+    pricingPackage: "套餐",
+    pricingDrinks: "饮品菜单",
+    pricingPerson: "人",
+    pricingDrink: "饮品",
+    pricingRecording: "录音体验10分钟",
+    pricingHot: "热饮",
+    pricingCold: "冷饮",
     visitTitle: "访问",
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
@@ -247,8 +274,17 @@ const translations = {
     mapWalk1: "4 min walk",
     mapWalk2: "30 sec walk",
     hangangTitle: "To Hangang River",
-    hangangTitleHighlight: "5 min walk",
+    hangangTitleHighlight: "10 min walk",
     hangangDesc: "See directions from Recording Café to Hangang River Park",
+    pricingTitle: "Our",
+    pricingTitleHighlight: "Pricing",
+    pricingPackage: "Packages",
+    pricingDrinks: "Drink Menu",
+    pricingPerson: "Person",
+    pricingDrink: "Drink",
+    pricingRecording: "10 min Recording",
+    pricingHot: "Hot Drinks",
+    pricingCold: "Cold Drinks",
     visitTitle: "How to",
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
@@ -611,37 +647,85 @@ export default function Hotel() {
               </div>
             </div>
 
-            {/* Visit Options */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black/50 rounded-2xl p-8 border border-white/10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212, 175, 55, 0.2)' }}>
-                    <Navigation className="h-5 w-5" style={{ color: '#D4AF37' }} />
+            {/* Walk-in Only */}
+            <div className="bg-gradient-to-br from-amber-900/30 to-yellow-900/30 rounded-2xl p-8 border border-amber-500/30 text-center max-w-lg mx-auto">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212, 175, 55, 0.3)' }}>
+                <Navigation className="h-8 w-8" style={{ color: '#D4AF37' }} />
+              </div>
+              <h3 className="text-xl font-bold mb-2" style={{ color: '#D4AF37' }}>{t.visitOption1}</h3>
+              <p className="text-white/70">{t.visitOption1Desc}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section className="py-16 md:py-24 bg-zinc-900">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.pricingTitle} <span style={{ color: '#D4AF37' }}>{t.pricingTitleHighlight}</span>
+              </h2>
+            </div>
+
+            {/* Package Pricing */}
+            <div className="mb-12">
+              <h3 className="text-xl font-bold mb-6 text-center" style={{ color: '#D4AF37' }}>{t.pricingPackage}</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { person: 1, price: '₩30,000' },
+                  { person: 2, price: '₩40,000' },
+                  { person: 3, price: '₩50,000' },
+                  { person: 4, price: '₩60,000' },
+                ].map((pkg) => (
+                  <div key={pkg.person} className="bg-black/50 rounded-xl p-6 border border-white/10 text-center">
+                    <div className="text-3xl font-bold mb-2" style={{ color: '#D4AF37' }}>{pkg.person}{t.pricingPerson}</div>
+                    <p className="text-sm text-white/60 mb-3">{t.pricingDrink} + {t.pricingRecording}</p>
+                    <p className="text-xl font-bold text-white">{pkg.price}</p>
                   </div>
-                  <h3 className="text-xl font-bold">{t.visitOption1}</h3>
+                ))}
+              </div>
+            </div>
+
+            {/* Drink Menu */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Hot Drinks */}
+              <div className="bg-black/50 rounded-xl p-6 border border-white/10">
+                <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: '#D4AF37' }}>
+                  <Coffee className="h-5 w-5" />
+                  {t.pricingHot}
+                </h4>
+                <div className="space-y-2 text-sm">
+                  <p className="text-white/80">Coffee / 커피</p>
+                  <p className="text-white/80">Coffee Decaf / 커피(디카페인)</p>
+                  <p className="text-white/80">Green Tea / 그린티</p>
+                  <p className="text-white/80">Hibiscus / 히비스커스</p>
+                  <p className="text-white/80">Earl Grey / 얼그레이</p>
+                  <p className="text-white/80">Peppermint / 페퍼민트</p>
+                  <p className="text-white/80">Chamomile / 캐모마일</p>
+                  <p className="text-white/80">Hot Chocolate / 핫초코</p>
                 </div>
-                <p className="text-white/60 mb-4">{t.visitOption1Desc}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-900/30 to-yellow-900/30 rounded-2xl p-8 border border-amber-500/30">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(212, 175, 55, 0.3)' }}>
-                    <Calendar className="h-5 w-5" style={{ color: '#D4AF37' }} />
-                  </div>
-                  <h3 className="text-xl font-bold">{t.visitOption2}</h3>
+              {/* Cold Drinks */}
+              <div className="bg-black/50 rounded-xl p-6 border border-white/10">
+                <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: '#D4AF37' }}>
+                  <Coffee className="h-5 w-5" />
+                  {t.pricingCold}
+                </h4>
+                <div className="space-y-2 text-sm">
+                  <p className="text-white/80">Iced Coffee / 커피 (아이스)</p>
+                  <p className="text-white/80">Iced Coffee Decaf / 커피(디카페인) (아이스)</p>
+                  <p className="text-white/80">Lemonade / 레몬에이드</p>
+                  <p className="text-white/80">Strawberry Ade / 딸기에이드</p>
+                  <p className="text-white/80">Orange Ade / 오렌지에이드</p>
+                  <p className="text-white/80">Grapefruit Ade / 자몽에이드</p>
+                  <p className="text-white/80">Iced Tea / 아이스티</p>
+                  <p className="text-white/80">Green Tea (Iced) / 그린티 (아이스)</p>
+                  <p className="text-white/80">Hibiscus (Iced) / 히비스커스 (아이스)</p>
+                  <p className="text-white/80">Earl Grey (Iced) / 얼그레이 (아이스)</p>
+                  <p className="text-white/80">Peppermint (Iced) / 페퍼민트 (아이스)</p>
+                  <p className="text-white/80">Chamomile (Iced) / 캐모마일 (아이스)</p>
                 </div>
-                <p className="text-white/60 mb-6">{t.visitOption2Desc}</p>
-                <Button 
-                  size="lg"
-                  className="w-full text-lg"
-                  style={{ backgroundColor: '#D4AF37', color: '#000' }}
-                  data-testid="button-hotel-reserve"
-                  asChild
-                >
-                  <a href="https://record.co.kr/menu" target="_blank" rel="noopener noreferrer">
-                    {t.reserveBtn}
-                  </a>
-                </Button>
               </div>
             </div>
           </div>
@@ -654,20 +738,9 @@ export default function Hotel() {
               <h2 className="text-2xl md:text-4xl font-bold mb-6">
                 {t.ctaTitle}<span style={{ color: '#D4AF37' }}>{t.ctaTitleHighlight}</span>
               </h2>
-              <p className="text-white/60 mb-8 whitespace-pre-line">
+              <p className="text-white/60 whitespace-pre-line">
                 {t.ctaDesc}
               </p>
-              <Button 
-                size="lg"
-                className="text-lg px-8 py-6"
-                style={{ backgroundColor: '#D4AF37', color: '#000' }}
-                data-testid="button-hotel-cta"
-                asChild
-              >
-                <a href="https://record.co.kr/menu" target="_blank" rel="noopener noreferrer">
-                  {t.ctaBtn}
-                </a>
-              </Button>
             </div>
           </div>
         </section>
