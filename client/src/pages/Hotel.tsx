@@ -17,6 +17,7 @@ import galleryBooth4 from "@assets/레코딩카페_부스_(4)_1768188070633.png"
 import galleryBooth5 from "@assets/레코딩카페_부스_1768188070633.png";
 import galleryLuggage from "@assets/레코딩카페_여행가방보관장소_1768188070633.png";
 import galleryControl from "@assets/레코딩카페_컨트롤룸_1768188070634.png";
+import buildingEntrance from "@assets/레코딩카페_건물입구4_1768190998588.png";
 
 type Language = 'ko' | 'ja' | 'zh' | 'en';
 
@@ -582,9 +583,16 @@ export default function Hotel() {
               <h2 className="text-2xl md:text-4xl font-bold mb-4">
                 {t.visitTitle} <span style={{ color: '#D4AF37' }}>{t.visitTitleHighlight}</span>
               </h2>
-              <p className="text-white/60 max-w-2xl mx-auto">
+              <p className="text-white/60 max-w-2xl mx-auto mb-8">
                 {t.visitDesc}
               </p>
+              <div className="max-w-md mx-auto">
+                <img 
+                  src={buildingEntrance} 
+                  alt="Building Entrance" 
+                  className="w-full rounded-xl border border-white/10"
+                />
+              </div>
             </div>
 
             {/* Location Info */}
