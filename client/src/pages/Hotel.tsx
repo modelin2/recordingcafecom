@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Mic2, Sparkles, Globe, Music, Star, Clock, MapPin, Coffee, Navigation, Calendar } from "lucide-react";
-import heroImage from "@assets/RECORDINGCAFE_1768187595497.jpeg";
+import heroImage from "@assets/recordingcafe_(2)_1768193796781.png";
 import { useState } from "react";
 
 // Gallery images
@@ -428,7 +428,7 @@ export default function Hotel() {
         {/* Hero Section with Image */}
         <section className="relative min-h-screen flex flex-col overflow-hidden pt-16">
           {/* Background Image - takes most of the screen */}
-          <div className="relative flex-1 min-h-[50vh] md:min-h-[60vh]">
+          <div className="relative flex-1 min-h-[40vh] md:min-h-[50vh]">
             <img 
               src={heroImage}
               alt="Recording Studio"
@@ -437,7 +437,7 @@ export default function Hotel() {
           </div>
 
           {/* Content - fixed at bottom with dark background */}
-          <div className="relative z-20 bg-gradient-to-t from-black via-black to-transparent py-8 md:py-12">
+          <div className="relative z-20 bg-gradient-to-t from-black via-black to-transparent py-6 md:py-8">
             <div className="max-w-4xl mx-auto px-4 text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-4" style={{ color: '#D4AF37' }}>
                 <MapPin className="h-4 w-4" />
