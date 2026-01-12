@@ -74,6 +74,9 @@ const translations = {
     mapCafeDesc: "대능빌딩 2F",
     mapWalk1: "도보 4분",
     mapWalk2: "도보 30초",
+    hangangTitle: "한강까지",
+    hangangTitleHighlight: "도보 5분",
+    hangangDesc: "레코딩카페에서 한강고수부지까지 걸어가는 방법을 확인하세요",
     visitTitle: "방문",
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
@@ -128,6 +131,9 @@ const translations = {
     mapCafeDesc: "大能ビル 2F",
     mapWalk1: "徒歩4分",
     mapWalk2: "徒歩30秒",
+    hangangTitle: "漢江まで",
+    hangangTitleHighlight: "徒歩5分",
+    hangangDesc: "Recording Caféから漢江高水敷までの道順をご確認ください",
     visitTitle: "訪問",
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
@@ -182,6 +188,9 @@ const translations = {
     mapCafeDesc: "大能大厦 2F",
     mapWalk1: "步行4分钟",
     mapWalk2: "步行30秒",
+    hangangTitle: "到汉江",
+    hangangTitleHighlight: "步行5分钟",
+    hangangDesc: "查看从Recording Café到汉江河畔的步行路线",
     visitTitle: "访问",
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
@@ -236,6 +245,9 @@ const translations = {
     mapCafeDesc: "Daenung Bldg 2F",
     mapWalk1: "4 min walk",
     mapWalk2: "30 sec walk",
+    hangangTitle: "To Hangang River",
+    hangangTitleHighlight: "5 min walk",
+    hangangDesc: "See directions from Recording Café to Hangang River Park",
     visitTitle: "How to",
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
@@ -539,8 +551,32 @@ export default function Hotel() {
           </div>
         </section>
 
-        {/* Visit Section */}
+        {/* Hangang River Walk Section */}
         <section className="py-16 md:py-24 bg-zinc-900">
+          <div className="max-w-2xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                {t.hangangTitle} <span style={{ color: '#D4AF37' }}>{t.hangangTitleHighlight}</span>
+              </h2>
+              <p className="text-white/60">
+                {t.hangangDesc}
+              </p>
+            </div>
+
+            <div className="relative aspect-[9/16] rounded-2xl overflow-hidden max-w-xs mx-auto">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/FzBqrwM5nvk"
+                title="Walk to Hangang River"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Visit Section */}
+        <section className="py-16 md:py-24 bg-black">
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-4">
