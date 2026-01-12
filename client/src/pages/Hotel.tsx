@@ -426,14 +426,14 @@ export default function Hotel() {
         </div>
 
         {/* Hero Section with Image */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <section className="relative min-h-screen flex items-end justify-center overflow-hidden pt-16 pb-24">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black z-10" />
             <img 
               src={heroImage}
               alt="Recording Studio"
-              className="w-full h-full object-cover object-[center_30%]"
+              className="w-full h-full object-cover object-top"
             />
           </div>
 
