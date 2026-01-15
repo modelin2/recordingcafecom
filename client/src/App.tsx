@@ -7,6 +7,7 @@ import Korea from "@/pages/Korea";
 import Map from "@/pages/Map";
 import Marketing from "@/pages/Marketing";
 import Hotel from "@/pages/Hotel";
+import HotelAdmin from "@/pages/HotelAdmin";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/map" component={Map} />
       <Route path="/marketing" component={Marketing} />
       <Route path="/hotel" component={Hotel} />
+      <Route path="/hoteladmin" component={HotelAdmin} />
       <Route component={NotFound} />
     </Switch>
   );

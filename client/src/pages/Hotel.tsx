@@ -1,8 +1,15 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { Mic2, Sparkles, Globe, Music, Star, Clock, MapPin, Coffee, Navigation, Calendar } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Mic2, Sparkles, Globe, Music, Star, Clock, MapPin, Coffee, Navigation, Calendar, Users, DoorOpen, Send } from "lucide-react";
 import heroImage from "@assets/recordingcafe_(2)_1768193796781.png";
 import { useState } from "react";
+import { useLocation } from "wouter";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 // Gallery images
 import galleryCouple from "@assets/레코딩카페_라운지_1768188070629.jpg";
@@ -394,7 +401,62 @@ const languageOptions: { code: Language; flag: string }[] = [
 
 export default function Hotel() {
   const [lang, setLang] = useState<Language>('ja');
+  const [location] = useLocation();
+  const { toast } = useToast();
   const t = translations[lang];
+  
+  const isHotelPage = location === '/hotel';
+  
+  const [roomNumber, setRoomNumber] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [partySize, setPartySize] = useState('1');
+  const [visitDate, setVisitDate] = useState('');
+  const [visitTime, setVisitTime] = useState('');
+  
+  const reservationMutation = useMutation({
+    mutationFn: async (data: { hotelCode: string; roomNumber: string; nickname: string; partySize: number; visitDate: string; visitTime: string }) => {
+      const response = await apiRequest('POST', '/api/reservations', data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "예약 완료",
+        description: "방문 예약이 성공적으로 접수되었습니다.",
+      });
+      setRoomNumber('');
+      setNickname('');
+      setPartySize('1');
+      setVisitDate('');
+      setVisitTime('');
+    },
+    onError: () => {
+      toast({
+        title: "예약 실패",
+        description: "예약 중 오류가 발생했습니다. 다시 시도해주세요.",
+        variant: "destructive",
+      });
+    },
+  });
+  
+  const handleReservation = () => {
+    if (!roomNumber || !nickname || !visitDate || !visitTime) {
+      toast({
+        title: "입력 오류",
+        description: "모든 필드를 입력해주세요.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    reservationMutation.mutate({
+      hotelCode: 'riverside',
+      roomNumber,
+      nickname,
+      partySize: parseInt(partySize),
+      visitDate,
+      visitTime,
+    });
+  };
 
   return (
     <>
@@ -426,13 +488,13 @@ export default function Hotel() {
         </div>
 
         {/* Hero Section with Image */}
-        <section className="relative min-h-screen bg-black flex flex-col pt-16">
+        <section className="relative min-h-screen bg-black flex flex-col pt-14 md:pt-16">
           {/* Full Image Container */}
-          <div className="relative w-full flex-1 flex items-center justify-center">
+          <div className="relative w-full flex-1 flex items-start md:items-center justify-center">
             <img 
               src={heroImage}
               alt="Recording Studio"
-              className="max-h-[85vh] w-auto object-contain"
+              className="max-h-[80vh] md:max-h-[90vh] lg:max-h-[95vh] w-auto object-contain"
             />
             
             {/* Content - positioned at bottom third of image */}
@@ -863,6 +925,126 @@ export default function Hotel() {
             </div>
           </div>
         </section>
+
+        {/* Hotel Guest Reservation Form - Only on /hotel page */}
+        {isHotelPage && (
+          <section className="py-16 md:py-24 bg-zinc-900">
+            <div className="max-w-2xl mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                  리버사이드 호텔 <span style={{ color: '#D4AF37' }}>투숙객 전용 예약</span>
+                </h2>
+                <p className="text-white/60">
+                  호텔 투숙객은 아래 폼을 통해 방문 예약이 가능합니다.
+                </p>
+              </div>
+
+              <div className="bg-black/50 rounded-2xl p-8 border border-white/10">
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="roomNumber" className="text-white/80 flex items-center gap-2">
+                        <DoorOpen className="h-4 w-4" style={{ color: '#D4AF37' }} />
+                        투숙 호실
+                      </Label>
+                      <Input
+                        id="roomNumber"
+                        placeholder="예: 1024"
+                        value={roomNumber}
+                        onChange={(e) => setRoomNumber(e.target.value)}
+                        className="bg-zinc-800 border-white/20 text-white placeholder:text-white/40"
+                        data-testid="input-room-number"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="nickname" className="text-white/80 flex items-center gap-2">
+                        <Users className="h-4 w-4" style={{ color: '#D4AF37' }} />
+                        닉네임
+                      </Label>
+                      <Input
+                        id="nickname"
+                        placeholder="예: 홍길동"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                        className="bg-zinc-800 border-white/20 text-white placeholder:text-white/40"
+                        data-testid="input-nickname"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="partySize" className="text-white/80 flex items-center gap-2">
+                      <Users className="h-4 w-4" style={{ color: '#D4AF37' }} />
+                      인원
+                    </Label>
+                    <Select value={partySize} onValueChange={setPartySize}>
+                      <SelectTrigger className="bg-zinc-800 border-white/20 text-white" data-testid="select-party-size">
+                        <SelectValue placeholder="인원 선택" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">1명</SelectItem>
+                        <SelectItem value="2">2명</SelectItem>
+                        <SelectItem value="3">3명</SelectItem>
+                        <SelectItem value="4">4명</SelectItem>
+                        <SelectItem value="5">5명 이상</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="visitDate" className="text-white/80 flex items-center gap-2">
+                        <Calendar className="h-4 w-4" style={{ color: '#D4AF37' }} />
+                        방문 일자
+                      </Label>
+                      <Input
+                        id="visitDate"
+                        type="date"
+                        value={visitDate}
+                        onChange={(e) => setVisitDate(e.target.value)}
+                        className="bg-zinc-800 border-white/20 text-white"
+                        data-testid="input-visit-date"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="visitTime" className="text-white/80 flex items-center gap-2">
+                        <Clock className="h-4 w-4" style={{ color: '#D4AF37' }} />
+                        방문 시간
+                      </Label>
+                      <Input
+                        id="visitTime"
+                        type="time"
+                        value={visitTime}
+                        onChange={(e) => setVisitTime(e.target.value)}
+                        className="bg-zinc-800 border-white/20 text-white"
+                        data-testid="input-visit-time"
+                      />
+                    </div>
+                  </div>
+
+                  <Button 
+                    onClick={handleReservation}
+                    disabled={reservationMutation.isPending}
+                    className="w-full py-6 text-lg font-bold"
+                    style={{ backgroundColor: '#D4AF37', color: 'black' }}
+                    data-testid="button-submit-reservation"
+                  >
+                    {reservationMutation.isPending ? (
+                      "예약 중..."
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        방문 예약하기
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Footer */}
         <footer className="py-8 bg-black border-t border-white/10">
