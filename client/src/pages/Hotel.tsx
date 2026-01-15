@@ -526,6 +526,7 @@ export default function Hotel() {
       toast({
         title: t.toastSuccess,
         description: t.toastSuccessDesc,
+        duration: 10000,
       });
       setRoomNumber('');
       setNickname('');
