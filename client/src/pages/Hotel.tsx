@@ -89,7 +89,7 @@ const translations = {
     mapTitle: "오시는",
     mapTitleHighlight: "길",
     mapSinsa: "신사역",
-    mapSinsaDesc: "3호선",
+    mapSinsaDesc: "3호선(신분당선)",
     mapHotel: "리버사이드 호텔",
     mapHotelDesc: "정문",
     mapCafe: "레코딩카페",
@@ -129,7 +129,7 @@ const translations = {
     visitTitleHighlight: "방법",
     visitDesc: "리버사이드 호텔 정문에서 아래쪽으로 30초만 걸어 내려오세요. 왼쪽에 대능빌딩이 보이면 2층으로 올라오시면 됩니다.",
     address: "서울특별시 서초구 강남대로107길 21, 2층",
-    nearStation: "신사역 3호선에서 도보 4분",
+    nearStation: "신사역 3호선(신분당선)에서 도보 4분",
     hours: "매일 12:00 - 21:00",
     visitOption1: "즉시 방문",
     visitOption1Desc: "예약 없이 바로 방문 가능합니다. 대기가 있을 수 있습니다.",
@@ -139,7 +139,33 @@ const translations = {
     ctaTitle: "오늘,",
     ctaTitleHighlight: "스타가 되세요",
     ctaDesc: "리버사이드 호텔에서 도보 30초\n숙박 중에 꼭 들러주세요",
-    ctaBtn: "방문예약"
+    ctaBtn: "방문예약",
+    reservationTitle: "리버사이드 호텔",
+    reservationTitleHighlight: "투숙객 전용 예약",
+    reservationDesc: "호텔 투숙객은 아래 폼을 작성해 주시면 특별한 보너스를 제공합니다.",
+    formRoomNumber: "투숙 호실",
+    formRoomPlaceholder: "예: 1024",
+    formNickname: "닉네임",
+    formNicknamePlaceholder: "예: 홍길동",
+    formPartySize: "인원",
+    formPartySizeSelect: "인원 선택",
+    formPerson1: "1명",
+    formPerson2: "2명",
+    formPerson3: "3명",
+    formPerson4: "4명",
+    formPerson5: "5명 이상",
+    formVisitDate: "방문 일자",
+    formVisitTime: "방문 시간",
+    formSubmit: "방문 예약하기",
+    formSubmitting: "예약 중...",
+    toastSuccess: "예약 완료",
+    toastSuccessDesc: "방문 예약이 성공적으로 접수되었습니다.",
+    toastError: "예약 실패",
+    toastErrorDesc: "예약 중 오류가 발생했습니다. 다시 시도해주세요.",
+    toastInputError: "입력 오류",
+    toastInputErrorDesc: "모든 필드를 입력해주세요.",
+    toastTimeError: "시간 오류",
+    toastTimeErrorDesc: "현재 시간 이후의 시간을 선택해주세요."
   },
   ja: {
     langName: "日本語",
@@ -172,7 +198,7 @@ const translations = {
     mapTitle: "アクセス",
     mapTitleHighlight: "マップ",
     mapSinsa: "新沙駅",
-    mapSinsaDesc: "3号線",
+    mapSinsaDesc: "3号線(新盆唐線)",
     mapHotel: "リバーサイドホテル",
     mapHotelDesc: "正門",
     mapCafe: "Recording Café",
@@ -212,7 +238,7 @@ const translations = {
     visitTitleHighlight: "方法",
     visitDesc: "リバーサイドホテル正門から下方向に30秒歩いてください。左側に大能ビルが見えたら2階へお上がりください。",
     address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
-    nearStation: "新沙駅（3号線）から徒歩4分",
+    nearStation: "新沙駅3号線(新盆唐線)から徒歩4分",
     hours: "毎日 12:00 - 21:00",
     visitOption1: "即時訪問",
     visitOption1Desc: "予約なしでそのまま訪問可能です。待ち時間が発生する場合があります。",
@@ -222,7 +248,33 @@ const translations = {
     ctaTitle: "今日、",
     ctaTitleHighlight: "スターになる",
     ctaDesc: "リバーサイドホテルから徒歩30秒\nご滞在中にぜひお立ち寄りください",
-    ctaBtn: "訪問予約"
+    ctaBtn: "訪問予約",
+    reservationTitle: "リバーサイドホテル",
+    reservationTitleHighlight: "宿泊客専用予約",
+    reservationDesc: "ホテル宿泊客は下のフォームにご記入いただくと、特別なボーナスをご提供します。",
+    formRoomNumber: "お部屋番号",
+    formRoomPlaceholder: "例: 1024",
+    formNickname: "ニックネーム",
+    formNicknamePlaceholder: "例: 田中太郎",
+    formPartySize: "人数",
+    formPartySizeSelect: "人数を選択",
+    formPerson1: "1名",
+    formPerson2: "2名",
+    formPerson3: "3名",
+    formPerson4: "4名",
+    formPerson5: "5名以上",
+    formVisitDate: "訪問日",
+    formVisitTime: "訪問時間",
+    formSubmit: "訪問予約する",
+    formSubmitting: "予約中...",
+    toastSuccess: "予約完了",
+    toastSuccessDesc: "訪問予約が正常に受け付けられました。",
+    toastError: "予約失敗",
+    toastErrorDesc: "予約中にエラーが発生しました。もう一度お試しください。",
+    toastInputError: "入力エラー",
+    toastInputErrorDesc: "すべての項目を入力してください。",
+    toastTimeError: "時間エラー",
+    toastTimeErrorDesc: "現在時刻以降の時間を選択してください。"
   },
   zh: {
     langName: "中文",
@@ -255,7 +307,7 @@ const translations = {
     mapTitle: "交通",
     mapTitleHighlight: "指南",
     mapSinsa: "新沙站",
-    mapSinsaDesc: "3号线",
+    mapSinsaDesc: "3号线(新盆唐线)",
     mapHotel: "河畔酒店",
     mapHotelDesc: "正门",
     mapCafe: "Recording Café",
@@ -295,7 +347,7 @@ const translations = {
     visitTitleHighlight: "方式",
     visitDesc: "从河畔酒店正门向下步行30秒。看到左侧的大能大厦后上2楼即可。",
     address: "首尔市瑞草区江南大路107街21号 2楼",
-    nearStation: "新沙站(3号线)步行4分钟",
+    nearStation: "新沙站3号线(新盆唐线)步行4分钟",
     hours: "每天 12:00 - 21:00",
     visitOption1: "即时访问",
     visitOption1Desc: "无需预约即可访问。可能需要等待。",
@@ -305,7 +357,33 @@ const translations = {
     ctaTitle: "今天，",
     ctaTitleHighlight: "成为明星",
     ctaDesc: "距离河畔酒店步行30秒\n住宿期间请务必光临",
-    ctaBtn: "预约访问"
+    ctaBtn: "预约访问",
+    reservationTitle: "河畔酒店",
+    reservationTitleHighlight: "住客专享预约",
+    reservationDesc: "酒店住客填写以下表格即可获得特别奖励。",
+    formRoomNumber: "房间号",
+    formRoomPlaceholder: "例: 1024",
+    formNickname: "昵称",
+    formNicknamePlaceholder: "例: 张三",
+    formPartySize: "人数",
+    formPartySizeSelect: "选择人数",
+    formPerson1: "1人",
+    formPerson2: "2人",
+    formPerson3: "3人",
+    formPerson4: "4人",
+    formPerson5: "5人以上",
+    formVisitDate: "访问日期",
+    formVisitTime: "访问时间",
+    formSubmit: "预约访问",
+    formSubmitting: "预约中...",
+    toastSuccess: "预约成功",
+    toastSuccessDesc: "访问预约已成功提交。",
+    toastError: "预约失败",
+    toastErrorDesc: "预约时发生错误。请重试。",
+    toastInputError: "输入错误",
+    toastInputErrorDesc: "请填写所有字段。",
+    toastTimeError: "时间错误",
+    toastTimeErrorDesc: "请选择当前时间之后的时间。"
   },
   en: {
     langName: "English",
@@ -338,7 +416,7 @@ const translations = {
     mapTitle: "Location",
     mapTitleHighlight: "Map",
     mapSinsa: "Sinsa Station",
-    mapSinsaDesc: "Line 3",
+    mapSinsaDesc: "Line 3 (Sinbundang)",
     mapHotel: "Riverside Hotel",
     mapHotelDesc: "Main Gate",
     mapCafe: "Recording Café",
@@ -378,7 +456,7 @@ const translations = {
     visitTitleHighlight: "Visit",
     visitDesc: "Walk 30 seconds down from Riverside Hotel main entrance. You'll see Daenung Building on your left - come up to the 2nd floor.",
     address: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul",
-    nearStation: "4 mins walk from Sinsa Station (Line 3)",
+    nearStation: "4 mins walk from Sinsa Station Line 3 (Sinbundang)",
     hours: "Open Daily: 12:00 PM - 09:00 PM",
     visitOption1: "Walk-in Visit",
     visitOption1Desc: "Visit without reservation. There may be a wait time.",
@@ -388,7 +466,33 @@ const translations = {
     ctaTitle: "Today,",
     ctaTitleHighlight: "Become a Star",
     ctaDesc: "30 seconds from Riverside Hotel\nPlease visit us during your stay",
-    ctaBtn: "Make Reservation"
+    ctaBtn: "Make Reservation",
+    reservationTitle: "Riverside Hotel",
+    reservationTitleHighlight: "Guest Exclusive Reservation",
+    reservationDesc: "Hotel guests who fill out the form below will receive a special bonus.",
+    formRoomNumber: "Room Number",
+    formRoomPlaceholder: "e.g., 1024",
+    formNickname: "Nickname",
+    formNicknamePlaceholder: "e.g., John",
+    formPartySize: "Party Size",
+    formPartySizeSelect: "Select party size",
+    formPerson1: "1 person",
+    formPerson2: "2 people",
+    formPerson3: "3 people",
+    formPerson4: "4 people",
+    formPerson5: "5+ people",
+    formVisitDate: "Visit Date",
+    formVisitTime: "Visit Time",
+    formSubmit: "Make Reservation",
+    formSubmitting: "Reserving...",
+    toastSuccess: "Reservation Complete",
+    toastSuccessDesc: "Your visit reservation has been successfully submitted.",
+    toastError: "Reservation Failed",
+    toastErrorDesc: "An error occurred during reservation. Please try again.",
+    toastInputError: "Input Error",
+    toastInputErrorDesc: "Please fill in all fields.",
+    toastTimeError: "Time Error",
+    toastTimeErrorDesc: "Please select a time after the current time."
   }
 };
 
@@ -420,8 +524,8 @@ export default function Hotel() {
     },
     onSuccess: () => {
       toast({
-        title: "예약 완료",
-        description: "방문 예약이 성공적으로 접수되었습니다.",
+        title: t.toastSuccess,
+        description: t.toastSuccessDesc,
       });
       setRoomNumber('');
       setNickname('');
@@ -431,8 +535,8 @@ export default function Hotel() {
     },
     onError: () => {
       toast({
-        title: "예약 실패",
-        description: "예약 중 오류가 발생했습니다. 다시 시도해주세요.",
+        title: t.toastError,
+        description: t.toastErrorDesc,
         variant: "destructive",
       });
     },
@@ -441,8 +545,19 @@ export default function Hotel() {
   const handleReservation = () => {
     if (!roomNumber || !nickname || !visitDate || !visitTime) {
       toast({
-        title: "입력 오류",
-        description: "모든 필드를 입력해주세요.",
+        title: t.toastInputError,
+        description: t.toastInputErrorDesc,
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    const now = new Date();
+    const selectedDateTime = new Date(`${visitDate}T${visitTime}`);
+    if (selectedDateTime <= now) {
+      toast({
+        title: t.toastTimeError,
+        description: t.toastTimeErrorDesc,
         variant: "destructive",
       });
       return;
@@ -494,7 +609,7 @@ export default function Hotel() {
             <img 
               src={heroImage}
               alt="Recording Studio"
-              className="max-h-[80vh] md:max-h-[90vh] lg:max-h-[95vh] w-auto object-contain"
+              className="max-h-[80vh] md:max-h-[100vh] lg:max-h-none lg:h-auto lg:w-[90vw] lg:max-w-[1400px] w-auto object-contain"
             />
             
             {/* Content - positioned at bottom third of image */}
@@ -932,10 +1047,10 @@ export default function Hotel() {
             <div className="max-w-2xl mx-auto px-4">
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-4">
-                  리버사이드 호텔 <span style={{ color: '#D4AF37' }}>투숙객 전용 예약</span>
+                  {t.reservationTitle} <span style={{ color: '#D4AF37' }}>{t.reservationTitleHighlight}</span>
                 </h2>
                 <p className="text-white/60">
-                  호텔 투숙객은 아래 폼을 통해 방문 예약이 가능합니다.
+                  {t.reservationDesc}
                 </p>
               </div>
 
@@ -943,13 +1058,13 @@ export default function Hotel() {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="roomNumber" className="text-white/80 flex items-center gap-2">
-                        <DoorOpen className="h-4 w-4" style={{ color: '#D4AF37' }} />
-                        투숙 호실
+                      <Label htmlFor="roomNumber" className="text-white flex items-center gap-2">
+                        <DoorOpen className="h-4 w-4 text-white" />
+                        {t.formRoomNumber}
                       </Label>
                       <Input
                         id="roomNumber"
-                        placeholder="예: 1024"
+                        placeholder={t.formRoomPlaceholder}
                         value={roomNumber}
                         onChange={(e) => setRoomNumber(e.target.value)}
                         className="bg-zinc-800 border-white/20 text-white placeholder:text-white/40"
@@ -958,13 +1073,13 @@ export default function Hotel() {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="nickname" className="text-white/80 flex items-center gap-2">
-                        <Users className="h-4 w-4" style={{ color: '#D4AF37' }} />
-                        닉네임
+                      <Label htmlFor="nickname" className="text-white flex items-center gap-2">
+                        <Users className="h-4 w-4 text-white" />
+                        {t.formNickname}
                       </Label>
                       <Input
                         id="nickname"
-                        placeholder="예: 홍길동"
+                        placeholder={t.formNicknamePlaceholder}
                         value={nickname}
                         onChange={(e) => setNickname(e.target.value)}
                         className="bg-zinc-800 border-white/20 text-white placeholder:text-white/40"
@@ -974,51 +1089,51 @@ export default function Hotel() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="partySize" className="text-white/80 flex items-center gap-2">
-                      <Users className="h-4 w-4" style={{ color: '#D4AF37' }} />
-                      인원
+                    <Label htmlFor="partySize" className="text-white flex items-center gap-2">
+                      <Users className="h-4 w-4 text-white" />
+                      {t.formPartySize}
                     </Label>
                     <Select value={partySize} onValueChange={setPartySize}>
                       <SelectTrigger className="bg-zinc-800 border-white/20 text-white" data-testid="select-party-size">
-                        <SelectValue placeholder="인원 선택" />
+                        <SelectValue placeholder={t.formPartySizeSelect} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="1">1명</SelectItem>
-                        <SelectItem value="2">2명</SelectItem>
-                        <SelectItem value="3">3명</SelectItem>
-                        <SelectItem value="4">4명</SelectItem>
-                        <SelectItem value="5">5명 이상</SelectItem>
+                        <SelectItem value="1">{t.formPerson1}</SelectItem>
+                        <SelectItem value="2">{t.formPerson2}</SelectItem>
+                        <SelectItem value="3">{t.formPerson3}</SelectItem>
+                        <SelectItem value="4">{t.formPerson4}</SelectItem>
+                        <SelectItem value="5">{t.formPerson5}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="visitDate" className="text-white/80 flex items-center gap-2">
-                        <Calendar className="h-4 w-4" style={{ color: '#D4AF37' }} />
-                        방문 일자
+                      <Label htmlFor="visitDate" className="text-white flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-white" />
+                        {t.formVisitDate}
                       </Label>
                       <Input
                         id="visitDate"
                         type="date"
                         value={visitDate}
                         onChange={(e) => setVisitDate(e.target.value)}
-                        className="bg-zinc-800 border-white/20 text-white"
+                        className="bg-zinc-800 border-white/20 text-white [color-scheme:dark]"
                         data-testid="input-visit-date"
                       />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="visitTime" className="text-white/80 flex items-center gap-2">
-                        <Clock className="h-4 w-4" style={{ color: '#D4AF37' }} />
-                        방문 시간
+                      <Label htmlFor="visitTime" className="text-white flex items-center gap-2">
+                        <Clock className="h-4 w-4 text-white" />
+                        {t.formVisitTime}
                       </Label>
                       <Input
                         id="visitTime"
                         type="time"
                         value={visitTime}
                         onChange={(e) => setVisitTime(e.target.value)}
-                        className="bg-zinc-800 border-white/20 text-white"
+                        className="bg-zinc-800 border-white/20 text-white [color-scheme:dark]"
                         data-testid="input-visit-time"
                       />
                     </div>
@@ -1032,11 +1147,11 @@ export default function Hotel() {
                     data-testid="button-submit-reservation"
                   >
                     {reservationMutation.isPending ? (
-                      "예약 중..."
+                      t.formSubmitting
                     ) : (
                       <>
                         <Send className="h-5 w-5 mr-2" />
-                        방문 예약하기
+                        {t.formSubmit}
                       </>
                     )}
                   </Button>
