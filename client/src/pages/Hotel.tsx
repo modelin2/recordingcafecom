@@ -1128,14 +1128,20 @@ export default function Hotel() {
                         <Clock className="h-4 w-4 text-white" />
                         {t.formVisitTime}
                       </Label>
-                      <Input
-                        id="visitTime"
-                        type="time"
-                        value={visitTime}
-                        onChange={(e) => setVisitTime(e.target.value)}
-                        className="bg-zinc-800 border-white/20 text-white [color-scheme:dark]"
-                        data-testid="input-visit-time"
-                      />
+                      <Select value={visitTime} onValueChange={setVisitTime}>
+                        <SelectTrigger className="bg-zinc-800 border-white/20 text-white" data-testid="input-visit-time">
+                          <SelectValue placeholder="--:--" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Array.from({ length: 54 }, (_, i) => {
+                            const totalMinutes = 12 * 60 + i * 10;
+                            const hours = Math.floor(totalMinutes / 60);
+                            const minutes = totalMinutes % 60;
+                            const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                            return <SelectItem key={timeStr} value={timeStr}>{timeStr}</SelectItem>;
+                          })}
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 
