@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #D4AF37;
+  --gold-light: #F0D060;
+  --gold-dark: #A8892A;
+  --bg-primary: #050508;
+  --bg-secondary: #0a0a0f;
+  --bg-card: #0f0f18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #ffffff;
+  font-family: var(--font-noto-sans-kr), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 골드 그라디언트 텍스트 */
+.gold-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #F0D060 50%, #A8892A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 골드 테두리 카드 */
+.gold-card {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.gold-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+/* 글래스 다크 */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 3px;
+}
+
+/* prose 스타일 (기사 본문) */
+.prose-dark {
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+.prose-dark h1, .prose-dark h2, .prose-dark h3 {
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.prose-dark h2 { font-size: 1.5rem; font-weight: 700; }
+.prose-dark h3 { font-size: 1.25rem; font-weight: 600; }
+.prose-dark p { margin-bottom: 1.25rem; }
+.prose-dark ul, .prose-dark ol { margin: 1rem 0; padding-left: 1.5rem; }
+.prose-dark li { margin-bottom: 0.5rem; }
+.prose-dark strong { color: #D4AF37; font-weight: 600; }
+.prose-dark a { color: #D4AF37; text-decoration: underline; }
