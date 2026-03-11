@@ -12,14 +12,14 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "레코딩카페 | 커플 이색 데이트 · 나만의 노래 만들기",
+  title: "K Recording Café | K-POP 녹음 체험 · 도슨트 · 멤버십",
   description:
-    "레코딩카페에서 특별한 커플 데이트를 경험해보세요. 전문 녹음 스튜디오, AI 포토 부스, 보라박스 라이브 방송까지. 음악으로 만드는 잊지 못할 추억.",
+    "실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험하세요. 녹음 체험, 릴테이프 도슨트(4개국어), K-PASS 멤버십, 단체 관람 · 신사역 도보 4분.",
   keywords:
-    "레코딩카페, 커플 이색 데이트, 녹음 카페, 녹음 스튜디오 데이트, K-pop 체험, 보라박스, 이색 데이트 코스, 홍대 데이트",
+    "레코딩카페, K-POP 체험, 녹음 체험, 도슨트 투어, 신사역 관광, 외국인 K-POP, 단체 현장학습, K-PASS 멤버십, 음원 발매",
   openGraph: {
-    title: "레코딩카페 | 커플 이색 데이트 · 나만의 노래 만들기",
-    description: "음악으로 만드는 잊지 못할 커플 데이트. 전문 녹음 스튜디오에서 우리만의 노래를.",
+    title: "K Recording Café | K-POP 녹음 체험 · 도슨트 · 멤버십",
+    description: "실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험하세요. 신사역 도보 4분.",
     type: "website",
     locale: "ko_KR",
   },
