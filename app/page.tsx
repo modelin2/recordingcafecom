@@ -25,7 +25,7 @@ export default async function Home() {
     <>
       {/* ── 상단 공지 바 ── */}
       <div className="bg-[#D4AF37] text-black text-xs font-bold text-center py-2 px-4 tracking-wide">
-        🎤 사전 예약 시 음료 1잔 무료 증정 · 매일 10:00 – 22:00 운영 중
+        🎤 사전 예약 시 음료 1잔 무료 증정 · 매일 12:00 – 21:00 운영 중
       </div>
 
       {/* ══════════════════════════════════════════
@@ -51,7 +51,7 @@ export default async function Home() {
 
           <h1 className="font-black text-white leading-tight mb-4">
             <span className="block text-5xl sm:text-7xl lg:text-8xl tracking-tight">
-              K·RECORDING
+              RECORDING
             </span>
             <span className="block text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#D4AF37]">
               CAFÉ
@@ -91,7 +91,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/5">
             {[
-              { icon: "🕐", label: "운영 시간", value: "매일 10:00–22:00", sub: "연중무휴" },
+              { icon: "🕐", label: "운영 시간", value: "매일 12:00–21:00", sub: "연중무휴" },
               { icon: "📍", label: "위치", value: "신사역 3호선", sub: "5번 출구 도보 4분" },
               { icon: "🎤", label: "체험 프로그램", value: "녹음·도슨트", sub: "₩35,000~" },
               { icon: "🏆", label: "운영 경력", value: "10년 이상", sub: "전속 아티스트 50+명" },
@@ -375,7 +375,7 @@ export default async function Home() {
             <div className="bg-[#0f0f18] rounded-2xl p-6 border border-white/5 text-center">
               <div className="text-3xl mb-3">🕐</div>
               <div className="text-[#D4AF37] font-bold text-sm mb-1">운영 시간</div>
-              <div className="text-white text-sm font-bold">오전 10:00 – 밤 22:00</div>
+              <div className="text-white text-sm font-bold">낮 12:00 – 밤 21:00</div>
               <div className="text-slate-500 text-xs mt-1">연중무휴 · 사전 예약 권장</div>
             </div>
           </div>

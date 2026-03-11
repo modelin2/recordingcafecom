@@ -158,7 +158,7 @@ export default function FaqPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { icon: "💬", title: "네이버 톡톡", desc: "실시간 채팅 문의", sub: "평일 10-18시 빠른 응답", href: "https://talk.naver.com/ct/wu2kkmv", label: "문의하기", color: "#03C75A" },
-              { icon: "📞", title: "전화 문의", desc: "운영 중 통화 가능", sub: "매일 10:00-22:00", href: "tel:02-0000-0000", label: "전화하기", color: "#D4AF37" },
+              { icon: "📞", title: "전화 문의", desc: "운영 중 통화 가능", sub: "매일 12:00-21:00", href: "tel:02-0000-0000", label: "전화하기", color: "#D4AF37" },
               { icon: "📍", title: "방문 문의", desc: "신사역 5번 출구", sub: "서초구 강남대로107길 21, 2층", href: "/about#location", label: "찾아오는 길", color: "#A855F7" },
             ].map((c, i) => (
               <div key={i} className="bg-[#0f0f18] rounded-2xl p-6 border border-white/5 text-center">

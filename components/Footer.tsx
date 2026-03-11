@@ -82,7 +82,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
-                <span>매일 10:00 – 22:00 · 연중무휴</span>
+                <span>매일 12:00 – 21:00 · 연중무휴</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Phone className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
@@ -118,7 +118,7 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-slate-700 text-xs">
-            © 2025 K Recording Café. All rights reserved. · 특허 보유 기술 무단 복제 금지
+            © 2025 레코딩카페. All rights reserved. · 특허 보유 기술 무단 복제 금지
           </p>
           <div className="flex gap-4 text-slate-700 text-xs">
             <a href="#" className="hover:text-slate-400 transition-colors">개인정보처리방침</a>

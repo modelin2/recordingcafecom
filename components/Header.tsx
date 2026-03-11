@@ -103,7 +103,7 @@ export default function Header() {
             {/* 로고 */}
             <Link href="/" className="flex-shrink-0 flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-black font-black text-xs">K</span>
+                <span className="text-black font-black text-xs">RC</span>
               </div>
               <span className="text-white font-black text-base tracking-tight hidden sm:block">
                 RECORDING <span className="text-[#D4AF37]">CAFÉ</span>
@@ -199,7 +199,7 @@ export default function Header() {
           <div className="flex items-center justify-between px-6 h-16 border-b border-white/5">
             <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-black font-black text-xs">K</span>
+                <span className="text-black font-black text-xs">RC</span>
               </div>
               <span className="text-white font-black text-sm">RECORDING CAFÉ</span>
             </Link>

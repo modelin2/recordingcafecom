@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "레코딩카페란 | K Recording Café",
+  title: "레코딩카페란 | 레코딩카페",
   description: "10년간 전속 아티스트 50명 이상의 음반을 제작해온 전문 스튜디오를 처음으로 일반에 공개합니다.",
 };
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
             {[
               { icon: "📍", title: "주소", main: "서울 서초구 강남대로107길 21, 2층", sub: "2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul" },
               { icon: "🚇", title: "지하철", main: "3호선 신사역 5번 출구", sub: "도보 4분 · 주차 불가 (인근 유료 주차장)" },
-              { icon: "🕐", title: "운영 시간", main: "매일 10:00 – 22:00", sub: "연중무휴 · 사전 예약 권장" },
+              { icon: "🕐", title: "운영 시간", main: "매일 12:00 – 21:00", sub: "연중무휴 · 사전 예약 권장" },
             ].map((loc, i) => (
               <div key={i} className="bg-[#0f0f18] rounded-2xl p-6 text-center border border-white/5">
                 <div className="text-3xl mb-3">{loc.icon}</div>
