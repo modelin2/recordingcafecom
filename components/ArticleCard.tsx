@@ -22,44 +22,82 @@ export default function ArticleCard({ article }: { article: Article }) {
 
   return (
     <Link href={`/magazine/${article.slug}`} className="group block">
-      <div className="gold-card rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-[#D4AF37]/40 group-hover:-translate-y-1">
+      <div
+        style={{
+          backgroundColor: "#FAFAFA",
+          border: "1px solid #D3D3D3",
+          borderRadius: 0,
+          overflow: "hidden",
+          transition: "background-color 0.2s",
+        }}
+        className="group-hover:[background-color:#F0EFEB]"
+      >
         {/* 이미지 */}
-        <div className="relative h-48 bg-[#0f0f18]">
+        <div style={{ position: "relative", height: 220, backgroundColor: "#F0EFEB" }}>
           {article.image_url ? (
             <Image
               src={article.image_url}
               alt={article.title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              style={{ objectFit: "cover" }}
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center">
-                <span className="text-[#D4AF37] text-xl">♪</span>
-              </div>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span style={{ color: "#8B8675", fontSize: 36 }}>♪</span>
             </div>
           )}
-          {/* 카테고리 배지 */}
-          <div className="absolute top-3 left-3">
-            <span className="bg-[#D4AF37] text-black text-xs font-bold px-2.5 py-1 rounded-full">
-              {article.category}
-            </span>
-          </div>
         </div>
 
         {/* 내용 */}
-        <div className="p-5">
-          <h3 className="text-white font-bold text-base leading-snug mb-2 group-hover:text-[#D4AF37] transition-colors line-clamp-2">
+        <div style={{ padding: "16px 20px 20px" }}>
+          {/* 카테고리 레이블 */}
+          <div
+            style={{
+              fontSize: 11,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: "#8B8675",
+              marginBottom: 8,
+            }}
+          >
+            {article.category}
+          </div>
+          <h3
+            style={{
+              color: "#000000",
+              fontWeight: 500,
+              fontSize: 15,
+              lineHeight: 1.4,
+              marginBottom: 8,
+            }}
+            className="line-clamp-2"
+          >
             {article.title}
           </h3>
-          <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 mb-4">
+          <p
+            style={{
+              color: "#5F5F5F",
+              fontSize: 13,
+              lineHeight: 1.75,
+              marginBottom: 16,
+            }}
+            className="line-clamp-2"
+          >
             {article.excerpt}
           </p>
-          <div className="flex items-center gap-3 text-xs text-slate-500">
+          <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#8B8675", fontSize: 12 }}>
             <span>{date}</span>
             <span>·</span>
-            <div className="flex items-center gap-1">
-              <Clock className="w-3 h-3" />
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              <Clock style={{ width: 12, height: 12 }} />
               {article.read_time}분 읽기
             </div>
           </div>

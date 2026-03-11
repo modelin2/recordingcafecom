@@ -54,36 +54,76 @@ export default async function MagazinePage() {
   const rest = articles.slice(1);
 
   return (
-    <div className="min-h-screen bg-[#050508]">
+    <div style={{ minHeight: "100vh", backgroundColor: "#FAFAFA", fontFamily: "var(--font-dm-sans), sans-serif" }}>
       {/* 헤더 */}
-      <div className="bg-gradient-to-b from-[#0a0a0f] to-[#050508] border-b border-[#D4AF37]/10 pt-24 pb-12">
+      <div
+        style={{
+          backgroundColor: "#F0EFEB",
+          borderBottom: "1px solid #D3D3D3",
+          paddingTop: 96,
+          paddingBottom: 64,
+        }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6">
-            <Link href="/" className="hover:text-[#D4AF37] transition-colors">홈</Link>
+          <nav style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#5F5F5F", marginBottom: 24 }}>
+            <Link href="/" style={{ color: "#5F5F5F", textDecoration: "none" }} className="hover:underline">홈</Link>
             <span>›</span>
-            <span className="text-slate-300">매거진</span>
+            <span>매거진</span>
           </nav>
-          <div className="text-[#D4AF37] text-xs font-mono uppercase tracking-widest mb-3">
+          <div
+            style={{
+              fontSize: 11,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: "#8B8675",
+              marginBottom: 12,
+            }}
+          >
             Recording Café Magazine
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-3">
-            레코딩카페 <span className="gold-text">매거진</span>
+          <h1
+            style={{
+              fontSize: "clamp(36px, 5vw, 56px)",
+              fontWeight: 400,
+              letterSpacing: -2,
+              color: "#000000",
+              marginBottom: 12,
+              lineHeight: 1.1,
+            }}
+          >
+            레코딩카페 매거진
           </h1>
-          <p className="text-slate-400 text-lg">
+          <p style={{ color: "#5F5F5F", fontSize: 16 }}>
             데이트, 음악, K-pop 체험에 관한 실용적인 정보
           </p>
         </div>
       </div>
 
       {/* 카테고리 탭 */}
-      <div className="border-b border-white/5 bg-[#0a0a0f] sticky top-16 z-30">
+      <div
+        style={{
+          borderBottom: "1px solid #D3D3D3",
+          backgroundColor: "#FAFAFA",
+          position: "sticky",
+          top: 64,
+          zIndex: 30,
+        }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="flex items-center overflow-x-auto gap-1 py-1 scrollbar-hide">
             {CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
                 href={cat.slug ? `/magazine?cat=${cat.slug}` : "/magazine"}
-                className="px-4 py-2.5 text-xs font-semibold whitespace-nowrap transition-colors text-slate-400 hover:text-[#D4AF37]"
+                style={{
+                  padding: "10px 16px",
+                  fontSize: 13,
+                  color: "#5F5F5F",
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                  display: "block",
+                }}
+                className="hover:text-black"
               >
                 {cat.label}
               </Link>
@@ -94,45 +134,84 @@ export default async function MagazinePage() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         {articles.length === 0 ? (
-          <div className="text-center py-20">
-            <div className="text-6xl mb-4">♪</div>
-            <p className="text-slate-400 text-lg">아직 기사가 없습니다. 곧 업데이트될 예정입니다.</p>
+          <div style={{ textAlign: "center", paddingTop: 80, paddingBottom: 80 }}>
+            <div style={{ fontSize: 48, color: "#8B8675", marginBottom: 16 }}>♪</div>
+            <p style={{ color: "#5F5F5F", fontSize: 16 }}>아직 기사가 없습니다. 곧 업데이트될 예정입니다.</p>
           </div>
         ) : (
           <>
             {/* 피처드 기사 */}
             {featured && (
-              <Link href={`/magazine/${featured.slug}`} className="group block mb-12">
-                <div className="grid lg:grid-cols-2 gap-8 gold-card rounded-3xl overflow-hidden p-6 sm:p-8 hover:border-[#D4AF37]/40 transition-all">
-                  <div className="relative rounded-2xl overflow-hidden aspect-video lg:aspect-auto">
+              <Link href={`/magazine/${featured.slug}`} className="group block" style={{ marginBottom: 48, textDecoration: "none" }}>
+                <div
+                  style={{
+                    display: "grid",
+                    border: "1px solid #D3D3D3",
+                    overflow: "hidden",
+                    backgroundColor: "#FAFAFA",
+                    transition: "background-color 0.2s",
+                  }}
+                  className="grid lg:grid-cols-2 group-hover:[background-color:#F0EFEB]"
+                >
+                  <div style={{ position: "relative", minHeight: 280, backgroundColor: "#F0EFEB" }} className="aspect-video lg:aspect-auto">
                     {featured.image_url ? (
                       <Image
                         src={featured.image_url}
                         alt={featured.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        style={{ objectFit: "cover" }}
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-[#D4AF37]/10 flex items-center justify-center">
-                        <span className="text-6xl">♪</span>
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <span style={{ fontSize: 64, color: "#8B8675" }}>♪</span>
                       </div>
                     )}
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <span className="inline-block bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit">
+                  <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "32px 40px" }}>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        letterSpacing: 2,
+                        textTransform: "uppercase",
+                        color: "#8B8675",
+                        display: "inline-block",
+                        marginBottom: 16,
+                      }}
+                    >
                       {featured.category}
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#D4AF37] transition-colors mb-3 leading-tight">
+                    <h2
+                      style={{
+                        fontSize: "clamp(22px, 3vw, 32px)",
+                        fontWeight: 400,
+                        letterSpacing: -1,
+                        color: "#000000",
+                        marginBottom: 12,
+                        lineHeight: 1.3,
+                      }}
+                      className="line-clamp-3"
+                    >
                       {featured.title}
                     </h2>
-                    <p className="text-slate-400 leading-relaxed mb-6 line-clamp-3">
+                    <p
+                      style={{ color: "#5F5F5F", lineHeight: 1.75, marginBottom: 24, fontSize: 14 }}
+                      className="line-clamp-3"
+                    >
                       {featured.excerpt}
                     </p>
-                    <div className="flex items-center gap-3 text-xs text-slate-500">
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#8B8675" }}>
                       <span>{new Date(featured.created_at).toLocaleDateString("ko-KR")}</span>
                       <span>·</span>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
+                      <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                        <Clock style={{ width: 12, height: 12 }} />
                         {featured.read_time}분 읽기
                       </div>
                     </div>

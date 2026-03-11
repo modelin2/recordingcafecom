@@ -20,8 +20,8 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: #ffffff;
+  background-color: #FAFAFA;
+  color: #1A1A1A;
   font-family: var(--font-noto-sans-kr), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -58,14 +58,14 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #F0EFEB;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #D3D3D3;
   border-radius: 3px;
 }
 
-/* prose 스타일 (기사 본문) */
+/* prose 스타일 (기사 본문 - 다크 테마) */
 .prose-dark {
   color: #cbd5e1;
   line-height: 1.8;
@@ -82,3 +82,23 @@ body {
 .prose-dark li { margin-bottom: 0.5rem; }
 .prose-dark strong { color: #D4AF37; font-weight: 600; }
 .prose-dark a { color: #D4AF37; text-decoration: underline; }
+
+/* Archdeco prose 스타일 (기사 본문 - 라이트 테마) */
+.prose-archdeco {
+  color: #1A1A1A;
+  line-height: 1.8;
+  font-family: var(--font-noto-sans-kr), sans-serif;
+}
+.prose-archdeco h1, .prose-archdeco h2, .prose-archdeco h3 {
+  color: #000000;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.prose-archdeco h2 { font-size: 1.5rem; letter-spacing: -0.5px; }
+.prose-archdeco h3 { font-size: 1.25rem; }
+.prose-archdeco p { margin-bottom: 1.25rem; }
+.prose-archdeco ul, .prose-archdeco ol { margin: 1rem 0; padding-left: 1.5rem; }
+.prose-archdeco li { margin-bottom: 0.5rem; }
+.prose-archdeco strong { color: #000000; font-weight: 600; }
+.prose-archdeco a { color: #6B625A; text-decoration: underline; }

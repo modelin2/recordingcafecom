@@ -56,53 +56,114 @@ export default async function ArticlePage({ params }: Props) {
     related = relatedDb ?? [];
   }
 
+  const hasImage = !!dbArticle.image_url;
+
   return (
-    <div className="min-h-screen bg-[#050508]">
+    <div style={{ minHeight: "100vh", backgroundColor: "#FAFAFA" }}>
       {/* 히어로 */}
-      <div className="relative h-[480px] w-full">
-        {dbArticle.image_url ? (
+      <div style={{ position: "relative", height: 480, width: "100%" }}>
+        {hasImage ? (
           <>
             <Image
               src={dbArticle.image_url}
               alt={dbArticle.title}
               fill
-              className="object-cover"
+              style={{ objectFit: "cover", filter: "grayscale(40%) brightness(0.4)" }}
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-[#050508]/60 to-[#050508]/20" />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, #050508 0%, rgba(5,5,8,0.5) 60%, transparent 100%)",
+              }}
+            />
           </>
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f18] via-[#1a1a2e] to-[#050508]">
-            <div className="absolute inset-0 flex items-center justify-center text-9xl opacity-10">♪</div>
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "#F0EFEB",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span style={{ fontSize: 96, color: "#D3D3D3" }}>♪</span>
           </div>
         )}
 
-        {/* 골드 빛 */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#D4AF37]/10 rounded-full blur-3xl" />
-
-        <div className="relative h-full flex flex-col justify-end pb-10 max-w-4xl mx-auto px-4 sm:px-6">
-          <nav className="flex items-center gap-2 text-xs text-slate-400 mb-6">
-            <Link href="/" className="hover:text-[#D4AF37] transition-colors">홈</Link>
+        <div
+          style={{
+            position: "relative",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            paddingBottom: 40,
+            maxWidth: 896,
+            margin: "0 auto",
+            padding: "0 16px 40px",
+          }}
+        >
+          <nav
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 12,
+              color: hasImage ? "rgba(255,255,255,0.7)" : "#5F5F5F",
+              marginBottom: 24,
+            }}
+          >
+            <Link href="/" style={{ color: "inherit", textDecoration: "none" }} className="hover:underline">홈</Link>
             <span>›</span>
-            <Link href="/magazine" className="hover:text-[#D4AF37] transition-colors">매거진</Link>
+            <Link href="/magazine" style={{ color: "inherit", textDecoration: "none" }} className="hover:underline">매거진</Link>
             <span>›</span>
-            <span className="text-slate-300">{dbArticle.category}</span>
+            <span>{dbArticle.category}</span>
           </nav>
-          <span className="inline-block bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-full mb-4 w-fit">
+          <span
+            style={{
+              display: "inline-block",
+              fontSize: 11,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: hasImage ? "#C8BEA8" : "#8B8675",
+              marginBottom: 16,
+            }}
+          >
             {dbArticle.category}
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+          <h1
+            style={{
+              fontSize: "clamp(28px, 4vw, 48px)",
+              fontWeight: 400,
+              letterSpacing: -1,
+              color: hasImage ? "#ffffff" : "#000000",
+              lineHeight: 1.2,
+              marginBottom: 16,
+            }}
+          >
             {dbArticle.title}
           </h1>
-          <div className="flex items-center gap-3 text-sm text-slate-400">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontSize: 13,
+              color: hasImage ? "rgba(255,255,255,0.6)" : "#5F5F5F",
+            }}
+          >
             <span>{dbArticle.author}</span>
             <span>·</span>
             <span>{new Date(dbArticle.created_at).toLocaleDateString("ko-KR")}</span>
             {dbArticle.read_time && (
               <>
                 <span>·</span>
-                <div className="flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5" />
+                <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <Clock style={{ width: 14, height: 14 }} />
                   {dbArticle.read_time}분 읽기
                 </div>
               </>
@@ -112,25 +173,57 @@ export default async function ArticlePage({ params }: Props) {
       </div>
 
       {/* 본문 */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <div
+        style={{
+          maxWidth: 720,
+          margin: "0 auto",
+          padding: "64px 16px 48px",
+          backgroundColor: "#FAFAFA",
+        }}
+      >
         {/* 리드 */}
-        <p className="text-xl text-slate-300 leading-relaxed mb-10 pb-10 border-b border-[#D4AF37]/20 italic">
+        <p
+          style={{
+            fontSize: 18,
+            color: "#5F5F5F",
+            lineHeight: 1.75,
+            fontStyle: "italic",
+            borderBottom: "1px solid #D3D3D3",
+            paddingBottom: 40,
+            marginBottom: 40,
+          }}
+        >
           {dbArticle.excerpt}
         </p>
 
         {/* 본문 HTML */}
         <div
-          className="prose-dark"
+          className="prose-archdeco"
           dangerouslySetInnerHTML={{ __html: dbArticle.content ?? "" }}
         />
 
         {/* 태그 */}
         {dbArticle.tags?.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/5">
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 8,
+              marginTop: 48,
+              paddingTop: 32,
+              borderTop: "1px solid #D3D3D3",
+            }}
+          >
             {(dbArticle.tags as string[]).map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20"
+                style={{
+                  fontSize: 12,
+                  padding: "4px 12px",
+                  border: "1px solid #D3D3D3",
+                  color: "#5F5F5F",
+                  backgroundColor: "#FAFAFA",
+                }}
               >
                 #{tag}
               </span>
@@ -143,36 +236,84 @@ export default async function ArticlePage({ params }: Props) {
           href="https://talk.naver.com/ct/wu2kkmv"
           target="_blank"
           rel="noopener noreferrer"
-          className="block mt-10 rounded-2xl overflow-hidden group"
+          style={{ display: "block", marginTop: 40, textDecoration: "none" }}
+          className="group"
         >
-          <div className="relative bg-gradient-to-r from-[#0a0a0f] to-[#1a1a2e] border border-[#D4AF37]/30 p-6 sm:p-8 hover:border-[#D4AF37]/60 transition-all">
-            <div className="flex items-center gap-6">
-              <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                🎤
-              </div>
-              <div className="flex-1">
-                <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-1">Recording Café</p>
-                <h3 className="text-white font-bold text-lg mb-1">
-                  우리만의 노래를 만들어볼까요?
-                </h3>
-                <p className="text-slate-400 text-sm">
-                  커플 이색 데이트 · 전문 녹음 스튜디오 · 지금 예약하기
-                </p>
-              </div>
-              <span className="flex-shrink-0 bg-[#D4AF37] text-black text-sm font-bold px-5 py-2.5 rounded-xl group-hover:bg-[#F0D060] transition-colors">
-                예약 문의 →
-              </span>
+          <div
+            style={{
+              backgroundColor: "#F0EFEB",
+              border: "1px solid #D3D3D3",
+              padding: "24px 32px",
+              display: "flex",
+              alignItems: "center",
+              gap: 24,
+              transition: "border-color 0.2s",
+            }}
+            className="group-hover:border-[#8B8675]"
+          >
+            <div
+              style={{
+                width: 56,
+                height: 56,
+                backgroundColor: "#000000",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ color: "#ffffff", fontWeight: 700, fontSize: 14, letterSpacing: 1 }}>RC</span>
             </div>
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "#8B8675",
+                  marginBottom: 4,
+                }}
+              >
+                Recording Café
+              </p>
+              <h3 style={{ color: "#000000", fontWeight: 500, fontSize: 16, marginBottom: 4 }}>
+                우리만의 노래를 만들어볼까요?
+              </h3>
+              <p style={{ color: "#5F5F5F", fontSize: 13 }}>
+                커플 이색 데이트 · 전문 녹음 스튜디오 · 지금 예약하기
+              </p>
+            </div>
+            <span
+              style={{
+                flexShrink: 0,
+                backgroundColor: "#000000",
+                color: "#ffffff",
+                fontSize: 13,
+                fontWeight: 500,
+                padding: "10px 20px",
+                display: "inline-block",
+              }}
+            >
+              예약 문의 →
+            </span>
           </div>
         </a>
 
         {/* 뒤로 가기 */}
-        <div className="mt-10">
+        <div style={{ marginTop: 40 }}>
           <Link
             href="/magazine"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-[#D4AF37] transition-colors text-sm"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              color: "#5F5F5F",
+              fontSize: 13,
+              textDecoration: "none",
+            }}
+            className="hover:text-black"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft style={{ width: 16, height: 16 }} />
             매거진으로 돌아가기
           </Link>
         </div>
@@ -180,9 +321,26 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* 관련 기사 */}
       {related.length > 0 && (
-        <section className="border-t border-white/5 py-12">
+        <section
+          style={{
+            backgroundColor: "#F0EFEB",
+            borderTop: "1px solid #D3D3D3",
+            paddingTop: 48,
+            paddingBottom: 48,
+          }}
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <h2 className="text-xl font-black text-white mb-6">더 읽을거리</h2>
+            <h2
+              style={{
+                fontSize: 20,
+                fontWeight: 400,
+                color: "#000000",
+                letterSpacing: -0.5,
+                marginBottom: 24,
+              }}
+            >
+              더 읽을거리
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {related.map((a) => (
                 <ArticleCard key={a.slug} article={a} />
