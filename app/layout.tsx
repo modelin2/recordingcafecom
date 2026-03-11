@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
+import { Noto_Sans_KR, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,6 +8,13 @@ const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
   variable: "--font-noto-sans-kr",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
@@ -31,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={notoSansKr.variable}>
+    <html lang="ko" className={`${notoSansKr.variable} ${dmSans.variable}`}>
       <body>
         <Header />
         <main>{children}</main>
