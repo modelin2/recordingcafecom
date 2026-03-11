@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
-import ScrollReveal from "@/components/ScrollReveal";
 import { getAdminClient } from "@/lib/supabaseAdmin";
 
 export const revalidate = 60;
@@ -24,345 +23,367 @@ export default async function Home() {
 
   return (
     <>
-      {/* ─── 히어로 섹션 ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* ════════════════════════════════════════════════════════════
+          ENTRANCE — 테마파크/미술관 입구
+      ════════════════════════════════════════════════════════════ */}
+      <section className="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
+        {/* 배경 이미지 */}
         <div className="absolute inset-0">
           <Image
             src="/images/hero-recording.jpeg"
-            alt="레코딩카페 - K-POP 녹음 체험"
+            alt="K Recording Café"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-center scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050508]/95 via-[#050508]/75 to-[#050508]/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-[#050508]/30" />
+          {/* 미술관/극장 느낌의 무거운 오버레이 */}
+          <div className="absolute inset-0 bg-[#050508]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-[#050508]/60" />
         </div>
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-16 w-full">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-4 py-1.5 mb-6">
-              <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase">
-                서울 유일의 K-POP 복합 문화 공간
+        {/* 극적인 빛 효과 */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+
+        {/* 본문 */}
+        <div className="relative text-center px-4 max-w-5xl mx-auto">
+          {/* 상단 라벨 */}
+          <div className="inline-flex items-center gap-3 mb-8">
+            <div className="h-px w-12 bg-[#D4AF37]/60" />
+            <span className="text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase">Seoul, Korea · Since 2015</span>
+            <div className="h-px w-12 bg-[#D4AF37]/60" />
+          </div>
+
+          {/* 관명 / 로고 느낌의 타이틀 */}
+          <h1 className="font-black leading-none mb-2">
+            <span className="block text-[13vw] sm:text-[10rem] text-white tracking-tight" style={{ fontFamily: "var(--font-noto-sans-kr)" }}>
+              K·REC
+            </span>
+            <span className="block text-[5vw] sm:text-5xl text-[#D4AF37] tracking-[0.2em] uppercase font-bold mt-1">
+              Recording Café
+            </span>
+          </h1>
+
+          {/* 부제 */}
+          <p className="text-slate-400 text-base sm:text-lg mt-6 mb-10 tracking-wide max-w-xl mx-auto leading-relaxed">
+            K-POP 30년의 역사가 살아 숨쉬는 공간<br />
+            레전드들이 녹음했던 그 스튜디오로 당신을 초대합니다
+          </p>
+
+          {/* 입장 버튼 — 미술관 티켓 느낌 */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/experience"
+              className="group relative overflow-hidden border border-[#7C3AED]/60 bg-[#7C3AED]/10 hover:bg-[#7C3AED]/20 text-white font-bold px-8 py-4 rounded-none tracking-widest text-sm uppercase transition-all w-64">
+              <span className="relative z-10 flex items-center justify-center gap-3">
+                <span className="text-[#A855F7]">▶</span> 체험 에디션 입장
               </span>
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6">
-              K-POP의<br />
-              <span className="gold-text">심장부</span>로<br />
-              오세요
-            </h1>
-
-            <p className="text-slate-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-lg">
-              레코딩카페 — 서울의 유일한 K-POP 복합 문화 공간
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/experience"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#DB2777] hover:opacity-90 text-white font-bold px-7 py-3.5 rounded-xl transition-all hover:scale-105 text-base"
-              >
-                체험 에디션 입장 →
-              </Link>
-              <Link
-                href="/pro"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#92400E] hover:opacity-90 text-white font-bold px-7 py-3.5 rounded-xl transition-all hover:scale-105 text-base"
-              >
-                프로 에디션 입장 →
-              </Link>
-            </div>
+            </Link>
+            <Link href="/pro"
+              className="group relative overflow-hidden border border-[#D4AF37]/60 bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 text-white font-bold px-8 py-4 rounded-none tracking-widest text-sm uppercase transition-all w-64">
+              <span className="relative z-10 flex items-center justify-center gap-3">
+                <span className="text-[#D4AF37]">▶</span> 프로 에디션 입장
+              </span>
+            </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs animate-bounce">
-          <div className="w-px h-8 bg-gradient-to-b from-transparent to-[#D4AF37]/60" />
-          <span>스크롤</span>
+        {/* 스크롤 안내 */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-[#D4AF37]/60 animate-pulse" />
+          <span className="text-[#D4AF37]/60 text-[10px] tracking-[0.3em] uppercase">Scroll</span>
         </div>
       </section>
 
-      {/* ─── 두 존 카드 (키자니아 입구 스타일) ─────────────────────────── */}
-      <section className="py-24 bg-[#050508] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <ScrollReveal animation="fade-up" duration={700}>
-            <div className="text-center mb-16">
-              <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Choose Your Experience</div>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-                어떤 <span className="gold-text">여정</span>을 선택하시겠어요?
-              </h2>
-              <p className="text-slate-400 text-lg max-w-xl mx-auto">
-                키자니아처럼, 두 개의 특별한 세계가 여러분을 기다립니다
-              </p>
-            </div>
-          </ScrollReveal>
+      {/* ════════════════════════════════════════════════════════════
+          EXHIBITION WINGS — 두 전시관 입구 (키자니아 존)
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#050508] py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* 체험 에디션 카드 */}
-            <ScrollReveal animation="fade-right" duration={700}>
-              <div className="relative rounded-3xl overflow-hidden group cursor-pointer"
-                style={{ background: "linear-gradient(135deg, #1a0533 0%, #2d0a3e 50%, #1a0a1a 100%)" }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/30 to-[#DB2777]/20 opacity-60" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#7C3AED]/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#DB2777]/20 rounded-full blur-3xl" />
-                <div className="relative p-10 flex flex-col min-h-[520px]">
-                  <div className="text-6xl mb-6">🎤</div>
-                  <div className="inline-flex w-fit items-center gap-2 bg-[#7C3AED]/20 border border-[#7C3AED]/40 rounded-full px-4 py-1.5 mb-4">
-                    <span className="text-[#A855F7] text-xs font-semibold tracking-wider uppercase">Experience Edition</span>
-                  </div>
-                  <h3 className="text-4xl font-black text-white mb-4">체험 에디션</h3>
-                  <p className="text-slate-300 text-base leading-relaxed mb-6 flex-1">
-                    K-POP 레전드 릴테이프 도슨트 투어 + 전문 녹음 체험
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2">
-                      <span className="text-white font-bold text-lg">₩35,000부터</span>
-                    </div>
-                    <Link
-                      href="/experience"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#DB2777] text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-all hover:scale-105 text-sm"
-                    >
-                      입장하기 →
-                    </Link>
-                  </div>
+            {/* 체험관 Wing */}
+            <div className="relative overflow-hidden group min-h-[560px] flex flex-col justify-end cursor-pointer">
+              <Image
+                src="/images/recording-booth.png"
+                alt="체험 에디션"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a0533]/95 via-[#1a0533]/50 to-transparent" />
+              {/* 상단 라벨 */}
+              <div className="absolute top-6 left-6">
+                <div className="inline-block border border-[#A855F7]/60 text-[#A855F7] text-[10px] font-bold tracking-[0.25em] uppercase px-3 py-1.5">
+                  Wing A
                 </div>
               </div>
-            </ScrollReveal>
-
-            {/* 프로 에디션 카드 */}
-            <ScrollReveal animation="fade-left" duration={700}>
-              <div className="relative rounded-3xl overflow-hidden group cursor-pointer"
-                style={{ background: "linear-gradient(135deg, #1a1200 0%, #2a1a00 50%, #1a1000 100%)" }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/20 to-[#92400E]/20 opacity-60" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/15 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#92400E]/20 rounded-full blur-3xl" />
-                <div className="relative p-10 flex flex-col min-h-[520px]">
-                  <div className="text-6xl mb-6">🎵</div>
-                  <div className="inline-flex w-fit items-center gap-2 bg-[#D4AF37]/20 border border-[#D4AF37]/40 rounded-full px-4 py-1.5 mb-4">
-                    <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase">Pro Edition</span>
-                  </div>
-                  <h3 className="text-4xl font-black text-white mb-4">프로 에디션</h3>
-                  <p className="text-slate-300 text-base leading-relaxed mb-6 flex-1">
-                    KOMCA 작곡가 매칭 + K-POP 정식 음반 제작 &amp; 발매
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2">
-                      <span className="text-white font-bold text-lg">₩15,000,000부터</span>
-                    </div>
-                    <Link
-                      href="/pro"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#92400E] text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-all hover:scale-105 text-sm"
-                    >
-                      입장하기 →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 통계 섹션 ─────────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#0a0a0f] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/5 via-transparent to-[#D4AF37]/5" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { value: "10년+", label: "운영" },
-              { value: "50,000+", label: "방문객" },
-              { value: "100개+", label: "음원 발매" },
-              { value: "3개국", label: "프랜차이즈" },
-            ].map((stat, i) => (
-              <ScrollReveal key={i} animation="zoom-in" delay={i * 100} duration={600}>
-                <div className="text-center gold-card rounded-2xl p-6">
-                  <div className="text-3xl sm:text-4xl font-black gold-text mb-2">{stat.value}</div>
-                  <div className="text-slate-400 text-sm">{stat.label}</div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 갤러리 그리드 ──────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#050508] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <ScrollReveal animation="fade-up" duration={700}>
-            <div className="text-center mb-12">
-              <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Our Space</div>
-              <h2 className="text-4xl font-black text-white">
-                공간 <span className="gold-text">둘러보기</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { src: "/images/recording-booth.png", alt: "녹음 부스" },
-              { src: "/images/control-room.png", alt: "컨트롤룸" },
-              { src: "/images/bora-box.png", alt: "BORA BOX" },
-              { src: "/images/mirror-booth.png", alt: "미러 부스" },
-              { src: "/images/lounge-group.png", alt: "라운지 그룹" },
-              { src: "/images/couple-cafe.jpg", alt: "커플 BORA BOX" },
-            ].map((img, i) => (
-              <ScrollReveal key={i} animation="zoom-in" delay={i * 80} duration={600}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden group">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-3 left-3 text-white text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {img.alt}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 회사 스토리 ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0a0a0f] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <ScrollReveal animation="fade-up" duration={700}>
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-4">— Our Story</div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-8">
-              레코딩카페의 <span className="gold-text">이야기</span>
-            </h2>
-            <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto">
-              10년간 50여명 전속 아티스트의 음반 제작 인프라를 처음으로 일반에 공개합니다.
-              K-POP 산업의 심장부에서 쌓아온 노하우와 전문 장비를 누구나 경험할 수 있도록.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal animation="fade-up" delay={200} duration={700}>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-              <div className="gold-card rounded-2xl p-6">
-                <div className="text-3xl mb-3">🎼</div>
-                <h3 className="text-white font-bold text-lg mb-2">전문 음악 인프라</h3>
-                <p className="text-slate-400 text-sm">메이저 음반사와 동일한 스튜디오 장비와 제작 프로세스를 그대로 제공합니다.</p>
-              </div>
-              <div className="gold-card rounded-2xl p-6">
-                <div className="text-3xl mb-3">🌏</div>
-                <h3 className="text-white font-bold text-lg mb-2">글로벌 K-POP 허브</h3>
-                <p className="text-slate-400 text-sm">전 세계 50여개국 K-POP 팬들이 방문하는 서울 최고의 음악 체험 공간.</p>
-              </div>
-              <div className="gold-card rounded-2xl p-6">
-                <div className="text-3xl mb-3">🏆</div>
-                <h3 className="text-white font-bold text-lg mb-2">검증된 퀄리티</h3>
-                <p className="text-slate-400 text-sm">KOMCA 소속 작곡가, 전문 사운드 엔지니어와 함께 최고의 음악을 만드세요.</p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ─── 오시는 길 ──────────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#050508] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal animation="fade-right" duration={700}>
-              <div>
-                <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Location</div>
-                <h2 className="text-4xl font-black text-white mb-8">
-                  오시는 <span className="gold-text">길</span>
+              {/* 하단 정보 */}
+              <div className="relative p-8">
+                <p className="text-[#A855F7] text-xs tracking-[0.2em] uppercase mb-3">Experience Edition</p>
+                <h2 className="text-4xl font-black text-white mb-4 leading-tight">
+                  체험<br />에디션
                 </h2>
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 text-lg">
-                      📍
-                    </div>
-                    <div>
-                      <p className="text-white font-bold mb-1">주소</p>
-                      <p className="text-slate-300">서울 서초구 강남대로107길 21, 2층</p>
-                      <p className="text-slate-500 text-sm">2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul</p>
-                    </div>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-xs">
+                  K-POP 레전드의 릴테이프 도슨트 투어부터<br />
+                  전문 레코딩 부스 직접 체험까지
+                </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-slate-500 text-xs">입장권</span>
+                    <div className="text-white font-black text-xl">₩35,000 ~</div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 text-lg">
-                      🚇
-                    </div>
-                    <div>
-                      <p className="text-white font-bold mb-1">지하철</p>
-                      <p className="text-slate-300">신사역 3호선 도보 4분</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 text-lg">
-                      🕐
-                    </div>
-                    <div>
-                      <p className="text-white font-bold mb-1">영업시간</p>
-                      <p className="text-slate-300">오전 10시 ~ 밤 10시</p>
-                      <p className="text-[#D4AF37] text-sm font-semibold">연중무휴</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <a
-                    href="https://talk.naver.com/ct/wu2kkmv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#F0D060] text-black font-bold px-6 py-3 rounded-xl transition-all hover:scale-105"
-                  >
-                    네이버 상담 예약 →
-                  </a>
+                  <Link href="/experience"
+                    className="border border-[#A855F7] text-[#A855F7] hover:bg-[#A855F7] hover:text-white px-6 py-2.5 text-sm font-bold tracking-widest uppercase transition-all">
+                    입장 →
+                  </Link>
                 </div>
               </div>
-            </ScrollReveal>
+            </div>
 
-            <ScrollReveal animation="fade-left" duration={700}>
-              <div className="relative rounded-3xl overflow-hidden aspect-square">
-                <Image
-                  src="/images/entrance.png"
-                  alt="레코딩카페 입구"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/40 to-transparent" />
+            {/* 프로관 Wing */}
+            <div className="relative overflow-hidden group min-h-[560px] flex flex-col justify-end cursor-pointer">
+              <Image
+                src="/images/control-room.png"
+                alt="프로 에디션"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1200]/95 via-[#1a1200]/50 to-transparent" />
+              {/* 상단 라벨 */}
+              <div className="absolute top-6 left-6">
+                <div className="inline-block border border-[#D4AF37]/60 text-[#D4AF37] text-[10px] font-bold tracking-[0.25em] uppercase px-3 py-1.5">
+                  Wing B
+                </div>
               </div>
-            </ScrollReveal>
+              {/* 하단 정보 */}
+              <div className="relative p-8">
+                <p className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase mb-3">Professional Edition</p>
+                <h2 className="text-4xl font-black text-white mb-4 leading-tight">
+                  프로<br />에디션
+                </h2>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 max-w-xs">
+                  KOMCA 작곡가 1:1 매칭부터<br />
+                  전 세계 음원 발매까지. ₩15,000,000~
+                </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-slate-500 text-xs">시작 가격</span>
+                    <div className="text-white font-black text-xl">₩15,000,000 ~</div>
+                  </div>
+                  <Link href="/pro"
+                    className="border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-6 py-2.5 text-sm font-bold tracking-widest uppercase transition-all">
+                    입장 →
+                  </Link>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── 매거진 섹션 ────────────────────────────────────────────────── */}
-      {latestArticles.length > 0 && (
-        <section className="py-24 bg-[#0a0a0f] relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <ScrollReveal animation="fade-up" duration={700}>
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-                <div>
-                  <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Magazine</div>
-                  <h2 className="text-4xl font-black text-white">
-                    레코딩카페 <span className="gold-text">매거진</span>
-                  </h2>
-                  <p className="text-slate-400 mt-2">
-                    데이트, 음악, K-pop 체험에 관한 실용적인 정보
-                  </p>
-                </div>
-                <Link
-                  href="/magazine"
-                  className="inline-flex items-center gap-2 glass-dark text-slate-300 hover:text-[#D4AF37] px-5 py-2.5 rounded-xl text-sm font-medium transition-all self-start sm:self-auto"
-                >
-                  매거진 더 보기 →
+      {/* ════════════════════════════════════════════════════════════
+          VISITOR INFORMATION — 관람 안내
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#0a0a0f] py-16 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/5">
+            {[
+              { label: "관람 시간", value: "10:00 – 22:00", sub: "연중무휴" },
+              { label: "위치", value: "신사역 3호선", sub: "도보 4분" },
+              { label: "운영", value: "10년+", sub: "전문 엔터테인먼트" },
+              { label: "방문객", value: "50,000+", sub: "글로벌 K-POP 팬" },
+            ].map((info, i) => (
+              <div key={i} className="px-6 lg:px-10 py-6 first:pl-0 last:pr-0">
+                <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] uppercase mb-2">{info.label}</div>
+                <div className="text-white font-black text-xl mb-1">{info.value}</div>
+                <div className="text-slate-500 text-xs">{info.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          CURRENT EXHIBITIONS — 현재 전시/프로그램
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#050508] py-24 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-3">Current Programs</div>
+              <h2 className="text-3xl sm:text-4xl font-black text-white">현재 운영 중인 프로그램</h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
+            {/* 도슨트 */}
+            <div className="bg-[#050508] p-8 hover:bg-[#0a0a0f] transition-colors group">
+              <div className="text-[#A855F7] text-[10px] tracking-[0.2em] uppercase mb-4 font-bold">Exhibition · Wing A</div>
+              <div className="w-12 h-px bg-[#A855F7]/40 mb-6" />
+              <h3 className="text-white font-black text-xl mb-3 leading-snug">
+                K-POP 레전드<br />릴테이프 도슨트 투어
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                30년 K-POP을 만든 레전드들의 실제 녹음 릴테이프. 영어·중국어·일본어 전문 해설사 동반.
+              </p>
+              <div className="flex items-center justify-between">
+                <div className="text-[#D4AF37] font-bold">₩35,000</div>
+                <Link href="/docent" className="text-[#A855F7] text-xs tracking-widest uppercase hover:underline group-hover:translate-x-1 transition-transform inline-block">
+                  상세보기 →
                 </Link>
               </div>
-            </ScrollReveal>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {latestArticles.map((article, i) => (
-                <ScrollReveal key={article.slug} animation="fade-up" delay={i * 100} duration={650}>
-                  <ArticleCard article={article} />
-                </ScrollReveal>
+            {/* 녹음 체험 */}
+            <div className="bg-[#050508] p-8 hover:bg-[#0a0a0f] transition-colors group">
+              <div className="text-[#A855F7] text-[10px] tracking-[0.2em] uppercase mb-4 font-bold">Experience · Wing A</div>
+              <div className="w-12 h-px bg-[#A855F7]/40 mb-6" />
+              <h3 className="text-white font-black text-xl mb-3 leading-snug">
+                K-POP<br />녹음 체험
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                전문 레코딩 부스에서 내가 직접 K-POP 가수처럼. 음원 발매, LP 제작 옵션 포함 가능.
+              </p>
+              <div className="flex items-center justify-between">
+                <div className="text-[#D4AF37] font-bold">₩40,000~</div>
+                <Link href="/experience" className="text-[#A855F7] text-xs tracking-widest uppercase hover:underline group-hover:translate-x-1 transition-transform inline-block">
+                  상세보기 →
+                </Link>
+              </div>
+            </div>
+
+            {/* 프로 */}
+            <div className="bg-[#050508] p-8 hover:bg-[#0a0a0f] transition-colors group">
+              <div className="text-[#D4AF37] text-[10px] tracking-[0.2em] uppercase mb-4 font-bold">Professional · Wing B</div>
+              <div className="w-12 h-px bg-[#D4AF37]/40 mb-6" />
+              <h3 className="text-white font-black text-xl mb-3 leading-snug">
+                KOMCA 작곡가 매칭<br />정식 음반 발매
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                K-POP 메이저 음반사와 동일한 프로세스. 전 세계 150개 플랫폼 동시 발매.
+              </p>
+              <div className="flex items-center justify-between">
+                <div className="text-[#D4AF37] font-bold">₩15,000,000~</div>
+                <Link href="/pro" className="text-[#D4AF37] text-xs tracking-widest uppercase hover:underline group-hover:translate-x-1 transition-transform inline-block">
+                  상세보기 →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          GALLERY — 공간 갤러리 (미술관 전시실 느낌)
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#0a0a0f] py-24 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="mb-12">
+            <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-3">Spaces</div>
+            <h2 className="text-3xl font-black text-white">공간 안내</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+            {[
+              { src: "/images/recording-booth.png", label: "레코딩 부스", sub: "Studio Booth" },
+              { src: "/images/control-room.png",    label: "컨트롤룸",    sub: "Control Room" },
+              { src: "/images/bora-box.png",        label: "BORA BOX",   sub: "Live Broadcast" },
+              { src: "/images/mirror-booth.png",    label: "미러 부스",   sub: "Photo Studio" },
+            ].map((img, i) => (
+              <div key={i} className="relative aspect-square overflow-hidden group">
+                <Image src={img.src} alt={img.label} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-[#050508]/60 group-hover:bg-[#050508]/30 transition-colors" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="text-white font-bold text-sm">{img.label}</div>
+                  <div className="text-slate-400 text-xs tracking-widest uppercase">{img.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          ABOUT — 공간 소개 (미술관 큐레이터 노트 느낌)
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#050508] py-24 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-6">Curator's Note</div>
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 leading-tight">
+                연예기획사의<br />심장부를<br />처음으로 공개합니다
+              </h2>
+              <div className="space-y-4 text-slate-400 text-sm leading-relaxed">
+                <p>
+                  10년간 50여명 전속 아티스트의 음반 제작을 위해 운영해온 전문 스튜디오를 처음으로 일반에 공개합니다.
+                  이 공간은 단순한 체험이 아닌, 실제 K-POP 제작 인프라 그 자체입니다.
+                </p>
+                <p>
+                  기획사에 들어가지 못해 꿈을 접어야 했던 수많은 이들에게, 그리고 K-POP의 세계가 궁금한 전 세계 팬들에게
+                  이 문을 엽니다.
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-4 text-sm">
+                <div className="h-px flex-1 bg-white/10 max-w-[60px]" />
+                <span className="text-slate-500 italic">K Recording Café, Seoul</span>
+              </div>
+            </div>
+            <div className="relative aspect-[4/5] rounded-none overflow-hidden">
+              <Image src="/images/lounge-group.png" alt="공간 소개" fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050508]/40 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          LOCATION — 오시는 길
+      ════════════════════════════════════════════════════════════ */}
+      <section className="bg-[#0a0a0f] py-16 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/5">
+            <div className="bg-[#0a0a0f] p-8">
+              <div className="text-[#D4AF37] text-[10px] tracking-[0.2em] uppercase mb-3 font-bold">📍 주소</div>
+              <div className="text-white font-bold mb-1">서울 서초구 강남대로107길 21, 2층</div>
+              <div className="text-slate-500 text-xs">2F, 21, Gangnam-daero 107-gil, Seocho-gu, Seoul</div>
+            </div>
+            <div className="bg-[#0a0a0f] p-8">
+              <div className="text-[#D4AF37] text-[10px] tracking-[0.2em] uppercase mb-3 font-bold">🚇 교통</div>
+              <div className="text-white font-bold mb-1">신사역 3호선 5번 출구</div>
+              <div className="text-slate-500 text-xs">도보 4분 · 주차 불가 (인근 유료 주차장 이용)</div>
+            </div>
+            <div className="bg-[#0a0a0f] p-8">
+              <div className="text-[#D4AF37] text-[10px] tracking-[0.2em] uppercase mb-3 font-bold">🕐 관람 시간</div>
+              <div className="text-white font-bold mb-1">오전 10:00 – 밤 22:00</div>
+              <div className="text-slate-500 text-xs">연중무휴 · 사전 예약 필수</div>
+            </div>
+          </div>
+          <div className="mt-4 text-center py-6">
+            <Link href="/menu"
+              className="inline-block border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-10 py-3.5 font-black tracking-widest uppercase text-sm transition-all">
+              입장권 구매 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          MAGAZINE — 매거진
+      ════════════════════════════════════════════════════════════ */}
+      {latestArticles.length > 0 && (
+        <section className="bg-[#050508] py-24 border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex items-end justify-between mb-12">
+              <div>
+                <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-3">Magazine</div>
+                <h2 className="text-3xl font-black text-white">레코딩카페 매거진</h2>
+              </div>
+              <Link href="/magazine" className="text-slate-500 hover:text-[#D4AF37] text-xs tracking-widest uppercase transition-colors hidden sm:block">
+                전체 보기 →
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {latestArticles.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
               ))}
             </div>
           </div>

@@ -51,11 +51,11 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-slate-400 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                <span>서울 마포구 홍대 인근<br />(예약 후 상세 주소 안내)</span>
+                <span>서울 서초구 강남대로107길 21, 2층<br />신사역 3호선 도보 4분</span>
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-                <span>평일 11-22시 · 주말 10-22시</span>
+                <span>매일 10:00 – 22:00 · 연중무휴</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
