@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { MapPin, Clock, Phone } from "lucide-react";
 
 const FOOTER_NAV = [
   {
     title: "레코딩카페",
     links: [
-      { href: "/about", label: "레코딩카페란" },
-      { href: "/about#story", label: "우리의 이야기" },
-      { href: "/about#spaces", label: "공간 안내" },
+      { href: "/about",          label: "레코딩카페란" },
+      { href: "/about#story",    label: "우리의 이야기" },
+      { href: "/about#spaces",   label: "공간 안내" },
       { href: "/about#location", label: "찾아오는 길" },
     ],
   },
@@ -16,43 +15,43 @@ const FOOTER_NAV = [
     links: [
       { href: "/experience", label: "체험 둘러보기" },
       { href: "/experience", label: "녹음 체험" },
-      { href: "/docent", label: "도슨트 프로그램" },
-      { href: "/group", label: "단체 관람" },
+      { href: "/docent",     label: "도슨트 프로그램" },
+      { href: "/group",      label: "단체 관람" },
     ],
   },
   {
     title: "프로 에디션",
     links: [
-      { href: "/pro", label: "프로 에디션이란" },
+      { href: "/pro",          label: "프로 에디션이란" },
       { href: "/pro#services", label: "서비스 안내" },
-      { href: "/pro#process", label: "제작 프로세스" },
-      { href: "/pro#contact", label: "문의하기" },
+      { href: "/pro#process",  label: "제작 프로세스" },
+      { href: "/pro#contact",  label: "문의하기" },
     ],
   },
   {
     title: "멤버십",
     links: [
-      { href: "/membership", label: "K-PASS 멤버십" },
+      { href: "/membership",          label: "K-PASS 멤버십" },
       { href: "/membership#benefits", label: "멤버 혜택" },
-      { href: "/membership#pricing", label: "요금제" },
-      { href: "/membership#apply", label: "멤버십 신청" },
+      { href: "/membership#pricing",  label: "요금제" },
+      { href: "/membership#apply",    label: "멤버십 신청" },
     ],
   },
   {
     title: "파트너십",
     links: [
-      { href: "/partnership", label: "파트너 소개" },
+      { href: "/partnership",          label: "파트너 소개" },
       { href: "/partnership#benefits", label: "제휴 혜택" },
-      { href: "/partnership#apply", label: "파트너 신청" },
-      { href: "/partnership#qr", label: "전용 예약 페이지" },
+      { href: "/partnership#apply",    label: "파트너 신청" },
+      { href: "/partnership#qr",       label: "전용 예약 페이지" },
     ],
   },
   {
     title: "고객센터",
     links: [
-      { href: "/faq", label: "자주 묻는 질문" },
-      { href: "/faq#notice", label: "공지사항" },
-      { href: "/magazine", label: "매거진" },
+      { href: "/faq",                               label: "자주 묻는 질문" },
+      { href: "/faq#notice",                        label: "공지사항" },
+      { href: "/magazine",                          label: "매거진" },
       { href: "https://talk.naver.com/ct/wu2kkmv", label: "1:1 문의" },
     ],
   },
@@ -60,73 +59,87 @@ const FOOTER_NAV = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#030305] border-t border-white/5">
-      {/* 메인 사이트맵 영역 */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 py-14">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-8">
-          {/* 브랜드 */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-black font-black text-xs">K</span>
+    <footer style={{ fontFamily: "var(--font-dm-sans), sans-serif", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+
+      {/* 상단 — 브랜드 + 사이트맵 */}
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "80px 48px 64px" }}>
+        <div className="grid grid-cols-1 lg:grid-cols-7" style={{ gap: "0", borderBottom: "1px solid #D3D3D3", paddingBottom: "64px" }}>
+
+          {/* 브랜드 (2컬럼 차지) */}
+          <div className="lg:col-span-2" style={{ paddingRight: "48px", borderRight: "1px solid #D3D3D3", marginBottom: "40px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
+              <div style={{ width: "32px", height: "32px", background: "#000", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ color: "#FAFAFA", fontSize: "11px", fontWeight: 700, letterSpacing: "0.5px" }}>RC</span>
               </div>
-              <span className="text-white font-black text-sm">RECORDING<br /><span className="text-[#D4AF37]">CAFÉ</span></span>
+              <span style={{ fontSize: "13px", fontWeight: 500, color: "#000", letterSpacing: "1.5px", textTransform: "uppercase" }}>
+                Recording Café
+              </span>
             </div>
-            <p className="text-slate-500 text-xs leading-relaxed mb-4">
+            <p style={{ fontSize: "14px", color: "#5F5F5F", lineHeight: 1.75, marginBottom: "28px" }}>
               실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험할 수 있는 공간.
             </p>
-            <div className="space-y-2 text-xs text-slate-500">
-              <div className="flex items-start gap-1.5">
-                <MapPin className="w-3 h-3 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                <span>서초구 강남대로107길 21, 2층<br />신사역 3호선 도보 4분</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
-                <span>매일 12:00 – 21:00 · 연중무휴</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Phone className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
-                <a href="https://talk.naver.com/ct/wu2kkmv" className="hover:text-[#D4AF37] transition-colors">
-                  네이버 톡톡 문의
-                </a>
-              </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
+              <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴</p>
+              <a href="https://talk.naver.com/ct/wu2kkmv"
+                style={{ fontSize: "13px", color: "#6B625A", textDecoration: "none" }}>
+                네이버 톡톡 문의 →
+              </a>
             </div>
           </div>
 
-          {/* 네비게이션 그리드 */}
-          {FOOTER_NAV.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-white font-black text-xs mb-3 tracking-wide">{section.title}</h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-slate-500 hover:text-[#D4AF37] text-xs transition-colors leading-relaxed"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* 사이트맵 (5컬럼) */}
+          <div className="lg:col-span-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: "0" }}>
+              {/* 첫 3개 상단에, 나머지 2개 아래 — 그냥 5열 그리드로 */}
+              {FOOTER_NAV.map((section, i) => (
+                <div key={section.title} style={{ padding: "0 0 0 36px", borderRight: i < 4 ? "1px solid #D3D3D3" : "none", marginBottom: "32px" }}>
+                  <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "20px" }}>
+                    {section.title}
+                  </p>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+                    {section.links.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          style={{ fontSize: "14px", color: "#5F5F5F", textDecoration: "none", lineHeight: 1.5, transition: "color 0.2s" }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = "#000")}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = "#5F5F5F")}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
 
-      {/* 하단 바 */}
-      <div className="border-t border-white/5">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-700 text-xs">
+        {/* 하단 바 */}
+        <div style={{ paddingTop: "32px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
+          <p style={{ fontSize: "12px", color: "#8B8675", letterSpacing: "0.3px" }}>
             © 2025 레코딩카페. All rights reserved. · 특허 보유 기술 무단 복제 금지
           </p>
-          <div className="flex gap-4 text-slate-700 text-xs">
-            <a href="#" className="hover:text-slate-400 transition-colors">개인정보처리방침</a>
-            <a href="#" className="hover:text-slate-400 transition-colors">이용약관</a>
-            <Link href="/magazine" className="hover:text-slate-400 transition-colors">매거진</Link>
+          <div style={{ display: "flex", gap: "24px" }}>
+            {[
+              { href: "#",         label: "개인정보처리방침" },
+              { href: "#",         label: "이용약관" },
+              { href: "/magazine", label: "매거진" },
+            ].map((item) => (
+              <a key={item.label} href={item.href}
+                style={{ fontSize: "12px", color: "#8B8675", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#000")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#8B8675")}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>
+
     </footer>
   );
 }

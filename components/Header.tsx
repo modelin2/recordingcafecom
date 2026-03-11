@@ -1,234 +1,286 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, User, Ticket } from "lucide-react";
 
 const NAV = [
   {
     label: "레코딩카페",
     key: "about",
     items: [
-      { href: "/about",           icon: "🎵", title: "레코딩카페란",  desc: "10년 역사의 전문 스튜디오" },
-      { href: "/about#story",     icon: "📖", title: "우리의 이야기", desc: "K-POP 제작의 현장" },
-      { href: "/about#spaces",    icon: "🏠", title: "공간 안내",     desc: "스튜디오·부스·라운지" },
-      { href: "/about#location",  icon: "📍", title: "찾아오는 길",   desc: "신사역 3호선 도보 4분" },
+      { href: "/about",           title: "레코딩카페란",    desc: "10년 역사의 전문 스튜디오" },
+      { href: "/about#story",     title: "우리의 이야기",   desc: "K-POP 제작의 현장" },
+      { href: "/about#spaces",    title: "공간 안내",       desc: "스튜디오·부스·라운지" },
+      { href: "/about#location",  title: "찾아오는 길",     desc: "신사역 3호선 도보 4분" },
     ],
   },
   {
     label: "체험 에디션",
     key: "experience",
     items: [
-      { href: "/experience",      icon: "🎤", title: "체험 둘러보기", desc: "모든 프로그램 한눈에" },
-      { href: "/experience",      icon: "🎙️", title: "녹음 체험",     desc: "₩40,000~ · 음원 파일 제공" },
-      { href: "/docent",          icon: "🎞️", title: "도슨트 프로그램", desc: "₩35,000 · 4개국어 해설" },
-      { href: "/group",           icon: "👥", title: "단체 관람",     desc: "10인 이상 · 특별 혜택" },
+      { href: "/experience",  title: "체험 둘러보기",   desc: "모든 프로그램 한눈에" },
+      { href: "/experience",  title: "녹음 체험",       desc: "₩40,000~ · 음원 파일 제공" },
+      { href: "/docent",      title: "도슨트 프로그램", desc: "₩35,000 · 4개국어 해설" },
+      { href: "/group",       title: "단체 관람",       desc: "10인 이상 · 특별 혜택" },
     ],
   },
   {
     label: "프로 에디션",
     key: "pro",
     items: [
-      { href: "/pro",             icon: "🏆", title: "프로 에디션이란", desc: "정식 음반 제작 서비스" },
-      { href: "/pro#services",    icon: "🎼", title: "서비스 안내",    desc: "작곡·녹음·믹싱·마스터링" },
-      { href: "/pro#process",     icon: "📋", title: "제작 프로세스",  desc: "12주 완성 로드맵" },
-      { href: "/pro#contact",     icon: "📞", title: "문의하기",      desc: "전담 매니저 1:1 상담" },
+      { href: "/pro",          title: "프로 에디션이란", desc: "정식 음반 제작 서비스" },
+      { href: "/pro#services", title: "서비스 안내",    desc: "작곡·녹음·믹싱·마스터링" },
+      { href: "/pro#process",  title: "제작 프로세스",  desc: "12주 완성 로드맵" },
+      { href: "/pro#contact",  title: "문의하기",       desc: "전담 매니저 1:1 상담" },
     ],
   },
   {
     label: "멤버십",
     key: "membership",
     items: [
-      { href: "/membership",          icon: "⭐", title: "K-PASS 멤버십",  desc: "월정액 무제한 녹음" },
-      { href: "/membership#benefits", icon: "🎁", title: "멤버 혜택",      desc: "멤버 전용 특권 안내" },
-      { href: "/membership#pricing",  icon: "💳", title: "요금제",         desc: "Basic · Plus · Pro" },
-      { href: "/membership#apply",    icon: "✅", title: "멤버십 신청",    desc: "지금 바로 시작하기" },
+      { href: "/membership",           title: "K-PASS 멤버십", desc: "월정액 무제한 녹음" },
+      { href: "/membership#benefits",  title: "멤버 혜택",     desc: "멤버 전용 특권 안내" },
+      { href: "/membership#pricing",   title: "요금제",        desc: "Basic · Plus · Pro" },
+      { href: "/membership#apply",     title: "멤버십 신청",   desc: "지금 바로 시작하기" },
     ],
   },
   {
     label: "파트너십",
     key: "partnership",
     items: [
-      { href: "/partnership",          icon: "🤝", title: "파트너 소개",    desc: "현재 제휴 파트너 호텔·업체" },
-      { href: "/partnership#benefits", icon: "💰", title: "제휴 혜택",      desc: "수수료 20% 지급 프로그램" },
-      { href: "/partnership#apply",    icon: "📝", title: "파트너 신청",    desc: "제휴 문의 및 신청" },
-      { href: "/partnership#qr",       icon: "📱", title: "전용 예약 페이지", desc: "파트너 전용 QR 예약 링크" },
+      { href: "/partnership",          title: "파트너 소개",     desc: "현재 제휴 파트너 호텔·업체" },
+      { href: "/partnership#benefits", title: "제휴 혜택",       desc: "수수료 20% 지급 프로그램" },
+      { href: "/partnership#apply",    title: "파트너 신청",     desc: "제휴 문의 및 신청" },
+      { href: "/partnership#qr",       title: "전용 예약 페이지", desc: "파트너 전용 QR 예약 링크" },
     ],
   },
   {
     label: "고객센터",
     key: "support",
     items: [
-      { href: "/faq",              icon: "❓", title: "자주 묻는 질문", desc: "예약·이용·환불 안내" },
-      { href: "/faq#notice",       icon: "📢", title: "공지사항",       desc: "운영 안내 및 이벤트" },
-      { href: "/magazine",         icon: "📰", title: "매거진",         desc: "K-POP 스토리·인터뷰" },
-      { href: "https://talk.naver.com/ct/wu2kkmv", icon: "💬", title: "1:1 문의", desc: "네이버 톡톡 실시간 상담" },
+      { href: "/faq",                               title: "자주 묻는 질문", desc: "예약·이용·환불 안내" },
+      { href: "/faq#notice",                        title: "공지사항",       desc: "운영 안내 및 이벤트" },
+      { href: "/magazine",                          title: "매거진",         desc: "K-POP 스토리·인터뷰" },
+      { href: "https://talk.naver.com/ct/wu2kkmv", title: "1:1 문의",       desc: "네이버 톡톡 실시간 상담" },
     ],
   },
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const [scrolled, setScrolled]     = useState(false);
+  const [menuOpen, setMenuOpen]     = useState(false);
+  const [activeKey, setActiveKey]   = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleMouseEnter = (key: string) => {
+  const onEnter = (key: string) => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
     setActiveKey(key);
   };
-  const handleMouseLeave = () => {
-    leaveTimer.current = setTimeout(() => setActiveKey(null), 120);
+  const onLeave = () => {
+    leaveTimer.current = setTimeout(() => setActiveKey(null), 150);
   };
 
   return (
     <>
-      <header className={`fixed top-6 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "top-0" : "top-6"
-      }`}>
-        {/* 메인 헤더 바 */}
-        <div className={`mx-4 sm:mx-8 lg:mx-16 rounded-2xl transition-all duration-300 ${
-          scrolled
-            ? "bg-[#050508]/97 backdrop-blur-xl border border-white/10 shadow-2xl rounded-none mx-0"
-            : "bg-[#050508]/80 backdrop-blur-md border border-white/10"
-        }`}>
-          <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      {/* ── 데스크톱 헤더 ── */}
+      <header
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          fontFamily: "var(--font-dm-sans), sans-serif",
+          background: scrolled ? "#FAFAFA" : "rgba(250,250,250,0.92)",
+          borderBottom: "1px solid #D3D3D3",
+          backdropFilter: "blur(12px)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 48px", height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
 
-            {/* 로고 */}
-            <Link href="/" className="flex-shrink-0 flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-black font-black text-xs">RC</span>
-              </div>
-              <span className="text-white font-black text-base tracking-tight hidden sm:block">
-                RECORDING <span className="text-[#D4AF37]">CAFÉ</span>
-              </span>
-            </Link>
-
-            {/* 데스크톱 nav */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {NAV.map((nav) => (
-                <div
-                  key={nav.key}
-                  onMouseEnter={() => handleMouseEnter(nav.key)}
-                  onMouseLeave={handleMouseLeave}
-                  className="relative"
-                >
-                  <button className={`flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-medium transition-colors ${
-                    activeKey === nav.key
-                      ? "text-white bg-white/8"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
-                  }`}>
-                    {nav.label}
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeKey === nav.key ? "rotate-180" : ""}`} />
-                  </button>
-                </div>
-              ))}
-            </nav>
-
-            {/* 우측 CTA */}
-            <div className="hidden lg:flex items-center gap-2">
-              <Link href="/mypage"
-                className="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm px-3 py-2 rounded-xl hover:bg-white/5 transition-colors">
-                <User className="w-4 h-4" />
-                마이페이지
-              </Link>
-              <Link href="/menu"
-                className="flex items-center gap-1.5 bg-[#D4AF37] hover:bg-[#F0D060] text-black font-black px-5 py-2 rounded-xl text-sm transition-colors">
-                <Ticket className="w-4 h-4" />
-                입장권 구매
-              </Link>
+          {/* 로고 */}
+          <Link href="/" style={{ textDecoration: "none", flexShrink: 0, display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ width: "32px", height: "32px", background: "#000", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ color: "#FAFAFA", fontSize: "11px", fontWeight: 700, letterSpacing: "0.5px" }}>RC</span>
             </div>
+            <span className="hidden sm:block" style={{ fontSize: "13px", fontWeight: 500, color: "#000", letterSpacing: "1.5px", textTransform: "uppercase" }}>
+              Recording Café
+            </span>
+          </Link>
 
-            {/* 모바일 햄버거 */}
-            <button className="lg:hidden text-white p-1" onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+          {/* 데스크톱 nav */}
+          <nav className="hidden lg:flex" style={{ alignItems: "center", gap: "0" }}>
+            {NAV.map((nav) => (
+              <div key={nav.key} onMouseEnter={() => onEnter(nav.key)} onMouseLeave={onLeave} style={{ position: "relative" }}>
+                <button style={{
+                  display: "flex", alignItems: "center", gap: "4px",
+                  padding: "8px 16px",
+                  background: "none", border: "none", cursor: "pointer",
+                  fontSize: "13px", fontWeight: activeKey === nav.key ? 500 : 400,
+                  color: activeKey === nav.key ? "#000" : "#5F5F5F",
+                  letterSpacing: "0.3px",
+                  transition: "color 0.2s",
+                }}>
+                  {nav.label}
+                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ transition: "transform 0.2s", transform: activeKey === nav.key ? "rotate(180deg)" : "none" }}>
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </nav>
+
+          {/* 우측 CTA */}
+          <div className="hidden lg:flex" style={{ alignItems: "center", gap: "8px" }}>
+            <Link href="/mypage" style={{
+              fontSize: "13px", fontWeight: 400, color: "#5F5F5F",
+              textDecoration: "none", padding: "8px 16px",
+              letterSpacing: "0.3px",
+              transition: "color 0.2s",
+            }}>
+              마이페이지
+            </Link>
+            <Link href="/menu" style={{
+              display: "inline-block",
+              background: "#000", color: "#FAFAFA",
+              fontSize: "13px", fontWeight: 500,
+              padding: "10px 24px",
+              textDecoration: "none",
+              letterSpacing: "0.5px",
+              transition: "opacity 0.2s",
+            }}>
+              입장권 구매
+            </Link>
           </div>
+
+          {/* 모바일 햄버거 */}
+          <button
+            className="lg:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", color: "#000" }}
+          >
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* 메가 드롭다운 */}
+        {/* 드롭다운 메가메뉴 */}
         {activeKey && (
           <div
-            onMouseEnter={() => handleMouseEnter(activeKey)}
-            onMouseLeave={handleMouseLeave}
-            className={`hidden lg:block absolute left-0 right-0 ${scrolled ? "top-full" : "top-full mt-1"}`}
+            onMouseEnter={() => onEnter(activeKey)}
+            onMouseLeave={onLeave}
+            style={{
+              position: "absolute", left: 0, right: 0, top: "100%",
+              background: "#FAFAFA",
+              borderBottom: "1px solid #D3D3D3",
+              borderTop: "1px solid #D3D3D3",
+            }}
           >
-            <div className="mx-4 sm:mx-8 lg:mx-16 mt-1">
-              <div className={`bg-[#0a0a14]/98 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden ${
-                scrolled ? "mx-0 rounded-t-none" : ""
-              }`}>
-                <div className="max-w-[1400px] mx-auto px-8 py-6">
-                  {NAV.filter(n => n.key === activeKey).map((nav) => (
-                    <div key={nav.key}>
-                      <div className="text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
-                        {nav.label}
-                      </div>
-                      <div className="grid grid-cols-4 gap-3">
-                        {nav.items.map((item) => (
-                          <Link key={item.href + item.title} href={item.href}
-                            onClick={() => setActiveKey(null)}
-                            className="flex items-start gap-3 p-4 rounded-xl hover:bg-white/5 transition-colors group">
-                            <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
-                            <div>
-                              <div className="text-white font-bold text-sm group-hover:text-[#D4AF37] transition-colors">
-                                {item.title}
-                              </div>
-                              <div className="text-slate-500 text-xs mt-0.5 leading-relaxed">{item.desc}</div>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+            <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "40px 48px" }}>
+              {NAV.filter(n => n.key === activeKey).map((nav) => (
+                <div key={nav.key}>
+                  <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "24px" }}>
+                    {nav.label}
+                  </p>
+                  <div className="grid grid-cols-4" style={{ gap: "0", borderTop: "1px solid #D3D3D3" }}>
+                    {nav.items.map((item, i) => (
+                      <Link
+                        key={item.href + item.title}
+                        href={item.href}
+                        onClick={() => setActiveKey(null)}
+                        style={{
+                          display: "block",
+                          padding: "28px 32px 28px 0",
+                          paddingLeft: i > 0 ? "32px" : "0",
+                          borderRight: i < 3 ? "1px solid #D3D3D3" : "none",
+                          textDecoration: "none",
+                          transition: "background 0.15s",
+                        }}
+                      >
+                        <p style={{ fontSize: "15px", fontWeight: 500, color: "#000", marginBottom: "6px", letterSpacing: "-0.2px" }}>
+                          {item.title}
+                        </p>
+                        <p style={{ fontSize: "13px", color: "#8B8675", lineHeight: 1.5 }}>
+                          {item.desc}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         )}
       </header>
 
-      {/* 모바일 메뉴 전체화면 */}
+      {/* ── 모바일 전체화면 메뉴 ── */}
       {menuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-[#050508]/99 backdrop-blur-xl overflow-y-auto">
-          <div className="flex items-center justify-between px-6 h-16 border-b border-white/5">
-            <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-black font-black text-xs">RC</span>
+        <div
+          className="lg:hidden"
+          style={{
+            position: "fixed", inset: 0, zIndex: 40,
+            background: "#FAFAFA",
+            fontFamily: "var(--font-dm-sans), sans-serif",
+            overflowY: "auto",
+          }}
+        >
+          {/* 모바일 헤더 바 */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px", height: "64px", borderBottom: "1px solid #D3D3D3" }}>
+            <Link href="/" onClick={() => setMenuOpen(false)} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+              <div style={{ width: "28px", height: "28px", background: "#000", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ color: "#FAFAFA", fontSize: "10px", fontWeight: 700 }}>RC</span>
               </div>
-              <span className="text-white font-black text-sm">RECORDING CAFÉ</span>
+              <span style={{ fontSize: "13px", fontWeight: 500, color: "#000", letterSpacing: "1px", textTransform: "uppercase" }}>Recording Café</span>
             </Link>
-            <button onClick={() => setMenuOpen(false)} className="text-white p-1">
-              <X className="w-6 h-6" />
+            <button onClick={() => setMenuOpen(false)} style={{ background: "none", border: "none", cursor: "pointer", color: "#000" }}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
             </button>
           </div>
 
-          <div className="px-4 py-6 space-y-1">
+          {/* 메뉴 목록 */}
+          <div style={{ padding: "16px 0" }}>
             {NAV.map((nav) => (
-              <div key={nav.key}>
+              <div key={nav.key} style={{ borderBottom: "1px solid #D3D3D3" }}>
                 <button
                   onClick={() => setMobileOpen(mobileOpen === nav.key ? null : nav.key)}
-                  className="w-full flex items-center justify-between px-4 py-3.5 text-white font-bold rounded-xl hover:bg-white/5 transition-colors"
+                  style={{
+                    width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "20px 24px", background: "none", border: "none", cursor: "pointer",
+                    fontSize: "15px", fontWeight: 400, color: "#000", textAlign: "left",
+                  }}
                 >
-                  <span>{nav.label}</span>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileOpen === nav.key ? "rotate-180" : ""}`} />
+                  {nav.label}
+                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ transition: "transform 0.2s", transform: mobileOpen === nav.key ? "rotate(180deg)" : "none", color: "#8B8675" }}>
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </button>
                 {mobileOpen === nav.key && (
-                  <div className="ml-4 mt-1 space-y-1 mb-2">
+                  <div style={{ background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
                     {nav.items.map((item) => (
-                      <Link key={item.href + item.title} href={item.href}
+                      <Link
+                        key={item.href + item.title}
+                        href={item.href}
                         onClick={() => setMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white rounded-xl hover:bg-white/5 transition-colors">
-                        <span className="text-lg">{item.icon}</span>
-                        <div>
-                          <div className="text-sm font-medium">{item.title}</div>
-                          <div className="text-xs text-slate-500">{item.desc}</div>
-                        </div>
+                        style={{ display: "block", padding: "16px 32px", textDecoration: "none", borderBottom: "1px solid #D3D3D3" }}
+                      >
+                        <p style={{ fontSize: "14px", fontWeight: 500, color: "#1A1A1A", marginBottom: "2px" }}>{item.title}</p>
+                        <p style={{ fontSize: "12px", color: "#8B8675" }}>{item.desc}</p>
                       </Link>
                     ))}
                   </div>
@@ -236,14 +288,14 @@ export default function Header() {
               </div>
             ))}
 
-            <div className="pt-4 border-t border-white/5 mt-4 space-y-2">
+            <div style={{ padding: "24px" }}>
               <Link href="/mypage" onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 w-full px-4 py-3 text-slate-300 hover:text-white rounded-xl hover:bg-white/5 transition-colors font-medium">
-                <User className="w-4 h-4" /> 마이페이지
+                style={{ display: "block", padding: "14px 0", fontSize: "15px", color: "#5F5F5F", textDecoration: "none", borderBottom: "1px solid #D3D3D3", marginBottom: "12px" }}>
+                마이페이지
               </Link>
               <Link href="/menu" onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full bg-[#D4AF37] text-black font-black py-4 rounded-xl text-sm">
-                <Ticket className="w-4 h-4" /> 입장권 구매
+                style={{ display: "block", textAlign: "center", background: "#000", color: "#FAFAFA", fontSize: "15px", fontWeight: 500, padding: "16px", textDecoration: "none", letterSpacing: "0.5px" }}>
+                입장권 구매
               </Link>
             </div>
           </div>
