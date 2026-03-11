@@ -18,196 +18,214 @@ async function getLatestArticles() {
   return data ?? [];
 }
 
-// ── MOZAIQ 스타일 ──────────────────────────────────────────
-// 배경: #FFFEF5 (warm cream)
-// 보조 배경: #F5F0E8
-// 텍스트: #1a1209 (warm near-black)
-// 서브텍스트: #7a6a58
-// 보더/디바이더: #e0d5c5
-// 강조: #D4AF37 (gold)
+// ── MOZAIQ 실제 디자인 시스템 ─────────────────────────────
+// bg:     #fffef5  (warm cream)
+// text:   #111     (near-black)
+// sub:    #767676  (mid gray)
+// border: #e5e5e5  (thin divider)
+// accent: #D4AF37  (gold — 레코딩카페 브랜드)
+// font:   Pretendard (KR sans) + Noto Serif (display)
 // ──────────────────────────────────────────────────────────
 
 export default async function Home() {
   const latestArticles = await getLatestArticles();
 
   return (
-    <div style={{ background: "#FFFEF5", color: "#1a1209" }}>
+    <div style={{ background: "#fffef5", color: "#111", fontFamily: "Pretendard, 'Noto Sans KR', sans-serif" }}>
 
       {/* ── 공지 바 ── */}
-      <div className="text-center py-2.5 px-4 text-xs tracking-[0.2em]"
-        style={{ background: "#1a1209", color: "#D4AF37" }}>
-        사전 예약 시 음료 1잔 무료 증정 &nbsp;·&nbsp; OPEN 12:00 – 21:00
+      <div style={{ background: "#111", color: "#D4AF37", textAlign: "center", padding: "10px 16px", fontSize: 12, letterSpacing: "0.3em", fontWeight: 500 }}>
+        사전 예약 시 음료 1잔 무료 &nbsp;·&nbsp; OPEN 12:00 – 21:00 &nbsp;·&nbsp; 신사역 3호선 도보 4분
       </div>
 
       {/* ══════════════════════════════════════════
-          히어로 — 풀스크린 영상
+          HERO — 풀스크린 영상 (mozaiq hero-section)
       ══════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden" style={{ height: "100svh", minHeight: 600 }}>
+      <section style={{ position: "relative", width: "100%", height: "100svh", minHeight: 600, overflow: "hidden", background: "#0a0800" }}>
         {/* 유튜브 배경 영상 */}
-        <div className="absolute inset-0 w-full h-full">
-          <iframe
-            className="absolute w-full h-full"
-            style={{
-              top: "50%", left: "50%",
-              width: "177.78vh", height: "56.25vw",
-              minWidth: "100%", minHeight: "100%",
-              transform: "translate(-50%, -50%)",
-              pointerEvents: "none",
-            }}
-            src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=1&mute=1&loop=1&playlist=9bZkp7q19f0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          />
-          {/* 오버레이 */}
-          <div className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, rgba(26,18,9,0.35) 0%, rgba(26,18,9,0.55) 60%, rgba(255,254,245,1) 100%)" }} />
-        </div>
+        <iframe
+          style={{
+            position: "absolute",
+            top: "50%", left: "50%",
+            width: "177.78vh", height: "56.25vw",
+            minWidth: "100%", minHeight: "100%",
+            transform: "translate(-50%, -50%)",
+            pointerEvents: "none", border: "none",
+          }}
+          src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=1&mute=1&loop=1&playlist=9bZkp7q19f0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+          allow="autoplay; encrypted-media"
+        />
+        {/* 하단에서 크림색으로 페이드 */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to bottom, rgba(10,8,0,0.2) 0%, rgba(10,8,0,0.1) 40%, rgba(255,254,245,1) 100%)",
+        }} />
 
-        {/* 히어로 텍스트 */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <p className="text-xs tracking-[0.4em] uppercase mb-6 font-medium"
-            style={{ color: "#D4AF37", letterSpacing: "0.4em" }}>
+        {/* 히어로 텍스트 — 하단 고정 */}
+        <div style={{ position: "absolute", bottom: 60, left: 0, right: 0, textAlign: "center", padding: "0 24px" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.45em", color: "#D4AF37", fontWeight: 600, marginBottom: 16, textTransform: "uppercase" }}>
             Seoul · Sinsa · Since 2015
           </p>
-          <h1 className="font-black leading-none mb-4"
-            style={{ color: "#FFFEF5", fontSize: "clamp(3rem, 12vw, 10rem)", letterSpacing: "-0.02em" }}>
+          <h1 style={{
+            fontFamily: "'Noto Serif KR', 'Nanum Myeongjo', Georgia, serif",
+            fontSize: "clamp(3.5rem, 12vw, 9rem)",
+            fontWeight: 900, lineHeight: 1, letterSpacing: "-0.03em",
+            color: "#fffef5", marginBottom: 20,
+          }}>
             RECORDING<br />
             <span style={{ color: "#D4AF37" }}>CAFÉ</span>
           </h1>
-          <p className="max-w-lg text-base sm:text-lg leading-relaxed mb-10 font-light"
-            style={{ color: "rgba(255,254,245,0.8)", letterSpacing: "0.03em" }}>
+          <p style={{ fontSize: "clamp(14px, 1.5vw, 18px)", color: "rgba(255,254,245,0.85)", letterSpacing: "0.02em", marginBottom: 36, fontWeight: 300 }}>
             실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험하세요
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/menu"
-              className="px-10 py-4 text-sm font-bold tracking-[0.15em] transition-all"
-              style={{ background: "#D4AF37", color: "#1a1209" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+            <Link href="/menu" style={{
+              display: "inline-block", padding: "14px 36px",
+              background: "#D4AF37", color: "#111",
+              fontSize: 13, fontWeight: 700, letterSpacing: "0.15em", textDecoration: "none",
+              transition: "all .3s ease",
+            }}>
               🎟 입장권 구매
             </Link>
-            <Link href="/experience"
-              className="px-10 py-4 text-sm font-medium tracking-[0.15em] transition-all"
-              style={{ border: "1px solid rgba(255,254,245,0.5)", color: "#FFFEF5" }}>
+            <Link href="/experience" style={{
+              display: "inline-block", padding: "14px 36px",
+              border: "1px solid rgba(255,254,245,0.6)", color: "#fffef5",
+              fontSize: 13, fontWeight: 500, letterSpacing: "0.15em", textDecoration: "none",
+              transition: "all .3s ease",
+            }}>
               프로그램 보기
             </Link>
           </div>
         </div>
 
-        {/* 스크롤 인디케이터 */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "#D4AF37" }}>Scroll</span>
-          <div className="w-px h-10 animate-pulse" style={{ background: "linear-gradient(to bottom, #D4AF37, transparent)" }} />
+        {/* 스크롤 가이드 */}
+        <div style={{ position: "absolute", bottom: 24, right: 32, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+          <div style={{ width: 1, height: 40, background: "linear-gradient(to bottom, #D4AF37, transparent)", animation: "pulse 2s infinite" }} />
+          <span style={{ fontSize: 9, letterSpacing: "0.3em", color: "#D4AF37", textTransform: "uppercase" }}>Scroll</span>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          방문 정보 바
+          방문 정보 — 얇은 보더 그리드 (mozaiq 스타일)
       ══════════════════════════════════════════ */}
-      <section style={{ borderBottom: "1px solid #e0d5c5" }}>
-        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4"
-          style={{ borderTop: "1px solid #e0d5c5" }}>
+      <section style={{ borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
           {[
-            { label: "OPEN", value: "12:00 – 21:00", sub: "연중무휴" },
+            { label: "OPEN HOURS", value: "12:00 – 21:00", sub: "연중무휴" },
             { label: "LOCATION", value: "신사역 3호선", sub: "5번 출구 도보 4분" },
-            { label: "PROGRAM", value: "녹음 · 도슨트", sub: "₩35,000~" },
-            { label: "HISTORY", value: "10년+", sub: "전속 아티스트 50명+" },
+            { label: "PROGRAM", value: "녹음 · 도슨트", sub: "₩35,000 ~" },
+            { label: "HISTORY", value: "10년 이상", sub: "전속 아티스트 50+명" },
           ].map((item, i) => (
-            <div key={i} className="px-6 py-6 text-center"
-              style={{ borderRight: i < 3 ? "1px solid #e0d5c5" : "none" }}>
-              <div className="text-[10px] tracking-[0.3em] mb-2 font-bold"
-                style={{ color: "#D4AF37" }}>{item.label}</div>
-              <div className="font-black text-sm mb-0.5" style={{ color: "#1a1209" }}>{item.value}</div>
-              <div className="text-xs" style={{ color: "#7a6a58" }}>{item.sub}</div>
+            <div key={i} style={{
+              padding: "28px 20px", textAlign: "center",
+              borderRight: i < 3 ? "1px solid #e5e5e5" : "none",
+            }}>
+              <div style={{ fontSize: 9, letterSpacing: "0.35em", color: "#D4AF37", fontWeight: 600, marginBottom: 8, textTransform: "uppercase" }}>
+                {item.label}
+              </div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: "#111", marginBottom: 4 }}>{item.value}</div>
+              <div style={{ fontSize: 11, color: "#767676" }}>{item.sub}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          프로그램 섹션
+          프로그램 — mozaiq growth-section 스타일
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-4 sm:px-6" style={{ background: "#FFFEF5" }}>
-        <div className="max-w-6xl mx-auto">
-          {/* 섹션 헤더 */}
-          <div className="flex items-center gap-6 mb-16">
-            <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>
+      <section style={{ padding: "100px 24px", background: "#fffef5" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+
+          {/* 섹션 타이틀 */}
+          <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 64 }}>
+            <span style={{ fontSize: 10, letterSpacing: "0.4em", color: "#D4AF37", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>
               Programs
-            </div>
-            <div className="flex-1 h-px" style={{ background: "#e0d5c5" }} />
-            <h2 className="text-2xl sm:text-3xl font-black" style={{ letterSpacing: "-0.02em" }}>
-              지금 바로 예약할 수 있는 프로그램
+            </span>
+            <div style={{ flex: 1, height: 1, background: "#e5e5e5" }} />
+            <h2 style={{
+              fontFamily: "'Noto Serif KR', Georgia, serif",
+              fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 900,
+              letterSpacing: "-0.03em", color: "#111", whiteSpace: "nowrap",
+            }}>
+              지금 바로 예약 가능한 프로그램
             </h2>
           </div>
 
-          {/* 카드 3개 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0"
-            style={{ border: "1px solid #e0d5c5" }}>
+          {/* 프로그램 카드 — 보더 그리드 */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", border: "1px solid #e5e5e5" }}>
             {[
               {
                 img: "/images/recording-booth.png",
-                tag: "Wing A · 전시",
+                badge: "Wing A · 전시",
                 title: "K-POP 레전드\n릴테이프 도슨트",
                 price: "₩35,000",
-                desc: "30년 K-POP 역사를 담은 레전드들의 실제 녹음 릴테이프. 4개국어 해설 제공.",
-                href1: "/docent", href2: "/menu",
-                accent: "#C8853A",
+                desc: "30년 K-POP 역사를 담은 레전드들의 실제 녹음 릴테이프. 한·영·중·일 전문 해설사 동반.",
+                detail: "/docent", book: "/menu", color: "#C8853A",
               },
               {
                 img: "/images/control-room.png",
-                tag: "Wing A · 체험 · 인기",
+                badge: "Wing A · 체험 🔥인기",
                 title: "K-POP\n녹음 체험",
                 price: "₩40,000~",
-                desc: "전문 레코딩 부스에서 직접 K-POP 가수처럼 녹음. 음원 파일 즉시 제공.",
-                href1: "/experience", href2: "/menu",
-                accent: "#D4AF37",
+                desc: "전문 레코딩 부스에서 직접 K-POP 가수처럼 녹음. 고음질 음원 파일 즉시 제공.",
+                detail: "/experience", book: "/menu", color: "#D4AF37",
               },
               {
                 img: "/images/bora-box.png",
-                tag: "Wing B · 프로",
+                badge: "Wing B · 프로",
                 title: "정식 음반 제작\n프로 에디션",
-                price: "₩15,000,000~",
-                desc: "KOMCA 작곡가 매칭, 믹싱·마스터링, 150개 글로벌 플랫폼 동시 발매.",
-                href1: "/pro", href2: "/pro",
-                accent: "#8B6914",
+                price: "₩15M~",
+                desc: "KOMCA 작곡가 1:1 매칭, 믹싱·마스터링, 150개 글로벌 플랫폼 동시 발매.",
+                detail: "/pro", book: "/pro", color: "#8B6914",
               },
             ].map((card, i) => (
-              <div key={i} className="group flex flex-col"
-                style={{ borderRight: i < 2 ? "1px solid #e0d5c5" : "none" }}>
+              <div key={i} style={{
+                display: "flex", flexDirection: "column",
+                borderRight: i < 2 ? "1px solid #e5e5e5" : "none",
+                transition: "background .3s",
+              }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#f5f0e8")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+              >
                 {/* 이미지 */}
-                <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
                   <Image src={card.img} alt={card.title.replace("\n", " ")} fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0"
-                    style={{ background: "linear-gradient(to top, rgba(26,18,9,0.5), transparent)" }} />
-                  <div className="absolute top-4 left-4">
-                    <span className="text-[10px] font-bold tracking-[0.2em] px-2.5 py-1"
-                      style={{ background: card.accent, color: "#fff" }}>
-                      {card.tag}
-                    </span>
-                  </div>
+                    style={{ objectFit: "cover", transition: "transform .7s ease" }}
+                    className="group-hover:scale-105"
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                  <span style={{
+                    position: "absolute", top: 14, left: 14,
+                    background: card.color, color: "#fff",
+                    fontSize: 10, fontWeight: 700, letterSpacing: "0.15em",
+                    padding: "4px 10px", textTransform: "uppercase",
+                  }}>{card.badge}</span>
                 </div>
+
                 {/* 내용 */}
-                <div className="flex flex-col flex-1 p-7"
-                  style={{ borderTop: "1px solid #e0d5c5" }}>
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-black text-lg leading-snug whitespace-pre-line"
-                      style={{ color: "#1a1209" }}>{card.title}</h3>
-                    <span className="font-black text-base ml-4 flex-shrink-0"
-                      style={{ color: card.accent }}>{card.price}</span>
+                <div style={{ padding: "28px 24px 24px", flex: 1, display: "flex", flexDirection: "column", borderTop: "1px solid #e5e5e5" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+                    <h3 style={{
+                      fontFamily: "'Noto Serif KR', Georgia, serif",
+                      fontSize: 18, fontWeight: 700, lineHeight: 1.3,
+                      letterSpacing: "-0.02em", color: "#111", whiteSpace: "pre-line",
+                    }}>{card.title}</h3>
+                    <span style={{ fontSize: 16, fontWeight: 800, color: card.color, marginLeft: 12, flexShrink: 0 }}>{card.price}</span>
                   </div>
-                  <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color: "#7a6a58" }}>
-                    {card.desc}
-                  </p>
-                  <div className="flex gap-2">
-                    <Link href={card.href1}
-                      className="flex-1 text-center py-2.5 text-xs font-bold tracking-[0.1em] transition-all"
-                      style={{ border: `1px solid ${card.accent}`, color: card.accent }}>
-                      상세보기
-                    </Link>
-                    <Link href={card.href2}
-                      className="flex-1 text-center py-2.5 text-xs font-bold tracking-[0.1em] transition-all"
-                      style={{ background: card.accent, color: "#fff" }}>
-                      예약하기
-                    </Link>
+                  <p style={{ fontSize: 13, lineHeight: 1.7, color: "#767676", flex: 1, marginBottom: 20 }}>{card.desc}</p>
+                  <div style={{ display: "flex", gap: 8 }}>
+                    <Link href={card.detail} style={{
+                      flex: 1, textAlign: "center", padding: "10px 0",
+                      border: `1px solid ${card.color}`, color: card.color,
+                      fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textDecoration: "none",
+                      transition: "all .3s",
+                    }}>상세보기</Link>
+                    <Link href={card.book} style={{
+                      flex: 1, textAlign: "center", padding: "10px 0",
+                      background: card.color, color: "#fff",
+                      fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textDecoration: "none",
+                      transition: "all .3s",
+                    }}>예약하기</Link>
                   </div>
                 </div>
               </div>
@@ -217,97 +235,136 @@ export default async function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          숫자 통계
+          숫자 — 크림 배경 수평 그리드
       ══════════════════════════════════════════ */}
-      <section className="py-16" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5", borderBottom: "1px solid #e0d5c5" }}>
-        <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-0">
+      <section style={{ background: "#f5f0e8", borderTop: "1px solid #e5e5e5", borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
           {[
-            { num: "50,000+", label: "누적 방문객" },
-            { num: "10년+",   label: "운영 경력" },
-            { num: "50명+",   label: "전속 아티스트" },
-            { num: "4개국어", label: "도슨트 해설" },
+            { num: "50,000+", label: "누적 방문객", sub: "국내외 K-POP 팬" },
+            { num: "10년+",   label: "운영 경력",   sub: "전문 엔터테인먼트" },
+            { num: "50명+",   label: "전속 아티스트", sub: "음반 제작 실적" },
+            { num: "4개국어", label: "도슨트 해설",  sub: "한·영·중·일" },
           ].map((s, i) => (
-            <div key={i} className="text-center py-8"
-              style={{ borderRight: i < 3 ? "1px solid #e0d5c5" : "none" }}>
-              <div className="font-black mb-1"
-                style={{ color: "#D4AF37", fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}>{s.num}</div>
-              <div className="text-xs tracking-[0.2em] uppercase" style={{ color: "#7a6a58" }}>{s.label}</div>
+            <div key={i} style={{
+              padding: "48px 20px", textAlign: "center",
+              borderRight: i < 3 ? "1px solid #e5e5e5" : "none",
+            }}>
+              <div style={{
+                fontFamily: "'Noto Serif KR', Georgia, serif",
+                fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 900,
+                color: "#D4AF37", letterSpacing: "-0.03em", marginBottom: 8,
+              }}>{s.num}</div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: "#111", marginBottom: 4 }}>{s.label}</div>
+              <div style={{ fontSize: 11, color: "#767676" }}>{s.sub}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          공간 갤러리 — 풀폭 이미지 그리드
+          공간 갤러리 — 비대칭 모자이크 그리드
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-4 sm:px-6" style={{ background: "#FFFEF5" }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-6 mb-16">
-            <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>Spaces</div>
-            <div className="flex-1 h-px" style={{ background: "#e0d5c5" }} />
-            <h2 className="text-2xl font-black" style={{ letterSpacing: "-0.02em" }}>공간 안내</h2>
+      <section style={{ padding: "100px 24px", background: "#fffef5" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 48 }}>
+            <span style={{ fontSize: 10, letterSpacing: "0.4em", color: "#D4AF37", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>Spaces</span>
+            <div style={{ flex: 1, height: 1, background: "#e5e5e5" }} />
+            <h2 style={{ fontFamily: "'Noto Serif KR', Georgia, serif", fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 900, letterSpacing: "-0.03em", whiteSpace: "nowrap" }}>공간 안내</h2>
           </div>
 
-          {/* 비대칭 그리드 */}
-          <div className="grid grid-cols-3 grid-rows-2 gap-2" style={{ height: "500px" }}>
-            <div className="col-span-2 row-span-2 relative overflow-hidden group">
+          {/* 모자이크 레이아웃 */}
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "240px 240px", gap: 2 }}>
+            {/* 큰 이미지 */}
+            <div style={{ gridRow: "1 / 3", position: "relative", overflow: "hidden" }} className="group">
               <Image src="/images/recording-booth.png" alt="레코딩 부스" fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,18,9,0.7), transparent)" }} />
-              <div className="absolute bottom-5 left-5">
-                <div className="text-white font-black text-xl">레코딩 부스</div>
-                <div className="text-xs tracking-widest mt-0.5" style={{ color: "#D4AF37" }}>Studio Booth</div>
+                style={{ objectFit: "cover", transition: "transform .7s ease" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)" }} />
+              <div style={{ position: "absolute", bottom: 20, left: 20 }}>
+                <div style={{ color: "#fff", fontWeight: 700, fontSize: 18, letterSpacing: "-0.02em" }}>레코딩 부스</div>
+                <div style={{ color: "#D4AF37", fontSize: 11, letterSpacing: "0.2em", marginTop: 2 }}>STUDIO BOOTH · 녹음 체험</div>
               </div>
             </div>
-            {[
-              { src: "/images/control-room.png", label: "컨트롤룸", sub: "Control Room" },
-              { src: "/images/mirror-booth.png", label: "AI 포토 부스", sub: "AI Photo" },
-            ].map((img, i) => (
-              <div key={i} className="relative overflow-hidden group col-span-1">
-                <Image src={img.src} alt={img.label} fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0" style={{ background: "rgba(26,18,9,0.4)" }} />
-                <div className="absolute bottom-3 left-3">
-                  <div className="text-white font-bold text-sm">{img.label}</div>
-                  <div className="text-[10px] tracking-widest" style={{ color: "#D4AF37" }}>{img.sub}</div>
-                </div>
+            {/* 우측 상단 */}
+            <div style={{ gridColumn: "2", position: "relative", overflow: "hidden" }}>
+              <Image src="/images/control-room.png" alt="컨트롤룸" fill style={{ objectFit: "cover", transition: "transform .7s ease" }} />
+              <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.35)" }} />
+              <div style={{ position: "absolute", bottom: 12, left: 12 }}>
+                <div style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>컨트롤룸</div>
+                <div style={{ color: "#D4AF37", fontSize: 10, letterSpacing: "0.15em" }}>CONTROL ROOM</div>
               </div>
-            ))}
+            </div>
+            {/* 우측 상단2 */}
+            <div style={{ gridColumn: "3", position: "relative", overflow: "hidden" }}>
+              <Image src="/images/bora-box.png" alt="BORA BOX" fill style={{ objectFit: "cover", transition: "transform .7s ease" }} />
+              <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.35)" }} />
+              <div style={{ position: "absolute", bottom: 12, left: 12 }}>
+                <div style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>BORA BOX</div>
+                <div style={{ color: "#D4AF37", fontSize: 10, letterSpacing: "0.15em" }}>LIVE BROADCAST</div>
+              </div>
+            </div>
+            {/* 우측 하단 */}
+            <div style={{ gridColumn: "2", position: "relative", overflow: "hidden" }}>
+              <Image src="/images/mirror-booth.png" alt="AI 포토 부스" fill style={{ objectFit: "cover", transition: "transform .7s ease" }} />
+              <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.35)" }} />
+              <div style={{ position: "absolute", bottom: 12, left: 12 }}>
+                <div style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>AI 포토 부스</div>
+                <div style={{ color: "#D4AF37", fontSize: 10, letterSpacing: "0.15em" }}>AI PHOTO</div>
+              </div>
+            </div>
+            {/* 라벨 카드 */}
+            <div style={{ gridColumn: "3", background: "#111", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 16 }}>
+              <div style={{ fontFamily: "'Noto Serif KR', Georgia, serif", fontSize: 22, fontWeight: 900, color: "#D4AF37", textAlign: "center", letterSpacing: "-0.02em" }}>
+                4개의<br />공간
+              </div>
+              <Link href="/experience" style={{
+                fontSize: 11, fontWeight: 600, letterSpacing: "0.2em",
+                color: "#fff", textDecoration: "none",
+                borderBottom: "1px solid #D4AF37", paddingBottom: 2,
+              }}>VIEW ALL →</Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          소개 — 텍스트 + 이미지 (모자이크 스타일)
+          소개 — about-section (mozaiq 스타일)
       ══════════════════════════════════════════ */}
-      <section className="py-24" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5" }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0"
-            style={{ border: "1px solid #e0d5c5" }}>
+      <section style={{ background: "#f5f0e8", borderTop: "1px solid #e5e5e5" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", border: "1px solid #e5e5e5", margin: "0 24px" }}>
             {/* 이미지 */}
-            <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-              <Image src="/images/lounge-group.png" alt="레코딩카페" fill className="object-cover" />
+            <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden" }}>
+              <Image src="/images/lounge-group.png" alt="레코딩카페 소개" fill style={{ objectFit: "cover" }} />
             </div>
             {/* 텍스트 */}
-            <div className="flex flex-col justify-center p-10 sm:p-16"
-              style={{ borderLeft: "1px solid #e0d5c5" }}>
-              <div className="text-[10px] tracking-[0.4em] uppercase font-bold mb-6"
-                style={{ color: "#D4AF37" }}>About</div>
-              <h2 className="font-black text-3xl sm:text-4xl leading-tight mb-8"
-                style={{ color: "#1a1209", letterSpacing: "-0.02em" }}>
+            <div style={{ padding: "64px 56px", borderLeft: "1px solid #e5e5e5", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <div style={{ fontSize: 10, letterSpacing: "0.4em", color: "#D4AF37", fontWeight: 600, marginBottom: 24, textTransform: "uppercase" }}>
+                About Us
+              </div>
+              <h2 style={{
+                fontFamily: "'Noto Serif KR', Georgia, serif",
+                fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900,
+                lineHeight: 1.25, letterSpacing: "-0.03em",
+                color: "#111", marginBottom: 28,
+              }}>
                 실제 K-POP 스타들이<br />녹음한 바로 그 스튜디오
               </h2>
-              <div className="space-y-4 text-sm leading-loose mb-10"
-                style={{ color: "#7a6a58" }}>
-                <p>10년간 전속 아티스트 50여 명의 음반 작업을 진행해온 전문 스튜디오를 처음으로 일반에 공개합니다.</p>
-                <p>기획사 오디션에 도전했던 분들, K-POP을 사랑하는 외국인 팬들, 직접 음원을 발표하고 싶은 분들 모두를 위한 공간입니다.</p>
+              <div style={{ height: 1, background: "#e5e5e5", marginBottom: 28 }} />
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: "#767676", marginBottom: 40 }}>
+                <p style={{ marginBottom: 14 }}>
+                  10년간 전속 아티스트 50여 명의 음반 작업을 진행해온 전문 스튜디오를 처음으로 일반에 공개합니다.
+                </p>
+                <p>
+                  기획사 오디션에 도전했던 분들, K-POP을 사랑하는 외국인 팬들, 직접 음원을 발표하고 싶은 분들 모두를 위한 공간입니다.
+                </p>
               </div>
-              <div className="h-px mb-10" style={{ background: "#e0d5c5" }} />
-              <Link href="/about"
-                className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.15em] group"
-                style={{ color: "#1a1209" }}>
-                <span>MORE ABOUT US</span>
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+              <Link href="/about" style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                fontSize: 13, fontWeight: 700, letterSpacing: "0.15em",
+                color: "#111", textDecoration: "none", textTransform: "uppercase",
+              }}>
+                <span>More About Us</span>
+                <span style={{ color: "#D4AF37" }}>→</span>
               </Link>
             </div>
           </div>
@@ -317,28 +374,38 @@ export default async function Home() {
       {/* ══════════════════════════════════════════
           오시는 길
       ══════════════════════════════════════════ */}
-      <section className="py-20 px-4 sm:px-6" style={{ background: "#FFFEF5", borderTop: "1px solid #e0d5c5" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 mb-10"
-            style={{ border: "1px solid #e0d5c5" }}>
+      <section style={{ padding: "80px 24px", background: "#fffef5", borderTop: "1px solid #e5e5e5" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          {/* 타이틀 */}
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ fontSize: 10, letterSpacing: "0.4em", color: "#D4AF37", fontWeight: 600, marginBottom: 12, textTransform: "uppercase" }}>Location</div>
+            <h2 style={{ fontFamily: "'Noto Serif KR', Georgia, serif", fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 900, letterSpacing: "-0.03em" }}>오시는 길</h2>
+          </div>
+          {/* 3단 그리드 */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", border: "1px solid #e5e5e5", marginBottom: 40 }}>
             {[
               { icon: "📍", title: "ADDRESS", main: "서울 서초구 강남대로107길 21, 2층", sub: "2F, 21 Gangnam-daero 107-gil, Seocho-gu" },
-              { icon: "🚇", title: "SUBWAY", main: "신사역 3호선 5번 출구", sub: "도보 4분 · 주차 불가" },
+              { icon: "🚇", title: "SUBWAY", main: "신사역 3호선 5번 출구", sub: "도보 4분 · 주차 불가 (인근 유료주차장)" },
               { icon: "🕐", title: "HOURS", main: "12:00 – 21:00", sub: "연중무휴 · 사전 예약 권장" },
             ].map((loc, i) => (
-              <div key={i} className="p-8 text-center"
-                style={{ borderRight: i < 2 ? "1px solid #e0d5c5" : "none" }}>
-                <div className="text-2xl mb-3">{loc.icon}</div>
-                <div className="text-[10px] tracking-[0.3em] font-bold mb-2" style={{ color: "#D4AF37" }}>{loc.title}</div>
-                <div className="font-bold text-sm mb-1" style={{ color: "#1a1209" }}>{loc.main}</div>
-                <div className="text-xs" style={{ color: "#7a6a58" }}>{loc.sub}</div>
+              <div key={i} style={{
+                padding: "36px 24px", textAlign: "center",
+                borderRight: i < 2 ? "1px solid #e5e5e5" : "none",
+              }}>
+                <div style={{ fontSize: 24, marginBottom: 12 }}>{loc.icon}</div>
+                <div style={{ fontSize: 9, letterSpacing: "0.35em", color: "#D4AF37", fontWeight: 600, marginBottom: 10, textTransform: "uppercase" }}>{loc.title}</div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#111", marginBottom: 6 }}>{loc.main}</div>
+                <div style={{ fontSize: 11, color: "#767676", lineHeight: 1.6 }}>{loc.sub}</div>
               </div>
             ))}
           </div>
-          <div className="text-center">
-            <Link href="/menu"
-              className="inline-block px-12 py-4 font-black text-sm tracking-[0.15em] transition-all"
-              style={{ background: "#1a1209", color: "#D4AF37" }}>
+          <div style={{ textAlign: "center" }}>
+            <Link href="/menu" style={{
+              display: "inline-block", padding: "16px 56px",
+              background: "#111", color: "#D4AF37",
+              fontSize: 13, fontWeight: 700, letterSpacing: "0.2em",
+              textDecoration: "none", transition: "all .3s",
+            }}>
               🎟 입장권 구매하기
             </Link>
           </div>
@@ -349,21 +416,19 @@ export default async function Home() {
           매거진
       ══════════════════════════════════════════ */}
       {latestArticles.length > 0 && (
-        <section className="py-24 px-4 sm:px-6" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5" }}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-16">
-              <div className="flex items-center gap-6">
-                <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>Magazine</div>
-                <div className="h-px w-16" style={{ background: "#e0d5c5" }} />
-                <h2 className="text-2xl font-black" style={{ letterSpacing: "-0.02em" }}>레코딩카페 매거진</h2>
+        <section style={{ padding: "80px 24px", background: "#f5f0e8", borderTop: "1px solid #e5e5e5" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                <span style={{ fontSize: 10, letterSpacing: "0.4em", color: "#D4AF37", fontWeight: 600, textTransform: "uppercase" }}>Magazine</span>
+                <div style={{ width: 40, height: 1, background: "#e5e5e5" }} />
+                <h2 style={{ fontFamily: "'Noto Serif KR', Georgia, serif", fontSize: "1.4rem", fontWeight: 900, letterSpacing: "-0.02em" }}>레코딩카페 매거진</h2>
               </div>
-              <Link href="/magazine"
-                className="text-xs font-bold tracking-[0.2em] uppercase hidden sm:block transition-opacity hover:opacity-60"
-                style={{ color: "#1a1209" }}>
+              <Link href="/magazine" style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.15em", color: "#111", textDecoration: "none", textTransform: "uppercase" }}>
                 전체 보기 →
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
               {latestArticles.map((article) => (
                 <ArticleCard key={article.slug} article={article} />
               ))}
@@ -371,7 +436,6 @@ export default async function Home() {
           </div>
         </section>
       )}
-
     </div>
   );
 }
