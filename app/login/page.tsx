@@ -37,27 +37,83 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050508] flex items-center justify-center px-4">
-      <div className="w-full max-w-sm">
+    <div style={{
+      minHeight: "100vh",
+      background: "#fff",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "0 16px",
+      fontFamily: "var(--font-dm-sans), sans-serif",
+    }}>
+      <div style={{ width: "100%", maxWidth: 360 }}>
         {/* 로고 */}
-        <div className="text-center mb-10">
-          <Link href="/" className="inline-flex flex-col items-center gap-3">
-            <div className="w-14 h-14 rounded-2xl bg-[#D4AF37] flex items-center justify-center">
-              <span className="text-black font-black text-2xl">K</span>
+        <div style={{ textAlign: "center", marginBottom: 40 }}>
+          <Link href="/" style={{
+            display: "inline-flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 12,
+            textDecoration: "none",
+          }}>
+            <div style={{
+              width: 32,
+              height: 32,
+              background: "#000",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+              <span style={{ color: "#fff", fontSize: 12, fontWeight: 700, letterSpacing: 0.5 }}>RC</span>
             </div>
-            <span className="text-white font-black text-lg tracking-tight">
-              RECORDING <span className="text-[#D4AF37]">CAFÉ</span>
+            <span style={{
+              color: "#000",
+              fontSize: 13,
+              fontWeight: 400,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+            }}>
+              Recording Café
             </span>
           </Link>
-          <p className="text-slate-500 text-sm mt-3">마이페이지에 로그인하세요</p>
         </div>
 
         {/* 로그인 카드 */}
-        <div className="bg-[#0f0f18] rounded-2xl border border-white/5 p-8">
-          <h2 className="text-white font-black text-xl text-center mb-6">로그인 / 회원가입</h2>
+        <div style={{
+          background: "#FAFAFA",
+          border: "1px solid #D3D3D3",
+          padding: 40,
+        }}>
+          <h2 style={{
+            color: "#000",
+            fontWeight: 400,
+            fontSize: 20,
+            letterSpacing: "-1px",
+            textAlign: "center",
+            marginBottom: 8,
+            marginTop: 0,
+          }}>
+            로그인 / 회원가입
+          </h2>
+          <p style={{
+            color: "#5F5F5F",
+            fontSize: 14,
+            fontWeight: 400,
+            textAlign: "center",
+            marginBottom: 28,
+            marginTop: 0,
+          }}>
+            마이페이지를 이용하려면 로그인하십시오.
+          </p>
 
           {error && (
-            <div className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3 text-red-400 text-xs text-center mb-5">
+            <div style={{
+              color: "#dc2626",
+              fontSize: 12,
+              textAlign: "center",
+              marginBottom: 20,
+              padding: "10px 0",
+            }}>
               {error}
             </div>
           )}
@@ -65,32 +121,57 @@ export default function LoginPage() {
           <button
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 disabled:opacity-60 text-gray-800 font-bold py-3.5 rounded-xl text-sm transition-colors"
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 12,
+              background: "#fff",
+              border: "1px solid #D3D3D3",
+              borderRadius: 0,
+              padding: "13px 0",
+              color: "#000",
+              fontSize: 13,
+              fontWeight: 400,
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              cursor: loading ? "not-allowed" : "pointer",
+              opacity: loading ? 0.6 : 1,
+            }}
           >
             {loading ? (
-              <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+              <span style={{ color: "#5F5F5F", fontSize: 13 }}>로그인 중...</span>
             ) : (
-              <svg className="w-5 h-5" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
+              <>
+                <svg style={{ width: 18, height: 18, flexShrink: 0 }} viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Google로 계속하기
+              </>
             )}
-            {loading ? "로그인 중..." : "Google로 계속하기"}
           </button>
 
-          <p className="text-slate-600 text-xs text-center mt-5 leading-relaxed">
+          <p style={{
+            color: "#5F5F5F",
+            fontSize: 11,
+            textAlign: "center",
+            marginTop: 20,
+            marginBottom: 0,
+            lineHeight: 1.7,
+          }}>
             로그인 시{" "}
-            <a href="#" className="text-slate-500 hover:text-[#D4AF37] transition-colors">이용약관</a>
+            <a href="#" style={{ color: "#8B8675", textDecoration: "none" }}>이용약관</a>
             {" "}및{" "}
-            <a href="#" className="text-slate-500 hover:text-[#D4AF37] transition-colors">개인정보처리방침</a>에 동의하는 것으로 간주됩니다.
+            <a href="#" style={{ color: "#8B8675", textDecoration: "none" }}>개인정보처리방침</a>에 동의하는 것으로 간주됩니다.
           </p>
         </div>
 
-        <div className="text-center mt-6">
-          <Link href="/" className="text-slate-600 hover:text-slate-400 text-xs transition-colors">
-            ← 홈으로 돌아가기
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Link href="/" style={{ color: "#5F5F5F", fontSize: 12, textDecoration: "none" }}>
+            ← 홈으로
           </Link>
         </div>
       </div>
