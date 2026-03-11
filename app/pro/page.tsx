@@ -2,31 +2,30 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const SERVICES = [
-  { emoji: "🎼", title: "KOMCA 전속 작곡가 1:1 매칭", desc: "한국음악저작권협회(KOMCA) 소속 최고의 전문 작곡가를 직접 선택하여 1:1로 매칭해드립니다. 당신이 원하는 스타일과 장르에 맞는 최적의 파트너를 연결합니다." },
-  { emoji: "🎹", title: "레퍼런스 기반 완전 맞춤 편곡·작사", desc: "고객이 제공하는 레퍼런스 곡을 바탕으로 원하는 스타일과 분위기를 완벽하게 반영한 편곡과 작사를 제공합니다. 최대 2회 수정 가능." },
-  { emoji: "🎙️", title: "전문 스튜디오 레코딩 (최대 5회 수정)", desc: "메이저 음반사와 동일한 환경의 전문 스튜디오에서 레코딩을 진행합니다. 최대 5회 수정 세션을 통해 완벽한 결과물을 만들어냅니다." },
-  { emoji: "🎚️", title: "전문 믹싱 & 마스터링", desc: "K-POP 메이저 음반사에서 작업한 경력의 전문 엔지니어가 직접 믹싱과 마스터링을 담당합니다. 글로벌 스트리밍 플랫폼 기준에 최적화된 사운드로 완성합니다." },
-  { emoji: "🖼️", title: "앨범 커버 아트워크 디자인", desc: "K-POP 스타일의 세련된 앨범 커버를 전문 디자이너가 제작합니다. 스트리밍 플랫폼에서 돋보이는 비주얼 아이덴티티를 만들어드립니다." },
-  { emoji: "🌍", title: "전 세계 음원 스트리밍 정식 발매", desc: "Spotify, Apple Music, YouTube Music, MelOn, Genie 등 전 세계 150개 이상의 음원 스트리밍 플랫폼에 정식 발매합니다. 미국 저작권 관리 단체와의 파트너십을 통해 글로벌 유통을 지원합니다." },
-  { emoji: "💰", title: "영구 저작권료 수익 등록", desc: "발매된 음원에서 발생하는 스트리밍 수익을 고객이 평생 받을 수 있도록 저작권 등록을 완료합니다. 저작권 유효 기간인 사후 70년까지 수익이 보장됩니다." },
+  { num: "01", title: "KOMCA 전속 작곡가 1:1 매칭", desc: "한국음악저작권협회(KOMCA) 소속 작곡가를 직접 선택하여 1:1로 매칭합니다." },
+  { num: "02", title: "레퍼런스 기반 맞춤 편곡·작사", desc: "고객이 제공하는 레퍼런스를 바탕으로 원하는 스타일을 반영한 편곡과 작사를 진행합니다." },
+  { num: "03", title: "전문 스튜디오 레코딩", desc: "메이저 음반사와 동일한 환경의 전문 스튜디오에서 레코딩을 진행합니다." },
+  { num: "04", title: "믹싱 & 마스터링", desc: "글로벌 스트리밍 플랫폼 기준에 최적화된 사운드로 완성합니다." },
+  { num: "05", title: "앨범 커버 아트워크", desc: "전문 디자이너가 스트리밍 플랫폼에 적합한 앨범 커버를 제작합니다." },
+  { num: "06", title: "전 세계 음원 발매 (150개 플랫폼)", desc: "Spotify, Apple Music 등 전 세계 150개 이상의 플랫폼에 정식 발매합니다." },
+  { num: "07", title: "영구 저작권료 수익 등록", desc: "저작권 유효 기간까지 스트리밍 수익을 수취할 수 있도록 등록을 완료합니다." },
 ];
 
 const TIMELINE = [
-  { week: "1-2주차", title: "작곡가 매칭 & 컨셉 기획", desc: "KOMCA 작곡가 선정, 방향성 협의, 레퍼런스 수집" },
-  { week: "3-5주차", title: "편곡 & 작사", desc: "맞춤 편곡 제작, 작사, 고객 피드백 반영 (최대 2회 수정)" },
-  { week: "6-8주차", title: "전문 스튜디오 레코딩", desc: "세션 녹음 진행, 최대 5회 수정 세션" },
-  { week: "9-10주차", title: "믹싱 & 마스터링", desc: "전문 엔지니어 믹싱, 글로벌 플랫폼 기준 마스터링" },
-  { week: "11주차", title: "앨범 아트 & 메타데이터", desc: "앨범 커버 디자인, 발매 준비, 저작권 등록" },
-  { week: "12주차", title: "전 세계 동시 발매 🎉", desc: "150개+ 스트리밍 플랫폼 글로벌 동시 발매" },
+  { period: "1주-2주", title: "작곡가 매칭 & 컨셉 기획", desc: "KOMCA 작곡가 선정, 방향성 협의, 레퍼런스 수집" },
+  { period: "3주-5주", title: "편곡 & 작사", desc: "맞춤 편곡 제작, 작사, 고객 피드백 반영" },
+  { period: "6주-8주", title: "전문 스튜디오 레코딩", desc: "세션 녹음 진행, 수정 세션 포함" },
+  { period: "9주-10주", title: "믹싱 & 마스터링", desc: "전문 엔지니어 믹싱, 글로벌 플랫폼 기준 마스터링" },
+  { period: "11주", title: "앨범 아트 & 발매 준비", desc: "앨범 커버 디자인, 저작권 등록, 발매 준비" },
+  { period: "12주", title: "전 세계 동시 발매", desc: "150개 이상의 스트리밍 플랫폼 글로벌 동시 발매" },
 ];
 
 const TIERS = [
   {
     name: "스탠다드",
-    nameEn: "Standard",
     price: "₩15,000,000~",
     desc: "싱글 1곡",
     features: ["KOMCA 작곡가 1:1 매칭", "맞춤 편곡·작사", "전문 레코딩 (3회 수정)", "믹싱 & 마스터링", "앨범 커버 디자인", "전 세계 발매", "저작권료 등록"],
@@ -34,7 +33,6 @@ const TIERS = [
   },
   {
     name: "프리미엄",
-    nameEn: "Premium",
     price: "₩25,000,000~",
     desc: "EP 3곡",
     features: ["스탠다드 전체 포함", "레코딩 5회 수정", "편곡 수정 2회", "뮤직비디오 제작 (1분)", "홍보용 숏폼 콘텐츠 3개", "SNS 마케팅 플랜", "프로모션 지원"],
@@ -42,13 +40,32 @@ const TIERS = [
   },
   {
     name: "엔터프라이즈",
-    nameEn: "Enterprise",
     price: "별도 협의",
     desc: "정규 앨범",
     features: ["프리미엄 전체 포함", "정규 앨범 (7곡+)", "전속 작곡팀 배정", "글로벌 프로모션", "음반사 피칭 지원", "매니지먼트 연계", "1년 사후 관리"],
     highlight: false,
   },
 ];
+
+const labelStyle: React.CSSProperties = {
+  fontSize: "11px",
+  fontWeight: 500,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#8B8675",
+  marginBottom: "16px",
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  background: "#FAFAFA",
+  border: "1px solid #D3D3D3",
+  padding: "12px 16px",
+  fontSize: "15px",
+  color: "#1A1A1A",
+  outline: "none",
+  fontFamily: "var(--font-dm-sans), sans-serif",
+};
 
 export default function ProPage() {
   const [form, setForm] = useState({
@@ -95,139 +112,130 @@ export default function ProPage() {
     { q: "KOMCA 작곡가는 어떻게 선택하나요?", a: "저희가 제공하는 작곡가 포트폴리오에서 원하는 스타일의 작곡가를 직접 선택하실 수 있습니다. 상담을 통해 최적의 매칭을 도와드립니다." },
     { q: "음원 수익은 어떻게 정산되나요?", a: "발매된 음원에서 발생하는 스트리밍 수익의 100%가 고객 명의로 등록됩니다. 분기별로 각 플랫폼에서 직접 정산받으실 수 있습니다." },
     { q: "저작권은 누구에게 귀속되나요?", a: "음원 제작 후 모든 저작인접권(실연권, 음반제작자권)은 고객에게 귀속됩니다. 작사·작곡 저작권은 별도 계약으로 고객 명의 이전이 가능합니다." },
-    { q: "해외에서도 수익을 받을 수 있나요?", a: "미국 저작권 관리 단체와의 파트너십을 통해 전 세계 150개+ 국가에서 발생하는 수익을 수취할 수 있도록 지원합니다." },
+    { q: "해외에서도 수익을 받을 수 있나요?", a: "미국 저작권 관리 단체와의 파트너십을 통해 전 세계 150개 이상의 국가에서 발생하는 수익을 수취할 수 있도록 지원합니다." },
   ];
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white">
+    <div style={{ fontFamily: "var(--font-dm-sans), sans-serif", background: "#FAFAFA", color: "#5F5F5F", minHeight: "100vh" }}>
+
       {/* 네비게이션 */}
-      <div className="sticky top-0 z-40 bg-[#050508]/95 backdrop-blur border-b border-[#D4AF37]/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-[#D4AF37] transition-colors text-sm">
-            <ArrowLeft className="w-4 h-4" /> 홈으로
+      <div style={{ borderBottom: "1px solid #D3D3D3", background: "#FAFAFA", position: "sticky", top: 0, zIndex: 40 }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 48px", display: "flex", alignItems: "center", gap: "12px" }}>
+          <Link href="/" style={{ color: "#5F5F5F", fontSize: "14px", textDecoration: "none", display: "flex", alignItems: "center", gap: "6px" }}>
+            ← 홈으로
           </Link>
-          <span className="text-slate-700">/</span>
-          <span className="text-[#D4AF37] text-sm font-bold">프로 에디션</span>
+          <span style={{ color: "#D3D3D3" }}>/</span>
+          <span style={{ ...labelStyle, marginBottom: 0 }}>프로 에디션</span>
         </div>
       </div>
 
       {/* 히어로 */}
-      <section className="relative py-28 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#050508] to-[#050508]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#92400E]/10 rounded-full blur-3xl" />
-        <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full px-5 py-2 mb-6">
-            <span className="text-[#D4AF37] text-xs font-bold tracking-widest uppercase">🎵 Pro Edition</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
-            당신의 음악을<br />
-            <span className="bg-gradient-to-r from-[#D4AF37] to-[#F0D060] bg-clip-text text-transparent">K-POP 아티스트</span>와<br />
-            동일한 방식으로
+      <section style={{ padding: "96px 48px", background: "#FAFAFA", borderBottom: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={labelStyle}>프로 에디션</p>
+          <h1 style={{ fontSize: "clamp(40px, 6vw, 72px)", fontWeight: 400, color: "#000000", letterSpacing: "-2px", lineHeight: 1.1, marginBottom: "32px", whiteSpace: "pre-line" }}>
+            {"당신의 음악을\n세상에 발표하십시오"}
           </h1>
-          <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
-            세상에 내보내세요
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#5F5F5F", maxWidth: "560px", marginBottom: "8px" }}>
+            KOMCA 소속 작곡가와 1:1로 협업하여 음반을 제작합니다.
           </p>
-          <p className="text-slate-400 text-base max-w-2xl mx-auto mb-10">
-            한국음악저작권협회(KOMCA) 소속 최고의 작곡가를 직접 선택하고,<br className="hidden sm:block" />
-            K-POP 메이저 음반사와 동일한 프로세스로 음반을 제작·발매합니다.
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#5F5F5F", maxWidth: "560px", marginBottom: "40px" }}>
+            K-POP 메이저 음반사와 동일한 프로세스로 진행됩니다.
           </p>
           <a
             href="#inquiry"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-black font-black px-8 py-4 rounded-xl hover:opacity-90 transition-all hover:scale-105 text-base"
+            style={{ display: "inline-block", background: "#000000", color: "#FAFAFA", padding: "16px 40px", fontSize: "15px", fontWeight: 500, textDecoration: "none", letterSpacing: "0.5px" }}
           >
-            지금 문의하기 →
+            문의하기
           </a>
         </div>
       </section>
 
       {/* 포함 서비스 */}
-      <section className="py-24 px-4 bg-[#0a0a0f]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— What&apos;s Included</div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">모든 것이 포함됩니다</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section style={{ padding: "96px 48px", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={labelStyle}>포함 서비스</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            모든 것이 포함됩니다
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "0" }}>
             {SERVICES.map((s, i) => (
-              <div key={i} className="bg-[#0f0f18] border border-[#D4AF37]/10 hover:border-[#D4AF37]/30 rounded-2xl p-6 transition-all">
-                <div className="text-4xl mb-4">{s.emoji}</div>
-                <h3 className="text-white font-bold text-base mb-2">{s.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+              <div key={i} style={{ border: "1px solid #D3D3D3", padding: "32px", background: "#FAFAFA", marginRight: i % 2 === 0 ? "-1px" : "0", marginBottom: "-1px" }}>
+                <div style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", color: "#8B8675", marginBottom: "12px" }}>{s.num}</div>
+                <h3 style={{ fontSize: "16px", fontWeight: 500, color: "#000000", marginBottom: "10px", lineHeight: 1.4 }}>{s.title}</h3>
+                <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 12주 타임라인 */}
-      <section className="py-24 px-4 bg-[#050508]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Production Timeline</div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">12주 제작 프로세스</h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#D4AF37]/60 via-[#D4AF37]/30 to-transparent" />
-            <div className="space-y-8">
-              {TIMELINE.map((t, i) => (
-                <div key={i} className="flex gap-6 relative">
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#92400E] flex items-center justify-center text-black font-black text-sm">
-                      {i + 1}
-                    </div>
-                  </div>
-                  <div className="pb-4">
-                    <div className="text-[#D4AF37] text-xs font-bold uppercase tracking-wider mb-1">{t.week}</div>
-                    <h3 className="text-white font-bold text-lg mb-1">{t.title}</h3>
-                    <p className="text-slate-400 text-sm">{t.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* 타임라인 */}
+      <section style={{ padding: "96px 48px", background: "#FAFAFA", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={labelStyle}>제작 프로세스</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            12주 제작 프로세스
+          </h2>
+          <div style={{ borderLeft: "1px solid #D3D3D3", paddingLeft: "40px" }}>
+            {TIMELINE.map((t, i) => (
+              <div key={i} style={{ position: "relative", paddingBottom: i < TIMELINE.length - 1 ? "40px" : "0" }}>
+                <div style={{ position: "absolute", left: "-44px", top: "4px", width: "8px", height: "8px", background: "#000000", borderRadius: "50%" }} />
+                <div style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "6px" }}>{t.period}</div>
+                <h3 style={{ fontSize: "16px", fontWeight: 500, color: "#000000", marginBottom: "6px" }}>{t.title}</h3>
+                <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>{t.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 가격 티어 */}
-      <section className="py-24 px-4 bg-[#0a0a0f]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Pricing</div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">패키지 선택</h2>
-            <p className="text-slate-400 mt-3">모든 패키지는 전 세계 발매 및 영구 저작권료가 포함됩니다</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* 패키지 */}
+      <section style={{ padding: "96px 48px", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={labelStyle}>패키지</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            패키지 선택
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "0" }}>
             {TIERS.map((tier, i) => (
-              <div key={i} className={`relative rounded-3xl p-8 border transition-all ${
-                tier.highlight
-                  ? "border-[#D4AF37] bg-gradient-to-b from-[#D4AF37]/10 to-[#0f0f18]"
-                  : "border-white/10 bg-[#0f0f18]"
-              }`}>
+              <div
+                key={i}
+                style={{
+                  border: "1px solid #D3D3D3",
+                  padding: "40px 32px",
+                  background: tier.highlight ? "#000000" : "#FAFAFA",
+                  color: tier.highlight ? "#FAFAFA" : "#5F5F5F",
+                  marginRight: i < TIERS.length - 1 ? "-1px" : "0",
+                  borderTop: "4px solid " + (tier.highlight ? "#000000" : "#D3D3D3"),
+                }}
+              >
                 {tier.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#D4AF37] text-black text-xs font-black px-4 py-1.5 rounded-full">
-                    MOST POPULAR
-                  </div>
+                  <div style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>추천</div>
                 )}
-                <div className="text-slate-400 text-sm mb-1">{tier.nameEn}</div>
-                <h3 className="text-white font-black text-2xl mb-1">{tier.name}</h3>
-                <div className="text-[#D4AF37] font-black text-3xl mb-1">{tier.price}</div>
-                <div className="text-slate-500 text-sm mb-6">{tier.desc}</div>
-                <ul className="space-y-3 mb-8">
+                <h3 style={{ fontSize: "22px", fontWeight: 400, color: tier.highlight ? "#FAFAFA" : "#000000", marginBottom: "8px" }}>{tier.name}</h3>
+                <div style={{ fontSize: "32px", fontWeight: 400, color: tier.highlight ? "#FAFAFA" : "#000000", letterSpacing: "-1px", marginBottom: "4px" }}>{tier.price}</div>
+                <div style={{ fontSize: "14px", color: tier.highlight ? "#A0A0A0" : "#8B8675", marginBottom: "32px" }}>{tier.desc}</div>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px 0" }}>
                   {tier.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm text-slate-300">
-                      <Check className="w-4 h-4 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                    <li key={j} style={{ fontSize: "15px", lineHeight: 1.75, color: tier.highlight ? "#D3D3D3" : "#5F5F5F", paddingBottom: "8px", borderBottom: "1px solid " + (tier.highlight ? "rgba(255,255,255,0.1)" : "#F0EFEB"), marginBottom: "8px" }}>
                       {f}
                     </li>
                   ))}
                 </ul>
                 <a
                   href="#inquiry"
-                  className={`block w-full text-center py-3 rounded-xl font-bold transition-all ${
-                    tier.highlight
-                      ? "bg-[#D4AF37] text-black hover:bg-[#F0D060]"
-                      : "bg-white/10 text-white hover:bg-white/20"
-                  }`}
+                  style={{
+                    display: "block",
+                    textAlign: "center",
+                    padding: "14px 24px",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                    textDecoration: "none",
+                    background: tier.highlight ? "#FAFAFA" : "transparent",
+                    color: tier.highlight ? "#000000" : "#5F5F5F",
+                    border: tier.highlight ? "none" : "1px solid #D3D3D3",
+                  }}
                 >
                   {tier.name === "엔터프라이즈" ? "별도 협의 문의" : "문의하기"}
                 </a>
@@ -238,25 +246,28 @@ export default function ProPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-4 bg-[#050508]">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— FAQ</div>
-            <h2 className="text-3xl font-black text-white">자주 묻는 질문</h2>
-          </div>
-          <div className="space-y-3">
+      <section style={{ padding: "96px 48px", background: "#FAFAFA", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={labelStyle}>자주 묻는 질문</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            자주 묻는 질문
+          </h2>
+          <div>
             {FAQS.map((faq, i) => (
-              <div key={i} className="bg-[#0f0f18] border border-white/10 rounded-2xl overflow-hidden">
+              <div key={i} style={{ borderBottom: "1px solid #D3D3D3" }}>
                 <button
                   onClick={() => setFaqOpen(faqOpen === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left"
+                  style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 0", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
                 >
-                  <span className="text-white font-medium text-sm sm:text-base">{faq.q}</span>
-                  {faqOpen === i ? <ChevronUp className="w-5 h-5 text-[#D4AF37] flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />}
+                  <span style={{ fontSize: "16px", fontWeight: 500, color: "#000000" }}>{faq.q}</span>
+                  {faqOpen === i
+                    ? <ChevronUp style={{ width: "18px", height: "18px", color: "#5F5F5F", flexShrink: 0 }} />
+                    : <ChevronDown style={{ width: "18px", height: "18px", color: "#8B8675", flexShrink: 0 }} />
+                  }
                 </button>
                 {faqOpen === i && (
-                  <div className="px-6 pb-5">
-                    <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                  <div style={{ paddingBottom: "24px" }}>
+                    <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -266,80 +277,83 @@ export default function ProPage() {
       </section>
 
       {/* 문의 폼 */}
-      <section id="inquiry" className="py-24 px-4 bg-[#0a0a0f]">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-[#D4AF37] text-sm font-mono uppercase tracking-widest mb-3">— Get Started</div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">지금 문의하세요</h2>
-            <p className="text-slate-400">24시간 이내에 전문 상담사가 연락드립니다</p>
-          </div>
+      <section id="inquiry" style={{ padding: "96px 48px", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <p style={labelStyle}>문의</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "12px" }}>
+            문의하세요
+          </h2>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#5F5F5F", marginBottom: "48px" }}>
+            24시간 이내에 전문 상담사가 연락드립니다.
+          </p>
 
           {/* 빠른 연락 */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+          <div style={{ display: "flex", gap: "12px", marginBottom: "40px", flexWrap: "wrap" }}>
             <a
               href="https://talk.naver.com/ct/wu2kkmv"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-3 bg-[#03C75A] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all"
+              style={{ flex: 1, minWidth: "180px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", background: "#000000", color: "#FAFAFA", padding: "14px 24px", fontSize: "15px", fontWeight: 500, textDecoration: "none" }}
             >
-              <span className="text-xl">💬</span> 네이버 상담 문의
+              네이버 톡톡
             </a>
             <a
               href="https://wa.me/821087395291"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all"
+              style={{ flex: 1, minWidth: "180px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", background: "transparent", color: "#5F5F5F", padding: "14px 24px", fontSize: "15px", fontWeight: 500, textDecoration: "none", border: "1px solid #D3D3D3" }}
             >
-              <span className="text-xl">📱</span> WhatsApp 문의
+              WhatsApp
             </a>
           </div>
 
-          <div className="text-center text-slate-500 text-sm mb-8">— 또는 아래 양식으로 문의하세요 —</div>
+          <div style={{ textAlign: "center", fontSize: "14px", color: "#8B8675", marginBottom: "32px", borderBottom: "1px solid #D3D3D3", paddingBottom: "32px" }}>
+            또는 아래 양식으로 문의하십시오
+          </div>
 
           {done ? (
-            <div className="text-center py-12 bg-[#0f0f18] rounded-2xl border border-[#D4AF37]/20">
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-white font-bold text-xl mb-2">문의가 접수되었습니다!</h3>
-              <p className="text-slate-400">24시간 이내에 전문 상담사가 연락드립니다.</p>
+            <div style={{ padding: "48px", border: "1px solid #D3D3D3", background: "#FAFAFA", textAlign: "center" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: 400, color: "#000000", marginBottom: "12px" }}>문의가 접수되었습니다</h3>
+              <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>24시간 이내에 전문 상담사가 연락드립니다.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
-                  <label className="text-slate-400 text-sm mb-1 block">이름 <span className="text-red-400">*</span></label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>이름 <span style={{ color: "#000" }}>*</span></label>
                   <input
                     value={form.name}
                     onChange={e => setForm({ ...form, name: e.target.value })}
                     placeholder="홍길동"
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#D4AF37]/50"
+                    style={inputStyle}
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 text-sm mb-1 block">전화번호 <span className="text-red-400">*</span></label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>전화번호 <span style={{ color: "#000" }}>*</span></label>
                   <input
                     value={form.phone}
                     onChange={e => setForm({ ...form, phone: e.target.value })}
                     placeholder="010-0000-0000"
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#D4AF37]/50"
+                    style={inputStyle}
                   />
                 </div>
               </div>
               <div>
-                <label className="text-slate-400 text-sm mb-1 block">이메일 <span className="text-red-400">*</span></label>
+                <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>이메일 <span style={{ color: "#000" }}>*</span></label>
                 <input
                   type="email"
                   value={form.email}
                   onChange={e => setForm({ ...form, email: e.target.value })}
                   placeholder="example@email.com"
-                  className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#D4AF37]/50"
+                  style={inputStyle}
                 />
               </div>
               <div>
-                <label className="text-slate-400 text-sm mb-1 block">관심 패키지</label>
+                <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>관심 패키지</label>
                 <select
                   value={form.budget}
                   onChange={e => setForm({ ...form, budget: e.target.value })}
-                  className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50"
+                  style={inputStyle}
                 >
                   <option value="standard">스탠다드 (₩15,000,000~, 싱글 1곡)</option>
                   <option value="premium">프리미엄 (₩25,000,000~, EP 3곡)</option>
@@ -347,22 +361,22 @@ export default function ProPage() {
                 </select>
               </div>
               <div>
-                <label className="text-slate-400 text-sm mb-1 block">문의 내용</label>
+                <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>문의 내용</label>
                 <textarea
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
-                  placeholder="원하시는 음악 스타일, 참고 곡, 또는 기타 문의사항을 자유롭게 작성해주세요."
+                  placeholder="원하시는 음악 스타일, 참고 곡, 또는 기타 문의사항을 작성해 주십시오."
                   rows={4}
-                  className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-600 focus:outline-none focus:border-[#D4AF37]/50 resize-none"
+                  style={{ ...inputStyle, resize: "none" }}
                 />
               </div>
-              {error && <p className="text-red-400 text-sm">{error}</p>}
+              {error && <p style={{ fontSize: "14px", color: "#c00" }}>{error}</p>}
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-4 bg-gradient-to-r from-[#D4AF37] to-[#F0D060] text-black font-black text-lg rounded-xl hover:opacity-90 transition-all disabled:opacity-40"
+                style={{ width: "100%", padding: "16px", background: "#000000", color: "#FAFAFA", fontSize: "15px", fontWeight: 500, border: "none", cursor: submitting ? "not-allowed" : "pointer", opacity: submitting ? 0.5 : 1, fontFamily: "var(--font-dm-sans), sans-serif" }}
               >
-                {submitting ? "전송 중..." : "문의 보내기 →"}
+                {submitting ? "전송 중..." : "문의 보내기"}
               </button>
             </form>
           )}
@@ -370,8 +384,8 @@ export default function ProPage() {
       </section>
 
       {/* 하단 네비 */}
-      <div className="py-8 px-4 border-t border-white/5 text-center">
-        <Link href="/experience" className="text-[#A855F7] hover:text-[#DB2777] text-sm font-medium transition-colors">
+      <div style={{ padding: "32px 48px", borderTop: "1px solid #D3D3D3", textAlign: "center" }}>
+        <Link href="/experience" style={{ fontSize: "14px", color: "#5F5F5F", textDecoration: "none" }}>
           ← 체험 에디션 보러가기
         </Link>
       </div>

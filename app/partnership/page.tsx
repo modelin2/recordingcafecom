@@ -24,45 +24,41 @@ const PARTNERS = [
 ];
 
 const BENEFITS = [
-  {
-    icon: "💰",
-    title: "수수료 20% 지급",
-    desc: "파트너사 전용 예약 페이지를 통해 발생한 모든 예약 매출의 20%를 월 정산으로 지급합니다.",
-  },
-  {
-    icon: "📱",
-    title: "전용 QR 예약 페이지",
-    desc: "파트너사 전용 브랜드가 적용된 예약 페이지 및 QR코드를 무상 제공. 즉시 배포 가능.",
-  },
-  {
-    icon: "🎯",
-    title: "외국인 고객 유치",
-    desc: "K-POP 관심 외국인 고객을 위한 4개국어(한·영·중·일) 예약 페이지 제공.",
-  },
-  {
-    icon: "📊",
-    title: "실시간 정산 리포트",
-    desc: "파트너 전용 대시보드에서 예약 현황과 정산 내역을 실시간 확인 가능.",
-  },
-  {
-    icon: "🤝",
-    title: "브랜드 노출",
-    desc: "레코딩카페 공식 홈페이지 파트너 섹션에 파트너사 로고 및 소개 게재.",
-  },
-  {
-    icon: "🎁",
-    title: "투숙객 특별 혜택",
-    desc: "파트너 호텔·업체 고객에게 음료 무료 제공 등 추가 혜택 패키지 구성 가능.",
-  },
+  { num: "01", title: "수수료 20% 지급", desc: "방문객 1인당 입장 수수료의 20%를 파트너에게 지급합니다." },
+  { num: "02", title: "전용 예약 페이지", desc: "파트너 전용 QR코드와 예약 링크를 제공합니다." },
+  { num: "03", title: "공동 마케팅", desc: "레코딩카페의 홍보 채널을 통한 파트너 홍보를 지원합니다." },
+  { num: "04", title: "우선 예약권", desc: "성수기 우선 예약 및 단체 예약 보장이 제공됩니다." },
+  { num: "05", title: "맞춤형 패키지", desc: "파트너 고객을 위한 전용 체험 패키지를 구성합니다." },
+  { num: "06", title: "전담 매니저 배정", desc: "파트너별 전담 매니저가 운영을 지원합니다." },
 ];
 
 const STEPS = [
-  { num: "01", title: "파트너 신청", desc: "아래 신청 양식 작성 후 제출" },
-  { num: "02", title: "담당자 검토", desc: "영업일 2일 이내 연락" },
-  { num: "03", title: "협약 체결", desc: "제휴 조건 조율 및 계약 서명" },
-  { num: "04", title: "전용 페이지 생성", desc: "QR코드 및 예약 페이지 즉시 발급" },
-  { num: "05", title: "운영 시작", desc: "배너·홍보물 배치 후 수수료 정산 시작" },
+  { num: "01", title: "문의 접수", desc: "신청 양식 작성 후 제출" },
+  { num: "02", title: "상담 진행", desc: "영업일 2일 이내 연락" },
+  { num: "03", title: "계약 체결", desc: "제휴 조건 조율 및 계약 서명" },
+  { num: "04", title: "파트너 온보딩", desc: "QR코드 및 예약 페이지 발급" },
+  { num: "05", title: "운영 시작", desc: "배너 배치 후 수수료 정산 시작" },
 ];
+
+const labelStyle: React.CSSProperties = {
+  fontSize: "11px",
+  fontWeight: 500,
+  letterSpacing: "2px",
+  textTransform: "uppercase",
+  color: "#8B8675",
+  marginBottom: "16px",
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  background: "#FAFAFA",
+  border: "1px solid #D3D3D3",
+  padding: "12px 16px",
+  fontSize: "15px",
+  color: "#1A1A1A",
+  outline: "none",
+  fontFamily: "var(--font-dm-sans), sans-serif",
+};
 
 export default function PartnershipPage() {
   const [form, setForm] = useState({
@@ -80,59 +76,45 @@ export default function PartnershipPage() {
   };
 
   return (
-    <>
+    <div style={{ fontFamily: "var(--font-dm-sans), sans-serif", background: "#FAFAFA", color: "#5F5F5F", minHeight: "100vh" }}>
+
       {/* 히어로 */}
-      <section className="relative pt-32 pb-20 bg-[#050508] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#A855F7]/5" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative">
-          <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-4 py-1.5 rounded-full tracking-widest uppercase mb-6">
-            Partnership
-          </div>
-          <h1 className="text-4xl sm:text-6xl font-black text-white mb-6 leading-tight">
-            함께 성장하는<br />파트너십 프로그램
+      <section style={{ padding: "96px 48px", background: "#FAFAFA", borderBottom: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={labelStyle}>파트너십</p>
+          <h1 style={{ fontSize: "clamp(40px, 6vw, 72px)", fontWeight: 400, color: "#000000", letterSpacing: "-2px", lineHeight: 1.1, marginBottom: "32px", whiteSpace: "pre-line" }}>
+            {"함께 만드는\n특별한 경험"}
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            호텔, 여행사, 관광지, 기업 등 다양한 파트너와 함께합니다.
-            전용 예약 페이지로 발생한 매출의 <span className="text-[#D4AF37] font-bold">20%</span>를 수수료로 지급합니다.
+          <p style={{ fontSize: "17px", lineHeight: 1.75, color: "#5F5F5F", maxWidth: "560px", marginBottom: "40px" }}>
+            레코딩카페는 호텔, 여행사, 교육기관과의 파트너십을 통해 방문객에게 더 깊은 경험을 제공합니다.
           </p>
-          <a href="#apply"
-            className="inline-block bg-[#D4AF37] hover:bg-[#F0D060] text-black font-black px-8 py-4 rounded-xl text-sm transition-colors">
-            파트너 신청하기 →
+          <a
+            href="#apply"
+            style={{ display: "inline-block", background: "#000000", color: "#FAFAFA", padding: "16px 40px", fontSize: "15px", fontWeight: 500, textDecoration: "none", letterSpacing: "0.5px" }}
+          >
+            파트너 신청하기
           </a>
         </div>
       </section>
 
       {/* 현재 파트너 */}
-      <section className="bg-[#0a0a12] py-16 border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <div className="inline-block bg-[#A855F7]/10 text-[#A855F7] text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">
-              Current Partners
-            </div>
-            <h2 className="text-3xl font-black text-white">현재 파트너</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <section style={{ padding: "96px 48px", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={labelStyle}>현재 파트너</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            현재 파트너
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "0" }}>
             {PARTNERS.map((p, i) => (
-              <div key={i} className="bg-[#0f0f18] rounded-2xl p-8 border border-white/5 hover:border-[#D4AF37]/30 transition-all">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-[10px] font-black px-2.5 py-0.5 rounded-full mb-2">
-                      {p.badge} · {p.type}
-                    </div>
-                    <h3 className="text-white font-black text-xl">{p.name}</h3>
-                    <p className="text-slate-500 text-xs mt-0.5">{p.eng} · {p.location}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-slate-600 text-xs">파트너십 시작</div>
-                    <div className="text-white font-bold">{p.since}년</div>
-                  </div>
+              <div key={i} style={{ border: "1px solid #D3D3D3", padding: "40px 32px", background: "#FAFAFA", marginRight: i === 0 ? "-1px" : "0" }}>
+                <div style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase" as const, color: "#8B8675", marginBottom: "12px" }}>
+                  {p.badge} · {p.type}
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
-                <div className="mt-5 pt-5 border-t border-white/5">
-                  <div className="flex items-center gap-2 text-sm text-[#D4AF37]">
-                    <span className="text-lg">📱</span>
-                    <span className="font-medium">전용 예약 페이지 운영 중</span>
-                  </div>
+                <h3 style={{ fontSize: "22px", fontWeight: 400, color: "#000000", marginBottom: "4px" }}>{p.name}</h3>
+                <p style={{ fontSize: "13px", color: "#8B8675", marginBottom: "16px" }}>{p.eng} · {p.location}</p>
+                <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F", marginBottom: "24px" }}>{p.desc}</p>
+                <div style={{ borderTop: "1px solid #D3D3D3", paddingTop: "20px" }}>
+                  <div style={{ fontSize: "13px", color: "#8B8675" }}>파트너십 시작 · <span style={{ color: "#000000", fontWeight: 500 }}>{p.since}년</span></div>
                 </div>
               </div>
             ))}
@@ -141,48 +123,40 @@ export default function PartnershipPage() {
       </section>
 
       {/* 제휴 혜택 */}
-      <section id="benefits" className="bg-[#050508] py-20 border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">
-              Benefits
-            </div>
-            <h2 className="text-3xl font-black text-white mb-3">파트너 혜택</h2>
-            <p className="text-slate-500 text-sm">파트너사에 제공되는 모든 혜택입니다</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <section style={{ padding: "96px 48px", background: "#FAFAFA", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={labelStyle}>제휴 혜택</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            파트너 혜택
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "0" }}>
             {BENEFITS.map((b, i) => (
-              <div key={i} className="bg-[#0f0f18] rounded-2xl p-6 border border-white/5">
-                <div className="text-3xl mb-4">{b.icon}</div>
-                <h3 className="text-white font-black text-base mb-2">{b.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{b.desc}</p>
+              <div key={i} style={{ border: "1px solid #D3D3D3", padding: "32px", background: "#FAFAFA", marginRight: i % 2 === 0 ? "-1px" : "0", marginBottom: "-1px" }}>
+                <div style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", color: "#8B8675", marginBottom: "12px" }}>{b.num}</div>
+                <h3 style={{ fontSize: "16px", fontWeight: 500, color: "#000000", marginBottom: "10px" }}>{b.title}</h3>
+                <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>{b.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 진행 프로세스 */}
-      <section id="qr" className="bg-[#0a0a12] py-20 border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-[#A855F7]/10 text-[#A855F7] text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">
-              How It Works
-            </div>
-            <h2 className="text-3xl font-black text-white mb-3">파트너십 진행 방식</h2>
-            <p className="text-slate-500 text-sm">신청 후 평균 5일 이내 운영을 시작할 수 있습니다</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+      {/* 진행 절차 */}
+      <section style={{ padding: "96px 48px", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={labelStyle}>진행 절차</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "48px" }}>
+            파트너십 진행 절차
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "0" }}>
             {STEPS.map((step, i) => (
-              <div key={i} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#D4AF37] font-black text-sm">{step.num}</span>
-                </div>
+              <div key={i} style={{ border: "1px solid #D3D3D3", padding: "32px 24px", background: "#FAFAFA", marginRight: i < STEPS.length - 1 ? "-1px" : "0", textAlign: "center" }}>
+                <div style={{ fontSize: "22px", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "16px" }}>{step.num}</div>
+                <h3 style={{ fontSize: "15px", fontWeight: 500, color: "#000000", marginBottom: "8px" }}>{step.title}</h3>
+                <p style={{ fontSize: "13px", lineHeight: 1.6, color: "#8B8675" }}>{step.desc}</p>
                 {i < STEPS.length - 1 && (
-                  <div className="hidden sm:block absolute translate-x-[calc(100%+1rem)] translate-y-[-2.5rem]" />
+                  <div style={{ fontSize: "18px", color: "#D3D3D3", marginTop: "16px" }}>→</div>
                 )}
-                <h3 className="text-white font-bold text-sm mb-1">{step.title}</h3>
-                <p className="text-slate-500 text-xs">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -190,42 +164,41 @@ export default function PartnershipPage() {
       </section>
 
       {/* 파트너 신청 폼 */}
-      <section id="apply" className="bg-[#050508] py-20 border-t border-white/5">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">
-              Apply
-            </div>
-            <h2 className="text-3xl font-black text-white mb-3">파트너 신청</h2>
-            <p className="text-slate-500 text-sm">영업일 2일 이내 담당자가 연락드립니다</p>
-          </div>
+      <section id="apply" style={{ padding: "96px 48px", background: "#FAFAFA", borderTop: "1px solid #D3D3D3" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <p style={labelStyle}>파트너 신청</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#000000", letterSpacing: "-1px", marginBottom: "12px" }}>
+            파트너 신청
+          </h2>
+          <p style={{ fontSize: "16px", lineHeight: 1.75, color: "#5F5F5F", marginBottom: "48px" }}>
+            영업일 2일 이내에 담당자가 연락드립니다.
+          </p>
 
           {submitted ? (
-            <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-2xl p-10 text-center">
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-white font-black text-xl mb-2">신청이 완료되었습니다</h3>
-              <p className="text-slate-400 text-sm">영업일 2일 이내에 담당자가 연락드리겠습니다.</p>
+            <div style={{ padding: "48px", border: "1px solid #D3D3D3", background: "#F0EFEB", textAlign: "center" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: 400, color: "#000000", marginBottom: "12px" }}>신청이 완료되었습니다</h3>
+              <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#5F5F5F" }}>영업일 2일 이내에 담당자가 연락드리겠습니다.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">업체·호텔명 *</label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>업체·호텔명 <span style={{ color: "#000" }}>*</span></label>
                   <input
                     required
                     value={form.company}
                     onChange={e => setForm({...form, company: e.target.value})}
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
                     placeholder="예: 강남 리버사이드 호텔"
+                    style={inputStyle}
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">업체 유형 *</label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>업체 유형 <span style={{ color: "#000" }}>*</span></label>
                   <select
                     required
                     value={form.type}
                     onChange={e => setForm({...form, type: e.target.value})}
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
+                    style={inputStyle}
                   >
                     <option value="">선택하세요</option>
                     <option value="hotel">호텔·숙박업소</option>
@@ -236,53 +209,53 @@ export default function PartnershipPage() {
                   </select>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">담당자 이름 *</label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>담당자 이름 <span style={{ color: "#000" }}>*</span></label>
                   <input
                     required
                     value={form.name}
                     onChange={e => setForm({...form, name: e.target.value})}
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
                     placeholder="홍길동"
+                    style={inputStyle}
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">연락처 *</label>
+                  <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>연락처 <span style={{ color: "#000" }}>*</span></label>
                   <input
                     required
                     value={form.phone}
                     onChange={e => setForm({...form, phone: e.target.value})}
-                    className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
                     placeholder="010-0000-0000"
+                    style={inputStyle}
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">이메일 *</label>
+                <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>이메일 <span style={{ color: "#000" }}>*</span></label>
                 <input
                   required
                   type="email"
                   value={form.email}
                   onChange={e => setForm({...form, email: e.target.value})}
-                  className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors"
                   placeholder="partner@example.com"
+                  style={inputStyle}
                 />
               </div>
               <div>
-                <label className="block text-slate-400 text-xs font-bold mb-2 tracking-wide">문의 내용</label>
+                <label style={{ display: "block", fontSize: "13px", color: "#5F5F5F", marginBottom: "8px" }}>문의 내용</label>
                 <textarea
                   rows={4}
                   value={form.message}
                   onChange={e => setForm({...form, message: e.target.value})}
-                  className="w-full bg-[#0f0f18] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D4AF37]/50 transition-colors resize-none"
-                  placeholder="업체 규모, 외국인 고객 비중, 희망 제휴 방식 등 자유롭게 적어주세요"
+                  placeholder="업체 규모, 외국인 고객 비중, 희망 제휴 방식 등을 자유롭게 작성해 주십시오."
+                  style={{ ...inputStyle, resize: "none" }}
                 />
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#D4AF37] hover:bg-[#F0D060] disabled:opacity-50 text-black font-black py-4 rounded-xl text-sm transition-colors"
+                style={{ width: "100%", padding: "16px", background: "#000000", color: "#FAFAFA", fontSize: "15px", fontWeight: 500, border: "none", cursor: loading ? "not-allowed" : "pointer", opacity: loading ? 0.5 : 1, fontFamily: "var(--font-dm-sans), sans-serif" }}
               >
                 {loading ? "제출 중..." : "파트너 신청하기"}
               </button>
@@ -290,6 +263,6 @@ export default function PartnershipPage() {
           )}
         </div>
       </section>
-    </>
+    </div>
   );
 }
