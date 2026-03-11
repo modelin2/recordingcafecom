@@ -6,104 +6,253 @@ const FAQS = [
   {
     category: "예약",
     items: [
-      { q: "예약은 어떻게 하나요?", a: "홈페이지 상단 '입장권 구매' 버튼을 클릭하거나 /menu 페이지에서 예약 유형을 선택하고 날짜·시간을 고른 후 결제하시면 됩니다." },
-      { q: "당일 예약도 가능한가요?", a: "당일 예약은 남은 자리가 있는 경우 가능합니다. 다만 인기 시간대(주말 오후)는 조기 마감되므로 최소 3일 전 예약을 권장합니다." },
-      { q: "예약 변경·취소는 어떻게 하나요?", a: "방문 3일 전까지는 전액 환불 가능합니다. 2일 전은 50% 환불, 1일 전·당일 취소는 환불이 불가합니다. 네이버 톡톡으로 문의해 주세요." },
-      { q: "외국인도 예약할 수 있나요?", a: "네, 영어·중국어·일본어로 예약 및 이용 가능합니다. 도슨트 프로그램은 4개국어 해설사가 동반합니다." },
+      {
+        q: "예약은 어떻게 하나요?",
+        a: "홈페이지 상단 '입장권 구매'에서 날짜와 시간을 선택한 후 결제하시면 됩니다.",
+      },
+      {
+        q: "당일 예약도 가능합니까?",
+        a: "잔여석이 있는 경우 당일 예약이 가능합니다. 주말 오후는 조기 마감되는 경우가 많으므로 3일 전 예약을 권장합니다.",
+      },
+      {
+        q: "예약 변경·취소 방법을 알려주세요.",
+        a: "방문 3일 전까지 전액 환불됩니다. 2일 전 50% 환불, 1일 전·당일은 환불이 되지 않습니다.",
+      },
+      {
+        q: "외국어 서비스가 가능합니까?",
+        a: "영어, 중국어, 일본어로 예약 및 이용하실 수 있습니다. 도슨트 프로그램은 4개국어 해설사가 동반합니다.",
+      },
     ],
   },
   {
     category: "이용",
     items: [
-      { q: "주차가 가능한가요?", a: "레코딩카페 전용 주차장이 없습니다. 인근 유료 주차장을 이용하시거나, 대중교통(3호선 신사역 5번 출구 도보 4분)을 이용해 주세요." },
-      { q: "녹음 체험 시 노래를 미리 준비해야 하나요?", a: "꼭 그렇지는 않습니다. 기본 제공되는 K-POP 인기곡 중 선택하실 수 있으며, 원하시는 곡의 MR(반주)을 가져오셔도 됩니다." },
-      { q: "어린이도 이용 가능한가요?", a: "만 7세 이상부터 이용 가능합니다. 미취학 아동은 보호자 동반 필수이며, 도슨트 투어는 초등학생 이상 권장합니다." },
-      { q: "음식·음료 반입이 가능한가요?", a: "외부 음식·음료 반입은 불가합니다. 레코딩카페 내 음료가 제공되며, 멤버십 회원 및 예약 고객에게는 음료가 포함됩니다." },
+      {
+        q: "주차장이 있습니까?",
+        a: "전용 주차장은 없습니다. 인근 유료 주차장을 이용하시거나, 3호선 신사역 5번 출구에서 도보 4분 거리이므로 대중교통을 권장합니다.",
+      },
+      {
+        q: "녹음할 곡을 미리 준비해야 합니까?",
+        a: "준비하지 않으셔도 됩니다. 제공되는 K-POP 인기곡 목록 중 선택하시거나, MR(반주)을 직접 가져오셔도 됩니다.",
+      },
+      {
+        q: "연령 제한이 있습니까?",
+        a: "만 7세 이상부터 이용하실 수 있습니다. 미취학 아동은 보호자 동반이 필수입니다.",
+      },
+      {
+        q: "외부 음식·음료 반입이 가능합니까?",
+        a: "외부 음식·음료 반입은 허용되지 않습니다. 입장 시 음료가 제공됩니다.",
+      },
     ],
   },
   {
     category: "녹음·결과물",
     items: [
-      { q: "녹음한 음원은 어떻게 받을 수 있나요?", a: "체험 종료 후 당일 이메일 또는 카카오톡으로 MP3 파일을 전달해 드립니다. WAV 고음질 파일은 Plus 이상 멤버십 또는 별도 옵션 선택 시 제공됩니다." },
-      { q: "녹음한 음원을 SNS에 올려도 되나요?", a: "체험 프로그램에서 녹음한 내용은 개인 SNS에 자유롭게 업로드 가능합니다. 다만 기존 저작권이 있는 곡을 상업적으로 이용하는 것은 저작권법에 따라 제한될 수 있습니다." },
-      { q: "실제 음원을 발매하고 싶은데 어떻게 하나요?", a: "프로 에디션 또는 K-PASS Plus 이상 멤버십을 통해 정식 음원 발매가 가능합니다. 국내외 150개 플랫폼(멜론, 스포티파이, 유튜브 뮤직 등)에 동시 발매할 수 있습니다." },
+      {
+        q: "녹음한 파일은 어떻게 받습니까?",
+        a: "체험 종료 당일 이메일 또는 카카오톡으로 MP3 파일을 전달합니다. WAV 고음질 파일은 별도 옵션 선택 시 제공됩니다.",
+      },
+      {
+        q: "녹음 파일을 SNS에 올려도 됩니까?",
+        a: "체험 음원은 개인 SNS에 자유롭게 게재하실 수 있습니다. 다만 기존 저작권이 있는 곡의 상업적 사용은 저작권법의 적용을 받습니다.",
+      },
+      {
+        q: "정식 음원으로 발매하려면 어떻게 합니까?",
+        a: "프로 에디션 또는 K-PASS Plus 이상 멤버십을 통해 국내외 150개 플랫폼에 동시 발매하실 수 있습니다.",
+      },
     ],
   },
   {
     category: "멤버십",
     items: [
-      { q: "K-PASS 멤버십은 언제든지 해지할 수 있나요?", a: "네, 언제든지 해지 가능합니다. 해지 신청 다음 달부터 결제가 중단되며, 이미 결제된 달의 혜택은 정상적으로 이용하실 수 있습니다." },
-      { q: "멤버십 녹음 횟수를 이번 달에 다 못 썼는데 이월되나요?", a: "멤버십 녹음 횟수는 매월 초기화되며 이월되지 않습니다. 미사용 횟수는 소멸됩니다." },
-      { q: "멤버십 등급을 중간에 변경할 수 있나요?", a: "현재 구독 중인 달에는 등급 변경이 불가하며, 다음 달부터 적용됩니다. 업그레이드/다운그레이드 모두 마이페이지에서 신청 가능합니다." },
+      {
+        q: "멤버십은 언제든 해지할 수 있습니까?",
+        a: "언제든 해지하실 수 있습니다. 해지 신청 다음 달부터 청구가 중단되며, 이미 결제된 기간의 혜택은 정상 이용하실 수 있습니다.",
+      },
+      {
+        q: "미사용 녹음 횟수는 이월됩니까?",
+        a: "멤버십 녹음 횟수는 매월 초기화됩니다. 미사용 횟수는 이월되지 않습니다.",
+      },
+      {
+        q: "중도에 등급을 변경할 수 있습니까?",
+        a: "당월 변경은 불가하며, 다음 달부터 적용됩니다. 마이페이지에서 업그레이드 또는 다운그레이드를 신청하실 수 있습니다.",
+      },
     ],
   },
 ];
 
 const NOTICES = [
-  { date: "2025.12.01", title: "연말 특별 이벤트: 12월 예약 시 기념 굿즈 증정", badge: "이벤트" },
+  { date: "2025.12.01", title: "12월 예약 시 기념 굿즈 증정 이벤트", badge: "이벤트" },
   { date: "2025.11.15", title: "도슨트 프로그램 일본어 해설 추가 안내", badge: "공지" },
-  { date: "2025.11.01", title: "K-PASS 멤버십 서비스 출시 안내", badge: "신규" },
-  { date: "2025.10.20", title: "주말 운영 시간 변경 안내 (10:00~22:00)", badge: "운영" },
+  { date: "2025.11.01", title: "K-PASS 멤버십 서비스 출시", badge: "신규" },
+  { date: "2025.10.20", title: "주말 운영 시간 변경 안내", badge: "운영" },
 ];
+
+const badgeBorderColor: Record<string, string> = {
+  이벤트: "#DFCF99",
+  공지: "#D3D3D3",
+  신규: "#6B625A",
+  운영: "#D3D3D3",
+};
+
+const badgeTextColor: Record<string, string> = {
+  이벤트: "#6B625A",
+  공지: "#5F5F5F",
+  신규: "#FAFAFA",
+  운영: "#5F5F5F",
+};
+
+const badgeBg: Record<string, string> = {
+  이벤트: "#F5EDD8",
+  공지: "transparent",
+  신규: "#6B625A",
+  운영: "transparent",
+};
 
 export default function FaqPage() {
   const [activeCategory, setActiveCategory] = useState("예약");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [tab, setTab] = useState<"faq" | "notice">("faq");
 
-  const currentFaqs = FAQS.find(f => f.category === activeCategory)?.items ?? [];
+  const currentFaqs = FAQS.find((f) => f.category === activeCategory)?.items ?? [];
 
   return (
     <>
       {/* 히어로 */}
-      <section className="relative pt-32 pb-16 bg-[#050508]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-4 py-1.5 rounded-full tracking-widest uppercase mb-6">
-            Help Center
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">고객센터</h1>
-          <p className="text-slate-400 mb-8">궁금한 점이 있으신가요? 자주 묻는 질문을 확인해 보세요.</p>
-          <a href="https://talk.naver.com/ct/wu2kkmv" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#03C75A] hover:bg-[#02a84b] text-white font-bold px-6 py-3 rounded-xl text-sm transition-colors">
-            💬 네이버 톡톡 실시간 문의
-          </a>
+      <section
+        style={{
+          background: "#FAFAFA",
+          paddingTop: "120px",
+          paddingBottom: "80px",
+          paddingLeft: "48px",
+          paddingRight: "48px",
+          borderBottom: "1px solid #D3D3D3",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "11px",
+              color: "#8B8675",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              marginBottom: "28px",
+            }}
+          >
+            고객센터
+          </p>
+          <h1
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "clamp(32px, 6vw, 64px)",
+              fontWeight: 400,
+              color: "#000000",
+              letterSpacing: "-2px",
+              lineHeight: 1.1,
+              marginBottom: "32px",
+            }}
+          >
+            무엇을 도와드릴까요
+          </h1>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "16px",
+              color: "#5F5F5F",
+              lineHeight: 1.75,
+            }}
+          >
+            자주 묻는 질문과 공지사항을 확인하시거나, 아래 채널로 직접 문의하실 수 있습니다.
+          </p>
         </div>
       </section>
 
-      {/* 탭 */}
-      <section className="bg-[#050508] border-b border-white/5 sticky top-16 z-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="flex gap-6">
-            {[
-              { key: "faq", label: "자주 묻는 질문" },
-              { key: "notice", label: "공지사항" },
-            ].map(t => (
-              <button key={t.key} onClick={() => setTab(t.key as "faq" | "notice")}
-                className={`py-4 text-sm font-bold border-b-2 transition-colors ${
-                  tab === t.key ? "border-[#D4AF37] text-white" : "border-transparent text-slate-500 hover:text-slate-300"
-                }`}>
-                {t.label}
-              </button>
-            ))}
-          </div>
+      {/* 탭 바 */}
+      <section
+        style={{
+          background: "#FAFAFA",
+          borderBottom: "1px solid #D3D3D3",
+          position: "sticky",
+          top: "64px",
+          zIndex: 20,
+          paddingLeft: "48px",
+          paddingRight: "48px",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", gap: "0" }}>
+          {[
+            { key: "faq", label: "자주 묻는 질문" },
+            { key: "notice", label: "공지사항" },
+          ].map((t) => (
+            <button
+              key={t.key}
+              onClick={() => setTab(t.key as "faq" | "notice")}
+              style={{
+                fontFamily: "var(--font-dm-sans), sans-serif",
+                fontSize: "14px",
+                fontWeight: 400,
+                color: tab === t.key ? "#000000" : "#8B8675",
+                background: "none",
+                border: "none",
+                borderBottom: tab === t.key ? "2px solid #000000" : "2px solid transparent",
+                padding: "20px 24px 18px",
+                cursor: "pointer",
+                letterSpacing: "0.3px",
+              }}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
       </section>
 
+      {/* FAQ 섹션 */}
       {tab === "faq" && (
-        <section className="bg-[#050508] py-12">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <div className="flex gap-8 flex-col md:flex-row">
+        <section
+          style={{
+            background: "#FAFAFA",
+            paddingTop: "72px",
+            paddingBottom: "96px",
+            paddingLeft: "48px",
+            paddingRight: "48px",
+          }}
+        >
+          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+            <div style={{ display: "flex", gap: "0", alignItems: "flex-start" }} className="flex-col md:flex-row">
               {/* 카테고리 사이드바 */}
-              <div className="md:w-44 flex-shrink-0">
-                <div className="flex md:flex-col gap-2 flex-wrap">
-                  {FAQS.map(f => (
-                    <button key={f.category}
-                      onClick={() => { setActiveCategory(f.category); setOpenIndex(null); }}
-                      className={`text-left px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                        activeCategory === f.category
-                          ? "bg-[#D4AF37] text-black"
-                          : "text-slate-400 hover:text-white hover:bg-white/5"
-                      }`}>
+              <div
+                style={{
+                  width: "180px",
+                  flexShrink: 0,
+                  borderRight: "1px solid #D3D3D3",
+                  paddingRight: "0",
+                  marginRight: "0",
+                }}
+                className="w-full md:w-44"
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  {FAQS.map((f) => (
+                    <button
+                      key={f.category}
+                      onClick={() => {
+                        setActiveCategory(f.category);
+                        setOpenIndex(null);
+                      }}
+                      style={{
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: activeCategory === f.category ? "#000000" : "#8B8675",
+                        background: activeCategory === f.category ? "#F0EFEB" : "none",
+                        border: "none",
+                        borderBottom: "1px solid #D3D3D3",
+                        padding: "18px 24px",
+                        cursor: "pointer",
+                        textAlign: "left",
+                        borderLeft: activeCategory === f.category ? "2px solid #000000" : "2px solid transparent",
+                      }}
+                    >
                       {f.category}
                     </button>
                   ))}
@@ -111,17 +260,64 @@ export default function FaqPage() {
               </div>
 
               {/* 아코디언 */}
-              <div className="flex-1 space-y-2">
+              <div style={{ flex: 1, borderLeft: "1px solid #D3D3D3" }}>
                 {currentFaqs.map((item, i) => (
-                  <div key={i} className="bg-[#0f0f18] rounded-xl border border-white/5 overflow-hidden">
+                  <div
+                    key={i}
+                    style={{ borderBottom: "1px solid #D3D3D3" }}
+                  >
                     <button
                       onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                      className="w-full flex items-center justify-between px-6 py-4 text-left">
-                      <span className="text-white font-bold text-sm pr-4">{item.q}</span>
-                      <span className={`text-[#D4AF37] text-lg flex-shrink-0 transition-transform ${openIndex === i ? "rotate-45" : ""}`}>+</span>
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "24px 32px",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        textAlign: "left",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "var(--font-dm-sans), sans-serif",
+                          fontSize: "15px",
+                          fontWeight: 400,
+                          color: "#000000",
+                          lineHeight: 1.5,
+                          paddingRight: "24px",
+                        }}
+                      >
+                        {item.q}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-dm-sans), sans-serif",
+                          fontSize: "20px",
+                          color: "#8B8675",
+                          flexShrink: 0,
+                          transform: openIndex === i ? "rotate(45deg)" : "rotate(0deg)",
+                          transition: "transform 0.2s",
+                          display: "inline-block",
+                        }}
+                      >
+                        +
+                      </span>
                     </button>
                     {openIndex === i && (
-                      <div className="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                      <div
+                        style={{
+                          padding: "0 32px 28px",
+                          fontFamily: "var(--font-dm-sans), sans-serif",
+                          fontSize: "15px",
+                          color: "#5F5F5F",
+                          lineHeight: 1.75,
+                          borderTop: "1px solid #D3D3D3",
+                          paddingTop: "20px",
+                        }}
+                      >
                         {item.a}
                       </div>
                     )}
@@ -133,42 +329,204 @@ export default function FaqPage() {
         </section>
       )}
 
+      {/* 공지사항 섹션 */}
       {tab === "notice" && (
-        <section id="notice" className="bg-[#050508] py-12">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 space-y-3">
-            {NOTICES.map((n, i) => (
-              <div key={i} className="bg-[#0f0f18] rounded-xl border border-white/5 px-6 py-4 flex items-center gap-4 hover:border-white/10 transition-colors cursor-pointer">
-                <span className={`text-[10px] font-black px-2 py-0.5 rounded-full flex-shrink-0 ${
-                  n.badge === "이벤트" ? "bg-[#D4AF37]/20 text-[#D4AF37]" :
-                  n.badge === "신규"   ? "bg-[#A855F7]/20 text-[#A855F7]" :
-                  n.badge === "운영"   ? "bg-blue-500/20 text-blue-400" :
-                  "bg-white/10 text-slate-400"
-                }`}>{n.badge}</span>
-                <span className="text-white text-sm font-medium flex-1">{n.title}</span>
-                <span className="text-slate-600 text-xs flex-shrink-0">{n.date}</span>
-              </div>
-            ))}
+        <section
+          id="notice"
+          style={{
+            background: "#FAFAFA",
+            paddingTop: "72px",
+            paddingBottom: "96px",
+            paddingLeft: "48px",
+            paddingRight: "48px",
+          }}
+        >
+          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+            <div style={{ border: "1px solid #D3D3D3" }}>
+              {NOTICES.map((n, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    padding: "24px 32px",
+                    borderBottom: i < NOTICES.length - 1 ? "1px solid #D3D3D3" : "none",
+                    borderLeft: `3px solid ${badgeBorderColor[n.badge] ?? "#D3D3D3"}`,
+                    cursor: "pointer",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: "11px",
+                      fontWeight: 400,
+                      letterSpacing: "1px",
+                      color: badgeTextColor[n.badge] ?? "#5F5F5F",
+                      background: badgeBg[n.badge] ?? "transparent",
+                      border: `1px solid ${badgeBorderColor[n.badge] ?? "#D3D3D3"}`,
+                      padding: "3px 10px",
+                      flexShrink: 0,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {n.badge}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: "15px",
+                      fontWeight: 400,
+                      color: "#000000",
+                      flex: 1,
+                    }}
+                  >
+                    {n.title}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-sans), sans-serif",
+                      fontSize: "12px",
+                      color: "#8B8675",
+                      flexShrink: 0,
+                    }}
+                  >
+                    {n.date}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
       {/* 추가 문의 */}
-      <section className="bg-[#0a0a12] py-16 border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <section
+        style={{
+          background: "#F0EFEB",
+          paddingTop: "96px",
+          paddingBottom: "96px",
+          paddingLeft: "48px",
+          paddingRight: "48px",
+          borderTop: "1px solid #D3D3D3",
+        }}
+      >
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "11px",
+              color: "#8B8675",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              marginBottom: "16px",
+            }}
+          >
+            Contact
+          </p>
+          <h2
+            style={{
+              fontFamily: "var(--font-dm-sans), sans-serif",
+              fontSize: "clamp(22px, 3vw, 32px)",
+              fontWeight: 400,
+              color: "#000000",
+              letterSpacing: "-1px",
+              marginBottom: "48px",
+            }}
+          >
+            직접 문의하기
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3" style={{ border: "1px solid #D3D3D3" }}>
             {[
-              { icon: "💬", title: "네이버 톡톡", desc: "실시간 채팅 문의", sub: "평일 10-18시 빠른 응답", href: "https://talk.naver.com/ct/wu2kkmv", label: "문의하기", color: "#03C75A" },
-              { icon: "📞", title: "전화 문의", desc: "운영 중 통화 가능", sub: "매일 12:00-21:00", href: "tel:02-0000-0000", label: "전화하기", color: "#D4AF37" },
-              { icon: "📍", title: "방문 문의", desc: "신사역 5번 출구", sub: "서초구 강남대로107길 21, 2층", href: "/about#location", label: "찾아오는 길", color: "#A855F7" },
+              {
+                title: "네이버 톡톡",
+                desc: "실시간 채팅 문의",
+                sub: "평일 10:00 – 18:00 빠른 응답",
+                href: "https://talk.naver.com/ct/wu2kkmv",
+                label: "문의하기",
+                primary: true,
+              },
+              {
+                title: "전화 문의",
+                desc: "운영 중 통화 가능",
+                sub: "매일 12:00 – 21:00",
+                href: "tel:02-0000-0000",
+                label: "전화하기",
+                primary: false,
+              },
+              {
+                title: "방문 문의",
+                desc: "신사역 5번 출구 도보 4분",
+                sub: "서초구 강남대로107길 21, 2층",
+                href: "/about#location",
+                label: "찾아오는 길",
+                primary: false,
+              },
             ].map((c, i) => (
-              <div key={i} className="bg-[#0f0f18] rounded-2xl p-6 border border-white/5 text-center">
-                <div className="text-3xl mb-3">{c.icon}</div>
-                <div className="text-white font-black mb-1">{c.title}</div>
-                <div className="text-slate-400 text-sm mb-1">{c.desc}</div>
-                <div className="text-slate-600 text-xs mb-4">{c.sub}</div>
-                <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined}
-                  className="block text-center font-bold py-2.5 rounded-xl text-sm transition-colors border"
-                  style={{ borderColor: `${c.color}50`, color: c.color }}>
+              <div
+                key={i}
+                style={{
+                  padding: "40px 32px",
+                  borderRight: i < 2 ? "1px solid #D3D3D3" : "none",
+                  background: "#FAFAFA",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "11px",
+                    color: "#8B8675",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    marginBottom: "14px",
+                  }}
+                >
+                  {c.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 400,
+                    color: "#000000",
+                    marginBottom: "6px",
+                  }}
+                >
+                  {c.desc}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "13px",
+                    color: "#5F5F5F",
+                    lineHeight: 1.6,
+                    marginBottom: "28px",
+                    flex: 1,
+                  }}
+                >
+                  {c.sub}
+                </p>
+                <a
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    display: "block",
+                    textAlign: "center",
+                    fontSize: "13px",
+                    fontWeight: 400,
+                    letterSpacing: "1px",
+                    padding: "13px 24px",
+                    border: "1px solid #000000",
+                    background: c.primary ? "#000000" : "transparent",
+                    color: c.primary ? "#FFFFFF" : "#000000",
+                    textDecoration: "none",
+                    borderRadius: 0,
+                  }}
+                >
                   {c.label}
                 </a>
               </div>
