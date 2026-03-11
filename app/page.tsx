@@ -18,257 +18,198 @@ async function getLatestArticles() {
   return data ?? [];
 }
 
-// 색상 팔레트 (갈색/골드 계열)
-// bg-[#0c0800]  — 가장 어두운 웜브라운 배경
-// bg-[#130e02]  — 섹션 교체 배경
-// bg-[#1e1606]  — 카드 배경
-// #D4AF37       — 메인 골드
-// #C8853A       — 앰버(서브 강조)
-// #8B6914       — 다크 골드 (보더)
-// text-[#c4a882]— 바디 텍스트(웜 그레이)
+// ── MOZAIQ 스타일 ──────────────────────────────────────────
+// 배경: #FFFEF5 (warm cream)
+// 보조 배경: #F5F0E8
+// 텍스트: #1a1209 (warm near-black)
+// 서브텍스트: #7a6a58
+// 보더/디바이더: #e0d5c5
+// 강조: #D4AF37 (gold)
+// ──────────────────────────────────────────────────────────
 
 export default async function Home() {
   const latestArticles = await getLatestArticles();
 
   return (
-    <>
-      {/* ── 상단 공지 바 ── */}
-      <div className="bg-[#D4AF37] text-black text-xs font-bold text-center py-2 px-4 tracking-wide">
-        🎤 사전 예약 시 음료 1잔 무료 증정 · 매일 12:00 – 21:00 운영 중
+    <div style={{ background: "#FFFEF5", color: "#1a1209" }}>
+
+      {/* ── 공지 바 ── */}
+      <div className="text-center py-2.5 px-4 text-xs tracking-[0.2em]"
+        style={{ background: "#1a1209", color: "#D4AF37" }}>
+        사전 예약 시 음료 1잔 무료 증정 &nbsp;·&nbsp; OPEN 12:00 – 21:00
       </div>
 
       {/* ══════════════════════════════════════════
-          히어로
+          히어로 — 풀스크린 영상
       ══════════════════════════════════════════ */}
-      <section className="relative h-[80vh] min-h-[560px] flex flex-col items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-recording.jpeg"
-            alt="레코딩카페"
-            fill
-            priority
-            className="object-cover object-center"
+      <section className="relative w-full overflow-hidden" style={{ height: "100svh", minHeight: 600 }}>
+        {/* 유튜브 배경 영상 */}
+        <div className="absolute inset-0 w-full h-full">
+          <iframe
+            className="absolute w-full h-full"
+            style={{
+              top: "50%", left: "50%",
+              width: "177.78vh", height: "56.25vw",
+              minWidth: "100%", minHeight: "100%",
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+            }}
+            src="https://www.youtube.com/embed/9bZkp7q19f0?autoplay=1&mute=1&loop=1&playlist=9bZkp7q19f0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
           />
-          {/* 웜브라운 오버레이 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0c0800]/75 via-[#0c0800]/40 to-[#0c0800]/92" />
-          {/* 골드 글로우 */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/8 via-transparent to-transparent" />
+          {/* 오버레이 */}
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(26,18,9,0.35) 0%, rgba(26,18,9,0.55) 60%, rgba(255,254,245,1) 100%)" }} />
         </div>
 
-        <div className="relative text-center px-4 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37] text-black text-[11px] font-black px-4 py-1.5 rounded-full tracking-widest mb-6 uppercase">
-            ✦ Seoul · Sinsa · Since 2015
-          </div>
-
-          <h1 className="font-black text-white leading-tight mb-4">
-            <span className="block text-5xl sm:text-7xl lg:text-8xl tracking-tight">
-              RECORDING
-            </span>
-            <span className="block text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#D4AF37]">
-              CAFÉ
-            </span>
-          </h1>
-
-          <p className="text-[#c4a882] text-base sm:text-xl mt-4 mb-8 leading-relaxed max-w-2xl mx-auto">
-            실제 K-POP 스타들이 녹음한 전문 스튜디오에서<br className="hidden sm:block" />
-            나도 직접 노래를 녹음해 보세요
+        {/* 히어로 텍스트 */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <p className="text-xs tracking-[0.4em] uppercase mb-6 font-medium"
+            style={{ color: "#D4AF37", letterSpacing: "0.4em" }}>
+            Seoul · Sinsa · Since 2015
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <h1 className="font-black leading-none mb-4"
+            style={{ color: "#FFFEF5", fontSize: "clamp(3rem, 12vw, 10rem)", letterSpacing: "-0.02em" }}>
+            RECORDING<br />
+            <span style={{ color: "#D4AF37" }}>CAFÉ</span>
+          </h1>
+          <p className="max-w-lg text-base sm:text-lg leading-relaxed mb-10 font-light"
+            style={{ color: "rgba(255,254,245,0.8)", letterSpacing: "0.03em" }}>
+            실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험하세요
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/menu"
-              className="bg-[#D4AF37] hover:bg-[#F0D060] text-black font-black px-8 py-4 rounded-xl text-sm tracking-wide transition-colors shadow-lg shadow-[#D4AF37]/30 w-52 text-center">
+              className="px-10 py-4 text-sm font-bold tracking-[0.15em] transition-all"
+              style={{ background: "#D4AF37", color: "#1a1209" }}>
               🎟 입장권 구매
             </Link>
             <Link href="/experience"
-              className="bg-[#D4AF37]/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#D4AF37] font-bold px-8 py-4 rounded-xl text-sm tracking-wide transition-colors w-52 text-center">
-              프로그램 둘러보기
+              className="px-10 py-4 text-sm font-medium tracking-[0.15em] transition-all"
+              style={{ border: "1px solid rgba(255,254,245,0.5)", color: "#FFFEF5" }}>
+              프로그램 보기
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-          <div className="w-6 h-10 border-2 border-[#D4AF37]/30 rounded-full mx-auto flex items-start justify-center pt-1.5">
-            <div className="w-1 h-2 bg-[#D4AF37]/60 rounded-full animate-bounce" />
-          </div>
+        {/* 스크롤 인디케이터 */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "#D4AF37" }}>Scroll</span>
+          <div className="w-px h-10 animate-pulse" style={{ background: "linear-gradient(to bottom, #D4AF37, transparent)" }} />
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
           방문 정보 바
       ══════════════════════════════════════════ */}
-      <section className="bg-[#1e1606] border-y border-[#D4AF37]/15">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-[#D4AF37]/10">
-            {[
-              { icon: "🕐", label: "운영 시간", value: "매일 12:00–21:00", sub: "연중무휴" },
-              { icon: "📍", label: "위치", value: "신사역 3호선", sub: "5번 출구 도보 4분" },
-              { icon: "🎤", label: "체험 프로그램", value: "녹음·도슨트", sub: "₩35,000~" },
-              { icon: "🏆", label: "운영 경력", value: "10년 이상", sub: "전속 아티스트 50+명" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 px-6 py-5">
-                <span className="text-2xl flex-shrink-0">{item.icon}</span>
-                <div>
-                  <div className="text-[#8B6914] text-[10px] uppercase tracking-widest mb-0.5">{item.label}</div>
-                  <div className="text-white font-bold text-sm">{item.value}</div>
-                  <div className="text-[#c4a882]/60 text-xs">{item.sub}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <section style={{ borderBottom: "1px solid #e0d5c5" }}>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4"
+          style={{ borderTop: "1px solid #e0d5c5" }}>
+          {[
+            { label: "OPEN", value: "12:00 – 21:00", sub: "연중무휴" },
+            { label: "LOCATION", value: "신사역 3호선", sub: "5번 출구 도보 4분" },
+            { label: "PROGRAM", value: "녹음 · 도슨트", sub: "₩35,000~" },
+            { label: "HISTORY", value: "10년+", sub: "전속 아티스트 50명+" },
+          ].map((item, i) => (
+            <div key={i} className="px-6 py-6 text-center"
+              style={{ borderRight: i < 3 ? "1px solid #e0d5c5" : "none" }}>
+              <div className="text-[10px] tracking-[0.3em] mb-2 font-bold"
+                style={{ color: "#D4AF37" }}>{item.label}</div>
+              <div className="font-black text-sm mb-0.5" style={{ color: "#1a1209" }}>{item.value}</div>
+              <div className="text-xs" style={{ color: "#7a6a58" }}>{item.sub}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          체험 프로그램 카드
+          프로그램 섹션
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0c0800] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block bg-[#C8853A]/20 text-[#C8853A] text-xs font-bold px-4 py-1.5 rounded-full tracking-widest uppercase mb-4">
-              Experience Programs
+      <section className="py-24 px-4 sm:px-6" style={{ background: "#FFFEF5" }}>
+        <div className="max-w-6xl mx-auto">
+          {/* 섹션 헤더 */}
+          <div className="flex items-center gap-6 mb-16">
+            <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>
+              Programs
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">
+            <div className="flex-1 h-px" style={{ background: "#e0d5c5" }} />
+            <h2 className="text-2xl sm:text-3xl font-black" style={{ letterSpacing: "-0.02em" }}>
               지금 바로 예약할 수 있는 프로그램
             </h2>
-            <p className="text-[#c4a882]/70 mt-3 text-sm">선택하신 프로그램을 클릭하면 상세 정보와 예약 페이지로 이동합니다</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* 도슨트 투어 */}
-            <div className="group bg-[#1e1606] rounded-2xl overflow-hidden border border-[#D4AF37]/10 hover:border-[#C8853A]/50 transition-all hover:shadow-lg hover:shadow-[#C8853A]/10">
-              <div className="relative h-52 overflow-hidden">
-                <Image src="/images/recording-booth.png" alt="도슨트 투어" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1606] via-transparent to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#C8853A] text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase">
-                    Wing A · 전시
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-white font-black text-lg leading-snug">
-                    K-POP 레전드<br />릴테이프 도슨트
-                  </h3>
-                  <div className="text-right flex-shrink-0 ml-3">
-                    <div className="text-[#D4AF37] font-black text-lg">₩35,000</div>
-                    <div className="text-[#8B6914] text-xs">1인 기준</div>
-                  </div>
-                </div>
-                <p className="text-[#c4a882]/70 text-sm leading-relaxed mb-5">
-                  30년 K-POP 역사를 담은 레전드들의 실제 녹음 릴테이프. 한국어·영어·중국어·일본어 해설 제공.
-                </p>
-                <div className="flex gap-2">
-                  <Link href="/docent"
-                    className="flex-1 text-center text-[#C8853A] border border-[#C8853A]/40 hover:bg-[#C8853A] hover:text-white py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    상세보기
-                  </Link>
-                  <Link href="/menu"
-                    className="flex-1 text-center bg-[#C8853A] hover:bg-[#b8722a] text-white py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    🎟 예약하기
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* 녹음 체험 */}
-            <div className="group bg-[#1e1606] rounded-2xl overflow-hidden border border-[#D4AF37]/10 hover:border-[#D4AF37]/60 transition-all hover:shadow-lg hover:shadow-[#D4AF37]/15">
-              <div className="relative h-52 overflow-hidden">
-                <Image src="/images/control-room.png" alt="녹음 체험" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1606] via-transparent to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#D4AF37] text-black text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase">
-                    Wing A · 체험
-                  </span>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <span className="bg-[#b91c1c] text-white text-[10px] font-black px-2.5 py-1 rounded-full">
-                    인기
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-white font-black text-lg leading-snug">
-                    K-POP<br />녹음 체험
-                  </h3>
-                  <div className="text-right flex-shrink-0 ml-3">
-                    <div className="text-[#D4AF37] font-black text-lg">₩40,000~</div>
-                    <div className="text-[#8B6914] text-xs">1인 기준</div>
-                  </div>
-                </div>
-                <p className="text-[#c4a882]/70 text-sm leading-relaxed mb-5">
-                  전문 레코딩 부스에서 내가 직접 K-POP 가수처럼 녹음. 음원 파일 제공, LP 제작 옵션 선택 가능.
-                </p>
-                <div className="flex gap-2">
-                  <Link href="/experience"
-                    className="flex-1 text-center text-[#D4AF37] border border-[#D4AF37]/40 hover:bg-[#D4AF37] hover:text-black py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    상세보기
-                  </Link>
-                  <Link href="/menu"
-                    className="flex-1 text-center bg-[#D4AF37] hover:bg-[#F0D060] text-black py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    🎟 예약하기
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* 프로 에디션 */}
-            <div className="group bg-[#1e1606] rounded-2xl overflow-hidden border border-[#D4AF37]/10 hover:border-[#D4AF37]/30 transition-all hover:shadow-lg hover:shadow-[#D4AF37]/8">
-              <div className="relative h-52 overflow-hidden">
-                <Image src="/images/bora-box.png" alt="프로 에디션" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1606] via-transparent to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-[#D4AF37]/15 backdrop-blur text-[#D4AF37] text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase border border-[#D4AF37]/30">
-                    Wing B · 프로
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-white font-black text-lg leading-snug">
-                    정식 음반 제작<br />프로 에디션
-                  </h3>
-                  <div className="text-right flex-shrink-0 ml-3">
-                    <div className="text-[#c4a882] font-black text-base">₩15M~</div>
-                    <div className="text-[#8B6914] text-xs">프로젝트 기준</div>
-                  </div>
-                </div>
-                <p className="text-[#c4a882]/70 text-sm leading-relaxed mb-5">
-                  KOMCA 작곡가 1:1 매칭, 전문 믹싱·마스터링, 국내외 150개 플랫폼 동시 발매.
-                </p>
-                <div className="flex gap-2">
-                  <Link href="/pro"
-                    className="flex-1 text-center text-[#c4a882] border border-[#D4AF37]/20 hover:bg-[#D4AF37]/10 py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    상세보기
-                  </Link>
-                  <Link href="/pro"
-                    className="flex-1 text-center bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[#D4AF37] border border-[#D4AF37]/30 py-2.5 rounded-lg text-xs font-bold tracking-wide transition-all">
-                    문의하기
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          숫자로 보는 레코딩카페
-      ══════════════════════════════════════════ */}
-      <section className="bg-[#130e02] py-16 border-t border-[#D4AF37]/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          {/* 카드 3개 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0"
+            style={{ border: "1px solid #e0d5c5" }}>
             {[
-              { num: "50,000+", label: "누적 방문객", sub: "국내외 K-POP 팬" },
-              { num: "10년+",   label: "운영 경력",   sub: "전문 엔터테인먼트" },
-              { num: "50명+",   label: "전속 아티스트", sub: "음반 제작 실적" },
-              { num: "4개국어", label: "도슨트 언어",  sub: "한·영·중·일" },
-            ].map((stat, i) => (
-              <div key={i} className="bg-[#1e1606] rounded-2xl p-6 border border-[#D4AF37]/10">
-                <div className="text-[#D4AF37] font-black text-3xl mb-1">{stat.num}</div>
-                <div className="text-white font-bold text-sm mb-1">{stat.label}</div>
-                <div className="text-[#8B6914] text-xs">{stat.sub}</div>
+              {
+                img: "/images/recording-booth.png",
+                tag: "Wing A · 전시",
+                title: "K-POP 레전드\n릴테이프 도슨트",
+                price: "₩35,000",
+                desc: "30년 K-POP 역사를 담은 레전드들의 실제 녹음 릴테이프. 4개국어 해설 제공.",
+                href1: "/docent", href2: "/menu",
+                accent: "#C8853A",
+              },
+              {
+                img: "/images/control-room.png",
+                tag: "Wing A · 체험 · 인기",
+                title: "K-POP\n녹음 체험",
+                price: "₩40,000~",
+                desc: "전문 레코딩 부스에서 직접 K-POP 가수처럼 녹음. 음원 파일 즉시 제공.",
+                href1: "/experience", href2: "/menu",
+                accent: "#D4AF37",
+              },
+              {
+                img: "/images/bora-box.png",
+                tag: "Wing B · 프로",
+                title: "정식 음반 제작\n프로 에디션",
+                price: "₩15,000,000~",
+                desc: "KOMCA 작곡가 매칭, 믹싱·마스터링, 150개 글로벌 플랫폼 동시 발매.",
+                href1: "/pro", href2: "/pro",
+                accent: "#8B6914",
+              },
+            ].map((card, i) => (
+              <div key={i} className="group flex flex-col"
+                style={{ borderRight: i < 2 ? "1px solid #e0d5c5" : "none" }}>
+                {/* 이미지 */}
+                <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <Image src={card.img} alt={card.title.replace("\n", " ")} fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0"
+                    style={{ background: "linear-gradient(to top, rgba(26,18,9,0.5), transparent)" }} />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[10px] font-bold tracking-[0.2em] px-2.5 py-1"
+                      style={{ background: card.accent, color: "#fff" }}>
+                      {card.tag}
+                    </span>
+                  </div>
+                </div>
+                {/* 내용 */}
+                <div className="flex flex-col flex-1 p-7"
+                  style={{ borderTop: "1px solid #e0d5c5" }}>
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="font-black text-lg leading-snug whitespace-pre-line"
+                      style={{ color: "#1a1209" }}>{card.title}</h3>
+                    <span className="font-black text-base ml-4 flex-shrink-0"
+                      style={{ color: card.accent }}>{card.price}</span>
+                  </div>
+                  <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color: "#7a6a58" }}>
+                    {card.desc}
+                  </p>
+                  <div className="flex gap-2">
+                    <Link href={card.href1}
+                      className="flex-1 text-center py-2.5 text-xs font-bold tracking-[0.1em] transition-all"
+                      style={{ border: `1px solid ${card.accent}`, color: card.accent }}>
+                      상세보기
+                    </Link>
+                    <Link href={card.href2}
+                      className="flex-1 text-center py-2.5 text-xs font-bold tracking-[0.1em] transition-all"
+                      style={{ background: card.accent, color: "#fff" }}>
+                      예약하기
+                    </Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -276,37 +217,59 @@ export default async function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          공간 갤러리
+          숫자 통계
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0c0800] py-20 border-t border-[#D4AF37]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-widest uppercase">
-                Our Spaces
-              </div>
-              <h2 className="text-3xl font-black text-white">공간 안내</h2>
+      <section className="py-16" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5", borderBottom: "1px solid #e0d5c5" }}>
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-0">
+          {[
+            { num: "50,000+", label: "누적 방문객" },
+            { num: "10년+",   label: "운영 경력" },
+            { num: "50명+",   label: "전속 아티스트" },
+            { num: "4개국어", label: "도슨트 해설" },
+          ].map((s, i) => (
+            <div key={i} className="text-center py-8"
+              style={{ borderRight: i < 3 ? "1px solid #e0d5c5" : "none" }}>
+              <div className="font-black mb-1"
+                style={{ color: "#D4AF37", fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}>{s.num}</div>
+              <div className="text-xs tracking-[0.2em] uppercase" style={{ color: "#7a6a58" }}>{s.label}</div>
             </div>
-            <Link href="/experience" className="text-[#8B6914] hover:text-[#D4AF37] text-xs tracking-widest uppercase transition-colors hidden sm:block">
-              자세히 보기 →
-            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          공간 갤러리 — 풀폭 이미지 그리드
+      ══════════════════════════════════════════ */}
+      <section className="py-24 px-4 sm:px-6" style={{ background: "#FFFEF5" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-6 mb-16">
+            <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>Spaces</div>
+            <div className="flex-1 h-px" style={{ background: "#e0d5c5" }} />
+            <h2 className="text-2xl font-black" style={{ letterSpacing: "-0.02em" }}>공간 안내</h2>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+
+          {/* 비대칭 그리드 */}
+          <div className="grid grid-cols-3 grid-rows-2 gap-2" style={{ height: "500px" }}>
+            <div className="col-span-2 row-span-2 relative overflow-hidden group">
+              <Image src="/images/recording-booth.png" alt="레코딩 부스" fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,18,9,0.7), transparent)" }} />
+              <div className="absolute bottom-5 left-5">
+                <div className="text-white font-black text-xl">레코딩 부스</div>
+                <div className="text-xs tracking-widest mt-0.5" style={{ color: "#D4AF37" }}>Studio Booth</div>
+              </div>
+            </div>
             {[
-              { src: "/images/recording-booth.png", label: "레코딩 부스",  sub: "Studio Booth",    tag: "녹음 체험" },
-              { src: "/images/control-room.png",    label: "컨트롤룸",    sub: "Control Room",   tag: "프로 전용" },
-              { src: "/images/bora-box.png",        label: "BORA BOX",   sub: "Live Broadcast", tag: "라이브 방송" },
-              { src: "/images/mirror-booth.png",    label: "AI 포토 부스", sub: "AI Photo Studio", tag: "포토 체험" },
+              { src: "/images/control-room.png", label: "컨트롤룸", sub: "Control Room" },
+              { src: "/images/mirror-booth.png", label: "AI 포토 부스", sub: "AI Photo" },
             ].map((img, i) => (
-              <div key={i} className="relative rounded-xl overflow-hidden group aspect-square">
-                <Image src={img.src} alt={img.label} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0800]/85 via-[#0c0800]/20 to-transparent" />
-                <div className="absolute top-3 right-3">
-                  <span className="bg-[#D4AF37] text-black text-[10px] font-black px-2 py-0.5 rounded-full">{img.tag}</span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div key={i} className="relative overflow-hidden group col-span-1">
+                <Image src={img.src} alt={img.label} fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0" style={{ background: "rgba(26,18,9,0.4)" }} />
+                <div className="absolute bottom-3 left-3">
                   <div className="text-white font-bold text-sm">{img.label}</div>
-                  <div className="text-[#c4a882]/70 text-xs tracking-widest">{img.sub}</div>
+                  <div className="text-[10px] tracking-widest" style={{ color: "#D4AF37" }}>{img.sub}</div>
                 </div>
               </div>
             ))}
@@ -315,40 +278,37 @@ export default async function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          스튜디오 소개
+          소개 — 텍스트 + 이미지 (모자이크 스타일)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#130e02] py-20 border-t border-[#D4AF37]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image src="/images/lounge-group.png" alt="레코딩카페 소개" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/15 to-transparent" />
+      <section className="py-24" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0"
+            style={{ border: "1px solid #e0d5c5" }}>
+            {/* 이미지 */}
+            <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+              <Image src="/images/lounge-group.png" alt="레코딩카페" fill className="object-cover" />
             </div>
-            <div>
-              <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-3 py-1 rounded-full mb-5 tracking-widest uppercase">
-                About
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-white mb-6 leading-tight">
-                실제 K-POP 스타들이<br />
-                녹음한 바로 그 스튜디오
+            {/* 텍스트 */}
+            <div className="flex flex-col justify-center p-10 sm:p-16"
+              style={{ borderLeft: "1px solid #e0d5c5" }}>
+              <div className="text-[10px] tracking-[0.4em] uppercase font-bold mb-6"
+                style={{ color: "#D4AF37" }}>About</div>
+              <h2 className="font-black text-3xl sm:text-4xl leading-tight mb-8"
+                style={{ color: "#1a1209", letterSpacing: "-0.02em" }}>
+                실제 K-POP 스타들이<br />녹음한 바로 그 스튜디오
               </h2>
-              <div className="space-y-4 text-[#c4a882]/80 text-sm leading-loose">
-                <p>
-                  10년간 전속 아티스트 50여 명의 음반 작업을 진행해온 전문 녹음 스튜디오를
-                  처음으로 일반에 공개합니다. 단순한 체험 공간이 아니라, 실제로 음반이 만들어지던
-                  그 현장입니다.
-                </p>
-                <p>
-                  기획사 오디션에 도전했던 분들, K-POP을 사랑하는 외국인 팬들, 직접 음원을
-                  발표하고 싶은 분들 모두를 위한 공간입니다.
-                </p>
+              <div className="space-y-4 text-sm leading-loose mb-10"
+                style={{ color: "#7a6a58" }}>
+                <p>10년간 전속 아티스트 50여 명의 음반 작업을 진행해온 전문 스튜디오를 처음으로 일반에 공개합니다.</p>
+                <p>기획사 오디션에 도전했던 분들, K-POP을 사랑하는 외국인 팬들, 직접 음원을 발표하고 싶은 분들 모두를 위한 공간입니다.</p>
               </div>
-              <div className="mt-8">
-                <Link href="/experience"
-                  className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#F0D060] text-black font-bold px-6 py-3 rounded-xl text-sm transition-colors">
-                  프로그램 알아보기 →
-                </Link>
-              </div>
+              <div className="h-px mb-10" style={{ background: "#e0d5c5" }} />
+              <Link href="/about"
+                className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.15em] group"
+                style={{ color: "#1a1209" }}>
+                <span>MORE ABOUT US</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -357,28 +317,28 @@ export default async function Home() {
       {/* ══════════════════════════════════════════
           오시는 길
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0c0800] py-16 border-t border-[#D4AF37]/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-black text-white">오시는 길</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <section className="py-20 px-4 sm:px-6" style={{ background: "#FFFEF5", borderTop: "1px solid #e0d5c5" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 mb-10"
+            style={{ border: "1px solid #e0d5c5" }}>
             {[
-              { icon: "📍", title: "주소", main: "서울 서초구 강남대로107길 21, 2층", sub: "2F, 21, Gangnam-daero 107-gil, Seocho-gu" },
-              { icon: "🚇", title: "대중교통", main: "신사역 3호선 5번 출구", sub: "도보 4분 · 주차 불가 (인근 유료 주차장)" },
-              { icon: "🕐", title: "운영 시간", main: "낮 12:00 – 밤 21:00", sub: "연중무휴 · 사전 예약 권장" },
+              { icon: "📍", title: "ADDRESS", main: "서울 서초구 강남대로107길 21, 2층", sub: "2F, 21 Gangnam-daero 107-gil, Seocho-gu" },
+              { icon: "🚇", title: "SUBWAY", main: "신사역 3호선 5번 출구", sub: "도보 4분 · 주차 불가" },
+              { icon: "🕐", title: "HOURS", main: "12:00 – 21:00", sub: "연중무휴 · 사전 예약 권장" },
             ].map((loc, i) => (
-              <div key={i} className="bg-[#1e1606] rounded-2xl p-6 border border-[#D4AF37]/10 text-center">
-                <div className="text-3xl mb-3">{loc.icon}</div>
-                <div className="text-[#D4AF37] font-bold text-xs uppercase tracking-widest mb-2">{loc.title}</div>
-                <div className="text-white font-bold text-sm mb-1">{loc.main}</div>
-                <div className="text-[#8B6914] text-xs">{loc.sub}</div>
+              <div key={i} className="p-8 text-center"
+                style={{ borderRight: i < 2 ? "1px solid #e0d5c5" : "none" }}>
+                <div className="text-2xl mb-3">{loc.icon}</div>
+                <div className="text-[10px] tracking-[0.3em] font-bold mb-2" style={{ color: "#D4AF37" }}>{loc.title}</div>
+                <div className="font-bold text-sm mb-1" style={{ color: "#1a1209" }}>{loc.main}</div>
+                <div className="text-xs" style={{ color: "#7a6a58" }}>{loc.sub}</div>
               </div>
             ))}
           </div>
           <div className="text-center">
             <Link href="/menu"
-              className="inline-block bg-[#D4AF37] hover:bg-[#F0D060] text-black font-black px-10 py-4 rounded-xl text-sm tracking-wide transition-colors shadow-lg shadow-[#D4AF37]/25">
+              className="inline-block px-12 py-4 font-black text-sm tracking-[0.15em] transition-all"
+              style={{ background: "#1a1209", color: "#D4AF37" }}>
               🎟 입장권 구매하기
             </Link>
           </div>
@@ -389,16 +349,17 @@ export default async function Home() {
           매거진
       ══════════════════════════════════════════ */}
       {latestArticles.length > 0 && (
-        <section className="bg-[#130e02] py-20 border-t border-[#D4AF37]/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <div className="inline-block bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-widest uppercase">
-                  Magazine
-                </div>
-                <h2 className="text-3xl font-black text-white">레코딩카페 매거진</h2>
+        <section className="py-24 px-4 sm:px-6" style={{ background: "#F5F0E8", borderTop: "1px solid #e0d5c5" }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between mb-16">
+              <div className="flex items-center gap-6">
+                <div className="text-[10px] tracking-[0.4em] font-bold uppercase" style={{ color: "#D4AF37" }}>Magazine</div>
+                <div className="h-px w-16" style={{ background: "#e0d5c5" }} />
+                <h2 className="text-2xl font-black" style={{ letterSpacing: "-0.02em" }}>레코딩카페 매거진</h2>
               </div>
-              <Link href="/magazine" className="text-[#8B6914] hover:text-[#D4AF37] text-xs tracking-widest uppercase transition-colors hidden sm:block">
+              <Link href="/magazine"
+                className="text-xs font-bold tracking-[0.2em] uppercase hidden sm:block transition-opacity hover:opacity-60"
+                style={{ color: "#1a1209" }}>
                 전체 보기 →
               </Link>
             </div>
@@ -410,6 +371,7 @@ export default async function Home() {
           </div>
         </section>
       )}
-    </>
+
+    </div>
   );
 }
