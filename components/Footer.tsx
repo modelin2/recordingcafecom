@@ -17,8 +17,8 @@ export default function Footer() {
               className="h-10 w-auto mb-4"
             />
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              10년+ 엔터테인먼트 경력의 레코딩카페. 전문 녹음, AI 포토, 라이브 방송 체험.
-              커플 이색 데이트와 K-pop 체험 공간.
+              실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험할 수 있는 공간.
+              녹음 체험, 릴테이프 도슨트, 라이브 방송까지 — 신사역 바로 앞.
             </p>
             <div className="flex gap-3 mt-5">
               {["인스타그램", "유튜브", "틱톡"].map((sns) => (
