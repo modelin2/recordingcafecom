@@ -44,13 +44,13 @@ const NAV = [
     ],
   },
   {
-    label: "파트너십",
+    label: "파트너 프로그램",
     key: "partnership",
     items: [
-      { href: "/partnership",          title: "파트너 소개",     desc: "현재 제휴 파트너 호텔·업체" },
-      { href: "/partnership#benefits", title: "제휴 혜택",       desc: "수수료 20% 지급 프로그램" },
-      { href: "/partnership#apply",    title: "파트너 신청",     desc: "제휴 문의 및 신청" },
-      { href: "/partnership#qr",       title: "전용 예약 페이지", desc: "파트너 전용 QR 예약 링크" },
+      { href: "/affiliate",   title: "제휴 마케팅",     desc: "링크·위젯으로 20% 수수료 수익" },
+      { href: "/ambassador",  title: "브랜드 앰배서더", desc: "공식 앰배서더 모집 · 무료 이용권" },
+      { href: "/referral",    title: "친구 추천",        desc: "추천인 레코딩 1시간 무료 쿠폰" },
+      { href: "/ugc",         title: "UGC 리뷰 보상",   desc: "SNS 인증 포인트 · 베스트 콘텐츠" },
     ],
   },
   {

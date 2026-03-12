@@ -38,12 +38,12 @@ const FOOTER_NAV = [
     ],
   },
   {
-    title: "파트너십",
+    title: "파트너 프로그램",
     links: [
-      { href: "/partnership",          label: "파트너 소개" },
-      { href: "/partnership#benefits", label: "제휴 혜택" },
-      { href: "/partnership#apply",    label: "파트너 신청" },
-      { href: "/partnership#qr",       label: "전용 예약 페이지" },
+      { href: "/affiliate",  label: "제휴 마케팅" },
+      { href: "/ambassador", label: "브랜드 앰배서더" },
+      { href: "/referral",   label: "친구 추천" },
+      { href: "/ugc",        label: "UGC 리뷰 보상" },
     ],
   },
   {
