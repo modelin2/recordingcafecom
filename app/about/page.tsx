@@ -11,12 +11,11 @@ export default function AboutPage() {
     <>
       {/* 히어로 */}
       <section
+        className="px-6 sm:px-12"
         style={{
           background: "#FAFAFA",
           paddingTop: "120px",
           paddingBottom: "96px",
-          paddingLeft: "48px",
-          paddingRight: "48px",
           borderBottom: "1px solid #D3D3D3",
         }}
       >
@@ -65,12 +64,11 @@ export default function AboutPage() {
       {/* 스토리 */}
       <section
         id="story"
+        className="px-6 sm:px-12"
         style={{
           background: "#F0EFEB",
           paddingTop: "96px",
           paddingBottom: "96px",
-          paddingLeft: "48px",
-          paddingRight: "48px",
           borderBottom: "1px solid #D3D3D3",
         }}
       >
@@ -144,12 +142,11 @@ export default function AboutPage() {
 
       {/* 핵심 수치 */}
       <section
+        className="px-4 sm:px-12"
         style={{
           background: "#FAFAFA",
           paddingTop: "80px",
           paddingBottom: "80px",
-          paddingLeft: "48px",
-          paddingRight: "48px",
           borderBottom: "1px solid #D3D3D3",
         }}
       >
@@ -166,8 +163,8 @@ export default function AboutPage() {
             ].map((s, i) => (
               <div
                 key={i}
+                className="p-4 sm:p-12"
                 style={{
-                  padding: "48px 32px",
                   borderRight: i < 3 ? "1px solid #D3D3D3" : "none",
                   textAlign: "center",
                 }}
@@ -212,12 +209,11 @@ export default function AboutPage() {
       {/* 공간 안내 */}
       <section
         id="spaces"
+        className="px-6 sm:px-12"
         style={{
           background: "#F0EFEB",
           paddingTop: "96px",
           paddingBottom: "96px",
-          paddingLeft: "48px",
-          paddingRight: "48px",
           borderBottom: "1px solid #D3D3D3",
         }}
       >
@@ -280,23 +276,20 @@ export default function AboutPage() {
             ].map((space, i) => (
               <div
                 key={i}
+                className="flex flex-col sm:flex-row"
                 style={{
-                  display: "flex",
                   borderRight: i % 2 === 0 ? "1px solid #D3D3D3" : "none",
                   borderBottom: i < 2 ? "1px solid #D3D3D3" : "none",
                   background: "#FAFAFA",
                 }}
               >
                 <div
-                  style={{
-                    position: "relative",
-                    width: "160px",
-                    flexShrink: 0,
-                  }}
+                  className="relative w-full sm:w-40 flex-shrink-0"
+                  style={{ minHeight: "180px" }}
                 >
                   <Image src={space.src} alt={space.name} fill style={{ objectFit: "cover" }} />
                 </div>
-                <div style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div className="p-5 sm:p-8" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
                   <p
                     style={{
                       fontFamily: "var(--font-dm-sans), sans-serif",
@@ -350,12 +343,11 @@ export default function AboutPage() {
       {/* 찾아오는 길 */}
       <section
         id="location"
+        className="px-6 sm:px-12"
         style={{
           background: "#FAFAFA",
           paddingTop: "96px",
           paddingBottom: "96px",
-          paddingLeft: "48px",
-          paddingRight: "48px",
         }}
       >
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -407,9 +399,10 @@ export default function AboutPage() {
             ].map((loc, i) => (
               <div
                 key={i}
+                className="py-8 sm:py-12 px-0 sm:px-9"
                 style={{
-                  padding: "48px 36px",
                   borderRight: i < 2 ? "1px solid #D3D3D3" : "none",
+                  borderBottom: i < 2 ? "1px solid #D3D3D3" : "none",
                 }}
               >
                 <p

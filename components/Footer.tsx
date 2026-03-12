@@ -50,7 +50,7 @@ const FOOTER_NAV = [
 export default function Footer() {
   return (
     <footer style={{ fontFamily: "var(--font-dm-sans), sans-serif", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "80px 48px 64px" }}>
+      <div className="px-6 sm:px-12 pt-16 sm:pt-20 pb-12 sm:pb-16" style={{ maxWidth: "1280px", margin: "0 auto" }}>
         <div className="grid grid-cols-1 lg:grid-cols-7" style={{ gap: "0", borderBottom: "1px solid #D3D3D3", paddingBottom: "64px" }}>
 
           {/* 브랜드 */}

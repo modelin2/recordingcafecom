@@ -42,7 +42,7 @@ export default async function Home() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)" }} />
 
         {/* 콘텐츠 */}
-        <div style={{ position: "relative", padding: "0 48px 64px", maxWidth: "1280px", width: "100%" }}>
+        <div className="px-6 sm:px-12 pb-16" style={{ position: "relative", maxWidth: "1280px", width: "100%" }}>
           <p style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#DFCF99", marginBottom: "24px" }}>
             Seoul · Sinsa · Since 2015
           </p>
@@ -79,7 +79,7 @@ export default async function Home() {
               { label: "프로그램", value: "녹음 · 도슨트 · 단체관람" },
               { label: "경력",     value: "10년 · 전속 아티스트 50+" },
             ].map((item, i) => (
-              <div key={i} style={{ padding: "28px 36px", borderRight: "1px solid #D3D3D3" }}>
+              <div key={i} className="p-4 sm:p-7" style={{ borderRight: "1px solid #D3D3D3" }}>
                 <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "8px" }}>{item.label}</p>
                 <p style={{ fontSize: "15px", fontWeight: 400, color: "#1A1A1A" }}>{item.value}</p>
               </div>
@@ -89,9 +89,9 @@ export default async function Home() {
       </section>
 
       {/* ══ 체험 프로그램 ══ */}
-      <section style={{ background: "#FAFAFA", padding: "96px 0 0" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 48px" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "56px" }}>
+      <section style={{ background: "#FAFAFA", paddingTop: "96px" }}>
+        <div className="px-6 sm:px-12" style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between" style={{ marginBottom: "56px" }}>
             <div>
               <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>Experience Programs</p>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 54px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15 }}>
@@ -154,7 +154,7 @@ export default async function Home() {
       </section>
 
       {/* ══ 숫자 ══ */}
-      <section style={{ background: "#000", padding: "80px 48px" }}>
+      <section className="py-16 sm:py-20 px-4 sm:px-12" style={{ background: "#000" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: "0" }}>
             {[
@@ -163,9 +163,9 @@ export default async function Home() {
               { num: "50명+",   label: "전속 아티스트" },
               { num: "4개국어", label: "도슨트 해설" },
             ].map((stat, i) => (
-              <div key={i} style={{ padding: "40px 36px", borderRight: i < 3 ? "1px solid rgba(250,250,250,0.08)" : "none" }}>
-                <p style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#DFCF99", letterSpacing: "-1px", marginBottom: "8px" }}>{stat.num}</p>
-                <p style={{ fontSize: "12px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "rgba(250,250,250,0.35)" }}>{stat.label}</p>
+              <div key={i} className="p-5 sm:p-10" style={{ borderRight: i < 3 ? "1px solid rgba(250,250,250,0.08)" : "none" }}>
+                <p style={{ fontSize: "clamp(22px, 4vw, 48px)", fontWeight: 400, color: "#DFCF99", letterSpacing: "-1px", marginBottom: "8px" }}>{stat.num}</p>
+                <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "rgba(250,250,250,0.35)" }}>{stat.label}</p>
               </div>
             ))}
           </div>
@@ -173,9 +173,9 @@ export default async function Home() {
       </section>
 
       {/* ══ 공간 갤러리 ══ */}
-      <section style={{ background: "#F0EFEB", padding: "96px 0 0" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 48px 56px" }}>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+      <section style={{ background: "#F0EFEB", paddingTop: "96px" }}>
+        <div className="px-6 sm:px-12 pb-14" style={{ maxWidth: "1280px", margin: "0 auto" }}>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>Our Spaces</p>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 54px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15 }}>공간 안내</h2>
@@ -211,7 +211,7 @@ export default async function Home() {
             <Image src="/images/lounge-group.png" alt="레코딩카페 소개" fill style={{ objectFit: "cover" }} />
           </div>
           {/* 텍스트 */}
-          <div style={{ padding: "80px 60px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div className="px-6 sm:px-16 py-12 sm:py-20" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "24px" }}>About</p>
             <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15, marginBottom: "32px" }}>
               실제 K-POP 스타들이<br />녹음한 바로 그 스튜디오
@@ -234,12 +234,12 @@ export default async function Home() {
       </section>
 
       {/* ══ 오시는 길 ══ */}
-      <section style={{ background: "#F0EFEB", borderTop: "1px solid #D3D3D3", padding: "96px 48px" }}>
+      <section className="py-16 sm:py-24 px-6 sm:px-12" style={{ background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>Location</p>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "64px" }}>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between" style={{ marginBottom: "48px" }}>
             <h2 style={{ fontSize: "clamp(28px, 4vw, 54px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15 }}>오시는 길</h2>
-            <Link href="/menu" style={{ display: "inline-block", background: "#000", color: "#FAFAFA", fontSize: "15px", fontWeight: 400, padding: "14px 36px", textDecoration: "none", letterSpacing: "0.3px" }}>
+            <Link href="/menu" style={{ display: "inline-block", background: "#000", color: "#FAFAFA", fontSize: "15px", fontWeight: 400, padding: "14px 36px", textDecoration: "none", letterSpacing: "0.3px", flexShrink: 0 }}>
               입장권 구매하기
             </Link>
           </div>
@@ -249,7 +249,7 @@ export default async function Home() {
               { label: "대중교통", main: "신사역 3호선 5번 출구",             sub: "도보 4분 · 주차 불가 (인근 유료 주차장)" },
               { label: "운영 시간", main: "매일 12:00 – 21:00",              sub: "연중무휴 · 사전 예약 권장" },
             ].map((loc, i) => (
-              <div key={i} style={{ padding: "40px 0 0", paddingRight: "48px", borderRight: i < 2 ? "1px solid #D3D3D3" : "none", paddingLeft: i > 0 ? "48px" : "0" }}>
+              <div key={i} className="py-8 sm:py-10" style={{ paddingRight: i < 2 ? "32px" : 0, borderRight: i < 2 ? "1px solid #D3D3D3" : "none", paddingLeft: i > 0 ? "32px" : "0", borderBottom: i < 2 ? "1px solid #D3D3D3" : "none" }}>
                 <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>{loc.label}</p>
                 <p style={{ fontSize: "17px", fontWeight: 400, color: "#1A1A1A", marginBottom: "8px" }}>{loc.main}</p>
                 <p style={{ fontSize: "14px", color: "#8B8675" }}>{loc.sub}</p>
@@ -261,9 +261,9 @@ export default async function Home() {
 
       {/* ══ 매거진 ══ */}
       {latestArticles.length > 0 && (
-        <section style={{ background: "#FAFAFA", borderTop: "1px solid #D3D3D3", padding: "96px 48px" }}>
+        <section className="py-16 sm:py-24 px-6 sm:px-12" style={{ background: "#FAFAFA", borderTop: "1px solid #D3D3D3" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "56px" }}>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between" style={{ marginBottom: "56px" }}>
               <div>
                 <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>Magazine</p>
                 <h2 style={{ fontSize: "clamp(28px, 4vw, 54px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15 }}>레코딩카페 매거진</h2>
