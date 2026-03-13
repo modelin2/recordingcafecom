@@ -77,7 +77,7 @@ export default async function Home() {
               { label: "운영 시간", value: "매일 12:00 – 21:00" },
               { label: "위치",     value: "신사역 5번 출구 도보 4분" },
               { label: "프로그램", value: "녹음 · 도슨트 · 단체관람" },
-              { label: "경력",     value: "미국 저작권 협회 파트너" },
+              { label: "파트너십", value: "미국 저작권 협회 파트너" },
             ].map((item, i) => (
               <div key={i} className="p-4 sm:p-7" style={{ borderRight: "1px solid #D3D3D3" }}>
                 <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "8px" }}>{item.label}</p>
@@ -166,9 +166,9 @@ export default async function Home() {
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: "0" }}>
             {[
-              { num: "5.0", label: "구글 평점" },
-              { num: "5.0", label: "클룩 평점" },
-              { num: "10년+", label: "운영 경력" },
+              { num: "5.0", label: "구글·클룩 평점" },
+              { num: "10년+",   label: "운영 경력" },
+              { num: "50명+",   label: "전속 아티스트" },
               { num: "4개국어", label: "도슨트 해설" },
             ].map((stat, i) => (
               <div key={i} className="p-5 sm:p-10" style={{ borderRight: i < 3 ? "1px solid rgba(250,250,250,0.08)" : "none" }}>
@@ -192,13 +192,12 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           {[
             { src: "/images/recording-booth.png", label: "레코딩 부스",  sub: "Recording Booth" },
             { src: "/images/control-room.png",    label: "컨트롤 룸",   sub: "Control Room" },
             { src: "/images/bora-box.png",        label: "인터넷 방송 부스", sub: "BORA BOX" },
-            { src: "/images/mirror-booth.png",    label: "셀프 사진부스", sub: "SELF PHOTO BOOTH" },
-            { src: "/images/lounge-group.png",    label: "카페",        sub: "Café" },
+            { src: "/images/mirror-booth.png",    label: "카페",        sub: "Café" },
           ].map((img, i) => (
             <Link key={i} href="/about#spaces" style={{ display: "block", position: "relative", overflow: "hidden", aspectRatio: "3/4", borderRight: "1px solid #D3D3D3", textDecoration: "none" }}>
               <Image src={img.src} alt={img.label} fill style={{ objectFit: "cover", transition: "transform 0.6s ease" }} />

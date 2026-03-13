@@ -33,6 +33,7 @@ const FOOTER_NAV = [
     title: "소식",
     links: [
       { href: "/notices",  label: "공지사항" },
+      { href: "/magazine", label: "매거진" },
       { href: "/press",    label: "언론보도" },
     ],
   },
@@ -60,7 +61,7 @@ export default function Footer() {
               <span style={{ fontSize: "13px", fontWeight: 500, color: "#000", letterSpacing: "1.5px", textTransform: "uppercase" }}>Recording Café</span>
             </div>
             <p style={{ fontSize: "14px", color: "#5F5F5F", lineHeight: 1.75, marginBottom: "28px" }}>
-              실제 K-POP 스타들이 녹음한 전문 스튜디오를 직접 체험할 수 있는 공간.
+              레코딩카페
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
@@ -123,7 +124,7 @@ export default function Footer() {
               © Recording Café. All Rights Reserved.
             </p>
             <p style={{ fontSize: "10px", color: "#A8A89A", letterSpacing: "0.2px", lineHeight: 1.6, maxWidth: "640px", margin: "0 auto" }}>
-              All content, designs, and business models presented herein are protected under applicable intellectual property laws.
+              All content, designs, and business models presented herein are protected under applicable intellectual property laws
             </p>
           </div>
         </div>
