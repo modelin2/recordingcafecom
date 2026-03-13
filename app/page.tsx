@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
+import ParkingInfo from "@/components/ParkingInfo";
 import { getAdminClient } from "@/lib/supabaseAdmin";
 
 export const revalidate = 60;
@@ -247,17 +248,22 @@ export default async function Home() {
             <h2 style={{ fontSize: "clamp(28px, 4vw, 54px)", fontWeight: 400, color: "#000", letterSpacing: "-1px", lineHeight: 1.15 }}>오시는 길</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3" style={{ borderTop: "1px solid #D3D3D3" }}>
-            {[
-              { label: "주소",     main: "서울 서초구 강남대로107길 21, 2층", sub: "2F, 21, Gangnam-daero 107-gil, Seocho-gu" },
-              { label: "대중교통", main: "신사역 3호선 5번 출구",             sub: "도보 4분 · 주차 불가 (인근 유료 주차장)" },
-              { label: "운영 시간", main: "매일 12:00 – 21:00",              sub: "연중무휴 · 사전 예약 권장" },
-            ].map((loc, i) => (
-              <div key={i} className="py-8 sm:py-10" style={{ paddingRight: i < 2 ? "32px" : 0, borderRight: i < 2 ? "1px solid #D3D3D3" : "none", paddingLeft: i > 0 ? "32px" : "0", borderBottom: i < 2 ? "1px solid #D3D3D3" : "none" }}>
-                <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>{loc.label}</p>
-                <p style={{ fontSize: "17px", fontWeight: 400, color: "#1A1A1A", marginBottom: "8px" }}>{loc.main}</p>
-                <p style={{ fontSize: "14px", color: "#8B8675" }}>{loc.sub}</p>
-              </div>
-            ))}
+            <div className="py-8 sm:py-10" style={{ paddingRight: "32px", borderRight: "1px solid #D3D3D3", borderBottom: "1px solid #D3D3D3" }}>
+              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>주소</p>
+              <p style={{ fontSize: "17px", fontWeight: 400, color: "#1A1A1A", marginBottom: "8px" }}>서울 서초구 강남대로107길 21, 2층</p>
+              <p style={{ fontSize: "14px", color: "#8B8675" }}>2F, 21, Gangnam-daero 107-gil, Seocho-gu</p>
+            </div>
+            <div className="py-8 sm:py-10" style={{ paddingRight: "32px", borderRight: "1px solid #D3D3D3", borderBottom: "1px solid #D3D3D3", paddingLeft: "32px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>대중교통</p>
+              <p style={{ fontSize: "17px", fontWeight: 400, color: "#1A1A1A", marginBottom: "8px" }}>신사역 3호선 5번 출구</p>
+              <p style={{ fontSize: "14px", color: "#8B8675" }}>도보 4분</p>
+              <ParkingInfo />
+            </div>
+            <div className="py-8 sm:py-10" style={{ paddingLeft: "32px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "2px", textTransform: "uppercase", color: "#8B8675", marginBottom: "16px" }}>운영 시간</p>
+              <p style={{ fontSize: "17px", fontWeight: 400, color: "#1A1A1A", marginBottom: "8px" }}>매일 12:00 – 21:00</p>
+              <p style={{ fontSize: "14px", color: "#8B8675" }}>연중무휴(예약 권장)</p>
+            </div>
           </div>
         </div>
       </section>

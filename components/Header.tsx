@@ -54,6 +54,16 @@ const NAV = [
     ],
   },
   {
+    label: "대관",
+    key: "venue",
+    items: [
+      { href: "/venue",          title: "대관 안내",    desc: "공간별 대관 조건 및 요금" },
+      { href: "/venue#studio",   title: "스튜디오 대관", desc: "레코딩·공연·강의 목적" },
+      { href: "/venue#event",    title: "이벤트 대관",  desc: "파티·행사·촬영·기업 행사" },
+      { href: "/venue#inquiry",  title: "대관 문의",    desc: "견적 및 예약 상담" },
+    ],
+  },
+  {
     label: "파트너 프로그램",
     key: "partnership",
     items: [
@@ -77,8 +87,8 @@ const NAV = [
     key: "support",
     items: [
       { href: "/faq",                              title: "자주 묻는 질문", desc: "예약·이용·환불 안내" },
-      { href: "https://talk.naver.com/ct/wu2kkmv", title: "1:1 문의",       desc: "네이버 톡톡 실시간 상담" },
-      { href: "/affiliate",                        title: "제휴 문의",       desc: "파트너십·제휴 마케팅 신청" },
+      { href: "/inquiry",   title: "1:1 문의", desc: "문의 폼으로 빠른 답변" },
+      { href: "/partnership", title: "제휴 문의", desc: "파트너십·제휴 신청" },
     ],
   },
 ];

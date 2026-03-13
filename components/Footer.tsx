@@ -21,6 +21,15 @@ const FOOTER_NAV = [
     ],
   },
   {
+    title: "대관",
+    links: [
+      { href: "/venue",         label: "대관 안내" },
+      { href: "/venue#studio",  label: "스튜디오 대관" },
+      { href: "/venue#event",   label: "이벤트 대관" },
+      { href: "/venue#inquiry", label: "대관 문의" },
+    ],
+  },
+  {
     title: "파트너 프로그램",
     links: [
       { href: "/affiliate",  label: "제휴 마케팅" },
@@ -66,7 +75,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
-              <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴</p>
+              <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴(예약 권장)</p>
             </div>
           </div>
 
