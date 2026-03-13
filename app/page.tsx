@@ -192,12 +192,13 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5">
           {[
-            { src: "/images/recording-booth.png", label: "레코딩 부스",  sub: "Recording Booth" },
-            { src: "/images/control-room.png",    label: "컨트롤 룸",   sub: "Control Room" },
+            { src: "/images/recording-booth.png", label: "레코딩 부스",      sub: "Recording Booth" },
+            { src: "/images/control-room.png",    label: "컨트롤 룸",        sub: "Control Room" },
             { src: "/images/bora-box.png",        label: "인터넷 방송 부스", sub: "BORA BOX" },
-            { src: "/images/mirror-booth.png",    label: "카페",        sub: "Café" },
+            { src: "/images/mirror-booth.png",    label: "셀프 사진부스",    sub: "MIRRORKLE BOOTH" },
+            { src: "/images/lounge-group.png",    label: "카페",             sub: "Café" },
           ].map((img, i) => (
             <Link key={i} href="/about#spaces" style={{ display: "block", position: "relative", overflow: "hidden", aspectRatio: "3/4", borderRight: "1px solid #D3D3D3", textDecoration: "none" }}>
               <Image src={img.src} alt={img.label} fill style={{ objectFit: "cover", transition: "transform 0.6s ease" }} />
