@@ -33,16 +33,14 @@ const FOOTER_NAV = [
     title: "소식",
     links: [
       { href: "/notices",  label: "공지사항" },
-      { href: "/magazine", label: "매거진" },
       { href: "/press",    label: "언론보도" },
     ],
   },
   {
     title: "고객센터",
     links: [
-      { href: "/faq",                               label: "자주 묻는 질문" },
-      { href: "https://talk.naver.com/ct/wu2kkmv", label: "1:1 문의" },
-      { href: "/affiliate",                         label: "제휴 문의" },
+      { href: "/faq",       label: "자주 묻는 질문" },
+      { href: "/affiliate", label: "제휴 문의" },
     ],
   },
 ];
@@ -67,10 +65,6 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
               <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴</p>
-              <a href="https://talk.naver.com/ct/wu2kkmv"
-                style={{ fontSize: "13px", color: "#6B625A", textDecoration: "none" }}>
-                네이버 톡톡 문의 →
-              </a>
             </div>
           </div>
 
@@ -100,15 +94,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ paddingTop: "32px", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
-          <p style={{ fontSize: "12px", color: "#8B8675", letterSpacing: "0.3px" }}>
-            © 2025 레코딩카페. All rights reserved. · 특허 보유 기술 무단 복제 금지
-          </p>
-          <div style={{ display: "flex", gap: "24px" }}>
+        {/* 하단 바 */}
+        <div style={{ paddingTop: "32px" }}>
+          {/* 중앙 정렬: 개인정보처리방침 + 이용약관 */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "24px", marginBottom: "20px" }}>
             {[
-              { href: "#",         label: "개인정보처리방침" },
-              { href: "#",         label: "이용약관" },
-              { href: "/magazine", label: "매거진" },
+              { href: "#", label: "개인정보처리방침" },
+              { href: "#", label: "이용약관" },
             ].map((item) => (
               <a key={item.label} href={item.href}
                 style={{ fontSize: "12px", color: "#8B8675", textDecoration: "none", transition: "color 0.2s" }}
@@ -117,6 +109,22 @@ export default function Footer() {
                 {item.label}
               </a>
             ))}
+            {/* 숨겨진 관리자 링크 */}
+            <Link href="/admin"
+              style={{ fontSize: "12px", color: "#F0EFEB", textDecoration: "none", userSelect: "none" }}
+              aria-hidden="true">
+              ·
+            </Link>
+          </div>
+
+          {/* 카피라이트 */}
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "12px", color: "#8B8675", letterSpacing: "0.3px", marginBottom: "8px" }}>
+              © Recording Café. All Rights Reserved.
+            </p>
+            <p style={{ fontSize: "10px", color: "#A8A89A", letterSpacing: "0.2px", lineHeight: 1.6, maxWidth: "640px", margin: "0 auto" }}>
+              All content, designs, and business models presented herein are protected under applicable intellectual property laws.
+            </p>
           </div>
         </div>
       </div>
