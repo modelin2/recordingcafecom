@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
+import ParkingInfo from "@/components/ParkingInfo";
 
 const FOOTER_NAV = [
   {
@@ -58,7 +58,6 @@ const FOOTER_NAV = [
 ];
 
 export default function Footer() {
-  const [infoOpen, setInfoOpen] = useState(false);
   return (
     <footer style={{ fontFamily: "var(--font-dm-sans), sans-serif", background: "#F0EFEB", borderTop: "1px solid #D3D3D3" }}>
       <div className="px-6 sm:px-12 pt-16 sm:pt-20 pb-12 sm:pb-16" style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -72,21 +71,14 @@ export default function Footer() {
               </div>
               <span style={{ fontSize: "13px", fontWeight: 500, color: "#000", letterSpacing: "1.5px", textTransform: "uppercase" }}>Recording Café</span>
             </div>
-            <button
-              onClick={() => setInfoOpen(v => !v)}
-              style={{ background: "none", border: "none", padding: "0", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "14px", fontWeight: 500, color: "#5F5F5F", fontFamily: "var(--font-dm-sans), sans-serif", textDecoration: "underline", textUnderlineOffset: "3px", marginBottom: "16px" }}
-            >
+            <p style={{ fontSize: "14px", color: "#5F5F5F", lineHeight: 1.75, marginBottom: "28px" }}>
               레코딩카페
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ transition: "transform 0.2s", transform: infoOpen ? "rotate(180deg)" : "none", flexShrink: 0 }}>
-                <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            {infoOpen && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
-                <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴(예약 권장)</p>
-              </div>
-            )}
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+              <p style={{ fontSize: "13px", color: "#8B8675" }}>서초구 강남대로107길 21, 2층</p>
+              <p style={{ fontSize: "13px", color: "#8B8675" }}>매일 12:00 – 21:00 · 연중무휴(예약 권장)</p>
+            </div>
+            <ParkingInfo />
           </div>
 
           {/* 사이트맵 */}
