@@ -40,8 +40,9 @@ const FOOTER_NAV = [
   {
     title: "고객센터",
     links: [
-      { href: "/faq",       label: "자주 묻는 질문" },
-      { href: "/affiliate", label: "제휴 문의" },
+      { href: "/faq",         label: "자주 묻는 질문" },
+      { href: "/inquiry",     label: "1:1 문의" },
+      { href: "/partnership", label: "제휴 문의" },
     ],
   },
 ];
