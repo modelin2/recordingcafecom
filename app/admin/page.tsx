@@ -167,7 +167,7 @@ function NoticesTab() {
           {items.length === 0 ? <p style={{ padding: "40px", textAlign: "center", color: "#D3D3D3" }}>등록된 공지가 없습니다.</p> : items.map((n) => (
             <div key={String(n.id)} style={{ display: "flex", alignItems: "center", gap: "16px", padding: "16px 0", borderBottom: "1px solid #D3D3D3" }}>
               <span style={{ fontSize: "10px", padding: "2px 8px", background: "#000", color: "#FAFAFA", whiteSpace: "nowrap" }}>{String(n.category ?? "")}</span>
-              {n.is_pinned && <span style={{ fontSize: "12px" }}>📌</span>}
+              {!!n.is_pinned && <span style={{ fontSize: "12px" }}>📌</span>}
               <span style={{ flex: 1, fontSize: "15px", color: "#000" }}>{String(n.title ?? "")}</span>
               <span style={{ fontSize: "12px", color: "#8B8675", whiteSpace: "nowrap" }}>{String(n.created_at ?? "").slice(0, 10)}</span>
               <button onClick={() => handleDelete(n.id)} style={{ background: "none", border: "1px solid #D3D3D3", padding: "4px 12px", fontSize: "12px", cursor: "pointer", color: "#8B8675", fontFamily: "var(--font-dm-sans), sans-serif" }}>삭제</button>
