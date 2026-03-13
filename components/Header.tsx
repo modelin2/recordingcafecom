@@ -24,16 +24,6 @@ const NAV = [
     ],
   },
   {
-    label: "교육",
-    key: "education",
-    items: [
-      { href: "/education",             title: "교육 프로그램",   desc: "전체 과정 둘러보기" },
-      { href: "/education?cat=교육",    title: "정규 교육",       desc: "음악·녹음·프로듀싱 강좌" },
-      { href: "/education?cat=워크샵",  title: "워크샵",          desc: "단기 집중 실습 과정" },
-      { href: "/education?cat=마스터",  title: "마스터클래스",    desc: "현업 아티스트 특강" },
-    ],
-  },
-  {
     label: "체험",
     key: "experience",
     items: [
@@ -41,6 +31,16 @@ const NAV = [
       { href: "/experience",  title: "녹음 체험",       desc: "₩40,000~ · 음원 파일 제공" },
       { href: "/docent",      title: "도슨트 프로그램", desc: "₩35,000 · 4개국어 해설" },
       { href: "/group",       title: "단체 관람",       desc: "10인 이상 · 특별 혜택" },
+    ],
+  },
+  {
+    label: "교육",
+    key: "education",
+    items: [
+      { href: "/education",             title: "교육 프로그램",   desc: "전체 과정 둘러보기" },
+      { href: "/education?cat=교육",    title: "정규 교육",       desc: "음악·녹음·프로듀싱 강좌" },
+      { href: "/education?cat=워크샵",  title: "워크샵",          desc: "단기 집중 실습 과정" },
+      { href: "/education?cat=마스터",  title: "마스터클래스",    desc: "현업 아티스트 특강" },
     ],
   },
   {
