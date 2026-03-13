@@ -159,7 +159,6 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
               borderBottom: activeTab === tab.key ? "2px solid #000" : "2px solid transparent",
               background: "none",
               border: "none",
-              borderBottom: activeTab === tab.key ? "2px solid #000" : "2px solid transparent",
               cursor: "pointer",
               fontFamily: "var(--font-dm-sans), sans-serif",
             }}
